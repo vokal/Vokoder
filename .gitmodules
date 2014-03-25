@@ -1,0 +1,3 @@
+[submodule "VOKCoreDataManager"]
+	path = VOKCoreDataManager
+	url = https://github.com/vokalinteractive/VOKCoreDataManager.git
