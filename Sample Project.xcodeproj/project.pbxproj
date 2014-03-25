@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D27C6F418E1157D00E0FC3C /* VOKCollectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D27C6E518E1157D00E0FC3C /* VOKCollectionDataSource.m */; };
 		3D27C6F518E1157D00E0FC3C /* VOKFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D27C6E718E1157D00E0FC3C /* VOKFetchedResultsDataSource.m */; };
 		3D27C6F718E1157D00E0FC3C /* VOKCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D27C6EA18E1157D00E0FC3C /* VOKCoreDataManager.m */; };
 		3D27C6F818E1157D00E0FC3C /* VOKManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D27C6EC18E1157D00E0FC3C /* VOKManagedObject.m */; };
@@ -288,7 +287,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EA5F199A15C196500089AA44 /* Build configuration list for PBXProject "VOKCoreDataManager" */;
+			buildConfigurationList = EA5F199A15C196500089AA44 /* Build configuration list for PBXProject "Sample Project" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -342,7 +341,6 @@
 				EA5F19B115C196500089AA44 /* main.m in Sources */,
 				3D27C6F518E1157D00E0FC3C /* VOKFetchedResultsDataSource.m in Sources */,
 				3D27C6F918E1157D00E0FC3C /* VOKManagedObjectMap.m in Sources */,
-				3D27C6F418E1157D00E0FC3C /* VOKCollectionDataSource.m in Sources */,
 				3D27C6F818E1157D00E0FC3C /* VOKManagedObject.m in Sources */,
 				3D27C6F718E1157D00E0FC3C /* VOKCoreDataManager.m in Sources */,
 				EA5F19B515C196500089AA44 /* VIAppDelegate.m in Sources */,
@@ -555,7 +553,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EA5F199A15C196500089AA44 /* Build configuration list for PBXProject "VOKCoreDataManager" */ = {
+		EA5F199A15C196500089AA44 /* Build configuration list for PBXProject "Sample Project" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EA5F19BC15C196500089AA44 /* Debug */,
