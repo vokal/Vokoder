@@ -6,6 +6,6 @@
 #import <Foundation/Foundation.h>
 #import "VOKFetchedResultsDataSource.h"
 
-@interface VIPersonDataSource : VOKFetchResultsDataSource
+@interface VIPersonDataSource : VOKFetchedResultsDataSource
 
 @end
