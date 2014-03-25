@@ -17,7 +17,7 @@
                BlueprintIdentifier = "EA5F199F15C196500089AA44"
                BuildableName = "VOKCoreDataManager.app"
                BlueprintName = "VOKCoreDataManager"
-               ReferencedContainer = "container:Sample Project.xcodeproj">
+               ReferencedContainer = "container:SampleProject.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "3D40DE3B180729A10048D5EE"
                BuildableName = "VOKCoreDataManager Tests.xctest"
                BlueprintName = "VOKCoreDataManager Tests"
-               ReferencedContainer = "container:Sample Project.xcodeproj">
+               ReferencedContainer = "container:SampleProject.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "EA5F199F15C196500089AA44"
             BuildableName = "VOKCoreDataManager.app"
             BlueprintName = "VOKCoreDataManager"
-            ReferencedContainer = "container:Sample Project.xcodeproj">
+            ReferencedContainer = "container:SampleProject.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "EA5F199F15C196500089AA44"
             BuildableName = "VOKCoreDataManager.app"
             BlueprintName = "VOKCoreDataManager"
-            ReferencedContainer = "container:Sample Project.xcodeproj">
+            ReferencedContainer = "container:SampleProject.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -82,7 +82,7 @@
             BlueprintIdentifier = "EA5F199F15C196500089AA44"
             BuildableName = "VOKCoreDataManager.app"
             BlueprintName = "VOKCoreDataManager"
-            ReferencedContainer = "container:Sample Project.xcodeproj">
+            ReferencedContainer = "container:SampleProject.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
