@@ -108,7 +108,7 @@
 
 - (NSNumber *)randomCoolRanchPreference
 {
-    NSUInteger number = arc4random()%2;
+    NSUInteger number = arc4random_uniform(2);
     return @(number);
 }
 

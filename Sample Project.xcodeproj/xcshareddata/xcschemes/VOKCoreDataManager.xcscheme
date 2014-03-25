@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EA5F199F15C196500089AA44"
-               BuildableName = "CoreData.app"
+               BuildableName = "VOKCoreDataManager.app"
                BlueprintName = "VOKCoreDataManager"
-               ReferencedContainer = "container:VOKCoreDataManager.xcodeproj">
+               ReferencedContainer = "container:Sample Project.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6F8B5D1416CBF764004DD1B2"
-               BuildableName = "CoreDataTests.xctest"
-               BlueprintName = "CoreDataTests"
-               ReferencedContainer = "container:VOKCoreDataManager.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "3D40DE3B180729A10048D5EE"
-               BuildableName = "CoreData Tests.xctest"
+               BuildableName = "VOKCoreDataManager Tests.xctest"
                BlueprintName = "VOKCoreDataManager Tests"
-               ReferencedContainer = "container:VOKCoreDataManager.xcodeproj">
+               ReferencedContainer = "container:Sample Project.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EA5F199F15C196500089AA44"
-            BuildableName = "CoreData.app"
+            BuildableName = "VOKCoreDataManager.app"
             BlueprintName = "VOKCoreDataManager"
-            ReferencedContainer = "container:VOKCoreDataManager.xcodeproj">
+            ReferencedContainer = "container:Sample Project.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -72,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EA5F199F15C196500089AA44"
-            BuildableName = "CoreData.app"
+            BuildableName = "VOKCoreDataManager.app"
             BlueprintName = "VOKCoreDataManager"
-            ReferencedContainer = "container:VOKCoreDataManager.xcodeproj">
+            ReferencedContainer = "container:Sample Project.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -90,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EA5F199F15C196500089AA44"
-            BuildableName = "CoreData.app"
+            BuildableName = "VOKCoreDataManager.app"
             BlueprintName = "VOKCoreDataManager"
-            ReferencedContainer = "container:VOKCoreDataManager.xcodeproj">
+            ReferencedContainer = "container:Sample Project.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
