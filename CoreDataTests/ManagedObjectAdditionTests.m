@@ -32,6 +32,11 @@ NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
 
 #import <XCTest/XCTest.h>
 
+@interface VOKManagedObjectMap (VOKdefaultFormatters) //for testing!
++ (NSDateFormatter *)vok_defaultDateFormatter;
++ (NSNumberFormatter *)vok_defaultNumberFormatter;
+@end
+
 @interface ManagedObjectAdditionTests : XCTestCase
 
 @end
@@ -398,7 +403,7 @@ NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
     NSNumber *lovesCoolRanch = [dict objectForKey:COOL_RANCH_DEFAULT_KEY] ? [dict objectForKey:COOL_RANCH_DEFAULT_KEY] : [dict objectForKey:COOL_RANCH_CUSTOM_KEY];
     XCTAssertTrue([person.lovesCoolRanch isEqualToNumber:lovesCoolRanch], @"person lovesCoolRanch is incorrect");
 
-    NSDate *birthdate = [[VOKManagedObjectMap defaultDateFormatter] dateFromString:[dict objectForKey:BIRTHDAY_DEFAULT_KEY]];
+    NSDate *birthdate = [[VOKManagedObjectMap vok_defaultDateFormatter] dateFromString:[dict objectForKey:BIRTHDAY_DEFAULT_KEY]];
     if (!birthdate) {
         birthdate = [[self customDateFormatter] dateFromString:[dict objectForKey:BIRTHDAY_CUSTOM_KEY]];
     }
