@@ -94,6 +94,7 @@
         NSLog(@"%@",[VIPerson addWithDictionary:[self dictForCustomMapper] forManagedObjectContext:context]);
         j++;
     }
+    [[VOKCoreDataManager sharedInstance] saveMainContext];
 }
 
 #pragma mark - Fake Data Makers
@@ -114,7 +115,7 @@
 
 - (NSNumber *)randomNumber
 {
-    return @(arc4random()%30);
+    return @(arc4random_uniform(30));
 }
 
 - (NSString *)randomString
