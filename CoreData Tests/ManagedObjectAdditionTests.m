@@ -3,6 +3,7 @@
 //  CoreDataTests
 //
 
+#import <XCTest/XCTest.h>
 #import "VOKCoreDataManager.h"
 #import "VIPerson.h"
 
@@ -29,8 +30,6 @@ NSString *const LAST_NAME_KEYPATH_KEY = @"name.last";
 NSString *const BIRTHDAY_KEYPATH_KEY = @"birthday";
 NSString *const CATS_KEYPATH_KEY = @"prefs.cats.number";
 NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
-
-#import <XCTest/XCTest.h>
 
 @interface VOKManagedObjectMap (VOKdefaultFormatters) //for testing!
 + (NSDateFormatter *)vok_defaultDateFormatter;

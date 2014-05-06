@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D03C8A71919229C006772E5 /* ManagedObjectAdditionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D03C8A61919229C006772E5 /* ManagedObjectAdditionTests.m */; };
 		3D27C6F518E1157D00E0FC3C /* VOKFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D27C6E718E1157D00E0FC3C /* VOKFetchedResultsDataSource.m */; };
 		3D27C6F718E1157D00E0FC3C /* VOKCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D27C6EA18E1157D00E0FC3C /* VOKCoreDataManager.m */; };
 		3D27C6F818E1157D00E0FC3C /* VOKManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D27C6EC18E1157D00E0FC3C /* VOKManagedObject.m */; };
@@ -17,7 +18,6 @@
 		3D40DE3E180729A10048D5EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A615C196500089AA44 /* Foundation.framework */; };
 		3D40DE3F180729A10048D5EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A415C196500089AA44 /* UIKit.framework */; };
 		3D40DE45180729A10048D5EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D40DE43180729A10048D5EE /* InfoPlist.strings */; };
-		3D40DE4E18072A5E0048D5EE /* ManagedObjectAdditionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F46A2D716CAACF700BE4F20 /* ManagedObjectAdditionTests.m */; };
 		3D6B1EFC18E1D7D900CF2259 /* VOKDefaultPagingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6B1EF918E1D7D900CF2259 /* VOKDefaultPagingAccessory.m */; };
 		3D6B1EFD18E1D7D900CF2259 /* VOKPagingFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6B1EFB18E1D7D900CF2259 /* VOKPagingFetchedResultsDataSource.m */; };
 		6FE6F6ED16C556A600E79EDE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE6F6EC16C556A600E79EDE /* Default-568h@2x.png */; };
@@ -44,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D03C8A61919229C006772E5 /* ManagedObjectAdditionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedObjectAdditionTests.m; sourceTree = "<group>"; };
 		3D27C6E218E1157D00E0FC3C /* VOKCarouselDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKCarouselDataSource.h; sourceTree = "<group>"; };
 		3D27C6E318E1157D00E0FC3C /* VOKCarouselDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKCarouselDataSource.m; sourceTree = "<group>"; };
 		3D27C6E418E1157D00E0FC3C /* VOKCollectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKCollectionDataSource.h; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		3D6B1EF918E1D7D900CF2259 /* VOKDefaultPagingAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKDefaultPagingAccessory.m; sourceTree = "<group>"; };
 		3D6B1EFA18E1D7D900CF2259 /* VOKPagingFetchedResultsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPagingFetchedResultsDataSource.h; sourceTree = "<group>"; };
 		3D6B1EFB18E1D7D900CF2259 /* VOKPagingFetchedResultsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKPagingFetchedResultsDataSource.m; sourceTree = "<group>"; };
-		6F46A2D716CAACF700BE4F20 /* ManagedObjectAdditionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ManagedObjectAdditionTests.m; path = ../CoreDataTests/ManagedObjectAdditionTests.m; sourceTree = "<group>"; };
 		6FE6F6EC16C556A600E79EDE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		EA26603115C251BF00D61F01 /* VIPersonDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPersonDataSource.h; sourceTree = "<group>"; };
 		EA26603215C251BF00D61F01 /* VIPersonDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPersonDataSource.m; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		3D40DE40180729A10048D5EE /* VOKCoreDataManagerTests */ = {
 			isa = PBXGroup;
 			children = (
-				6F46A2D716CAACF700BE4F20 /* ManagedObjectAdditionTests.m */,
+				3D03C8A61919229C006772E5 /* ManagedObjectAdditionTests.m */,
 				3D40DE41180729A10048D5EE /* Supporting Files */,
 			);
 			name = VOKCoreDataManagerTests;
@@ -297,7 +297,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EA5F199A15C196500089AA44 /* Build configuration list for PBXProject "Sample Project" */;
+			buildConfigurationList = EA5F199A15C196500089AA44 /* Build configuration list for PBXProject "SampleProject" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -340,7 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D40DE4E18072A5E0048D5EE /* ManagedObjectAdditionTests.m in Sources */,
+				3D03C8A71919229C006772E5 /* ManagedObjectAdditionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,7 +565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EA5F199A15C196500089AA44 /* Build configuration list for PBXProject "Sample Project" */ = {
+		EA5F199A15C196500089AA44 /* Build configuration list for PBXProject "SampleProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EA5F19BC15C196500089AA44 /* Debug */,
