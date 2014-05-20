@@ -91,13 +91,14 @@
     //MAKE 20 PEOPLE WITH A CUSTOM MAPPER
     int j = 0;
     while (j < 21 ) {
-        NSLog(@"%@",[VIPerson addWithDictionary:[self dictForCustomMapper] forManagedObjectContext:context]);
+        NSLog(@"%@", [VIPerson addWithDictionary:[self dictForCustomMapper] forManagedObjectContext:context]);
         j++;
     }
     [[VOKCoreDataManager sharedInstance] saveMainContext];
 }
 
 #pragma mark - Fake Data Makers
+
 - (NSDictionary *)dictForCustomMapper
 {
     return @{@"first" :  [self randomString],
@@ -122,7 +123,7 @@
 {
     NSInteger numberOfChars = 7;
     char data[numberOfChars];
-    for (int x=0; x < numberOfChars; data[x++] = (char)('A' + (arc4random_uniform(26))));
+    for (int x = 0; x < numberOfChars; data[x++] = (char)('A' + (arc4random_uniform(26))));
     return [[NSString alloc] initWithBytes:data length:numberOfChars encoding:NSUTF8StringEncoding];
 }
 

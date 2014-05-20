@@ -373,6 +373,7 @@ NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
 }
 
 #pragma mark - Convenience stuff
+
 - (void)waitForResponse:(NSInteger)waitTimeInSeconds semaphore:(dispatch_semaphore_t)semaphore
 {
     NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:waitTimeInSeconds];
@@ -414,7 +415,7 @@ NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
 
 - (NSString *)randomNumberString
 {
-    return [NSString stringWithFormat:@"%d",arc4random()%3000];
+    return [NSString stringWithFormat:@"%d", arc4random()%3000];
 }
 
 - (NSDictionary *)makePersonDictForDefaultMapper
@@ -445,7 +446,6 @@ NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
                            COOL_RANCH_CUSTOM_KEY : @YES};
     return dict;
 }
-
 
 - (NSDictionary *)makePersonDictForCustomMapperWithKeyPaths
 {
@@ -514,7 +514,6 @@ NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
                            COOL_RANCH_CUSTOM_KEY : @[@YES]};
     return dict;
 }
-
 
 - (NSDateFormatter *)customDateFormatter
 {
