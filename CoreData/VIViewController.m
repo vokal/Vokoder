@@ -78,7 +78,7 @@
         NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
 
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"lovesCoolRanch == YES"];
-        NSArray *personArray = [VIPerson fetchAllForPredicate:pred forManagedObjectContext:backgroundContext];
+        NSArray *personArray = [VIPerson vok_fetchAllForPredicate:pred forManagedObjectContext:backgroundContext];
         [personArray enumerateObjectsUsingBlock:^(VIPerson *obj, NSUInteger idx, BOOL *stop) {
             [backgroundContext deleteObject:obj];
         }];
@@ -91,7 +91,7 @@
     //MAKE 20 PEOPLE WITH A CUSTOM MAPPER
     int j = 0;
     while (j < 21 ) {
-        NSLog(@"%@", [VIPerson addWithDictionary:[self dictForCustomMapper] forManagedObjectContext:context]);
+        NSLog(@"%@", [VIPerson vok_addWithDictionary:[self dictForCustomMapper] forManagedObjectContext:context]);
         j++;
     }
     [[VOKCoreDataManager sharedInstance] saveMainContext];
