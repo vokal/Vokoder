@@ -391,16 +391,16 @@ NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
     XCTAssertTrue(person != nil, @"person was not created");
     XCTAssertTrue([person isKindOfClass:[VIPerson class]], @"person is wrong class");
 
-    NSString *firstName = [dict objectForKey:FIRST_NAME_DEFAULT_KEY] ? [dict objectForKey:FIRST_NAME_DEFAULT_KEY] : [dict objectForKey:FIRST_NAME_CUSTOM_KEY];
+    NSString *firstName = [dict objectForKey:FIRST_NAME_DEFAULT_KEY] ?: [dict objectForKey:FIRST_NAME_CUSTOM_KEY];
     XCTAssertTrue([person.firstName isEqualToString:firstName], @"person first name is incorrect");
 
-    NSString *lastName = [dict objectForKey:LAST_NAME_DEFAULT_KEY] ? [dict objectForKey:LAST_NAME_DEFAULT_KEY] : [dict objectForKey:LAST_NAME_CUSTOM_KEY];
+    NSString *lastName = [dict objectForKey:LAST_NAME_DEFAULT_KEY] ?: [dict objectForKey:LAST_NAME_CUSTOM_KEY];
     XCTAssertTrue([person.lastName isEqualToString:lastName], @"person last name is incorrect");
 
-    NSNumber *cats = [dict objectForKey:CATS_DEFAULT_KEY] ? [dict objectForKey:CATS_DEFAULT_KEY] : [dict objectForKey:CATS_CUSTOM_KEY];
+    NSNumber *cats = [dict objectForKey:CATS_DEFAULT_KEY] ?: [dict objectForKey:CATS_CUSTOM_KEY];
     XCTAssertTrue([person.numberOfCats isEqualToNumber:cats], @"person number of cats is incorrect");
 
-    NSNumber *lovesCoolRanch = [dict objectForKey:COOL_RANCH_DEFAULT_KEY] ? [dict objectForKey:COOL_RANCH_DEFAULT_KEY] : [dict objectForKey:COOL_RANCH_CUSTOM_KEY];
+    NSNumber *lovesCoolRanch = [dict objectForKey:COOL_RANCH_DEFAULT_KEY] ?: [dict objectForKey:COOL_RANCH_CUSTOM_KEY];
     XCTAssertTrue([person.lovesCoolRanch isEqualToNumber:lovesCoolRanch], @"person lovesCoolRanch is incorrect");
 
     NSDate *birthdate = [[VOKManagedObjectMap vok_defaultDateFormatter] dateFromString:[dict objectForKey:BIRTHDAY_DEFAULT_KEY]];
