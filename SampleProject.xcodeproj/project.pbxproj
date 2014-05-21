@@ -71,6 +71,7 @@
 		3D6B1EFA18E1D7D900CF2259 /* VOKPagingFetchedResultsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPagingFetchedResultsDataSource.h; sourceTree = "<group>"; };
 		3D6B1EFB18E1D7D900CF2259 /* VOKPagingFetchedResultsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKPagingFetchedResultsDataSource.m; sourceTree = "<group>"; };
 		6FE6F6EC16C556A600E79EDE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		71782CE6192D1A8B0013FF8A /* VOKCoreDataManagerInternalMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VOKCoreDataManagerInternalMacros.h; sourceTree = "<group>"; };
 		EA26603115C251BF00D61F01 /* VIPersonDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPersonDataSource.h; sourceTree = "<group>"; };
 		EA26603215C251BF00D61F01 /* VIPersonDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPersonDataSource.m; sourceTree = "<group>"; };
 		EA4FE17815C2EEC700424469 /* VICoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VICoreDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		3D27C6DE18E1157D00E0FC3C /* VOKCoreDataManager */ = {
 			isa = PBXGroup;
 			children = (
+				71782CE5192D1A6B0013FF8A /* Internal */,
 				3D27C6E118E1157D00E0FC3C /* Optional Data Sources */,
 				3D27C6E918E1157D00E0FC3C /* VOKCoreDataManager.h */,
 				3D27C6EA18E1157D00E0FC3C /* VOKCoreDataManager.m */,
@@ -165,6 +167,14 @@
 				3D40DE48180729A10048D5EE /* VOKCoreDataManager Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		71782CE5192D1A6B0013FF8A /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				71782CE6192D1A8B0013FF8A /* VOKCoreDataManagerInternalMacros.h */,
+			);
+			path = Internal;
 			sourceTree = "<group>";
 		};
 		EA26602615C24B5B00D61F01 /* DataSource */ = {
