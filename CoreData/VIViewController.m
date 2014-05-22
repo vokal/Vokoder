@@ -48,12 +48,13 @@
     [df setDateFormat:@"dd' 'LLL' 'yy' 'HH:mm"];
     [df setTimeZone:[NSTimeZone localTimeZone]];
 
-    NSArray *maps = @[[VOKManagedObjectMap mapWithForeignKeyPath:@"first" coreDataKey:VOK_CDSELECTOR(firstName)],
-                      [VOKManagedObjectMap mapWithForeignKeyPath:@"last" coreDataKey:VOK_CDSELECTOR(lastName)],
+    NSArray *maps = @[MAP_FOREIGN_TO_LOCAL(@"first", firstName),
+                      MAP_FOREIGN_TO_LOCAL(@"last", lastName),
                       [VOKManagedObjectMap mapWithForeignKeyPath:@"date_of_birth" coreDataKey:VOK_CDSELECTOR(birthDay) dateFormatter:df],
-                      [VOKManagedObjectMap mapWithForeignKeyPath:@"cat_num" coreDataKey:VOK_CDSELECTOR(numberOfCats)],
-                      [VOKManagedObjectMap mapWithForeignKeyPath:@"CR_PREF" coreDataKey:VOK_CDSELECTOR(lovesCoolRanch)]];
-    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOK_CDSELECTOR(lastName) andMaps:maps];
+                      MAP_FOREIGN_TO_LOCAL(@"cat_num", numberOfCats),
+                      MAP_FOREIGN_TO_LOCAL(@"CR_PREF", lovesCoolRanch)];
+
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:CDSELECTOR(lastName) andMaps:maps];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
 }
 
