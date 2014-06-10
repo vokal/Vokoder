@@ -6,6 +6,7 @@
 #import <XCTest/XCTest.h>
 #import "VOKCoreDataManager.h"
 #import "VIPerson.h"
+#import "VIThing.h"
 
 NSString *const FIRST_NAME_DEFAULT_KEY = @"firstName";
 NSString *const LAST_NAME_DEFAULT_KEY = @"lastName";
@@ -370,6 +371,15 @@ NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
     NSURL *uri = [NSURL URLWithString:@"x-coredata://1C8D8740-06E2-4B79-A739-94071E03CD74/VIPerson/p99"];
     VIPerson *personFromURI = [[VOKCoreDataManager sharedInstance] existingObjectAtURI:uri forManagedObjectContext:nil];
     XCTAssertNil(personFromURI, @"existingObjectAtURI did not fail correctly. returned non nil value for malformed URI");
+}
+
+- (void)testVOKEntityNameMethod
+{
+    // While it's not generally guaranteed that the entity name will be the same as the NSManagedObject subclass name,
+    // we've set these two entities up to be that way for simplicity.  Let's make sure that the vok_entityName method
+    // actually does what it's supposed to.
+    XCTAssertEqualObjects(NSStringFromClass([VIPerson class]), [VIPerson vok_entityName], @"VIPerson entity name is not VIPerson");
+    XCTAssertEqualObjects(NSStringFromClass([VIThing class]), [VIThing vok_entityName], @"VIThing entity name is not VIThing");
 }
 
 #pragma mark - Convenience stuff
