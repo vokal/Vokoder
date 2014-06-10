@@ -12,8 +12,8 @@
 
 @interface VIPlayer : NSManagedObject
 
-@property (nonatomic, retain) NSString * cUsername;
-@property (nonatomic, retain) NSNumber * cHighscore;
+@property (nonatomic, retain) NSString *cUsername;
+@property (nonatomic, retain) NSNumber *cHighscore;
 
 + (void)setupMaps;
 

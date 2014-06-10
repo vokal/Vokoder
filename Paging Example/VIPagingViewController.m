@@ -140,6 +140,7 @@
 }
 
 #pragma mark - Fake Data Makers
+
 - (NSDictionary *)randomInitializeDict
 {
     return @{@"username" :  [self randomString],
@@ -176,12 +177,11 @@
     return @(lowerBound + (arc4random() % (upperBound-lowerBound)));
 }
 
-
 - (NSString *)randomString
 {
     NSInteger numberOfChars = 7;
     char data[numberOfChars];
-    for (int x=0; x < numberOfChars; data[x++] = (char)('A' + (arc4random_uniform(26))));
+    for (int x = 0; x < numberOfChars; data[x++] = (char)('A' + (arc4random_uniform(26))));
     return [[NSString alloc] initWithBytes:data length:numberOfChars encoding:NSUTF8StringEncoding];
 }
 

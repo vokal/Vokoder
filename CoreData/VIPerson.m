@@ -5,7 +5,6 @@
 
 #import "VIPerson.h"
 
-
 @implementation VIPerson
 
 @dynamic firstName;

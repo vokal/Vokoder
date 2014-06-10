@@ -48,12 +48,13 @@
     [df setDateFormat:@"dd' 'LLL' 'yy' 'HH:mm"];
     [df setTimeZone:[NSTimeZone localTimeZone]];
 
-    NSArray *maps = @[[VOKManagedObjectMap mapWithForeignKeyPath:@"first" coreDataKey:CDSELECTOR(firstName)],
-                      [VOKManagedObjectMap mapWithForeignKeyPath:@"last" coreDataKey:CDSELECTOR(lastName)],
-                      [VOKManagedObjectMap mapWithForeignKeyPath:@"date_of_birth" coreDataKey:CDSELECTOR(birthDay) dateFormatter:df],
-                      [VOKManagedObjectMap mapWithForeignKeyPath:@"cat_num" coreDataKey:CDSELECTOR(numberOfCats)],
-                      [VOKManagedObjectMap mapWithForeignKeyPath:@"CR_PREF" coreDataKey:CDSELECTOR(lovesCoolRanch)]];
-    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:CDSELECTOR(lastName) andMaps:maps];
+    NSArray *maps = @[VOK_MAP_FOREIGN_TO_LOCAL(@"first", firstName),
+                      VOK_MAP_FOREIGN_TO_LOCAL(@"last", lastName),
+                      [VOKManagedObjectMap mapWithForeignKeyPath:@"date_of_birth" coreDataKey:VOK_CDSELECTOR(birthDay) dateFormatter:df],
+                      VOK_MAP_FOREIGN_TO_LOCAL(@"cat_num", numberOfCats),
+                      VOK_MAP_FOREIGN_TO_LOCAL(@"CR_PREF", lovesCoolRanch)];
+
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOK_CDSELECTOR(lastName) andMaps:maps];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
 }
 
@@ -78,7 +79,7 @@
         NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
 
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"lovesCoolRanch == YES"];
-        NSArray *personArray = [VIPerson fetchAllForPredicate:pred forManagedObjectContext:backgroundContext];
+        NSArray *personArray = [VIPerson vok_fetchAllForPredicate:pred forManagedObjectContext:backgroundContext];
         [personArray enumerateObjectsUsingBlock:^(VIPerson *obj, NSUInteger idx, BOOL *stop) {
             [backgroundContext deleteObject:obj];
         }];
@@ -91,13 +92,14 @@
     //MAKE 20 PEOPLE WITH A CUSTOM MAPPER
     int j = 0;
     while (j < 21 ) {
-        NSLog(@"%@",[VIPerson addWithDictionary:[self dictForCustomMapper] forManagedObjectContext:context]);
+        NSLog(@"%@", [VIPerson vok_addWithDictionary:[self dictForCustomMapper] forManagedObjectContext:context]);
         j++;
     }
     [[VOKCoreDataManager sharedInstance] saveMainContext];
 }
 
 #pragma mark - Fake Data Makers
+
 - (NSDictionary *)dictForCustomMapper
 {
     return @{@"first" :  [self randomString],
@@ -122,7 +124,7 @@
 {
     NSInteger numberOfChars = 7;
     char data[numberOfChars];
-    for (int x=0; x < numberOfChars; data[x++] = (char)('A' + (arc4random_uniform(26))));
+    for (int x = 0; x < numberOfChars; data[x++] = (char)('A' + (arc4random_uniform(26))));
     return [[NSString alloc] initWithBytes:data length:numberOfChars encoding:NSUTF8StringEncoding];
 }
 
