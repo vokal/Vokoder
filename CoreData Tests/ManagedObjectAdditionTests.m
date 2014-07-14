@@ -382,6 +382,35 @@ NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
     XCTAssertEqualObjects(NSStringFromClass([VIThing class]), [VIThing vok_entityName], @"VIThing entity name is not VIThing");
 }
 
+- (void)testIgnoreNullValueOverwrites
+{
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:LAST_NAME_DEFAULT_KEY andMaps:[self customMapsArray]];
+    mapper.ignoreNullValueOverwrites = YES;
+    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
+
+    NSDictionary *dict1 = @{FIRST_NAME_CUSTOM_KEY : @"SOMEGUY",
+                            LAST_NAME_CUSTOM_KEY : @"GUY1",
+                            BIRTHDAY_CUSTOM_KEY : @"24 Jul 83 14:16",
+                            CATS_CUSTOM_KEY : @192,
+                            COOL_RANCH_CUSTOM_KEY : @YES};
+    [VIPerson vok_addWithDictionary:dict1 forManagedObjectContext:nil];
+
+    NSDictionary *dict2 = @{FIRST_NAME_CUSTOM_KEY : @"Billy",
+                            LAST_NAME_CUSTOM_KEY : @"GUY1",
+                            CATS_CUSTOM_KEY : [NSNull null],
+                            COOL_RANCH_CUSTOM_KEY : @YES};
+    [VIPerson vok_addWithDictionary:dict2 forManagedObjectContext:nil];
+
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"lastName == %@",  @"GUY1"];
+    NSArray *array = [VIPerson vok_fetchAllForPredicate:pred forManagedObjectContext:nil];
+    XCTAssertTrue([array count] == 1, @"unique person test array has incorrect number of people");
+
+    VIPerson *testDude = array[0];
+    XCTAssertEqual([testDude.numberOfCats integerValue], 192, @"nil value overwrote existing value incorrectly");
+    XCTAssertEqualObjects(testDude.firstName, @"Billy", @"somehow the name didn't update");
+    XCTAssertNotNil(testDude.birthDay, @"nonexistent key overwrote existing value incorrectly");
+}
+
 #pragma mark - Convenience stuff
 
 - (void)waitForResponse:(NSInteger)waitTimeInSeconds semaphore:(dispatch_semaphore_t)semaphore
