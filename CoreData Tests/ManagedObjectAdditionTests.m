@@ -408,7 +408,7 @@ NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
     VIPerson *testDude = array[0];
     XCTAssertEqual([testDude.numberOfCats integerValue], 192, @"nil value overwrote existing value incorrectly");
     XCTAssertEqualObjects(testDude.firstName, @"Billy", @"somehow the name didn't update");
-    XCTAssertNotNil(testDude.birthDay, @"nonexistant key overwrote existing value incorrectly");
+    XCTAssertNotNil(testDude.birthDay, @"nonexistent key overwrote existing value incorrectly");
 }
 
 #pragma mark - Convenience stuff
