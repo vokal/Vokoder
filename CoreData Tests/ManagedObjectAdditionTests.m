@@ -35,6 +35,7 @@ NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
 @interface VOKManagedObjectMap (VOKdefaultFormatters) //for testing!
 + (NSDateFormatter *)vok_defaultDateFormatter;
 + (NSNumberFormatter *)vok_defaultNumberFormatter;
+
 @end
 
 @interface ManagedObjectAdditionTests : XCTestCase

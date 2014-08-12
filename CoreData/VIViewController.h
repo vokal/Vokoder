@@ -9,4 +9,5 @@
 
 @interface VIViewController : UITableViewController
 @property (strong, nonatomic) VIPersonDataSource *dataSource;
+
 @end
