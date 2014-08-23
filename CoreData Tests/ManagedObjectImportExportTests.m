@@ -8,29 +8,32 @@
 #import "VIPerson.h"
 #import "VIThing.h"
 
-NSString *const FIRST_NAME_DEFAULT_KEY = @"firstName";
-NSString *const LAST_NAME_DEFAULT_KEY = @"lastName";
-NSString *const BIRTHDAY_DEFAULT_KEY = @"birthDay";
-NSString *const CATS_DEFAULT_KEY = @"numberOfCats";
-NSString *const COOL_RANCH_DEFAULT_KEY = @"lovesCoolRanch";
+static NSString *const FIRST_NAME_DEFAULT_KEY = @"firstName";
+static NSString *const LAST_NAME_DEFAULT_KEY = @"lastName";
+static NSString *const BIRTHDAY_DEFAULT_KEY = @"birthDay";
+static NSString *const CATS_DEFAULT_KEY = @"numberOfCats";
+static NSString *const COOL_RANCH_DEFAULT_KEY = @"lovesCoolRanch";
 
-NSString *const FIRST_NAME_CUSTOM_KEY = @"first";
-NSString *const LAST_NAME_CUSTOM_KEY = @"last";
-NSString *const BIRTHDAY_CUSTOM_KEY = @"date_of_birth";
-NSString *const CATS_CUSTOM_KEY = @"cat_num";
-NSString *const COOL_RANCH_CUSTOM_KEY = @"CR_PREF";
+static NSString *const FIRST_NAME_CUSTOM_KEY = @"first";
+static NSString *const LAST_NAME_CUSTOM_KEY = @"last";
+static NSString *const BIRTHDAY_CUSTOM_KEY = @"date_of_birth";
+static NSString *const CATS_CUSTOM_KEY = @"cat_num";
+static NSString *const COOL_RANCH_CUSTOM_KEY = @"CR_PREF";
 
-NSString *const FIRST_NAME_MALFORMED_KEY = @"first.banana";
-NSString *const LAST_NAME_MALFORMED_KEY = @"somethingsomething.something.something";
-NSString *const BIRTHDAY_MALFORMED_KEY = @"date_of_birth?";
-NSString *const CATS_MALFORMED_KEY = @"cat_num_biz";
-NSString *const COOL_RANCH_MALFORMED_KEY = @"CR_PREF";
+static NSString *const FIRST_NAME_MALFORMED_KEY = @"first.banana";
+static NSString *const LAST_NAME_MALFORMED_KEY = @"somethingsomething.something.something";
+static NSString *const BIRTHDAY_MALFORMED_KEY = @"date_of_birth?";
+static NSString *const CATS_MALFORMED_KEY = @"cat_num_biz";
+static NSString *const COOL_RANCH_MALFORMED_KEY = @"CR_PREF";
 
-NSString *const FIRST_NAME_KEYPATH_KEY = @"name.first";
-NSString *const LAST_NAME_KEYPATH_KEY = @"name.last";
-NSString *const BIRTHDAY_KEYPATH_KEY = @"birthday";
-NSString *const CATS_KEYPATH_KEY = @"prefs.cats.number";
-NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
+static NSString *const FIRST_NAME_KEYPATH_KEY = @"name.first";
+static NSString *const LAST_NAME_KEYPATH_KEY = @"name.last";
+static NSString *const BIRTHDAY_KEYPATH_KEY = @"birthday";
+static NSString *const CATS_KEYPATH_KEY = @"prefs.cats.number";
+static NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
+
+static NSString *const THING_NAME_KEY = @"thing_name";
+static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 
 @interface VOKManagedObjectMap (VOKdefaultFormatters) //for testing!
 + (NSDateFormatter *)vok_defaultDateFormatter;
@@ -38,22 +41,17 @@ NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
 
 @end
 
-@interface ManagedObjectAdditionTests : XCTestCase
+@interface ManagedObjectImportExportTests : XCTestCase
 
 @end
 
-@implementation ManagedObjectAdditionTests
+@implementation ManagedObjectImportExportTests
 
 - (void)setUp
 {
     [super setUp];
     [[VOKCoreDataManager sharedInstance] resetCoreData];
     [[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:nil];
-}
-
-- (void)tearDown
-{
-    [super tearDown];
 }
 
 - (void)testImportExportDictionaryWithDefaultMapper
@@ -410,6 +408,75 @@ NSString *const COOL_RANCH_KEYPATH_KEY = @"prefs.coolRanch";
     XCTAssertEqual([testDude.numberOfCats integerValue], 192, @"nil value overwrote existing value incorrectly");
     XCTAssertEqualObjects(testDude.firstName, @"Billy", @"somehow the name didn't update");
     XCTAssertNotNil(testDude.birthDay, @"nonexistent key overwrote existing value incorrectly");
+}
+
+- (void)testPostImportBlockWithDefaultMapper
+{
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper defaultMapper];
+    mapper.importCompletionBlock = ^(NSDictionary *inputDict, NSManagedObject *outputObject){
+        //ALWAYS LOVE COOL RANCH
+        [outputObject setValue:@YES forKey:VOK_CDSELECTOR(lovesCoolRanch)];
+    };
+    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
+
+    NSDictionary *dict1 = [self makePersonDictForDefaultMapper];
+
+    VIPerson *person = [VIPerson vok_addWithDictionary:dict1 forManagedObjectContext:nil];
+    XCTAssertTrue([person.lovesCoolRanch boolValue], @"Post import block ran incorrectly");
+}
+
+- (void)testPostImportBlockWithRelationship
+{
+    NSArray *thingMaps = @[
+                           VOK_MAP_FOREIGN_TO_LOCAL(THING_NAME_KEY, name),
+                           VOK_MAP_FOREIGN_TO_LOCAL(THING_HAT_COUNT_KEY, numberOfHats),
+                           ];
+    VOKManagedObjectMapper *thingMapper = [VOKManagedObjectMapper mapperWithUniqueKey:@"thing_name" andMaps:thingMaps];
+    [[VOKCoreDataManager sharedInstance] setObjectMapper:thingMapper forClass:[VIThing class]];
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:LAST_NAME_DEFAULT_KEY andMaps:[self customMapsArray]];
+    mapper.importCompletionBlock = ^(NSDictionary *inputDict, NSManagedObject *outputObject){
+        NSDictionary *thingDict = inputDict[@"nested_thing"];
+        VIThing *thing = [VIThing vok_addWithDictionary:thingDict forManagedObjectContext:outputObject.managedObjectContext];
+        [outputObject setValue:thing forKey:VOK_CDSELECTOR(thing)];
+    };
+    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
+
+    NSNumber *numberOfHats = @15;
+    NSString *thingName = @"thingamajig";
+
+    NSDictionary *dict1 = @{
+                            FIRST_NAME_CUSTOM_KEY : @"SOMEGUY",
+                            LAST_NAME_CUSTOM_KEY : @"GUY1",
+                            BIRTHDAY_CUSTOM_KEY : @"24 Jul 83 14:16",
+                            CATS_CUSTOM_KEY : @192,
+                            COOL_RANCH_CUSTOM_KEY : @YES,
+                            @"nested_thing" : @{
+                                    THING_HAT_COUNT_KEY : numberOfHats,
+                                    THING_NAME_KEY : thingName,
+                                    }
+                            };
+    VIPerson *person = [VIPerson vok_addWithDictionary:dict1 forManagedObjectContext:nil];
+    XCTAssertNotNil(person.thing, @"Post import block failed to set person relationship");
+    VIThing *thing = person.thing;
+    XCTAssertEqualObjects(thing.numberOfHats, numberOfHats, @"Post import block failed to set thing attributes correctly");
+    XCTAssertEqualObjects(thing.name, thingName, @"Post import block failed to set thing attributes correctly");
+}
+
+- (void)testPostExportBlock
+{
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper defaultMapper];
+    mapper.exportCompletionBlock = ^(NSMutableDictionary *outputDict, NSManagedObject *inputObject){
+        [outputDict setObject:@"test!" forKey:@"test"];
+        [outputDict removeObjectForKey:CATS_DEFAULT_KEY];
+    };
+    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
+
+    VIPerson *person = [VIPerson vok_addWithDictionary:[self makePersonDictForDefaultMapper] forManagedObjectContext:nil];
+    [self checkMappingForPerson:person andDictionary:[self makePersonDictForDefaultMapper]];
+
+    NSDictionary *dict = [person vok_dictionaryRepresentation];
+    XCTAssertNotNil(dict[@"test"], @"Post export block ran incorrectly");
+    XCTAssertNil(dict[CATS_DEFAULT_KEY], @"Post export block ran incorrectly");
 }
 
 #pragma mark - Convenience stuff
