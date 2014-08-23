@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D03C8A71919229C006772E5 /* ManagedObjectAdditionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D03C8A61919229C006772E5 /* ManagedObjectAdditionTests.m */; };
+		3D03C8A71919229C006772E5 /* ManagedObjectImportExportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D03C8A61919229C006772E5 /* ManagedObjectImportExportTests.m */; };
 		3D27C6F518E1157D00E0FC3C /* VOKFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D27C6E718E1157D00E0FC3C /* VOKFetchedResultsDataSource.m */; };
 		3D27C6F718E1157D00E0FC3C /* VOKCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D27C6EA18E1157D00E0FC3C /* VOKCoreDataManager.m */; };
 		3D27C6F818E1157D00E0FC3C /* NSManagedObject+VOKManagedObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D27C6EC18E1157D00E0FC3C /* NSManagedObject+VOKManagedObjectAdditions.m */; };
 		3D27C6F918E1157D00E0FC3C /* VOKManagedObjectMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D27C6EE18E1157D00E0FC3C /* VOKManagedObjectMap.m */; };
 		3D27C6FA18E1157D00E0FC3C /* VOKManagedObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D27C6F018E1157D00E0FC3C /* VOKManagedObjectMapper.m */; };
-		3D330BCB1707341700B6D42B /* VIPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D330BCA1707341700B6D42B /* VIPerson.m */; };
 		3D40DE3D180729A10048D5EE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D40DE34180728BF0048D5EE /* XCTest.framework */; };
 		3D40DE3E180729A10048D5EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A615C196500089AA44 /* Foundation.framework */; };
 		3D40DE3F180729A10048D5EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A415C196500089AA44 /* UIKit.framework */; };
 		3D40DE45180729A10048D5EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D40DE43180729A10048D5EE /* InfoPlist.strings */; };
 		3D6B1EFC18E1D7D900CF2259 /* VOKDefaultPagingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6B1EF918E1D7D900CF2259 /* VOKDefaultPagingAccessory.m */; };
 		3D6B1EFD18E1D7D900CF2259 /* VOKPagingFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6B1EFB18E1D7D900CF2259 /* VOKPagingFetchedResultsDataSource.m */; };
+		3DF9C34A19A923990047140D /* VIPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9C34919A923990047140D /* VIPerson.m */; };
+		3DF9C34D19A9239A0047140D /* VIThing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9C34C19A9239A0047140D /* VIThing.m */; };
 		6FE6F6ED16C556A600E79EDE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE6F6EC16C556A600E79EDE /* Default-568h@2x.png */; };
-		7154831A1947AF3100F34C94 /* VIThing.m in Sources */ = {isa = PBXBuildFile; fileRef = 715483191947AF3100F34C94 /* VIThing.m */; };
 		EA26603315C251BF00D61F01 /* VIPersonDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = EA26603215C251BF00D61F01 /* VIPersonDataSource.m */; };
 		EA4FE17915C2EEC700424469 /* VICoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA4FE17715C2EEC700424469 /* VICoreDataModel.xcdatamodeld */; };
 		EA5F19A515C196500089AA44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A415C196500089AA44 /* UIKit.framework */; };
@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3D03C8A61919229C006772E5 /* ManagedObjectAdditionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedObjectAdditionTests.m; sourceTree = "<group>"; };
+		3D03C8A61919229C006772E5 /* ManagedObjectImportExportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedObjectImportExportTests.m; sourceTree = "<group>"; };
 		3D27C6E218E1157D00E0FC3C /* VOKCarouselDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKCarouselDataSource.h; sourceTree = "<group>"; };
 		3D27C6E318E1157D00E0FC3C /* VOKCarouselDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKCarouselDataSource.m; sourceTree = "<group>"; };
 		3D27C6E418E1157D00E0FC3C /* VOKCollectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKCollectionDataSource.h; sourceTree = "<group>"; };
@@ -60,8 +60,6 @@
 		3D27C6EE18E1157D00E0FC3C /* VOKManagedObjectMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKManagedObjectMap.m; sourceTree = "<group>"; };
 		3D27C6EF18E1157D00E0FC3C /* VOKManagedObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKManagedObjectMapper.h; sourceTree = "<group>"; };
 		3D27C6F018E1157D00E0FC3C /* VOKManagedObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKManagedObjectMapper.m; sourceTree = "<group>"; };
-		3D330BC91707341700B6D42B /* VIPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPerson.h; sourceTree = "<group>"; };
-		3D330BCA1707341700B6D42B /* VIPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPerson.m; sourceTree = "<group>"; };
 		3D40DE34180728BF0048D5EE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3D40DE3C180729A10048D5EE /* VOKCoreDataManager Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VOKCoreDataManager Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D40DE42180729A10048D5EE /* VOKCoreDataManager Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VOKCoreDataManager Tests-Info.plist"; sourceTree = "<group>"; };
@@ -71,9 +69,11 @@
 		3D6B1EF918E1D7D900CF2259 /* VOKDefaultPagingAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKDefaultPagingAccessory.m; sourceTree = "<group>"; };
 		3D6B1EFA18E1D7D900CF2259 /* VOKPagingFetchedResultsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPagingFetchedResultsDataSource.h; sourceTree = "<group>"; };
 		3D6B1EFB18E1D7D900CF2259 /* VOKPagingFetchedResultsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKPagingFetchedResultsDataSource.m; sourceTree = "<group>"; };
+		3DF9C34819A923990047140D /* VIPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPerson.h; sourceTree = "<group>"; };
+		3DF9C34919A923990047140D /* VIPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPerson.m; sourceTree = "<group>"; };
+		3DF9C34B19A9239A0047140D /* VIThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIThing.h; sourceTree = "<group>"; };
+		3DF9C34C19A9239A0047140D /* VIThing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIThing.m; sourceTree = "<group>"; };
 		6FE6F6EC16C556A600E79EDE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
-		715483181947AF3100F34C94 /* VIThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIThing.h; sourceTree = "<group>"; };
-		715483191947AF3100F34C94 /* VIThing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIThing.m; sourceTree = "<group>"; };
 		71782CE6192D1A8B0013FF8A /* VOKCoreDataManagerInternalMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VOKCoreDataManagerInternalMacros.h; sourceTree = "<group>"; };
 		EA26603115C251BF00D61F01 /* VIPersonDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPersonDataSource.h; sourceTree = "<group>"; };
 		EA26603215C251BF00D61F01 /* VIPersonDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPersonDataSource.m; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		3D40DE40180729A10048D5EE /* VOKCoreDataManagerTests */ = {
 			isa = PBXGroup;
 			children = (
-				3D03C8A61919229C006772E5 /* ManagedObjectAdditionTests.m */,
+				3D03C8A61919229C006772E5 /* ManagedObjectImportExportTests.m */,
 				3D40DE41180729A10048D5EE /* Supporting Files */,
 			);
 			name = VOKCoreDataManagerTests;
@@ -252,10 +252,10 @@
 			isa = PBXGroup;
 			children = (
 				EA4FE17715C2EEC700424469 /* VICoreDataModel.xcdatamodeld */,
-				3D330BC91707341700B6D42B /* VIPerson.h */,
-				3D330BCA1707341700B6D42B /* VIPerson.m */,
-				715483181947AF3100F34C94 /* VIThing.h */,
-				715483191947AF3100F34C94 /* VIThing.m */,
+				3DF9C34B19A9239A0047140D /* VIThing.h */,
+				3DF9C34C19A9239A0047140D /* VIThing.m */,
+				3DF9C34819A923990047140D /* VIPerson.h */,
+				3DF9C34919A923990047140D /* VIPerson.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -373,7 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D03C8A71919229C006772E5 /* ManagedObjectAdditionTests.m in Sources */,
+				3D03C8A71919229C006772E5 /* ManagedObjectImportExportTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,8 +384,9 @@
 				EA5F19B115C196500089AA44 /* main.m in Sources */,
 				3D27C6F518E1157D00E0FC3C /* VOKFetchedResultsDataSource.m in Sources */,
 				3D6B1EFD18E1D7D900CF2259 /* VOKPagingFetchedResultsDataSource.m in Sources */,
-				7154831A1947AF3100F34C94 /* VIThing.m in Sources */,
+				3DF9C34D19A9239A0047140D /* VIThing.m in Sources */,
 				3D27C6F918E1157D00E0FC3C /* VOKManagedObjectMap.m in Sources */,
+				3DF9C34A19A923990047140D /* VIPerson.m in Sources */,
 				3D27C6F818E1157D00E0FC3C /* NSManagedObject+VOKManagedObjectAdditions.m in Sources */,
 				3D27C6F718E1157D00E0FC3C /* VOKCoreDataManager.m in Sources */,
 				EA5F19B515C196500089AA44 /* VIAppDelegate.m in Sources */,
@@ -393,7 +394,6 @@
 				EA26603315C251BF00D61F01 /* VIPersonDataSource.m in Sources */,
 				3D27C6FA18E1157D00E0FC3C /* VOKManagedObjectMapper.m in Sources */,
 				EA4FE17915C2EEC700424469 /* VICoreDataModel.xcdatamodeld in Sources */,
-				3D330BCB1707341700B6D42B /* VIPerson.m in Sources */,
 				3D6B1EFC18E1D7D900CF2259 /* VOKDefaultPagingAccessory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
