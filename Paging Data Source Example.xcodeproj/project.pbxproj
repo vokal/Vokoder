@@ -24,6 +24,7 @@
 		4674938219D2F99A007F8031 /* VOKCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4674937319D2F99A007F8031 /* VOKCoreDataManager.m */; };
 		4674938419D2F99A007F8031 /* VOKManagedObjectMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 4674937619D2F99A007F8031 /* VOKManagedObjectMap.m */; };
 		4674938519D2F99A007F8031 /* VOKManagedObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4674937819D2F99A007F8031 /* VOKManagedObjectMapper.m */; };
+		4674938B19D2FC49007F8031 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4674938A19D2FC49007F8031 /* QuartzCore.framework */; };
 		EA5F19A515C196500089AA44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A415C196500089AA44 /* UIKit.framework */; };
 		EA5F19A715C196500089AA44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A615C196500089AA44 /* Foundation.framework */; };
 		EA5F19A915C196500089AA44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A815C196500089AA44 /* CoreGraphics.framework */; };
@@ -64,6 +65,7 @@
 		4674937619D2F99A007F8031 /* VOKManagedObjectMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKManagedObjectMap.m; sourceTree = "<group>"; };
 		4674937719D2F99A007F8031 /* VOKManagedObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKManagedObjectMapper.h; sourceTree = "<group>"; };
 		4674937819D2F99A007F8031 /* VOKManagedObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKManagedObjectMapper.m; sourceTree = "<group>"; };
+		4674938A19D2FC49007F8031 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EA5F19A015C196500089AA44 /* Paging Data Source Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Paging Data Source Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA5F19A415C196500089AA44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EA5F19A615C196500089AA44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4674938B19D2FC49007F8031 /* QuartzCore.framework in Frameworks */,
 				EA5F19CE15C197990089AA44 /* CoreData.framework in Frameworks */,
 				EA5F19A515C196500089AA44 /* UIKit.framework in Frameworks */,
 				EA5F19A715C196500089AA44 /* Foundation.framework in Frameworks */,
@@ -202,6 +205,7 @@
 		EA5F19A315C196500089AA44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4674938A19D2FC49007F8031 /* QuartzCore.framework */,
 				EA5F19CD15C197990089AA44 /* CoreData.framework */,
 				EA5F19A815C196500089AA44 /* CoreGraphics.framework */,
 				EA5F19A615C196500089AA44 /* Foundation.framework */,
