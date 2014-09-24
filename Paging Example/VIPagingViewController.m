@@ -6,6 +6,7 @@
 #import "VIPagingViewController.h"
 #import "VOKCoreDataManager.h"
 #import "VIPlayer.h"
+#import "NSManagedObject+VOKManagedObjectAdditions.h"
 
 @implementation VIPagingViewController
 
@@ -90,7 +91,7 @@
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
-        NSArray *playerArray = [VIPlayer fetchAllForPredicate:nil forManagedObjectContext:tempContext];
+        NSArray *playerArray = [VIPlayer vok_fetchAllForPredicate:nil forManagedObjectContext:tempContext];
         [playerArray enumerateObjectsUsingBlock:^(VIPlayer *obj, NSUInteger idx, BOOL *stop) {
             [tempContext deleteObject:obj];
         }];
@@ -106,7 +107,7 @@
         NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
         int j = 0;
         while (j < 21 ) {
-            NSLog(@"%@", [VIPlayer addWithDictionary:[self randomInitializeDict] forManagedObjectContext:tempContext]);
+            NSLog(@"%@", [VIPlayer vok_addWithDictionary:[self randomInitializeDict] forManagedObjectContext:tempContext]);
             j++;
         }
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
@@ -119,7 +120,7 @@
         NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
         int j = 0;
         while (j < 21 ) {
-            NSLog(@"%@", [VIPlayer addWithDictionary:[self higherScoreDict] forManagedObjectContext:tempContext]);
+            NSLog(@"%@", [VIPlayer vok_addWithDictionary:[self higherScoreDict] forManagedObjectContext:tempContext]);
             j++;
         }
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
@@ -132,7 +133,7 @@
         NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
         int j = 0;
         while (j < 21 ) {
-            NSLog(@"%@", [VIPlayer addWithDictionary:[self lowerScoreDict] forManagedObjectContext:tempContext]);
+            NSLog(@"%@", [VIPlayer vok_addWithDictionary:[self lowerScoreDict] forManagedObjectContext:tempContext]);
             j++;
         }
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
