@@ -1,5 +1,5 @@
 //
-//  VOKManagedObject.m
+//  NSManagedObject+VOKManagedObjectAdditions.m
 //  VOKCoreData
 //
 

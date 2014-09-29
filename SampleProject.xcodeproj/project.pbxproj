@@ -305,7 +305,7 @@
 		EA5F199715C196500089AA44 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = VI;
+				CLASSPREFIX = VOK;
 				LastUpgradeCheck = 0600;
 				TargetAttributes = {
 					3D40DE3B180729A10048D5EE = {

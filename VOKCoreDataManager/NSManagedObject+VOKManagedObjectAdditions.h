@@ -1,5 +1,5 @@
 //
-//  VOKManagedObject.h
+//  NSManagedObject+VOKManagedObjectAdditions.h
 //  VOKCoreData
 //
 
@@ -35,13 +35,13 @@
 + (NSString *)vok_entityName;
 
 /**
- A convenience methods to create a new instance of a VOKManagedObject subclass.
+ A convenience methods to create a new instance of a NSManagedObject subclass.
  @return    A new managed object subclass in the main context.
  */
 + (instancetype)vok_newInstance;
 
 /**
- A convenience methods to create a new instance of a VOKManagedObject subclass.
+ A convenience methods to create a new instance of a NSManagedObject subclass.
  @param contextOrNil    The managed object context to insert the new object.  If nil, the main context will be used.
  @return                A new managed object subclass in the main context.
  */

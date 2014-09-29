@@ -113,7 +113,7 @@ typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
 
 /**
  Counts every instance of a given class using the main managed object context. Includes subentities.
- NOT threadsafe! Always use a temp context if you are NOT on the main queue.
+ NOT threadsafe! Always use a temp context if you are NOT on the main queue, by calling countForClass:forContext: instead
  @param managedObjectClass      The class to count.
  @return                        Zero or greater count of the instances of the class.
  */
@@ -143,7 +143,7 @@ typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
 
 /**
  Fetches every instance of a given class using the main managed object context. Includes subentities.
- NOT threadsafe! Always use a temp context if you are NOT on the main queue.
+ NOT threadsafe! Always use a temp context if you are NOT on the main queue, by calling arrayForClass:forContext: instead
  @param managedObjectClass  The class to fetch
  @return                    An NSArray of managed object subclasses. Not threadsafe.
  */
