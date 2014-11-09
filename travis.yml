@@ -1,4 +1,4 @@
 language: objective-c
-xcode_project: OpenHanger-iOS.xcodeproj
-xcode_scheme: OpenHanger-iOS Ad-Hoc
-xcode_sdk: iphonesimulator7.1
+xcode_project: SampleProject.xcodeproj
+xcode_scheme: VOKCoreDataManager
+xcode_sdk: iphonesimulator8.1
