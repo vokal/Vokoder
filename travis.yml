@@ -1,4 +1,0 @@
-language: objective-c
-xcode_project: SampleProject.xcodeproj
-xcode_scheme: VOKCoreDataManager
-xcode_sdk: iphonesimulator8.0
