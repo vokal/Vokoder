@@ -146,6 +146,13 @@
     }
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.delegate respondsToSelector:@selector(fetchResultsDataSourceDeselectedObject:)]) {
+        [self.delegate fetchResultsDataSourceDeselectedObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    }
+}
+
 #pragma mark - Fetched results controller
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo

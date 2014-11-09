@@ -40,6 +40,7 @@
         _tableView.dataSource = self;
         _batchSize = batchSize;
         _fetchLimit = fetchLimit;
+        _includesSubentities = YES;
         _delegate = delegate;
         
         _clearsTableViewCellSelection = YES;
@@ -131,6 +132,14 @@
     }
 }
 
+- (void)setIncludesSubentities:(BOOL)includesSubentities
+{
+    if (_includesSubentities != includesSubentities) {
+        _includesSubentities = includesSubentities;
+        [self initFetchedResultsController];
+    }
+}
+
 - (id)initWithPredicate:(NSPredicate *)predicate
               cacheName:(NSString *)cacheName
               tableView:(UITableView *)tableView
@@ -193,6 +202,13 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_delegate respondsToSelector:@selector(fetchResultsDataSourceDeselectedObject:)]) {
+        [_delegate fetchResultsDataSourceDeselectedObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
+    }
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -246,6 +262,8 @@
     [fetchRequest setSortDescriptors:_sortDescriptors];
 
     [fetchRequest setPredicate:_predicate];
+    
+    [fetchRequest setIncludesSubentities:_includesSubentities];
 
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                                                 managedObjectContext:_managedObjectContext
