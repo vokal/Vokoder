@@ -225,7 +225,7 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
                             [VOKManagedObjectMap mapWithForeignKeyPath:BIRTHDAY_MALFORMED_KEY coreDataKey:BIRTHDAY_DEFAULT_KEY dateFormatter:[self customDateFormatter]],
                             [VOKManagedObjectMap mapWithForeignKeyPath:CATS_MALFORMED_KEY coreDataKey:CATS_DEFAULT_KEY],
                             [VOKManagedObjectMap mapWithForeignKeyPath:COOL_RANCH_MALFORMED_KEY coreDataKey:COOL_RANCH_DEFAULT_KEY]];
-    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:@"fart" andMaps:malformedMaps];
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:@"BAD DATA" andMaps:malformedMaps];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
     NSArray *arrayOfPeople = [VIPerson vok_addWithArray:array forManagedObjectContext:nil];
 
