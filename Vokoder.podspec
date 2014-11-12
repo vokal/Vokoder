@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Vokoder"
-  s.version      = "1.0.9"
+  s.version      = "1.0.11"
   s.platform     = :ios
   s.ios.deployment_target = "7.0"
   s.summary      = "VOKAL's Core Data Manager"
