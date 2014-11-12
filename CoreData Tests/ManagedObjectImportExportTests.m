@@ -479,6 +479,32 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     XCTAssertNil(dict[CATS_DEFAULT_KEY], @"Post export block ran incorrectly");
 }
 
+- (void)testUniqueKeyPath
+{
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:LAST_NAME_DEFAULT_KEY andMaps:[self customMapsArrayWithKeyPaths]];
+    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
+    
+    NSMutableDictionary *personDict = [[self makePersonDictForCustomMapperWithKeyPaths] mutableCopy];
+    
+    [VIPerson vok_addWithDictionary:personDict forManagedObjectContext:nil];
+    
+    VIPerson *person = [[VOKCoreDataManager sharedInstance] arrayForClass:[VIPerson class]].firstObject;
+    XCTAssertEqualObjects([[self customDateFormatter] stringFromDate:person.birthDay], @"24 Jul 83 14:16");
+    
+    //change something, but keep the same unique key
+    NSString *dateString = @"24 Jul 75 23:00";
+    personDict[BIRTHDAY_KEYPATH_KEY] = dateString;
+    
+    //adding again should overwrite the existing one
+    [VIPerson vok_addWithDictionary:personDict forManagedObjectContext:nil];
+    
+    NSArray *people = [[VOKCoreDataManager sharedInstance] arrayForClass:[VIPerson class]];
+    XCTAssertEqual(people.count, 1);
+    
+    person = people.firstObject;
+    XCTAssertEqualObjects([[self customDateFormatter] stringFromDate:person.birthDay], dateString);
+}
+
 #pragma mark - Convenience stuff
 
 - (void)waitForResponse:(NSInteger)waitTimeInSeconds semaphore:(dispatch_semaphore_t)semaphore
