@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name         = "Vokoder"
-  s.version      = "1.0.0"
+  s.version      = "1.0.9"
   s.platform     = :ios
-  s.ios.deployment_target = "6.0"
+  s.ios.deployment_target = "7.0"
   s.summary      = "VOKAL's Core Data Manager"
   s.homepage     = "https://github.com/vokalinteractive/Vokoder"
   s.license      = { :type => "MIT", :file => "LICENSE.txt"}
