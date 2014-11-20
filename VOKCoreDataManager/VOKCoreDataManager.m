@@ -153,10 +153,10 @@ static VOKCoreDataManager *VOK_SharedObject;
     NSError *error;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
 
-    NSURL *storeURL;
+    NSURL *storeURL = [self persistentStoreFileURL];
     NSString *storeType = NSInMemoryStoreType;
-    if (self.databaseFilename) {
-        storeURL = [self persistentStoreFileURL];
+    if (storeURL) {
+        //We have a store, use SQLite.
         storeType = NSSQLiteStoreType;
     }
 
