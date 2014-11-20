@@ -156,7 +156,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     NSURL *storeURL;
     NSString *storeType = NSInMemoryStoreType;
     if (self.databaseFilename) {
-        storeURL = [[self applicationLibraryDirectory] URLByAppendingPathComponent:self.databaseFilename];
+        storeURL = [self persistentStoreFileURL];
         storeType = NSSQLiteStoreType;
     }
 
@@ -537,6 +537,15 @@ static VOKCoreDataManager *VOK_SharedObject;
     _managedObjectContext = nil;
     _managedObjectModel = nil;
     [_mapperCollection removeAllObjects];
+}
+
+- (NSURL *)persistentStoreFileURL
+{
+    if (!self.databaseFilename) {
+        return nil;
+    } else {
+        return [[self applicationLibraryDirectory] URLByAppendingPathComponent:self.databaseFilename];
+    }
 }
 
 @end
