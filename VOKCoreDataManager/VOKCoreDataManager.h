@@ -238,4 +238,10 @@ typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
  */
 - (void)resetCoreData;
 
+/**
+ Method to facilitate logging of the persistent store's file URL so the file itself can be examined on the simulator.
+ @return The file URL for the persistent store's .sqlite file, or nil if no filename exists.
+ */
+- (NSURL *)persistentStoreFileURL;
+
 @end

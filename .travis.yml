@@ -1,7 +1,7 @@
 language: objective-c
 xcode_project: SampleProject.xcodeproj
 xcode_scheme: VOKCoreDataManager
-xcode_sdk: iphonesimulator8.0
+xcode_sdk: iphonesimulator8.1
 before_install:
   - brew update
   - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
