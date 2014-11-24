@@ -196,6 +196,17 @@ typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
                         context:(NSManagedObjectContext *)contextOrNil;
 
 /**
+ Deletes all instances of a class matching the given predicate in the given context.
+ @param managedObjectClass      Instances of this class will be deleted from the given context.
+ @param predicate               The predicate to use to fetch objects to be deleted.
+ @param contextOrNil            The managed object context in which delete instances of the given class. A nil context will use the main context.
+ @return                        YES if all objects were successfully deleted. NO if the attemp to delete was unsuccessful.
+ */
+- (BOOL)deleteAllObjectsOfClass:(Class)managedObjectClass
+              matchingPredicate:(NSPredicate *)predicate
+                        context:(NSManagedObjectContext *)contextOrNil;
+
+/**
  Saves the main context asynchronously on the main queue. If already on the main queue it will block and save synchronously.
  */
 - (void)saveMainContext;

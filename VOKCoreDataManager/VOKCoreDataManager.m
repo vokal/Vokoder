@@ -364,8 +364,17 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (BOOL)deleteAllObjectsOfClass:(Class)managedObjectClass context:(NSManagedObjectContext *)contextOrNil
 {
+    return [self deleteAllObjectsOfClass:managedObjectClass
+                       matchingPredicate:nil
+                                 context:contextOrNil];
+}
+
+- (BOOL)deleteAllObjectsOfClass:(Class)managedObjectClass
+              matchingPredicate:(NSPredicate *)predicate
+                        context:(NSManagedObjectContext *)contextOrNil
+{
     contextOrNil = [self safeContext:contextOrNil];
-    NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass predicate:nil];
+    NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass predicate:predicate];
     [fetchRequest setIncludesPropertyValues:NO];
 
     NSError *error;
