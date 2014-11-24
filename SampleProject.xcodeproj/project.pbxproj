@@ -22,6 +22,7 @@
 		3DF9C34A19A923990047140D /* VIPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9C34919A923990047140D /* VIPerson.m */; };
 		3DF9C34D19A9239A0047140D /* VIThing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9C34C19A9239A0047140D /* VIThing.m */; };
 		6FE6F6ED16C556A600E79EDE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE6F6EC16C556A600E79EDE /* Default-568h@2x.png */; };
+		DE48FBBD1A23B80300C12D6B /* CoreDataManagerDeleteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE48FBBC1A23B80300C12D6B /* CoreDataManagerDeleteTests.m */; };
 		EA26603315C251BF00D61F01 /* VIPersonDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = EA26603215C251BF00D61F01 /* VIPersonDataSource.m */; };
 		EA4FE17915C2EEC700424469 /* VICoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA4FE17715C2EEC700424469 /* VICoreDataModel.xcdatamodeld */; };
 		EA5F19A515C196500089AA44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A415C196500089AA44 /* UIKit.framework */; };
@@ -75,6 +76,7 @@
 		3DF9C34C19A9239A0047140D /* VIThing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIThing.m; sourceTree = "<group>"; };
 		6FE6F6EC16C556A600E79EDE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		71782CE6192D1A8B0013FF8A /* VOKCoreDataManagerInternalMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VOKCoreDataManagerInternalMacros.h; sourceTree = "<group>"; };
+		DE48FBBC1A23B80300C12D6B /* CoreDataManagerDeleteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManagerDeleteTests.m; sourceTree = "<group>"; };
 		EA26603115C251BF00D61F01 /* VIPersonDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPersonDataSource.h; sourceTree = "<group>"; };
 		EA26603215C251BF00D61F01 /* VIPersonDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPersonDataSource.m; sourceTree = "<group>"; };
 		EA4FE17815C2EEC700424469 /* VICoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VICoreDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 		3D40DE40180729A10048D5EE /* VOKCoreDataManagerTests */ = {
 			isa = PBXGroup;
 			children = (
+				DE48FBBC1A23B80300C12D6B /* CoreDataManagerDeleteTests.m */,
 				3D03C8A61919229C006772E5 /* ManagedObjectImportExportTests.m */,
 				3D40DE41180729A10048D5EE /* Supporting Files */,
 			);
@@ -373,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE48FBBD1A23B80300C12D6B /* CoreDataManagerDeleteTests.m in Sources */,
 				3D03C8A71919229C006772E5 /* ManagedObjectImportExportTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
