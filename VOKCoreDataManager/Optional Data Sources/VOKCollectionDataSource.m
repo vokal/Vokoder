@@ -120,8 +120,10 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    if ([self.delegate respondsToSelector:@selector(fetchResultsDataSourceHasResults:)]) {
+        [self.delegate fetchResultsDataSourceHasResults:([sectionInfo numberOfObjects] > 0)];
+    }
     return [sectionInfo numberOfObjects];
 }
 
