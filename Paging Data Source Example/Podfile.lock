@@ -1,15 +1,19 @@
 PODS:
-  - Vokoder (1.1.0):
+  - Vokoder (1.1.1):
     - Vokoder/Core
     - Vokoder/DataSources
-  - Vokoder/Core (1.1.0)
-  - Vokoder/DataSources (1.1.0):
+  - Vokoder/Core (1.1.1)
+  - Vokoder/DataSources (1.1.1):
     - Vokoder/Core
+    - Vokoder/DataSources/Collection
     - Vokoder/DataSources/FetchedResults
     - Vokoder/DataSources/PagingFetchedResults
-  - Vokoder/DataSources/FetchedResults (1.1.0):
+  - Vokoder/DataSources/Collection (1.1.1):
     - Vokoder/Core
-  - Vokoder/DataSources/PagingFetchedResults (1.1.0):
+    - Vokoder/DataSources/FetchedResults
+  - Vokoder/DataSources/FetchedResults (1.1.1):
+    - Vokoder/Core
+  - Vokoder/DataSources/PagingFetchedResults (1.1.1):
     - Vokoder/Core
     - Vokoder/DataSources/FetchedResults
 
@@ -21,6 +25,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Vokoder: d9fb62e4c1c743728c3a19fb172d20d0298015aa
+  Vokoder: b87491a4afb805cefd5208669bae71f5462b64f3
 
 COCOAPODS: 0.34.4

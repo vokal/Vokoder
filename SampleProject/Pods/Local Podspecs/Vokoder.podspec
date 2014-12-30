@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Vokoder"
-  s.version          = "1.1.0"
+  s.version          = "1.1.1"
   s.summary          = "VOKAL's Core Data Manager"
   s.homepage         = "https://github.com/vokalinteractive/Vokoder"
   s.license          = { :type => "MIT", :file => "LICENSE"}
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.subspec 'DataSources' do |ss|
     ss.dependency 'Vokoder/Core'
 
-    ss.default_subspecs = 'FetchedResults', 'PagingFetchedResults'
+    ss.default_subspecs = 'FetchedResults', 'PagingFetchedResults', 'Collection'
 
     ss.subspec 'FetchedResults' do |sss|
       sss.source_files = 'Pod/Classes/Optional Data Sources/VOKFetchedResultsDataSource.{h,m}'
@@ -29,6 +29,11 @@ Pod::Spec.new do |s|
         'Pod/Classes/Optional Data Sources/VOKPagingFetchedResultsDataSource.{h,m}',
         'Pod/Classes/Optional Data Sources/VOKDefaultPagingAccessory.{h,m}',
       ]
+      sss.dependency 'Vokoder/DataSources/FetchedResults'
+    end
+
+    ss.subspec 'Collection' do |sss|
+      sss.source_files = 'Pod/Classes/Optional Data Sources/VOKCollectionDataSource.{h,m}'
       sss.dependency 'Vokoder/DataSources/FetchedResults'
     end
 
