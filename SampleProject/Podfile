@@ -1,0 +1,9 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'VOKCoreDataManager', :exclusive => true do
+  pod "Vokoder", :path => "../"
+end
+
+target 'VOKCoreDataManager Tests', :exclusive => true do
+  pod "Vokoder", :path => "../"
+end

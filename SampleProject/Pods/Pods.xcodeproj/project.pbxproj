@@ -1,0 +1,845 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0861D3722C94AEE99F75B882 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15055673CC974EA5D8C408F /* CoreData.framework */; };
+		16625D9D68CDD9E423CFED96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA441B73134449A6108B29A /* Foundation.framework */; };
+		16E722543C93E706D3FB77EB /* VOKCoreDataManagerInternalMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = F1E327C33FFDA0CD54C72EEC /* VOKCoreDataManagerInternalMacros.h */; };
+		18A0AFDD2A51719F2DBA7271 /* NSManagedObject+VOKManagedObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 14EE40936B717C04263DE476 /* NSManagedObject+VOKManagedObjectAdditions.h */; };
+		195E0645A263E0C859FF28DD /* VOKPagingFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BD6293E5C0B087A2832918 /* VOKPagingFetchedResultsDataSource.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		205BFC0779C80E1F26983BD1 /* Pods-VOKCoreDataManager Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 385FB69C434BBE47F99A667C /* Pods-VOKCoreDataManager Tests-dummy.m */; };
+		2298EE96E56711695AE6C862 /* VOKManagedObjectMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 76976C04F66D73FECDED38F5 /* VOKManagedObjectMap.h */; };
+		25BF6A1E5526FD23835AE701 /* VOKCoreDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 597A7506ADE3C4CB830CBA31 /* VOKCoreDataManager.h */; };
+		2793E9F8571834085CD01A4A /* VOKManagedObjectMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3C9AD195CB224BA1E8E418 /* VOKManagedObjectMap.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		289603AB56978F23F6041460 /* Pods-VOKCoreDataManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416ED04A8082B365C8B3F7C /* Pods-VOKCoreDataManager-dummy.m */; };
+		443C9728D8D674B594CE1B8A /* NSManagedObject+VOKManagedObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6453D47C2BFA0454E2963FDE /* NSManagedObject+VOKManagedObjectAdditions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		44F21EE02ABB50D2FC698166 /* VOKDefaultPagingAccessory.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDAA90A882A82A2EDC9FA60 /* VOKDefaultPagingAccessory.h */; };
+		456EF2B6A63D30328F3CAA7F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15055673CC974EA5D8C408F /* CoreData.framework */; };
+		46F7761F2A96694A291437EF /* VOKFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B5998780928CAEBF241459A5 /* VOKFetchedResultsDataSource.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4883FF4B84B981181D09907F /* VOKDefaultPagingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB14F45E05768CFA570D8E4 /* VOKDefaultPagingAccessory.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5D10D1DF8B01FCA0CF82088E /* VOKPagingFetchedResultsDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = B1672643C25F8D035429E9D3 /* VOKPagingFetchedResultsDataSource.h */; };
+		5EF58323F017EC3DCB39E7F6 /* VOKManagedObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D3D767962177C74B639EF8E /* VOKManagedObjectMapper.h */; };
+		61AB40FF161DFB9FE0E6CD98 /* VOKFetchedResultsDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EE0D4B1FECAD6ABA0819C8D /* VOKFetchedResultsDataSource.h */; };
+		6254DB1694F9D22ADC3CCCA6 /* VOKManagedObjectMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 76976C04F66D73FECDED38F5 /* VOKManagedObjectMap.h */; };
+		69E7E5B007C8FCC81AEE46AC /* VOKCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DFFCF268E6BF74DD7C8AF9 /* VOKCoreDataManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6A70121E90723153B8BEECAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA441B73134449A6108B29A /* Foundation.framework */; };
+		7A39A9364BE48EC4957E37EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA441B73134449A6108B29A /* Foundation.framework */; };
+		7A7DC5C7A10B9264EC487568 /* VOKPagingFetchedResultsDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = B1672643C25F8D035429E9D3 /* VOKPagingFetchedResultsDataSource.h */; };
+		82A89411323D0C624E82B0CB /* VOKManagedObjectMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3C9AD195CB224BA1E8E418 /* VOKManagedObjectMap.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		8763C04988B1C7E4599E8CC8 /* Pods-VOKCoreDataManager Tests-Vokoder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 157AEA783A62B67A2222696C /* Pods-VOKCoreDataManager Tests-Vokoder-dummy.m */; };
+		9386EF27F2A9AB560BF4BDE6 /* VOKFetchedResultsDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EE0D4B1FECAD6ABA0819C8D /* VOKFetchedResultsDataSource.h */; };
+		93D4C40AC7C190872D6703B1 /* VOKManagedObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D3D767962177C74B639EF8E /* VOKManagedObjectMapper.h */; };
+		A30DED1265EF9156DF942EEB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA441B73134449A6108B29A /* Foundation.framework */; };
+		A5D53490B5C5B1E2DE3B215B /* VOKDefaultPagingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB14F45E05768CFA570D8E4 /* VOKDefaultPagingAccessory.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C7B351F9DAD880DDCB268BA8 /* NSManagedObject+VOKManagedObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6453D47C2BFA0454E2963FDE /* NSManagedObject+VOKManagedObjectAdditions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C8394C8A4DBCE505697F6152 /* NSManagedObject+VOKManagedObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 14EE40936B717C04263DE476 /* NSManagedObject+VOKManagedObjectAdditions.h */; };
+		C8FB4CF4DF7036637407932D /* VOKManagedObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4B203428AA683B97575C15 /* VOKManagedObjectMapper.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C991D69460608CC61A58DA61 /* VOKCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DFFCF268E6BF74DD7C8AF9 /* VOKCoreDataManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D015423DDEA0AE2BA61FB99E /* VOKFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B5998780928CAEBF241459A5 /* VOKFetchedResultsDataSource.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D18BA3D96F0C419E18ADF731 /* VOKPagingFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BD6293E5C0B087A2832918 /* VOKPagingFetchedResultsDataSource.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D84AA009B84FA1410230EE5C /* VOKDefaultPagingAccessory.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDAA90A882A82A2EDC9FA60 /* VOKDefaultPagingAccessory.h */; };
+		E82276944165DFC03E35C85B /* Pods-VOKCoreDataManager-Vokoder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD983455ED22C6B02081519F /* Pods-VOKCoreDataManager-Vokoder-dummy.m */; };
+		EECBFEF03F82330BB0354C52 /* VOKCoreDataManagerInternalMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = F1E327C33FFDA0CD54C72EEC /* VOKCoreDataManagerInternalMacros.h */; };
+		F269544BD4F7D2C6A3192965 /* VOKCoreDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 597A7506ADE3C4CB830CBA31 /* VOKCoreDataManager.h */; };
+		FB5320E540EB2BE7A5E60E1D /* VOKManagedObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4B203428AA683B97575C15 /* VOKManagedObjectMapper.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		516A14718FE45A9D891AC5C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC3EBE214761599F593FD01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDA3AE29F32502DCD371B145;
+			remoteInfo = "Pods-VOKCoreDataManager-Vokoder";
+		};
+		882D418A4A0F570CF86ECD55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC3EBE214761599F593FD01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA3F40B85025D746E12F7C69;
+			remoteInfo = "Pods-VOKCoreDataManager Tests-Vokoder";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0416ED04A8082B365C8B3F7C /* Pods-VOKCoreDataManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VOKCoreDataManager-dummy.m"; sourceTree = "<group>"; };
+		08673A1CA95591523AA1F05E /* Pods-VOKCoreDataManager-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VOKCoreDataManager-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0E3C9AD195CB224BA1E8E418 /* VOKManagedObjectMap.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VOKManagedObjectMap.m; path = Pod/Classes/VOKManagedObjectMap.m; sourceTree = "<group>"; };
+		0F580428E025B2A769129B39 /* libPods-VOKCoreDataManager Tests-Vokoder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager Tests-Vokoder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14EE40936B717C04263DE476 /* NSManagedObject+VOKManagedObjectAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+VOKManagedObjectAdditions.h"; path = "Pod/Classes/NSManagedObject+VOKManagedObjectAdditions.h"; sourceTree = "<group>"; };
+		1536E8FDE164BD72E47325D3 /* Pods-VOKCoreDataManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VOKCoreDataManager.release.xcconfig"; sourceTree = "<group>"; };
+		157AEA783A62B67A2222696C /* Pods-VOKCoreDataManager Tests-Vokoder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VOKCoreDataManager Tests-Vokoder-dummy.m"; sourceTree = "<group>"; };
+		1D3D767962177C74B639EF8E /* VOKManagedObjectMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VOKManagedObjectMapper.h; path = Pod/Classes/VOKManagedObjectMapper.h; sourceTree = "<group>"; };
+		23FC2AEB669165FA63D80466 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		28ADFB665F7AF9F7BA14BF1D /* Pods-VOKCoreDataManager Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VOKCoreDataManager Tests-environment.h"; sourceTree = "<group>"; };
+		2AA441B73134449A6108B29A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		349FC51BFE504CE683EFB42A /* Pods-VOKCoreDataManager Tests-Vokoder-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VOKCoreDataManager Tests-Vokoder-prefix.pch"; sourceTree = "<group>"; };
+		385FB69C434BBE47F99A667C /* Pods-VOKCoreDataManager Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VOKCoreDataManager Tests-dummy.m"; sourceTree = "<group>"; };
+		3B8E529D5D52085F22DCB552 /* Pods-VOKCoreDataManager-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VOKCoreDataManager-environment.h"; sourceTree = "<group>"; };
+		40DFFCF268E6BF74DD7C8AF9 /* VOKCoreDataManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VOKCoreDataManager.m; path = Pod/Classes/VOKCoreDataManager.m; sourceTree = "<group>"; };
+		45BD6A4C402F35C390C06B47 /* libPods-VOKCoreDataManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		46C7E63C2D0DA9EB787445DF /* Pods-VOKCoreDataManager Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VOKCoreDataManager Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4A58F7B6EE550ECC001B52A0 /* Pods-VOKCoreDataManager-Vokoder.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager-Vokoder.xcconfig"; path = "../Pods-VOKCoreDataManager-Vokoder/Pods-VOKCoreDataManager-Vokoder.xcconfig"; sourceTree = "<group>"; };
+		55A6CEDE20C90392BF8E1331 /* Pods-VOKCoreDataManager-Vokoder-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager-Vokoder-Private.xcconfig"; path = "../Pods-VOKCoreDataManager-Vokoder/Pods-VOKCoreDataManager-Vokoder-Private.xcconfig"; sourceTree = "<group>"; };
+		597A7506ADE3C4CB830CBA31 /* VOKCoreDataManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VOKCoreDataManager.h; path = Pod/Classes/VOKCoreDataManager.h; sourceTree = "<group>"; };
+		5EE0D4B1FECAD6ABA0819C8D /* VOKFetchedResultsDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VOKFetchedResultsDataSource.h; path = "Pod/Classes/Optional Data Sources/VOKFetchedResultsDataSource.h"; sourceTree = "<group>"; };
+		6453D47C2BFA0454E2963FDE /* NSManagedObject+VOKManagedObjectAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+VOKManagedObjectAdditions.m"; path = "Pod/Classes/NSManagedObject+VOKManagedObjectAdditions.m"; sourceTree = "<group>"; };
+		6CF6E4E5E80043887EFDDFB5 /* Pods-VOKCoreDataManager Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VOKCoreDataManager Tests.release.xcconfig"; sourceTree = "<group>"; };
+		76976C04F66D73FECDED38F5 /* VOKManagedObjectMap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VOKManagedObjectMap.h; path = Pod/Classes/VOKManagedObjectMap.h; sourceTree = "<group>"; };
+		77CDA28E56466959031898CA /* Pods-VOKCoreDataManager-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VOKCoreDataManager-resources.sh"; sourceTree = "<group>"; };
+		949AE5FB9A42CE130E8AA921 /* Pods-VOKCoreDataManager Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VOKCoreDataManager Tests-resources.sh"; sourceTree = "<group>"; };
+		94D738FE58970F2095CA2A9F /* Pods-VOKCoreDataManager-Vokoder-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-VOKCoreDataManager-Vokoder-prefix.pch"; path = "../Pods-VOKCoreDataManager-Vokoder/Pods-VOKCoreDataManager-Vokoder-prefix.pch"; sourceTree = "<group>"; };
+		A00B7019A6D14FC7CA32FCD1 /* libPods-VOKCoreDataManager-Vokoder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager-Vokoder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADDAA90A882A82A2EDC9FA60 /* VOKDefaultPagingAccessory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VOKDefaultPagingAccessory.h; path = "Pod/Classes/Optional Data Sources/VOKDefaultPagingAccessory.h"; sourceTree = "<group>"; };
+		B15055673CC974EA5D8C408F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		B1672643C25F8D035429E9D3 /* VOKPagingFetchedResultsDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VOKPagingFetchedResultsDataSource.h; path = "Pod/Classes/Optional Data Sources/VOKPagingFetchedResultsDataSource.h"; sourceTree = "<group>"; };
+		B5998780928CAEBF241459A5 /* VOKFetchedResultsDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VOKFetchedResultsDataSource.m; path = "Pod/Classes/Optional Data Sources/VOKFetchedResultsDataSource.m"; sourceTree = "<group>"; };
+		C5BD6293E5C0B087A2832918 /* VOKPagingFetchedResultsDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VOKPagingFetchedResultsDataSource.m; path = "Pod/Classes/Optional Data Sources/VOKPagingFetchedResultsDataSource.m"; sourceTree = "<group>"; };
+		C64417B2B6C730DA8044B102 /* Pods-VOKCoreDataManager Tests-Vokoder.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VOKCoreDataManager Tests-Vokoder.xcconfig"; sourceTree = "<group>"; };
+		C6EC7D45E119D8EFA4E43A97 /* Pods-VOKCoreDataManager Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VOKCoreDataManager Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		CEB14F45E05768CFA570D8E4 /* VOKDefaultPagingAccessory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VOKDefaultPagingAccessory.m; path = "Pod/Classes/Optional Data Sources/VOKDefaultPagingAccessory.m"; sourceTree = "<group>"; };
+		D18180979CAA3229FAF2A166 /* Pods-VOKCoreDataManager-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VOKCoreDataManager-acknowledgements.plist"; sourceTree = "<group>"; };
+		DCB784E9A2418EB960E03735 /* libPods-VOKCoreDataManager Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD983455ED22C6B02081519F /* Pods-VOKCoreDataManager-Vokoder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-VOKCoreDataManager-Vokoder-dummy.m"; path = "../Pods-VOKCoreDataManager-Vokoder/Pods-VOKCoreDataManager-Vokoder-dummy.m"; sourceTree = "<group>"; };
+		E689885306C6172F5DD2DF37 /* Pods-VOKCoreDataManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VOKCoreDataManager.debug.xcconfig"; sourceTree = "<group>"; };
+		E8895ABE64658DDF116E1F55 /* Pods-VOKCoreDataManager Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VOKCoreDataManager Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		EA2B537D059441C30CAD5F19 /* Pods-VOKCoreDataManager Tests-Vokoder-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VOKCoreDataManager Tests-Vokoder-Private.xcconfig"; sourceTree = "<group>"; };
+		F1E327C33FFDA0CD54C72EEC /* VOKCoreDataManagerInternalMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VOKCoreDataManagerInternalMacros.h; path = Pod/Classes/Internal/VOKCoreDataManagerInternalMacros.h; sourceTree = "<group>"; };
+		FB4B203428AA683B97575C15 /* VOKManagedObjectMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VOKManagedObjectMapper.m; path = Pod/Classes/VOKManagedObjectMapper.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3C30E724F4CDB84885DFE015 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				456EF2B6A63D30328F3CAA7F /* CoreData.framework in Frameworks */,
+				6A70121E90723153B8BEECAA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8ACCD5393EE3C8892C47BB72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A39A9364BE48EC4957E37EB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		917B2408AD6DF00DE87A877B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0861D3722C94AEE99F75B882 /* CoreData.framework in Frameworks */,
+				A30DED1265EF9156DF942EEB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3CDC9F94C87350D82DB5199 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16625D9D68CDD9E423CFED96 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C460D5E26062A1892C8272E /* Pods-VOKCoreDataManager Tests */ = {
+			isa = PBXGroup;
+			children = (
+				46C7E63C2D0DA9EB787445DF /* Pods-VOKCoreDataManager Tests-acknowledgements.markdown */,
+				C6EC7D45E119D8EFA4E43A97 /* Pods-VOKCoreDataManager Tests-acknowledgements.plist */,
+				385FB69C434BBE47F99A667C /* Pods-VOKCoreDataManager Tests-dummy.m */,
+				28ADFB665F7AF9F7BA14BF1D /* Pods-VOKCoreDataManager Tests-environment.h */,
+				949AE5FB9A42CE130E8AA921 /* Pods-VOKCoreDataManager Tests-resources.sh */,
+				E8895ABE64658DDF116E1F55 /* Pods-VOKCoreDataManager Tests.debug.xcconfig */,
+				6CF6E4E5E80043887EFDDFB5 /* Pods-VOKCoreDataManager Tests.release.xcconfig */,
+			);
+			name = "Pods-VOKCoreDataManager Tests";
+			path = "Target Support Files/Pods-VOKCoreDataManager Tests";
+			sourceTree = "<group>";
+		};
+		10218E2E70E9597667E2E29B /* PagingFetchedResults */ = {
+			isa = PBXGroup;
+			children = (
+				ADDAA90A882A82A2EDC9FA60 /* VOKDefaultPagingAccessory.h */,
+				CEB14F45E05768CFA570D8E4 /* VOKDefaultPagingAccessory.m */,
+				B1672643C25F8D035429E9D3 /* VOKPagingFetchedResultsDataSource.h */,
+				C5BD6293E5C0B087A2832918 /* VOKPagingFetchedResultsDataSource.m */,
+			);
+			name = PagingFetchedResults;
+			sourceTree = "<group>";
+		};
+		596F77D796C4DE30F45A413E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6292A6F50651A8696078C0A /* Pods-VOKCoreDataManager */,
+				0C460D5E26062A1892C8272E /* Pods-VOKCoreDataManager Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		6175E6EE0319AC8C9177DC11 = {
+			isa = PBXGroup;
+			children = (
+				23FC2AEB669165FA63D80466 /* Podfile */,
+				D8A07ED4146E2A9CD9C7DF45 /* Development Pods */,
+				647D862BDBC8F07F91A35013 /* Frameworks */,
+				CD6E394AEE39F8C222CA85FB /* Products */,
+				596F77D796C4DE30F45A413E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		647D862BDBC8F07F91A35013 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95F66A0BD72B5EBDCF6F0C0E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		72700A22499ACCA7B62F0F9C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C64417B2B6C730DA8044B102 /* Pods-VOKCoreDataManager Tests-Vokoder.xcconfig */,
+				EA2B537D059441C30CAD5F19 /* Pods-VOKCoreDataManager Tests-Vokoder-Private.xcconfig */,
+				157AEA783A62B67A2222696C /* Pods-VOKCoreDataManager Tests-Vokoder-dummy.m */,
+				349FC51BFE504CE683EFB42A /* Pods-VOKCoreDataManager Tests-Vokoder-prefix.pch */,
+				4A58F7B6EE550ECC001B52A0 /* Pods-VOKCoreDataManager-Vokoder.xcconfig */,
+				55A6CEDE20C90392BF8E1331 /* Pods-VOKCoreDataManager-Vokoder-Private.xcconfig */,
+				DD983455ED22C6B02081519F /* Pods-VOKCoreDataManager-Vokoder-dummy.m */,
+				94D738FE58970F2095CA2A9F /* Pods-VOKCoreDataManager-Vokoder-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "SampleProject/Pods/Target Support Files/Pods-VOKCoreDataManager Tests-Vokoder";
+			sourceTree = "<group>";
+		};
+		95F66A0BD72B5EBDCF6F0C0E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B15055673CC974EA5D8C408F /* CoreData.framework */,
+				2AA441B73134449A6108B29A /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		A6292A6F50651A8696078C0A /* Pods-VOKCoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				08673A1CA95591523AA1F05E /* Pods-VOKCoreDataManager-acknowledgements.markdown */,
+				D18180979CAA3229FAF2A166 /* Pods-VOKCoreDataManager-acknowledgements.plist */,
+				0416ED04A8082B365C8B3F7C /* Pods-VOKCoreDataManager-dummy.m */,
+				3B8E529D5D52085F22DCB552 /* Pods-VOKCoreDataManager-environment.h */,
+				77CDA28E56466959031898CA /* Pods-VOKCoreDataManager-resources.sh */,
+				E689885306C6172F5DD2DF37 /* Pods-VOKCoreDataManager.debug.xcconfig */,
+				1536E8FDE164BD72E47325D3 /* Pods-VOKCoreDataManager.release.xcconfig */,
+			);
+			name = "Pods-VOKCoreDataManager";
+			path = "Target Support Files/Pods-VOKCoreDataManager";
+			sourceTree = "<group>";
+		};
+		C6669E8C1E092573CBAB102A /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				D16E583E501EF1221E0B7D03 /* FetchedResults */,
+				10218E2E70E9597667E2E29B /* PagingFetchedResults */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		CD6E394AEE39F8C222CA85FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45BD6A4C402F35C390C06B47 /* libPods-VOKCoreDataManager.a */,
+				DCB784E9A2418EB960E03735 /* libPods-VOKCoreDataManager Tests.a */,
+				0F580428E025B2A769129B39 /* libPods-VOKCoreDataManager Tests-Vokoder.a */,
+				A00B7019A6D14FC7CA32FCD1 /* libPods-VOKCoreDataManager-Vokoder.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D16E583E501EF1221E0B7D03 /* FetchedResults */ = {
+			isa = PBXGroup;
+			children = (
+				5EE0D4B1FECAD6ABA0819C8D /* VOKFetchedResultsDataSource.h */,
+				B5998780928CAEBF241459A5 /* VOKFetchedResultsDataSource.m */,
+			);
+			name = FetchedResults;
+			sourceTree = "<group>";
+		};
+		D8A07ED4146E2A9CD9C7DF45 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FBB1A4F549AF7E364C876ED3 /* Vokoder */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		D9B3C4B2FCDCF33FB10295EB /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F1E327C33FFDA0CD54C72EEC /* VOKCoreDataManagerInternalMacros.h */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		FBB1A4F549AF7E364C876ED3 /* Vokoder */ = {
+			isa = PBXGroup;
+			children = (
+				14EE40936B717C04263DE476 /* NSManagedObject+VOKManagedObjectAdditions.h */,
+				6453D47C2BFA0454E2963FDE /* NSManagedObject+VOKManagedObjectAdditions.m */,
+				597A7506ADE3C4CB830CBA31 /* VOKCoreDataManager.h */,
+				40DFFCF268E6BF74DD7C8AF9 /* VOKCoreDataManager.m */,
+				76976C04F66D73FECDED38F5 /* VOKManagedObjectMap.h */,
+				0E3C9AD195CB224BA1E8E418 /* VOKManagedObjectMap.m */,
+				1D3D767962177C74B639EF8E /* VOKManagedObjectMapper.h */,
+				FB4B203428AA683B97575C15 /* VOKManagedObjectMapper.m */,
+				D9B3C4B2FCDCF33FB10295EB /* Core */,
+				C6669E8C1E092573CBAB102A /* DataSources */,
+				72700A22499ACCA7B62F0F9C /* Support Files */,
+			);
+			name = Vokoder;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		516CE3441D4F4E6BCD9C4243 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8394C8A4DBCE505697F6152 /* NSManagedObject+VOKManagedObjectAdditions.h in Headers */,
+				F269544BD4F7D2C6A3192965 /* VOKCoreDataManager.h in Headers */,
+				16E722543C93E706D3FB77EB /* VOKCoreDataManagerInternalMacros.h in Headers */,
+				44F21EE02ABB50D2FC698166 /* VOKDefaultPagingAccessory.h in Headers */,
+				61AB40FF161DFB9FE0E6CD98 /* VOKFetchedResultsDataSource.h in Headers */,
+				6254DB1694F9D22ADC3CCCA6 /* VOKManagedObjectMap.h in Headers */,
+				5EF58323F017EC3DCB39E7F6 /* VOKManagedObjectMapper.h in Headers */,
+				5D10D1DF8B01FCA0CF82088E /* VOKPagingFetchedResultsDataSource.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		928CAD4DEA0E0F6327C86C5A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18A0AFDD2A51719F2DBA7271 /* NSManagedObject+VOKManagedObjectAdditions.h in Headers */,
+				25BF6A1E5526FD23835AE701 /* VOKCoreDataManager.h in Headers */,
+				EECBFEF03F82330BB0354C52 /* VOKCoreDataManagerInternalMacros.h in Headers */,
+				D84AA009B84FA1410230EE5C /* VOKDefaultPagingAccessory.h in Headers */,
+				9386EF27F2A9AB560BF4BDE6 /* VOKFetchedResultsDataSource.h in Headers */,
+				2298EE96E56711695AE6C862 /* VOKManagedObjectMap.h in Headers */,
+				93D4C40AC7C190872D6703B1 /* VOKManagedObjectMapper.h in Headers */,
+				7A7DC5C7A10B9264EC487568 /* VOKPagingFetchedResultsDataSource.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3E4449757E9071BDD68F671F /* Pods-VOKCoreDataManager Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDB33CF6305793850ACA86A9 /* Build configuration list for PBXNativeTarget "Pods-VOKCoreDataManager Tests" */;
+			buildPhases = (
+				B1ED81819F655ABB9FB7DBA2 /* Sources */,
+				F3CDC9F94C87350D82DB5199 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6F66719D2B80A388143DC483 /* PBXTargetDependency */,
+			);
+			name = "Pods-VOKCoreDataManager Tests";
+			productName = "Pods-VOKCoreDataManager Tests";
+			productReference = DCB784E9A2418EB960E03735 /* libPods-VOKCoreDataManager Tests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		6AEECC6D1ACD322DBD95B82A /* Pods-VOKCoreDataManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D334BB2B1F905CCE7FC68548 /* Build configuration list for PBXNativeTarget "Pods-VOKCoreDataManager" */;
+			buildPhases = (
+				BDECB9EE72A6011C272C7A92 /* Sources */,
+				8ACCD5393EE3C8892C47BB72 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7CA54A84A4ABAF621D49874 /* PBXTargetDependency */,
+			);
+			name = "Pods-VOKCoreDataManager";
+			productName = "Pods-VOKCoreDataManager";
+			productReference = 45BD6A4C402F35C390C06B47 /* libPods-VOKCoreDataManager.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BDA3AE29F32502DCD371B145 /* Pods-VOKCoreDataManager-Vokoder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 666C1836D30B9DB7ED2BB707 /* Build configuration list for PBXNativeTarget "Pods-VOKCoreDataManager-Vokoder" */;
+			buildPhases = (
+				244D67EE92FCEBA759323A86 /* Sources */,
+				917B2408AD6DF00DE87A877B /* Frameworks */,
+				516CE3441D4F4E6BCD9C4243 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-VOKCoreDataManager-Vokoder";
+			productName = "Pods-VOKCoreDataManager-Vokoder";
+			productReference = A00B7019A6D14FC7CA32FCD1 /* libPods-VOKCoreDataManager-Vokoder.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CA3F40B85025D746E12F7C69 /* Pods-VOKCoreDataManager Tests-Vokoder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3BE4C96FF0804296258A655 /* Build configuration list for PBXNativeTarget "Pods-VOKCoreDataManager Tests-Vokoder" */;
+			buildPhases = (
+				CF3DF48825BE37AEADA34E3B /* Sources */,
+				3C30E724F4CDB84885DFE015 /* Frameworks */,
+				928CAD4DEA0E0F6327C86C5A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-VOKCoreDataManager Tests-Vokoder";
+			productName = "Pods-VOKCoreDataManager Tests-Vokoder";
+			productReference = 0F580428E025B2A769129B39 /* libPods-VOKCoreDataManager Tests-Vokoder.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6BC3EBE214761599F593FD01 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+			};
+			buildConfigurationList = FC41AAE8F5E17E9484D25FD2 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6175E6EE0319AC8C9177DC11;
+			productRefGroup = CD6E394AEE39F8C222CA85FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6AEECC6D1ACD322DBD95B82A /* Pods-VOKCoreDataManager */,
+				3E4449757E9071BDD68F671F /* Pods-VOKCoreDataManager Tests */,
+				CA3F40B85025D746E12F7C69 /* Pods-VOKCoreDataManager Tests-Vokoder */,
+				BDA3AE29F32502DCD371B145 /* Pods-VOKCoreDataManager-Vokoder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		244D67EE92FCEBA759323A86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7B351F9DAD880DDCB268BA8 /* NSManagedObject+VOKManagedObjectAdditions.m in Sources */,
+				E82276944165DFC03E35C85B /* Pods-VOKCoreDataManager-Vokoder-dummy.m in Sources */,
+				C991D69460608CC61A58DA61 /* VOKCoreDataManager.m in Sources */,
+				A5D53490B5C5B1E2DE3B215B /* VOKDefaultPagingAccessory.m in Sources */,
+				D015423DDEA0AE2BA61FB99E /* VOKFetchedResultsDataSource.m in Sources */,
+				2793E9F8571834085CD01A4A /* VOKManagedObjectMap.m in Sources */,
+				C8FB4CF4DF7036637407932D /* VOKManagedObjectMapper.m in Sources */,
+				195E0645A263E0C859FF28DD /* VOKPagingFetchedResultsDataSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1ED81819F655ABB9FB7DBA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				205BFC0779C80E1F26983BD1 /* Pods-VOKCoreDataManager Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDECB9EE72A6011C272C7A92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				289603AB56978F23F6041460 /* Pods-VOKCoreDataManager-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF3DF48825BE37AEADA34E3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				443C9728D8D674B594CE1B8A /* NSManagedObject+VOKManagedObjectAdditions.m in Sources */,
+				8763C04988B1C7E4599E8CC8 /* Pods-VOKCoreDataManager Tests-Vokoder-dummy.m in Sources */,
+				69E7E5B007C8FCC81AEE46AC /* VOKCoreDataManager.m in Sources */,
+				4883FF4B84B981181D09907F /* VOKDefaultPagingAccessory.m in Sources */,
+				46F7761F2A96694A291437EF /* VOKFetchedResultsDataSource.m in Sources */,
+				82A89411323D0C624E82B0CB /* VOKManagedObjectMap.m in Sources */,
+				FB5320E540EB2BE7A5E60E1D /* VOKManagedObjectMapper.m in Sources */,
+				D18BA3D96F0C419E18ADF731 /* VOKPagingFetchedResultsDataSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6F66719D2B80A388143DC483 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA3F40B85025D746E12F7C69 /* Pods-VOKCoreDataManager Tests-Vokoder */;
+			targetProxy = 882D418A4A0F570CF86ECD55 /* PBXContainerItemProxy */;
+		};
+		B7CA54A84A4ABAF621D49874 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDA3AE29F32502DCD371B145 /* Pods-VOKCoreDataManager-Vokoder */;
+			targetProxy = 516A14718FE45A9D891AC5C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D8FA2FCEE99D9B51EFAB4B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CF6E4E5E80043887EFDDFB5 /* Pods-VOKCoreDataManager Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2353F94012FDFE10F28A867E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55A6CEDE20C90392BF8E1331 /* Pods-VOKCoreDataManager-Vokoder-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-VOKCoreDataManager-Vokoder/Pods-VOKCoreDataManager-Vokoder-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2BDAEA928222E00901CAA720 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E689885306C6172F5DD2DF37 /* Pods-VOKCoreDataManager.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		33214A2A65F454F633CA24BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8895ABE64658DDF116E1F55 /* Pods-VOKCoreDataManager Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		36EAA1165F1F49F52B0E9B44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA2B537D059441C30CAD5F19 /* Pods-VOKCoreDataManager Tests-Vokoder-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-VOKCoreDataManager Tests-Vokoder/Pods-VOKCoreDataManager Tests-Vokoder-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4D9C3681C43447BE73567B78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		522966D98D3EFC8BB40DF1B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55A6CEDE20C90392BF8E1331 /* Pods-VOKCoreDataManager-Vokoder-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-VOKCoreDataManager-Vokoder/Pods-VOKCoreDataManager-Vokoder-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8D45E166B241E7F833939192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA2B537D059441C30CAD5F19 /* Pods-VOKCoreDataManager Tests-Vokoder-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-VOKCoreDataManager Tests-Vokoder/Pods-VOKCoreDataManager Tests-Vokoder-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A4FEA67FF2EC6252EF61F256 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		AA6A0F610CD6C6811DE5A573 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1536E8FDE164BD72E47325D3 /* Pods-VOKCoreDataManager.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		666C1836D30B9DB7ED2BB707 /* Build configuration list for PBXNativeTarget "Pods-VOKCoreDataManager-Vokoder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				522966D98D3EFC8BB40DF1B6 /* Debug */,
+				2353F94012FDFE10F28A867E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3BE4C96FF0804296258A655 /* Build configuration list for PBXNativeTarget "Pods-VOKCoreDataManager Tests-Vokoder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36EAA1165F1F49F52B0E9B44 /* Debug */,
+				8D45E166B241E7F833939192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D334BB2B1F905CCE7FC68548 /* Build configuration list for PBXNativeTarget "Pods-VOKCoreDataManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BDAEA928222E00901CAA720 /* Debug */,
+				AA6A0F610CD6C6811DE5A573 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC41AAE8F5E17E9484D25FD2 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4FEA67FF2EC6252EF61F256 /* Debug */,
+				4D9C3681C43447BE73567B78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDB33CF6305793850ACA86A9 /* Build configuration list for PBXNativeTarget "Pods-VOKCoreDataManager Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33214A2A65F454F633CA24BC /* Debug */,
+				0D8FA2FCEE99D9B51EFAB4B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6BC3EBE214761599F593FD01 /* Project object */;
+}

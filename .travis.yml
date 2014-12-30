@@ -1,7 +1,12 @@
 language: objective-c
-xcode_project: SampleProject.xcodeproj
-xcode_scheme: VOKCoreDataManager
-xcode_sdk: iphonesimulator8.1
 before_install:
-  - brew update
-  - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
+    - brew update > /dev/null; if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
+matrix:
+    include:
+        - xcode_workspace: SampleProject/SampleProject.xcworkspace
+          xcode_scheme: VOKCoreDataManager
+          xcode_sdk: iphonesimulator
+        - xcode_workspace: Paging Data Source Example/Paging Data Source Example.xcworkspace
+          xcode_scheme: Paging Data Source Example
+          xcode_sdk: iphonesimulator
+

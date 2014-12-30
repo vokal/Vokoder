@@ -1,0 +1,26 @@
+PODS:
+  - Vokoder (1.1.0):
+    - Vokoder/Core
+    - Vokoder/DataSources
+  - Vokoder/Core (1.1.0)
+  - Vokoder/DataSources (1.1.0):
+    - Vokoder/Core
+    - Vokoder/DataSources/FetchedResults
+    - Vokoder/DataSources/PagingFetchedResults
+  - Vokoder/DataSources/FetchedResults (1.1.0):
+    - Vokoder/Core
+  - Vokoder/DataSources/PagingFetchedResults (1.1.0):
+    - Vokoder/Core
+    - Vokoder/DataSources/FetchedResults
+
+DEPENDENCIES:
+  - Vokoder (from `../`)
+
+EXTERNAL SOURCES:
+  Vokoder:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Vokoder: d9fb62e4c1c743728c3a19fb172d20d0298015aa
+
+COCOAPODS: 0.34.4
