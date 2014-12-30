@@ -4,7 +4,7 @@ before_install:
     - brew update > /dev/null; if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
 matrix:
     include:
-        - xcode_workspace: SampleProject/SampleProject.xcworspace
+        - xcode_workspace: SampleProject/SampleProject.xcworkspace
           xcode_scheme: VOKCoreDataManager
-        - xcode_workspace: Paging Data Source Example/Paging Data Source Example.xcworspace
+        - xcode_workspace: Paging Data Source Example/Paging Data Source Example.xcworkspace
           xcode_scheme: Paging Data Source Example
