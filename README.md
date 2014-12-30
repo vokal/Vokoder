@@ -14,6 +14,16 @@ it, simply add the following line to your Podfile:
 
     pod "Vokoder"
 
+## Subspecs
+
+The bulk of the functionality is in the `Core` subspec.  If you aren't using any of the data sources, you can just include the `Core` subspec.
+
+Data sources to facilitate backing various kinds of views with data from Core Data are in the `DataSources` subspec, which is further broken down into:
+- `FetchedResults` contains a basic data source based on a fetched results controller, intended to be used with a `UITableView`.
+- `PagingFetchedResults` is based on `FetchedResults` but supports paged loading.
+- `Collection` is based on `FetchedResults`, but intended for use with a `UICollectionView`.
+- `Carousel` (not included by default) is based on `FetchedResults` but intended for use with [iCarousel](https://github.com/nicklockwood/iCarousel) (and hence includes it as a dependency).
+
 ## License
 
 Vokoder is available under the MIT license. See the LICENSE file for more info.
