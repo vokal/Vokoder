@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name             = "Vokoder"
-  s.version          = "1.1.1"
-  s.summary          = "VOKAL's Core Data Manager"
-  s.homepage         = "https://github.com/vokalinteractive/Vokoder"
+  s.version          = "1.1.2"
+  s.summary          = "Vokal's Core Data Manager"
+  s.homepage         = "https://github.com/vokal/Vokoder"
   s.license          = { :type => "MIT", :file => "LICENSE"}
-  s.author           = { "VOKAL Interactive" => "hello@vokalinteractive.com" }
-  s.source           = { :git => "https://github.com/vokalinteractive/Vokoder.git", :tag => s.version.to_s }
+  s.author           = { "Vokal" => "hello@vokal.io" }
+  s.source           = { :git => "https://github.com/vokal/Vokoder.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
