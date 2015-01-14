@@ -1,9 +1,8 @@
 //
 //  VICollectionDataSource.h
-//  MuOptics
 //
 //  Created by teejay on 5/6/13.
-//  Copyright (c) 2013 teejay. All rights reserved.
+//  Copyright (c) 2013 Vokal. All rights reserved.
 //
 
 #import "VOKFetchedResultsDataSource.h"
