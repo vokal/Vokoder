@@ -114,7 +114,15 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return [[self.fetchedResultsController sections] count];
+    NSInteger sectionCount = [[self.fetchedResultsController sections] count];
+
+    // If there are no sections, the numberOfItemsInSection: method is never called,
+    // so the delegeate fetchResultsDataSourceHasResults: method isn't called
+    // with NO. Do so here, if necessary.
+    if (sectionCount == 0 && [self.delegate respondsToSelector:@selector(fetchResultsDataSourceHasResults:)]) {
+        [self.delegate fetchResultsDataSourceHasResults:NO];
+    }
+    return sectionCount;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
