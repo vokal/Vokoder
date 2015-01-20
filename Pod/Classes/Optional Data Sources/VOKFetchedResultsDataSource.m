@@ -213,7 +213,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[_fetchedResultsController sections] count];
+    NSInteger sectionCount = [[_fetchedResultsController sections] count];
+
+    // If there are no sections, the numberOfRowsInSection: method is never called,
+    // so the delegeate fetchResultsDataSourceHasResults: method isn't called
+    // with NO. Do so here, if necessary.
+    if (sectionCount == 0 && [_delegate respondsToSelector:@selector(fetchResultsDataSourceHasResults:)]) {
+        [_delegate fetchResultsDataSourceHasResults:NO];
+    }
+    return sectionCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
