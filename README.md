@@ -30,9 +30,9 @@ Data sources to facilitate backing various kinds of views with data from Core Da
 
 ```objective-c
 [[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:@"VICoreDataModel.sqlite"]; //Saved to Disk
-
+```
 Or
-
+```objective-c
 [[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:nil]; //In memory data store
 ```
     
