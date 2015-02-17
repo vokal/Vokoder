@@ -61,8 +61,7 @@
     [[VOKCoreDataManager sharedInstance] saveMainContext];
     
     XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
-                             forManagedObjectContext:nil].count, 1);
-    
+                             forManagedObjectContext:nil].count, 1);    
 }
 
 - (void)testRecordInsertionTemporaryContext
