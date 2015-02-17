@@ -29,7 +29,10 @@ Data sources to facilitate backing various kinds of views with data from Core Da
 ###Setting up the data model
 
 ```objective-c
-[[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:@"VICoreDataModel.sqlite"];
+[[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:@"VICoreDataModel.sqlite"]; //Saved to Disk
+
+Or
+
 [[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:nil]; //In memory data store
 ```
     
@@ -39,6 +42,7 @@ Data sources to facilitate backing various kinds of views with data from Core Da
 VIPerson *person = [VIPerson vok_newInstance];
 [person setFirstName:@"Rohan"];
 [person setLastName:@"Panchal"];
+[[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 ```
 
 ###Querying Records	
@@ -51,6 +55,7 @@ NSArray *results = [VIPerson vok_fetchAllForPredicate:nil forManagedObjectContex
 ```objective-c
 VOKCoreDataManager *manager = [VOKCoreDataManager sharedInstance];
 [manager deleteObject:person];
+[[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 ```	
 
 ###Saving 
