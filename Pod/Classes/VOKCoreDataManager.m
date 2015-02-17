@@ -336,6 +336,24 @@ static VOKCoreDataManager *VOK_SharedObject;
     return results;
 }
 
+- (NSArray *)arrayForClass:(Class)managedObjectClass
+             withPredicate:(NSPredicate *)predicate
+                  sortedBy:(NSArray*)sortDescriptors
+                forContext:(NSManagedObjectContext *)contextOrNil
+{
+    contextOrNil = [self safeContext:contextOrNil];
+    NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass
+                                                     predicate:predicate
+                                               sortDescriptors:sortDescriptors];
+    NSError *error;
+    NSArray *results = [contextOrNil executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        VOK_CDLog(@"%s Fetch Request Error\n%@", __PRETTY_FUNCTION__, [error localizedDescription]);
+    }
+    
+    return results;
+}
+
 - (id)existingObjectAtURI:(NSURL *)uri forManagedObjectContext:(NSManagedObjectContext *)contextOrNil
 {
     NSManagedObjectID *objectID = [self.persistentStoreCoordinator managedObjectIDForURIRepresentation:uri];
@@ -508,6 +526,16 @@ static VOKCoreDataManager *VOK_SharedObject;
     NSString *entityName = [managedObjectClass vok_entityName];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
     [fetchRequest setPredicate:predicate];
+    return fetchRequest;
+}
+
+-(NSFetchRequest *)fetchRequestWithClass:(Class)managedObjectClass
+                               predicate:(NSPredicate *)predicate
+                         sortDescriptors:(NSArray*)sortDescriptors
+{
+    NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass
+                                                     predicate:predicate];
+    [fetchRequest setSortDescriptors:sortDescriptors];
     return fetchRequest;
 }
 
