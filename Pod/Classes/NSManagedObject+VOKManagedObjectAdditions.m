@@ -124,6 +124,16 @@
                                                    forContext:contextOrNil];
 }
 
++ (NSArray *)vok_fetchAllForPredicate:(NSPredicate *)predicate
+                             sortedBy:(NSArray*)sortDescriptors
+              forManagedObjectContext:(NSManagedObjectContext *)contextOrNil
+{
+    return [[VOKCoreDataManager sharedInstance] arrayForClass:[self class]
+                                                withPredicate:predicate
+                                                     sortedBy:sortDescriptors
+                                                   forContext:contextOrNil];
+}
+
 + (instancetype)vok_fetchForPredicate:(NSPredicate *)predicate forManagedObjectContext:(NSManagedObjectContext *)contextOrNil
 {
     NSArray *results = [self vok_fetchAllForPredicate:predicate forManagedObjectContext:contextOrNil];
