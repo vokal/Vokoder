@@ -97,11 +97,24 @@
 + (NSArray *)vok_fetchAllForPredicate:(NSPredicate *)predicate forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
 
 /*
+ Returns all entites matching the predicate.
+ @param predicate       Predicate to use to fetch.
+ @param sortDescriptors SortDescriptors to use to sort the results.
+ @param contextOrNil    The managed object context to fetch in.  If nil, the main context will be used.
+ @return                NSArray full of the instances of the current class.
+ */
++ (NSArray *)vok_fetchAllForPredicate:(NSPredicate *)predicate
+                             sortedBy:(NSArray*)sortDescriptors
+              forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
+
+/*
  Returns one entite matching the predicate. Asserts the count is exactly 1. If more objects are returned this method will let you know.
  @param predicate       Predicate to use to fetch.
  @param contextOrNil    The managed object context to fetch in.  If nil, the main context will be used.
  @return                An instance of the current class.
  */
 + (instancetype)vok_fetchForPredicate:(NSPredicate *)predicate forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
+
+
 
 @end
