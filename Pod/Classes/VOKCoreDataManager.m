@@ -327,13 +327,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     contextOrNil = [self safeContext:contextOrNil];
     NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass predicate:predicate];
 
-    NSError *error;
-    NSArray *results = [contextOrNil executeFetchRequest:fetchRequest error:&error];
-    if (error) {
-        VOK_CDLog(@"%s Fetch Request Error\n%@", __PRETTY_FUNCTION__, [error localizedDescription]);
-    }
-
-    return results;
+    return [self arrayForFetchRequest:fetchRequest inContext:contextOrNil];
 }
 
 - (NSArray *)arrayForClass:(Class)managedObjectClass
@@ -345,8 +339,14 @@ static VOKCoreDataManager *VOK_SharedObject;
     NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass
                                                      predicate:predicate
                                                sortDescriptors:sortDescriptors];
+    return [self arrayForFetchRequest:fetchRequest inContext:contextOrNil];
+}
+
+-(NSArray*)arrayForFetchRequest:(NSFetchRequest*)fetchRequest
+                      inContext:(NSManagedObjectContext*)context
+{
     NSError *error;
-    NSArray *results = [contextOrNil executeFetchRequest:fetchRequest error:&error];
+    NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
     if (error) {
         VOK_CDLog(@"%s Fetch Request Error\n%@", __PRETTY_FUNCTION__, [error localizedDescription]);
     }
