@@ -23,6 +23,7 @@
 - (void)setUp
 {
     [super setUp];
+    [[VOKCoreDataManager sharedInstance] resetCoreData];
     [[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel"
                                             database:@"VICoreDataModel.sqlite"];
 }
@@ -126,6 +127,21 @@
     XCTAssertNotNil(results);
     XCTAssertGreaterThan(results.count, 0);
     XCTAssertEqual(results.count, basicTestDataSize);
+}
+
+- (void)testRecordFetchingWithSortDescriptor
+{
+    [self loadWithBasicTestData];
+    NSArray *results = [VIThing vok_fetchAllForPredicate:nil
+                                             sortedByKey:@"numberOfHats"
+                                               ascending:YES
+                                 forManagedObjectContext:nil];
+    XCTAssertNotNil(results);
+    XCTAssertGreaterThan(results.count, 0);
+    XCTAssertEqual(results.count, basicTestDataSize);
+    
+    XCTAssertEqual([[results firstObject] numberOfHats].intValue, basicTestDataStartPoint);
+    XCTAssertEqual([[results lastObject] numberOfHats].intValue, basicTestDataStartPoint + basicTestDataSize-1);
 }
 
 - (void)testRecordFetchingWithSortDescriptorAscending
