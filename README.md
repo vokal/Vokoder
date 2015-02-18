@@ -37,6 +37,7 @@ Or
 [[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:nil]; //In memory data store
 ```
     
+----
 ###Inserting records
 
 ```objective-c
@@ -45,13 +46,23 @@ VIPerson *person = [VIPerson vok_newInstance];
 [person setLastName:@"Panchal"];
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 ```
-
+----
 ###Querying Records	
 
+####Query with basic predicate
 ```objective-c
-NSArray *results = [VIPerson vok_fetchAllForPredicate:nil forManagedObjectContext:nil];
+NSArray *results = [VIPerson vok_fetchAllForPredicate:nil forManagedObjectContext:nil]; //Basic Fetch
+```
+
+####Query with basic predicate and sorting
+```objective-c
+NSArray *results = [VIPerson vok_fetchAllForPredicate:nil
+                                          sortedByKey:@"numberOfCats"
+                                            ascending:YES
+                              forManagedObjectContext:nil];
 ```
 	
+----	
 ###Deleting records
 ```objective-c
 VOKCoreDataManager *manager = [VOKCoreDataManager sharedInstance];
@@ -59,6 +70,7 @@ VOKCoreDataManager *manager = [VOKCoreDataManager sharedInstance];
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 ```	
 
+----
 ###Saving 
 ```objective-c
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait]; //Saves synchronously
