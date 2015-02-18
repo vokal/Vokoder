@@ -72,8 +72,21 @@ VOKCoreDataManager *manager = [VOKCoreDataManager sharedInstance];
 
 ----
 ###Saving 
+
 ```objective-c
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait]; //Saves synchronously
+```
+
+####Saving on background thread
+
+```objective-c
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+    NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+        
+    VIPerson *person = [VIThing vok_newInstanceWithContext:backgroundContext];
+	[person setNumberOfCats:@1];
+    [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
+});
 ```
 
 
