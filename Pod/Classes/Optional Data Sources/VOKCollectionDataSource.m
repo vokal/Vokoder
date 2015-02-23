@@ -26,6 +26,7 @@
         sortDescriptors:(NSArray *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
               batchSize:(NSInteger)batchSize
+             fetchLimit:(NSInteger)fetchLimit
                delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
 {
     self.collectionView = collectionView;
@@ -33,13 +34,35 @@
     self.collectionView.dataSource = self;
     _objectChanges = [@[] mutableCopy];
     _sectionChanges = [@[] mutableCopy];
-    
+
     return [self initWithPredicate:predicate
                          cacheName:cacheName
                          tableView:nil
                 sectionNameKeyPath:sectionNameKeyPath
                    sortDescriptors:sortDescriptors
                 managedObjectClass:managedObjectClass
+                          batchSize:batchSize
+                        fetchLimit:fetchLimit
+                          delegate:delegate];
+}
+
+- (id)initWithPredicate:(NSPredicate *)predicate
+              cacheName:(NSString *)cacheName
+         collectionView:(UICollectionView *)collectionView
+     sectionNameKeyPath:(NSString *)sectionNameKeyPath
+        sortDescriptors:(NSArray *)sortDescriptors
+     managedObjectClass:(Class)managedObjectClass
+              batchSize:(NSInteger)batchSize
+               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
+{
+    return [self initWithPredicate:predicate
+                         cacheName:cacheName
+                    collectionView:collectionView
+                sectionNameKeyPath:sectionNameKeyPath
+                   sortDescriptors:sortDescriptors
+                managedObjectClass:managedObjectClass
+                         batchSize:batchSize
+                        fetchLimit:0
                           delegate:delegate];
 }
 

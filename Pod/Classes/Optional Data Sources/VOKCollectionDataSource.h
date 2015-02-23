@@ -45,4 +45,14 @@
               batchSize:(NSInteger)batchSize
                delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate;
 
+- (id)initWithPredicate:(NSPredicate *)predicate
+              cacheName:(NSString *)cacheName
+              collectionView:(UICollectionView *)collectionView
+     sectionNameKeyPath:(NSString *)sectionNameKeyPath
+        sortDescriptors:(NSArray *)sortDescriptors
+     managedObjectClass:(Class)managedObjectClass
+              batchSize:(NSInteger)batchSize
+             fetchLimit:(NSInteger)fetchLimit
+               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate;
+
 @end
