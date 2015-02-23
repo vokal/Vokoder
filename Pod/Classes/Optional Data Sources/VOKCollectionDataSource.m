@@ -128,10 +128,19 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    if ([self.delegate respondsToSelector:@selector(fetchResultsDataSourceHasResults:)]) {
-        [self.delegate fetchResultsDataSourceHasResults:([sectionInfo numberOfObjects] > 0)];
+
+    // NSFetchedResultsController doesn't really respect fetchLimit, so we have
+    // to work around it: don't allow more items than the limit.
+    NSInteger resultCount = [sectionInfo numberOfObjects];
+    if (self.fetchedResultsController.fetchRequest.fetchLimit > 0
+        && resultCount > self.fetchedResultsController.fetchRequest.fetchLimit) {
+        resultCount = self.fetchedResultsController.fetchRequest.fetchLimit;
     }
-    return [sectionInfo numberOfObjects];
+
+    if ([self.delegate respondsToSelector:@selector(fetchResultsDataSourceHasResults:)]) {
+        [self.delegate fetchResultsDataSourceHasResults:(resultCount > 0)];
+    }
+    return resultCount;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -215,27 +224,61 @@
             
             for (NSDictionary *change in _sectionChanges) {
                 [change enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, id obj, BOOL *stop) {
-                    
+                    NSIndexPath *indexPath, *newIndexPath;
+                    if ([obj isKindOfClass:[NSIndexPath class]]) {
+                        indexPath = obj;
+                    } else if ([obj isKindOfClass:[NSArray class]]) {
+                        indexPath = obj[0];
+                        newIndexPath = obj[1];
+                    }
+
+                    // NSFetchedResultsController doesn't handle fetchLimit
+                    // properly, so we need to check index paths against the
+                    // limit before acting on the change.
+                    NSUInteger fetchLimit = controller.fetchRequest.fetchLimit;
+
                     NSFetchedResultsChangeType type = [key unsignedIntegerValue];
                     switch (type) {
                         case NSFetchedResultsChangeInsert:
-                            [self.collectionView insertSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
+                            if (fetchLimit == 0 || indexPath.row < fetchLimit) {
+                                [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
+                            }
                             break;
                         case NSFetchedResultsChangeDelete:
-                            [self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
+                            if (fetchLimit == 0 || indexPath.row < fetchLimit) {
+                                [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+                            }
                             break;
                         case NSFetchedResultsChangeUpdate:
-                            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
+                            if (fetchLimit == 0 || indexPath.row < fetchLimit) {
+                                [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                            }
                             break;
-                        default:
-                            //Do nothing, shut up the compiler with a default case. 
+                        case NSFetchedResultsChangeMove:
+                            if (fetchLimit > 0) {
+                                if (indexPath.row < fetchLimit && newIndexPath.row < fetchLimit) {
+                                    // Before and after are both in range
+                                    [self.collectionView moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
+                                } else if (indexPath.row >= fetchLimit && newIndexPath.row >= fetchLimit) {
+                                    // Both out of range: do nothing
+                                } else if (indexPath.row < fetchLimit && newIndexPath.row >= fetchLimit) {
+                                    // Destination is out of range: remove the original row
+                                    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+                                } else if  (indexPath.row >= fetchLimit && newIndexPath.row < fetchLimit) {
+                                    // Origin is out of range: add the new row
+                                    [self.collectionView insertItemsAtIndexPaths:@[newIndexPath]];
+                                }
+                            } else {
+                                // No fetch limit: behave normally
+                                [self.collectionView moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
+                            }
                             break;
                     }
                 }];
             }
         } completion:nil];
     }
-    
+
     if ([_objectChanges count] > 0 && [_sectionChanges count] == 0) {
         
         if ([self shouldReloadCollectionViewToPreventKnownIssue]) {

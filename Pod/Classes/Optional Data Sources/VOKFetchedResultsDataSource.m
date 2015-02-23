@@ -132,6 +132,14 @@
     }
 }
 
+- (void)setFetchLimit:(NSInteger)fetchLimit
+{
+    if (_fetchLimit != fetchLimit) {
+        _fetchLimit = fetchLimit;
+        [self initFetchedResultsController];
+    }
+}
+
 - (void)setIncludesSubentities:(BOOL)includesSubentities
 {
     if (_includesSubentities != includesSubentities) {
@@ -228,11 +236,18 @@
 {
     id <NSFetchedResultsSectionInfo> sectionInfo = [_fetchedResultsController sections][section];
 
-    if ([_delegate respondsToSelector:@selector(fetchResultsDataSourceHasResults:)]) {
-        [_delegate fetchResultsDataSourceHasResults:([sectionInfo numberOfObjects] > 0)];
+    // NSFetchedResultsController doesn't really respect fetchLimit, so we have
+    // to work around it: don't allow more items than the limit.
+    NSInteger resultCount = [sectionInfo numberOfObjects];
+    if (self.fetchedResultsController.fetchRequest.fetchLimit > 0
+        && resultCount > self.fetchedResultsController.fetchRequest.fetchLimit) {
+        resultCount = self.fetchedResultsController.fetchRequest.fetchLimit;
     }
 
-    return [sectionInfo numberOfObjects];
+    if ([self.delegate respondsToSelector:@selector(fetchResultsDataSourceHasResults:)]) {
+        [self.delegate fetchResultsDataSourceHasResults:(resultCount > 0)];
+    }
+    return resultCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -315,23 +330,51 @@
      forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
+    // NSFetchedResultsController doesn't handle fetchLimit
+    // properly, so we need to check index paths against the
+    // limit before acting on the change.
+    NSUInteger fetchLimit = controller.fetchRequest.fetchLimit;
+
     switch (type) {
         case NSFetchedResultsChangeInsert:
-            [_tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            if (fetchLimit == 0 || newIndexPath.row < fetchLimit) {
+                [_tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            }
             break;
 
         case NSFetchedResultsChangeDelete:
-            [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            if (fetchLimit == 0 || indexPath.row < fetchLimit) {
+                [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            }
             break;
 
         case NSFetchedResultsChangeUpdate:
-            [_tableView reloadRowsAtIndexPaths:@[indexPath]
-                              withRowAnimation:UITableViewRowAnimationNone];
+            if (fetchLimit == 0 || indexPath.row < fetchLimit) {
+                [_tableView reloadRowsAtIndexPaths:@[indexPath]
+                                  withRowAnimation:UITableViewRowAnimationNone];
+            }
             break;
 
         case NSFetchedResultsChangeMove:
-            [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [_tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            if (fetchLimit > 0) {
+                if (indexPath.row < fetchLimit && newIndexPath.row < fetchLimit) {
+                    // Before and after are both in range
+                    [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                    [_tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                } else if (indexPath.row >= fetchLimit && newIndexPath.row >= fetchLimit) {
+                    // Both out of range: do nothing
+                } else if (indexPath.row < fetchLimit && newIndexPath.row >= fetchLimit) {
+                    // Destination is out of range: remove the original row
+                    [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                } else if  (indexPath.row >= fetchLimit && newIndexPath.row < fetchLimit) {
+                    // Origin is out of range: add the new row
+                    [_tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                }
+            } else {
+                // No fetch limit: behave normally
+                [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [_tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            }
             break;
     }
 }
