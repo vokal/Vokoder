@@ -39,7 +39,7 @@
                                                           cacheName:nil
                                                           tableView:self.tableView
                                                  sectionNameKeyPath:nil sortDescriptors:sortDescriptors
-                                                managedObjectClass:[VIPerson class]];
+                                                 managedObjectClass:[VIPerson class]];
 }
 
 - (void)setupCustomMapper
