@@ -366,7 +366,7 @@
                 } else if (indexPath.row < fetchLimit && newIndexPath.row >= fetchLimit) {
                     // Destination is out of range: remove the original row
                     [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                } else if  (indexPath.row >= fetchLimit && newIndexPath.row < fetchLimit) {
+                } else if (indexPath.row >= fetchLimit && newIndexPath.row < fetchLimit) {
                     // Origin is out of range: add the new row
                     [_tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
                 }

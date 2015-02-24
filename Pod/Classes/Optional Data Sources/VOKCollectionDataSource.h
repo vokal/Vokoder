@@ -47,7 +47,7 @@
 
 - (id)initWithPredicate:(NSPredicate *)predicate
               cacheName:(NSString *)cacheName
-              collectionView:(UICollectionView *)collectionView
+         collectionView:(UICollectionView *)collectionView
      sectionNameKeyPath:(NSString *)sectionNameKeyPath
         sortDescriptors:(NSArray *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
