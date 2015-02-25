@@ -41,7 +41,7 @@
                 sectionNameKeyPath:sectionNameKeyPath
                    sortDescriptors:sortDescriptors
                 managedObjectClass:managedObjectClass
-                          batchSize:batchSize
+                         batchSize:batchSize
                         fetchLimit:fetchLimit
                           delegate:delegate];
 }
@@ -311,27 +311,61 @@
             // This code should be removed once the bug has been fixed, it is tracked in OpenRadar
             // http://openradar.appspot.com/12954582
             [self.collectionView reloadData];
-            
+
         } else {
-            
+
             [self.collectionView performBatchUpdates:^{
-                
+
                 for (NSDictionary *change in _objectChanges) {
                     [change enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, id obj, BOOL *stop) {
-                        
+                        NSIndexPath *indexPath, *newIndexPath;
+                        if ([obj isKindOfClass:[NSIndexPath class]]) {
+                            indexPath = obj;
+                        } else if ([obj isKindOfClass:[NSArray class]]) {
+                            indexPath = obj[0];
+                            newIndexPath = obj[1];
+                        }
+
+                        // NSFetchedResultsController doesn't handle fetchLimit
+                        // properly, so we need to check index paths against the
+                        // limit before acting on the change.
+                        NSUInteger fetchLimit = controller.fetchRequest.fetchLimit;
+
                         NSFetchedResultsChangeType type = [key unsignedIntegerValue];
                         switch (type) {
                             case NSFetchedResultsChangeInsert:
-                                [self.collectionView insertItemsAtIndexPaths:@[obj]];
+                                if (fetchLimit == 0 || indexPath.row < fetchLimit) {
+                                    [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
+                                }
                                 break;
                             case NSFetchedResultsChangeDelete:
-                                [self.collectionView deleteItemsAtIndexPaths:@[obj]];
+                                if (fetchLimit == 0 || indexPath.row < fetchLimit) {
+                                    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+                                }
                                 break;
                             case NSFetchedResultsChangeUpdate:
-                                [self.collectionView reloadItemsAtIndexPaths:@[obj]];
+                                if (fetchLimit == 0 || indexPath.row < fetchLimit) {
+                                    [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                                }
                                 break;
                             case NSFetchedResultsChangeMove:
-                                [self.collectionView moveItemAtIndexPath:obj[0] toIndexPath:obj[1]];
+                                if (fetchLimit > 0) {
+                                    if (indexPath.row < fetchLimit && newIndexPath.row < fetchLimit) {
+                                        // Before and after are both in range
+                                        [self.collectionView moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
+                                    } else if (indexPath.row >= fetchLimit && newIndexPath.row >= fetchLimit) {
+                                        // Both out of range: do nothing
+                                    } else if (indexPath.row < fetchLimit && newIndexPath.row >= fetchLimit) {
+                                        // Destination is out of range: remove the original row
+                                        [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+                                    } else if  (indexPath.row >= fetchLimit && newIndexPath.row < fetchLimit) {
+                                        // Origin is out of range: add the new row
+                                        [self.collectionView insertItemsAtIndexPaths:@[newIndexPath]];
+                                    }
+                                } else {
+                                    // No fetch limit: behave normally
+                                    [self.collectionView moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
+                                }
                                 break;
                         }
                     }];
