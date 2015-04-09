@@ -3,6 +3,8 @@
 //  CoreData
 //
 
+#import <UIKit/UIKit.h>
+
 #import "VOKCoreDataManager.h"
 
 @protocol VOKFetchedResultsDataSourceDelegate <NSObject>
