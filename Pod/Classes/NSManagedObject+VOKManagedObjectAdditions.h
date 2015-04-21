@@ -104,7 +104,7 @@
  @return                NSArray full of the instances of the current class.
  */
 + (NSArray *)vok_fetchAllForPredicate:(NSPredicate *)predicate
-                             sortedBy:(NSArray*)sortDescriptors
+                             sortedBy:(NSArray *)sortDescriptors
               forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
 
 /*

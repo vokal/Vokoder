@@ -125,7 +125,7 @@
 }
 
 + (NSArray *)vok_fetchAllForPredicate:(NSPredicate *)predicate
-                             sortedBy:(NSArray*)sortDescriptors
+                             sortedBy:(NSArray *)sortDescriptors
               forManagedObjectContext:(NSManagedObjectContext *)contextOrNil
 {
     return [[VOKCoreDataManager sharedInstance] arrayForClass:[self class]

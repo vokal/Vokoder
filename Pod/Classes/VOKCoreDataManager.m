@@ -332,7 +332,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (NSArray *)arrayForClass:(Class)managedObjectClass
              withPredicate:(NSPredicate *)predicate
-                  sortedBy:(NSArray*)sortDescriptors
+                  sortedBy:(NSArray *)sortDescriptors
                 forContext:(NSManagedObjectContext *)contextOrNil
 {
     contextOrNil = [self safeContext:contextOrNil];
@@ -342,8 +342,8 @@ static VOKCoreDataManager *VOK_SharedObject;
     return [self arrayForFetchRequest:fetchRequest inContext:contextOrNil];
 }
 
--(NSArray*)arrayForFetchRequest:(NSFetchRequest*)fetchRequest
-                      inContext:(NSManagedObjectContext*)context
+-(NSArray *)arrayForFetchRequest:(NSFetchRequest *)fetchRequest
+                      inContext:(NSManagedObjectContex t*)context
 {
     NSError *error;
     NSArray *results = [context executeFetchRequest:fetchRequest error:&error];

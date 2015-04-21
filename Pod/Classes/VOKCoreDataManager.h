@@ -182,7 +182,7 @@ typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
  */
 - (NSArray *)arrayForClass:(Class)managedObjectClass
              withPredicate:(NSPredicate *)predicate
-                  sortedBy:(NSArray*)sortDescriptors
+                  sortedBy:(NSArray *)sortDescriptors
                 forContext:(NSManagedObjectContext *)contextOrNil;
 
 /**
