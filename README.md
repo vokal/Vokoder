@@ -24,6 +24,72 @@ Data sources to facilitate backing various kinds of views with data from Core Da
 - `Collection` is based on `FetchedResults`, but intended for use with a `UICollectionView`.
 - `Carousel` (not included by default) is based on `FetchedResults` but intended for use with [iCarousel](https://github.com/nicklockwood/iCarousel) (and hence includes it as a dependency).
 
+##Usage
+
+###Setting up the data model
+
+```objective-c
+[[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:@"VICoreDataModel.sqlite"]; //Saved to Disk
+```
+Or
+
+```objective-c
+[[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:nil]; //In memory data store
+```
+    
+----
+###Inserting records
+
+```objective-c
+VIPerson *person = [VIPerson vok_newInstance];
+[person setFirstName:@"Rohan"];
+[person setLastName:@"Panchal"];
+[[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
+```
+----
+###Querying Records	
+
+####Query with basic predicate
+```objective-c
+NSArray *results = [VIPerson vok_fetchAllForPredicate:nil forManagedObjectContext:nil]; //Basic Fetch
+```
+
+####Query with basic predicate and sorting
+```objective-c
+NSArray *results = [VIPerson vok_fetchAllForPredicate:nil
+                                          sortedByKey:@"numberOfCats"
+                                            ascending:YES
+                              forManagedObjectContext:nil];
+```
+	
+----	
+###Deleting records
+```objective-c
+VOKCoreDataManager *manager = [VOKCoreDataManager sharedInstance];
+[manager deleteObject:person];
+[[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
+```	
+
+----
+###Saving 
+
+```objective-c
+[[VOKCoreDataManager sharedInstance] saveMainContextAndWait]; //Saves synchronously
+```
+
+####Saving on background thread
+
+```objective-c
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+    NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+        
+    VIPerson *person = [VIThing vok_newInstanceWithContext:backgroundContext];
+	[person setNumberOfCats:@1];
+    [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
+});
+```
+
+
 ## License
 
 Vokoder is available under the MIT license. See the LICENSE file for more info.

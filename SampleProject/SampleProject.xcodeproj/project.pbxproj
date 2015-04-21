@@ -25,6 +25,7 @@
 		71E1AB091A534274004311E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71E1AB071A534274004311E5 /* InfoPlist.strings */; };
 		71E1AB0D1A5342E9004311E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71E1AB0A1A5342E5004311E5 /* InfoPlist.strings */; };
 		71E1AB0E1A534468004311E5 /* VICoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE41A5340A1004311E5 /* VICoreDataModel.xcdatamodeld */; };
+		8434D7401A93F44E005A9B2F /* VOKManagedObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8434D73F1A93F44E005A9B2F /* VOKManagedObjectAdditions.m */; };
 		EA5F19A515C196500089AA44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A415C196500089AA44 /* UIKit.framework */; };
 		EA5F19A715C196500089AA44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A615C196500089AA44 /* Foundation.framework */; };
 		EA5F19A915C196500089AA44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A815C196500089AA44 /* CoreGraphics.framework */; };
@@ -68,6 +69,7 @@
 		71E1AB021A534221004311E5 /* VIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIViewController.m; sourceTree = SOURCE_ROOT; };
 		71E1AB081A534274004311E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		71E1AB0B1A5342E5004311E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = VOKCoreDataManagerTests/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		8434D73F1A93F44E005A9B2F /* VOKManagedObjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VOKManagedObjectAdditions.m; path = VOKCoreDataManagerTests/VOKManagedObjectAdditions.m; sourceTree = SOURCE_ROOT; };
 		92D82C6CD9409B2DDCC878AA /* libPods-VOKCoreDataManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15387FCC51E8AC46390CE29 /* libPods-VOKCoreDataManager Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7DDF948D3F98E50A58C90E /* Pods-VOKCoreDataManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				71E1AAF51A5340ED004311E5 /* CoreDataManagerDeleteTests.m */,
 				71E1AAF71A5340F3004311E5 /* ManagedObjectImportExportTests.m */,
+				8434D73F1A93F44E005A9B2F /* VOKManagedObjectAdditions.m */,
 				3D40DE41180729A10048D5EE /* Supporting Files */,
 			);
 			name = VOKCoreDataManagerTests;
@@ -397,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71E1AB061A53423D004311E5 /* ManagedObjectImportExportTests.m in Sources */,
+				8434D7401A93F44E005A9B2F /* VOKManagedObjectAdditions.m in Sources */,
 				71E1AB0E1A534468004311E5 /* VICoreDataModel.xcdatamodeld in Sources */,
 				71E1AB051A534239004311E5 /* CoreDataManagerDeleteTests.m in Sources */,
 			);

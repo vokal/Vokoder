@@ -172,6 +172,20 @@ typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
                 forContext:(NSManagedObjectContext *)contextOrNil;
 
 /**
+ Fetches every instance of a given class that matches the predicate using the given managed object context. Includes subentities.
+ NOT threadsafe! Always use a temp context if you are NOT on the main queue.
+ @param managedObjectClass      The class to fetch.
+ @param predicate               The predicate limit the fetch.
+ @param sortedBy                The sort descriptors to sort the results.
+ @param contextOrNil            The managed object context in which fetch instances of the given class. A nil context will use the main context.
+ @return                        An NSArray of managed object subclasses. Not threadsafe.
+ */
+- (NSArray *)arrayForClass:(Class)managedObjectClass
+             withPredicate:(NSPredicate *)predicate
+                  sortedBy:(NSArray*)sortDescriptors
+                forContext:(NSManagedObjectContext *)contextOrNil;
+
+/**
  Finds an object for a given NSManagedObjectID URI Representation. This method relies on existingObjectWithID:error:.
  A very malformed URI will cause managedObjectIDForURIRepresentation: to throw an exception. All other known errors are handled by logging and returning nil.
  @param uri             URIRepresetion of an NSManagedObjectId
