@@ -36,7 +36,6 @@ static NSString *const THING_NAME_KEY = @"thing_name";
 static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 
 @interface VOKManagedObjectMap (VOKdefaultFormatters) //for testing!
-+ (NSDateFormatter *)vok_defaultDateFormatter;
 + (NSNumberFormatter *)vok_defaultNumberFormatter;
 
 @end
@@ -56,11 +55,25 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 
 - (void)testImportExportDictionaryWithDefaultMapper
 {
-    VIPerson *person = [VIPerson vok_addWithDictionary:[self makePersonDictForDefaultMapper] forManagedObjectContext:nil];
-    [self checkMappingForPerson:person andDictionary:[self makePersonDictForDefaultMapper]];
+    VIPerson *person = [VIPerson vok_addWithDictionary:[self makeServerPersonDictForDefaultMapper] forManagedObjectContext:nil];
+    [self checkMappingForPerson:person andDictionary:[self makeServerPersonDictForDefaultMapper]];
 
     NSDictionary *dict = [person vok_dictionaryRepresentation];
-    XCTAssertTrue([dict isEqualToDictionary:[self makePersonDictForDefaultMapper]], @"dictionary representation failed to match input dictionary");
+    XCTAssertTrue([dict isEqualToDictionary:[self makeClientPersonDictForDefaultMapper]], @"dictionary representation failed to match input dictionary");
+}
+
+- (void)testImportExportDictionaryWithMapperWithoutMicroseconds
+{
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:nil andMaps:[self customMapsArrayWithoutMicroseconds]];
+    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
+    VIPerson *person = [VIPerson vok_addWithDictionary:[self makeClientPersonDictForMapperWithoutMicroseconds] forManagedObjectContext:nil];
+    [self checkMappingForPerson:person
+                  andDictionary:[self makeClientPersonDictForMapperWithoutMicroseconds]
+              birthdayFormatter:[VOKManagedObjectMap vok_dateFormatterWithoutMicroseconds]
+                    birthdayKey:BIRTHDAY_DEFAULT_KEY];
+
+    NSDictionary *dict = [person vok_dictionaryRepresentation];
+    XCTAssertTrue([dict isEqualToDictionary:[self makeClientPersonDictForMapperWithoutMicroseconds]], @"dictionary representation failed to match input dictionary");
 }
 
 - (void)testImportExportDictionaryWithCustomMapper
@@ -68,7 +81,7 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:nil andMaps:[self customMapsArray]];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
     VIPerson *person = [VIPerson vok_addWithDictionary:[self makePersonDictForCustomMapper] forManagedObjectContext:nil];
-    [self checkMappingForPerson:person andDictionary:[self makePersonDictForCustomMapper]];
+    [self checkCustomMappingForPerson:person andDictionary:[self makePersonDictForCustomMapper]];
 
     NSDictionary *dict = [person vok_dictionaryRepresentation];
     XCTAssertTrue([dict isEqualToDictionary:[self makePersonDictForCustomMapper]], @"dictionary representation failed to match input dictionary");
@@ -79,7 +92,7 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:nil andMaps:[self customMapsArray]];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
     VIPerson *person = [VIPerson vok_addWithDictionary:[self makePersonDictForCustomMapperAndMissingParameter] forManagedObjectContext:nil];
-    [self checkMappingForPerson:person andDictionary:[self makePersonDictForCustomMapperAndMissingParameter]];
+    [self checkCustomMappingForPerson:person andDictionary:[self makePersonDictForCustomMapperAndMissingParameter]];
 
     NSDictionary *dict = [person vok_dictionaryRepresentation];
     XCTAssertTrue([dict isEqualToDictionary:[self makePersonDictForCustomMapperAndMissingParameter]], @"dictionary representation failed to match input dictionary");
@@ -139,7 +152,7 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     XCTAssertTrue([arrayOfPeople count] == 5, @"person array has incorrect number of people");
 
     [arrayOfPeople enumerateObjectsUsingBlock:^(VIPerson *obj, NSUInteger idx, BOOL *stop) {
-        [self checkMappingForPerson:obj andDictionary:[self makePersonDictForCustomMapper]];
+        [self checkCustomMappingForPerson:obj andDictionary:[self makePersonDictForCustomMapper]];
     }];
 }
 
@@ -164,23 +177,23 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     XCTAssertTrue([arrayOfPeople count] == 5, @"person array has incorrect number of people");
 
     [arrayOfPeople enumerateObjectsUsingBlock:^(VIPerson *obj, NSUInteger idx, BOOL *stop) {
-        [self checkMappingForPerson:obj andDictionary:[self makePersonDictForCustomMapper]];
+        [self checkCustomMappingForPerson:obj andDictionary:[self makePersonDictForCustomMapper]];
     }];
 }
 
 - (void)testImportArrayWithDefaultMapper
 {
-    NSArray *array = @[[self makePersonDictForDefaultMapper],
-                       [self makePersonDictForDefaultMapper],
-                       [self makePersonDictForDefaultMapper],
-                       [self makePersonDictForDefaultMapper],
-                       [self makePersonDictForDefaultMapper]];
+    NSArray *array = @[[self makeServerPersonDictForDefaultMapper],
+                       [self makeServerPersonDictForDefaultMapper],
+                       [self makeServerPersonDictForDefaultMapper],
+                       [self makeServerPersonDictForDefaultMapper],
+                       [self makeServerPersonDictForDefaultMapper]];
     NSArray *arrayOfPeople = [VIPerson vok_addWithArray:array forManagedObjectContext:nil];
 
     XCTAssertTrue([arrayOfPeople count] == 5, @"person array has incorrect number of people");
 
     [arrayOfPeople enumerateObjectsUsingBlock:^(VIPerson *obj, NSUInteger idx, BOOL *stop) {
-        [self checkMappingForPerson:obj andDictionary:[self makePersonDictForDefaultMapper]];
+        [self checkMappingForPerson:obj andDictionary:[self makeServerPersonDictForDefaultMapper]];
     }];
 }
 
@@ -201,11 +214,11 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 
 - (void)testImportArrayWithDefaultMapperMalformedInput
 {
-    NSArray *array = @[[self makePersonDictForDefaultMapper],
-                       [self makePersonDictForDefaultMapper],
+    NSArray *array = @[[self makeServerPersonDictForDefaultMapper],
+                       [self makeServerPersonDictForDefaultMapper],
                        [self makePersonDictForDefaultMapperWithMalformedInput],
-                       [self makePersonDictForDefaultMapper],
-                       [self makePersonDictForDefaultMapper]];
+                       [self makeServerPersonDictForDefaultMapper],
+                       [self makeServerPersonDictForDefaultMapper]];
     NSArray *arrayOfPeople = [VIPerson vok_addWithArray:array forManagedObjectContext:nil];
 
     XCTAssertTrue([arrayOfPeople count] == 5, @"person array has incorrect number of people");
@@ -214,11 +227,11 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 
 - (void)testImportArrayWithMalformedMapper
 {
-    NSArray *array = @[[self makePersonDictForDefaultMapper],
-                       [self makePersonDictForDefaultMapper],
+    NSArray *array = @[[self makeServerPersonDictForDefaultMapper],
+                       [self makeServerPersonDictForDefaultMapper],
                        [self makePersonDictForDefaultMapperWithMalformedInput],
-                       [self makePersonDictForDefaultMapper],
-                       [self makePersonDictForDefaultMapper]];
+                       [self makeServerPersonDictForDefaultMapper],
+                       [self makeServerPersonDictForDefaultMapper]];
 
     NSArray *malformedMaps = @[[VOKManagedObjectMap mapWithForeignKeyPath:FIRST_NAME_MALFORMED_KEY coreDataKey:FIRST_NAME_DEFAULT_KEY],
                             [VOKManagedObjectMap mapWithForeignKeyPath:LAST_NAME_MALFORMED_KEY coreDataKey:LAST_NAME_DEFAULT_KEY],
@@ -238,7 +251,7 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:FIRST_NAME_DEFAULT_KEY andMaps:[self customMapsArray]];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
     VIPerson *person = [VIPerson vok_addWithDictionary:[self makePersonDictForCustomMapper] forManagedObjectContext:nil];
-    [self checkMappingForPerson:person andDictionary:[self makePersonDictForCustomMapper]];
+    [self checkCustomMappingForPerson:person andDictionary:[self makePersonDictForCustomMapper]];
 
     person = [VIPerson vok_addWithDictionary:[self makePersonDictForCustomMapperWithAnEmptyInputValues] forManagedObjectContext:nil];
     XCTAssertTrue(person.lastName == nil, @"the NSNull in the import dictionary did not overwrite the managed object's property");
@@ -419,7 +432,7 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     };
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
 
-    NSDictionary *dict1 = [self makePersonDictForDefaultMapper];
+    NSDictionary *dict1 = [self makeServerPersonDictForDefaultMapper];
 
     VIPerson *person = [VIPerson vok_addWithDictionary:dict1 forManagedObjectContext:nil];
     XCTAssertTrue([person.lovesCoolRanch boolValue], @"Post import block ran incorrectly");
@@ -471,8 +484,8 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     };
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
 
-    VIPerson *person = [VIPerson vok_addWithDictionary:[self makePersonDictForDefaultMapper] forManagedObjectContext:nil];
-    [self checkMappingForPerson:person andDictionary:[self makePersonDictForDefaultMapper]];
+    VIPerson *person = [VIPerson vok_addWithDictionary:[self makeServerPersonDictForDefaultMapper] forManagedObjectContext:nil];
+    [self checkMappingForPerson:person andDictionary:[self makeServerPersonDictForDefaultMapper]];
 
     NSDictionary *dict = [person vok_dictionaryRepresentation];
     XCTAssertNotNil(dict[@"test"], @"Post export block ran incorrectly");
@@ -521,6 +534,25 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 
 - (void)checkMappingForPerson:(VIPerson *)person andDictionary:(NSDictionary *)dict
 {
+    [self checkMappingForPerson:person
+                  andDictionary:dict
+              birthdayFormatter:[VOKManagedObjectMap vok_defaultDateFormatter]
+                    birthdayKey:BIRTHDAY_DEFAULT_KEY];
+}
+
+- (void)checkCustomMappingForPerson:(VIPerson *)person andDictionary:(NSDictionary *)dict
+{
+    [self checkMappingForPerson:person
+                  andDictionary:dict
+              birthdayFormatter:[self customDateFormatter]
+                    birthdayKey:BIRTHDAY_CUSTOM_KEY];
+}
+
+- (void)checkMappingForPerson:(VIPerson *)person
+                andDictionary:(NSDictionary *)dict
+            birthdayFormatter:(NSDateFormatter *)birthdayFormatter
+                  birthdayKey:(NSString *)birthdayKey
+{
     XCTAssertTrue(person != nil, @"person was not created");
     XCTAssertTrue([person isKindOfClass:[VIPerson class]], @"person is wrong class");
 
@@ -536,10 +568,8 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     NSNumber *lovesCoolRanch = [dict objectForKey:COOL_RANCH_DEFAULT_KEY] ?: [dict objectForKey:COOL_RANCH_CUSTOM_KEY];
     XCTAssertTrue([person.lovesCoolRanch isEqualToNumber:lovesCoolRanch], @"person lovesCoolRanch is incorrect");
 
-    NSDate *birthdate = [[VOKManagedObjectMap vok_defaultDateFormatter] dateFromString:[dict objectForKey:BIRTHDAY_DEFAULT_KEY]];
-    if (!birthdate) {
-        birthdate = [[self customDateFormatter] dateFromString:[dict objectForKey:BIRTHDAY_CUSTOM_KEY]];
-    }
+    NSDate *birthdate = [birthdayFormatter dateFromString:[dict objectForKey:birthdayKey]];
+
     if (person.birthDay) {
         //only check if birthday should be there.
         XCTAssertTrue([person.birthDay isEqualToDate:birthdate], @"person birthdate is incorrect");
@@ -551,14 +581,32 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     return [NSString stringWithFormat:@"%d", arc4random()%3000];
 }
 
-- (NSDictionary *)makePersonDictForDefaultMapper
+- (NSDictionary *)makeServerPersonDictForDefaultMapper
 {
     NSDictionary *dict = @{FIRST_NAME_DEFAULT_KEY :  @"BILLY",
                            LAST_NAME_DEFAULT_KEY : @"TESTCASE" ,
-                           BIRTHDAY_DEFAULT_KEY : @"1983-07-24T03:22:15Z",
+                           BIRTHDAY_DEFAULT_KEY : @"1983-07-24T03:22:15.321123Z",
                            CATS_DEFAULT_KEY : @17,
                            COOL_RANCH_DEFAULT_KEY : @NO};
     return dict;
+}
+
+- (NSDictionary *)makeClientPersonDictForDefaultMapper
+{
+    // Server can return microseconds, but NSDate will only store milliseconds
+    // For testing, copy the server response and reduce the accuracy for comparing
+    NSMutableDictionary *mutableDict = [[self makeServerPersonDictForDefaultMapper] mutableCopy];
+    [mutableDict setValue:@"1983-07-24T03:22:15.321000Z" forKey:BIRTHDAY_DEFAULT_KEY];
+    return mutableDict;
+}
+
+- (NSDictionary *)makeClientPersonDictForMapperWithoutMicroseconds
+{
+    // Server can return microseconds, but NSDate will only store milliseconds
+    // For testing, copy the server response and reduce the accuracy for comparing
+    NSMutableDictionary *mutableDict = [[self makeServerPersonDictForDefaultMapper] mutableCopy];
+    [mutableDict setValue:@"1983-07-24T03:22:15Z" forKey:BIRTHDAY_DEFAULT_KEY];
+    return mutableDict;
 }
 
 - (NSDictionary *)makePersonDictForCustomMapper
@@ -614,7 +662,7 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 {
     NSDictionary *dict = @{FIRST_NAME_DEFAULT_KEY :  @"BILLY",
                            LAST_NAME_DEFAULT_KEY :  [NSNull null],
-                           BIRTHDAY_DEFAULT_KEY : @"1983-07-24T03:22:15Z",
+                           BIRTHDAY_DEFAULT_KEY : @"1983-07-24T03:22:15.321123Z",
                            COOL_RANCH_DEFAULT_KEY : @NO};
     return dict;
 }
@@ -632,7 +680,7 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 {
     NSDictionary *dict = @{FIRST_NAME_DEFAULT_KEY :  @"BILLY",
                            LAST_NAME_DEFAULT_KEY : @"TESTCASE" ,
-                           BIRTHDAY_DEFAULT_KEY : @"1983-07-24T03:22:15Z",
+                           BIRTHDAY_DEFAULT_KEY : @"1983-07-24T03:22:15.321123Z",
                            CATS_DEFAULT_KEY : @[@17],
                            COOL_RANCH_DEFAULT_KEY : @{@"something": @NO}};
     return dict;
@@ -672,6 +720,15 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
              [VOKManagedObjectMap mapWithForeignKeyPath:BIRTHDAY_KEYPATH_KEY coreDataKey:BIRTHDAY_DEFAULT_KEY dateFormatter:[self customDateFormatter]],
              [VOKManagedObjectMap mapWithForeignKeyPath:CATS_KEYPATH_KEY coreDataKey:CATS_DEFAULT_KEY],
              [VOKManagedObjectMap mapWithForeignKeyPath:COOL_RANCH_KEYPATH_KEY coreDataKey:COOL_RANCH_DEFAULT_KEY]];
+}
+
+- (NSArray *)customMapsArrayWithoutMicroseconds
+{
+    return @[[VOKManagedObjectMap mapWithForeignKeyPath:FIRST_NAME_DEFAULT_KEY coreDataKey:FIRST_NAME_DEFAULT_KEY],
+             [VOKManagedObjectMap mapWithForeignKeyPath:LAST_NAME_DEFAULT_KEY coreDataKey:LAST_NAME_DEFAULT_KEY],
+             [VOKManagedObjectMap mapWithForeignKeyPath:BIRTHDAY_DEFAULT_KEY coreDataKey:BIRTHDAY_DEFAULT_KEY dateFormatter:[VOKManagedObjectMap vok_dateFormatterWithoutMicroseconds]],
+             [VOKManagedObjectMap mapWithForeignKeyPath:CATS_DEFAULT_KEY coreDataKey:CATS_DEFAULT_KEY],
+             [VOKManagedObjectMap mapWithForeignKeyPath:COOL_RANCH_DEFAULT_KEY coreDataKey:COOL_RANCH_DEFAULT_KEY]];
 }
 
 @end
