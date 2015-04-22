@@ -53,11 +53,24 @@
     static NSDateFormatter *DefaultDateFormatter;
     dispatch_once(&pred, ^{
         DefaultDateFormatter = [NSDateFormatter new];
-        [DefaultDateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+        [DefaultDateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"];
         [DefaultDateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     });
 
     return DefaultDateFormatter;
+}
+
++ (NSDateFormatter *)vok_dateFormatterWithoutMicroseconds
+{
+    static dispatch_once_t formatter_dispatch_token = 0;
+    static NSDateFormatter *DateFormatterWithoutMicroseconds;
+    dispatch_once(&formatter_dispatch_token, ^{
+        DateFormatterWithoutMicroseconds = [NSDateFormatter new];
+        [DateFormatterWithoutMicroseconds setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+        [DateFormatterWithoutMicroseconds setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    });
+
+    return DateFormatterWithoutMicroseconds;
 }
 
 #pragma mark - Description
