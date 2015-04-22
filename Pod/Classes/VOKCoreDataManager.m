@@ -327,12 +327,30 @@ static VOKCoreDataManager *VOK_SharedObject;
     contextOrNil = [self safeContext:contextOrNil];
     NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass predicate:predicate];
 
+    return [self arrayForFetchRequest:fetchRequest inContext:contextOrNil];
+}
+
+- (NSArray *)arrayForClass:(Class)managedObjectClass
+             withPredicate:(NSPredicate *)predicate
+                  sortedBy:(NSArray *)sortDescriptors
+                forContext:(NSManagedObjectContext *)contextOrNil
+{
+    contextOrNil = [self safeContext:contextOrNil];
+    NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass
+                                                     predicate:predicate
+                                               sortDescriptors:sortDescriptors];
+    return [self arrayForFetchRequest:fetchRequest inContext:contextOrNil];
+}
+
+-(NSArray *)arrayForFetchRequest:(NSFetchRequest *)fetchRequest
+                       inContext:(NSManagedObjectContext *)context
+{
     NSError *error;
-    NSArray *results = [contextOrNil executeFetchRequest:fetchRequest error:&error];
+    NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
     if (error) {
         VOK_CDLog(@"%s Fetch Request Error\n%@", __PRETTY_FUNCTION__, [error localizedDescription]);
     }
-
+    
     return results;
 }
 
@@ -508,6 +526,16 @@ static VOKCoreDataManager *VOK_SharedObject;
     NSString *entityName = [managedObjectClass vok_entityName];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
     [fetchRequest setPredicate:predicate];
+    return fetchRequest;
+}
+
+-(NSFetchRequest *)fetchRequestWithClass:(Class)managedObjectClass
+                               predicate:(NSPredicate *)predicate
+                         sortDescriptors:(NSArray*)sortDescriptors
+{
+    NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass
+                                                     predicate:predicate];
+    [fetchRequest setSortDescriptors:sortDescriptors];
     return fetchRequest;
 }
 
