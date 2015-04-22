@@ -726,7 +726,9 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 {
     return @[[VOKManagedObjectMap mapWithForeignKeyPath:FIRST_NAME_DEFAULT_KEY coreDataKey:FIRST_NAME_DEFAULT_KEY],
              [VOKManagedObjectMap mapWithForeignKeyPath:LAST_NAME_DEFAULT_KEY coreDataKey:LAST_NAME_DEFAULT_KEY],
-             [VOKManagedObjectMap mapWithForeignKeyPath:BIRTHDAY_DEFAULT_KEY coreDataKey:BIRTHDAY_DEFAULT_KEY dateFormatter:[VOKManagedObjectMap vok_dateFormatterWithoutMicroseconds]],
+             [VOKManagedObjectMap mapWithForeignKeyPath:BIRTHDAY_DEFAULT_KEY
+                                            coreDataKey:BIRTHDAY_DEFAULT_KEY
+                                          dateFormatter:[VOKManagedObjectMap vok_dateFormatterWithoutMicroseconds]],
              [VOKManagedObjectMap mapWithForeignKeyPath:CATS_DEFAULT_KEY coreDataKey:CATS_DEFAULT_KEY],
              [VOKManagedObjectMap mapWithForeignKeyPath:COOL_RANCH_DEFAULT_KEY coreDataKey:COOL_RANCH_DEFAULT_KEY]];
 }
