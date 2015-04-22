@@ -84,4 +84,18 @@
  */
 + (NSArray *)mapsFromDictionary:(NSDictionary *)mapDict;
 
+/**
+ Default formatter used for date fields. This is the RFC 3339 format, with
+ milliseconds included.
+ @return            Default date formatter
+ */
++ (NSDateFormatter *)vok_defaultDateFormatter;
+
+/**
+ Default formatter used for date fields. This is the RFC 3339 format, just like
+ the one returned by vok_defaultDateFormatter, but with milliseconds ommitted.
+ @return            Default date formatter, without the milliseconds
+ */
++ (NSDateFormatter *)vok_dateFormatterWithoutMicroseconds;
+
 @end

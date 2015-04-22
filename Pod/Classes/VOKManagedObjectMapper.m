@@ -9,11 +9,6 @@
 #import "VOKCoreDataManager.h"
 #import "VOKCoreDataManagerInternalMacros.h"
 
-@interface VOKManagedObjectMap (VOKdefaultFormatters)
-+ (NSDateFormatter *)vok_defaultDateFormatter;
-
-@end
-
 @interface VOKManagedObjectDefaultMapper : VOKManagedObjectMapper
 
 @end
