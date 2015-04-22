@@ -343,7 +343,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 }
 
 -(NSArray *)arrayForFetchRequest:(NSFetchRequest *)fetchRequest
-                      inContext:(NSManagedObjectContex t*)context
+                       inContext:(NSManagedObjectContext *)context
 {
     NSError *error;
     NSArray *results = [context executeFetchRequest:fetchRequest error:&error];

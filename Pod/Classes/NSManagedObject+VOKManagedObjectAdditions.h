@@ -97,7 +97,7 @@
 + (NSArray *)vok_fetchAllForPredicate:(NSPredicate *)predicate forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
 
 /*
- Returns all entites matching the predicate.
+ Returns all entites matching the predicate, sorted using the array of sort descriptors.
  @param predicate       Predicate to use to fetch.
  @param sortDescriptors SortDescriptors to use to sort the results.
  @param contextOrNil    The managed object context to fetch in.  If nil, the main context will be used.
@@ -111,7 +111,7 @@
  Returns all entites matching the predicate.
  @param predicate       Predicate to use to fetch.
  @param sortKey         Key to use to sort the results.
- @param ascending       Whether not to sort in ascending or descending.
+ @param ascending       Whether or not to sort in ascending or descending.
  @param contextOrNil    The managed object context to fetch in.  If nil, the main context will be used.
  @return                NSArray full of the instances of the current class.
  */
@@ -127,7 +127,5 @@
  @return                An instance of the current class.
  */
 + (instancetype)vok_fetchForPredicate:(NSPredicate *)predicate forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
-
-
 
 @end
