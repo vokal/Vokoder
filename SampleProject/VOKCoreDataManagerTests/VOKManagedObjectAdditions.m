@@ -13,6 +13,8 @@
 #import <NSManagedObject+VOKManagedObjectAdditions.h>
 #import "VIThing.h"
 
+static const NSUInteger BasicTestDataStartPoint = 0;
+static const NSUInteger BasicTestDataSize = 5;
 
 @interface VOKManagedObjectAdditionTests : XCTestCase
 
@@ -37,11 +39,9 @@
 
 #pragma mark - Test Data Helper Methods
 
-#define basicTestDataStartPoint 0
-#define basicTestDataSize 5
 - (void)loadWithBasicTestData
 {
-    for (int i = basicTestDataStartPoint; i < basicTestDataSize; i++) {
+    for (int i = BasicTestDataStartPoint; i < BasicTestDataSize; i++) {
         VIThing *thing = [VIThing vok_newInstance];
         [thing setName:[NSString stringWithFormat:@"test-%i", i]];
         [thing setNumberOfHats:[NSNumber numberWithInt:i]];
@@ -126,7 +126,7 @@
                                  forManagedObjectContext:nil];
     XCTAssertNotNil(results);
     XCTAssertGreaterThan(results.count, 0);
-    XCTAssertEqual(results.count, basicTestDataSize);
+    XCTAssertEqual(results.count, BasicTestDataSize);
 }
 
 - (void)testRecordFetchingWithSortDescriptor
@@ -138,10 +138,10 @@
                                  forManagedObjectContext:nil];
     XCTAssertNotNil(results);
     XCTAssertGreaterThan(results.count, 0);
-    XCTAssertEqual(results.count, basicTestDataSize);
+    XCTAssertEqual(results.count, BasicTestDataSize);
     
-    XCTAssertEqual([[results firstObject] numberOfHats].intValue, basicTestDataStartPoint);
-    XCTAssertEqual([[results lastObject] numberOfHats].intValue, basicTestDataStartPoint + basicTestDataSize-1);
+    XCTAssertEqual([[results firstObject] numberOfHats].intValue, BasicTestDataStartPoint);
+    XCTAssertEqual([[results lastObject] numberOfHats].intValue, BasicTestDataStartPoint + BasicTestDataSize-1);
 }
 
 - (void)testRecordFetchingWithSortDescriptorAscending
@@ -154,10 +154,10 @@
     
     XCTAssertNotNil(results);
     XCTAssertGreaterThan(results.count, 0);
-    XCTAssertEqual(results.count, basicTestDataSize);
+    XCTAssertEqual(results.count, BasicTestDataSize);
     
-    XCTAssertEqual([[results firstObject] numberOfHats].intValue, basicTestDataStartPoint);
-    XCTAssertEqual([[results lastObject] numberOfHats].intValue, basicTestDataStartPoint + basicTestDataSize-1);
+    XCTAssertEqual([[results firstObject] numberOfHats].intValue, BasicTestDataStartPoint);
+    XCTAssertEqual([[results lastObject] numberOfHats].intValue, BasicTestDataStartPoint + BasicTestDataSize-1);
 }
 
 - (void)testRecordFetchingWithSortDescriptorDescending
@@ -170,10 +170,10 @@
     
     XCTAssertNotNil(results);
     XCTAssertGreaterThan(results.count, 0);
-    XCTAssertEqual(results.count, basicTestDataSize);
+    XCTAssertEqual(results.count, BasicTestDataSize);
     
-    XCTAssertEqual([[results firstObject] numberOfHats].intValue, basicTestDataStartPoint + basicTestDataSize-1);
-    XCTAssertEqual([[results lastObject] numberOfHats].intValue, basicTestDataStartPoint);
+    XCTAssertEqual([[results firstObject] numberOfHats].intValue, BasicTestDataStartPoint + BasicTestDataSize-1);
+    XCTAssertEqual([[results lastObject] numberOfHats].intValue, BasicTestDataStartPoint);
 }
 
 @end
