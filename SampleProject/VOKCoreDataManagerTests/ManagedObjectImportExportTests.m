@@ -602,8 +602,8 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 
 - (NSDictionary *)makeClientPersonDictForMapperWithoutMicroseconds
 {
-    // Server can return microseconds, but NSDate will only store milliseconds
-    // For testing, copy the server response and reduce the accuracy for comparing
+    // For testing, copy the server response and strip off the microseconds to
+    // test the format that omits them
     NSMutableDictionary *mutableDict = [[self makeServerPersonDictForDefaultMapper] mutableCopy];
     [mutableDict setValue:@"1983-07-24T03:22:15Z" forKey:BIRTHDAY_DEFAULT_KEY];
     return mutableDict;

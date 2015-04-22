@@ -86,15 +86,22 @@
 
 /**
  Default formatter used for date fields. This is the RFC 3339 format, with
- milliseconds included.
+ microseconds included. Note that iOS only stores milliseconds, so you'll get
+ three trailing zeros when formatting a date using this format.
+ 
+ Sample value: 1983-07-24T03:22:15.321123Z
+ 
  @return            Default date formatter
  */
 + (NSDateFormatter *)vok_defaultDateFormatter;
 
 /**
  Default formatter used for date fields. This is the RFC 3339 format, just like
- the one returned by vok_defaultDateFormatter, but with milliseconds ommitted.
- @return            Default date formatter, without the milliseconds
+ the one returned by vok_defaultDateFormatter, but with microseconds ommitted.
+ 
+ Sample value: 1983-07-24T03:22:15Z
+ 
+ @return            Default date formatter, without the microseconds
  */
 + (NSDateFormatter *)vok_dateFormatterWithoutMicroseconds;
 
