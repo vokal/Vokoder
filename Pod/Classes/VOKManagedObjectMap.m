@@ -73,7 +73,6 @@
     return DateFormatterWithoutMicroseconds;
 }
 
-
 #pragma mark - Description
 
 - (NSString *)description
