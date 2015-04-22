@@ -133,7 +133,7 @@
         }
         
         if (topOffset < 0) {
-            [self.headerView hasOverScrolled:(fabsf(topOffset)/self.triggerDistance)];
+            [self.headerView hasOverScrolled:(fabs(topOffset)/self.triggerDistance)];
         } else {
             [self.headerView hasOverScrolled:0.0];
         }

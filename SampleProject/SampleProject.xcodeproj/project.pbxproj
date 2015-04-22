@@ -272,7 +272,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = VOK;
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0630;
 				TargetAttributes = {
 					3D40DE3B180729A10048D5EE = {
 						TestTargetID = EA5F199F15C196500089AA44;
@@ -538,6 +538,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -574,6 +575,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
