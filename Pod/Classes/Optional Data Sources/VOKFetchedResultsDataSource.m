@@ -406,6 +406,10 @@
     if (self.tableView.dataSource == self) {
          self.tableView.dataSource = nil;
     }
+
+    if (_fetchedResultsController.delegate) {
+        _fetchedResultsController.delegate = nil;
+    }
     
 }
 
