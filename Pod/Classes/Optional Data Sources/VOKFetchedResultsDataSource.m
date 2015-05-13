@@ -406,7 +406,8 @@
     if (self.tableView.dataSource == self) {
          self.tableView.dataSource = nil;
     }
-    
+
+    _fetchedResultsController.delegate = nil;
 }
 
 @end
