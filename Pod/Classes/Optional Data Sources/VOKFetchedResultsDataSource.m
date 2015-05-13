@@ -407,10 +407,7 @@
          self.tableView.dataSource = nil;
     }
 
-    if (_fetchedResultsController.delegate) {
-        _fetchedResultsController.delegate = nil;
-    }
-    
+    _fetchedResultsController.delegate = nil;
 }
 
 @end
