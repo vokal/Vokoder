@@ -99,20 +99,22 @@
     }
 }
 
-+ (void)vok_addWithArrayInBackground:(NSArray *)inputArray completion:(VOKManagedObjectReturnBlock)completion
++ (void)vok_addWithArrayInBackground:(NSArray *)inputArray completion:(VOKManagedObjectsReturnBlock)completion
 {
     [VOKCoreDataManager importArrayInBackground:inputArray
                                        forClass:[self class]
                                      completion:^(NSArray *arrayOfManagedObjectIDs) {
-                                         NSMutableArray *returnArray = [NSMutableArray array];
-                                         NSManagedObjectContext *moc = [[VOKCoreDataManager sharedInstance] managedObjectContext];
-                                         for (NSManagedObjectID *objectID in arrayOfManagedObjectIDs) {
-                                             [returnArray addObject:[moc objectWithID:objectID]];
+                                         if (completion) {
+                                             // if there is no completion block there's no need to collect the new/updated objects
+                                             NSMutableArray *returnArray = [NSMutableArray arrayWithCapacity:arrayOfManagedObjectIDs.count];
+                                             NSManagedObjectContext *moc = [[VOKCoreDataManager sharedInstance] managedObjectContext];
+                                             for (NSManagedObjectID *objectID in arrayOfManagedObjectIDs) {
+                                                 [returnArray addObject:[moc objectWithID:objectID]];
+                                             }
+                                             completion([returnArray copy]);
                                          }
-                                         completion([returnArray copy]);
                                      }];
 }
-
 
 #pragma mark - Fetching
 

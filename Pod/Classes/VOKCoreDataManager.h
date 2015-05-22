@@ -26,7 +26,7 @@ typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
 typedef void(^VOKWriteBlock)(NSManagedObjectContext *tempContext);
 
 /// A completion block after an asynchronous operation on a temporary context. NSManagedObjectID's are threadsafe.
-typedef void(^VOKObjectIDReturnBlock)(NSArray *arrayOfManagedObjectIDs);
+typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
 
 
 @interface VOKCoreDataManager : NSObject
@@ -54,7 +54,8 @@ typedef void(^VOKObjectIDReturnBlock)(NSArray *arrayOfManagedObjectIDs);
 - (NSManagedObjectModel *)managedObjectModel;
 
 /**
- Set the name of the managed object model and the name of the SQL lite store on disk. Call this first when you setup the core data stack.
+ Set the name of the managed object model and the name of the SQL lite store on disk. Call this first when you setup the core data stack. 
+ The main context will be initialized immediately. This method should only be called from the main queue.
  @param resource    The filename of the mom or momd file in your project. If nil the first model found in the main bundle will be used.
  @param database    The filename of the SQLite store in your application. A nil database name will create an in-memory store.
  */
@@ -251,22 +252,22 @@ typedef void(^VOKObjectIDReturnBlock)(NSArray *arrayOfManagedObjectIDs);
 
 /**
  This provides a way for an application with heavy amounts of Core Data threading and writing to maintain object graph integrety by assuring that only one context is being written to at once.
- @param writeBlock Do not use GCD or thread jumping inside this block. Handle all fetches, creates and writes using the tempContext variable passed to this block. Do not save or merge this context, it will be done for you.
- @param completion This will be fired on the main thread once the context has been saved.
+ @param writeBlock      Do not save or merge this context, it will be done for you.  Do not use GCD or thread jumping inside this block. 
+                        Handle all fetches, creates and writes using the tempContext variable passed to this block.
+ @prarm completion      Fired on the main queue once the changes have been merged.
  */
 + (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock
                      completion:(void (^)(void))completion;
 
 /**
- Deserializes the NSDictionaries full of strings in the background and creates/updates instances in the given context.
+ Deserializes an NSArray full of NSDictionaries in the background and creates/updates instances in the given context.
  @param inputArray      An NSArray of NSDictionaries with data to be deserialized, imported, and merged into the main managed object context.
  @param objectClass     Specifies the class to instantiate or fetch when importing data.
- @param completion      This will be fired on the main thread once the context has been saved.
- @return                An NSArray of permanent NSManagedObjectIDs matching the objects deserialized from the import array.
+ @param completion      Fired on the main queue once the changes have been merged. It brings an NSArray of permanent NSManagedObjectIDs matching the objects deserialized from the import array.
  */
 + (void)importArrayInBackground:(NSArray *)inputArray
                        forClass:(Class)objectClass
-                     completion:(VOKObjectIDReturnBlock)completion;
+                     completion:(VOKObjectIDsReturnBlock)completion;
 
 /**
  Saves any temporary managed object context and merges those changes with the main managed object context in a thread-safe way.

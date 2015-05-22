@@ -8,7 +8,7 @@
 @interface NSManagedObject (VOKManagedObjectAdditions)
 
 /// A completion block after an asynchronous operation on a temporary context. NSManagedObject's are not threadsafe.
-typedef void(^VOKManagedObjectReturnBlock)(NSArray *arrayOfManagedObjects);
+typedef void(^VOKManagedObjectsReturnBlock)(NSArray *arrayOfManagedObjects);
 
 /**
  Checks for NSNull before seting a value.
@@ -51,7 +51,7 @@ typedef void(^VOKManagedObjectReturnBlock)(NSArray *arrayOfManagedObjects);
 + (instancetype)vok_newInstanceWithContext:(NSManagedObjectContext *)contextOrNil;
 
 /*
- Create or update many NSManagedObjects, respecting overwriteObjectsWithServerChanges and ignoreNullValueOverwrites.
+ Create or update many NSManagedObjects, respecting the mapper's overwriteObjectsWithServerChanges and ignoreNullValueOverwrites properties.
  This should only be used to set all properties of an entity. 
  By default any mapped attributes not included in the input dictionaries will be set to nil.
  This will overwrite ALL of an NSManagedObject's properties unless ignoreNullValueOverwrites is YES;
@@ -62,7 +62,7 @@ typedef void(^VOKManagedObjectReturnBlock)(NSArray *arrayOfManagedObjects);
 + (NSArray *)vok_addWithArray:(NSArray *)inputArray forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
 
 /*
- Create or update many NSManagedObjects, respecting overwriteObjectsWithServerChanges and ignoreNullValueOverwrites.
+ Create or update a NSManagedObject, respecting the mapper's overwriteObjectsWithServerChanges and ignoreNullValueOverwrites properties.
  This should only be used to set all properties of an entity.
  By default any mapped attributes not included in the input dictionaries will be set to nil.
  This will overwrite ALL of an NSManagedObject's properties unless ignoreNullValueOverwrites is YES;
@@ -73,14 +73,14 @@ typedef void(^VOKManagedObjectReturnBlock)(NSArray *arrayOfManagedObjects);
 + (instancetype)vok_addWithDictionary:(NSDictionary *)inputDict forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
 
 /*
- Create or update many NSManagedObjects, respecting overwriteObjectsWithServerChanges and ignoreNullValueOverwrites.
+ Create or update many NSManagedObjects, respecting the mapper's overwriteObjectsWithServerChanges and ignoreNullValueOverwrites properties.
  This should only be used to set all properties of an entity.
  By default any mapped attributes not included in the input dictionaries will be set to nil.
  This will overwrite ALL of an NSManagedObject's properties unless ignoreNullValueOverwrites is YES;
  @param inputArray      An array of dictionaries with foreign data to input on a background queue in a temporary context.
- @param completion      A block to execute after the background operation. The array will contain the objects just imported/updated.
+ @param completion      Executed after the background operation. The array contains the objects imported/updated. It will be executed on the main queue.
  **/
-+ (void)vok_addWithArrayInBackground:(NSArray *)inputArray completion:(VOKManagedObjectReturnBlock)completion;
++ (void)vok_addWithArrayInBackground:(NSArray *)inputArray completion:(VOKManagedObjectsReturnBlock)completion;
 
 /*
  Convenience method to create a fetch request.

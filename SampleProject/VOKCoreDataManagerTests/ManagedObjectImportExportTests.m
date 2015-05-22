@@ -197,7 +197,7 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     [VOKCoreDataManager importArrayInBackground:array
                                        forClass:[VIPerson class]
                                      completion:^(NSArray *arrayOfManagedObjectIDs) {
-                                         NSMutableArray *arrayOfPeople = [NSMutableArray array];
+                                         NSMutableArray *arrayOfPeople = [NSMutableArray arrayWithCapacity:arrayOfManagedObjectIDs.count];
                                          NSManagedObjectContext *moc = [[VOKCoreDataManager sharedInstance] managedObjectContext];
                                          for (NSManagedObjectID *objectID in arrayOfManagedObjectIDs) {
                                              VIPerson *obj = (VIPerson *)[moc objectWithID:objectID];

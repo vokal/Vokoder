@@ -60,6 +60,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 {
     self.resource = resource;
     self.databaseFilename = database;
+    [[VOKCoreDataManager sharedInstance] managedObjectContext];
 }
 
 #pragma mark - Getters
@@ -485,7 +486,6 @@ static VOKCoreDataManager *VOK_SharedObject;
 + (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock
                      completion:(void (^)(void))completion
 {
-    [[VOKCoreDataManager sharedInstance] managedObjectContext];
     NSAssert(writeBlock, @"Write block must not be nil");
     [VOK_WritingQueue addOperationWithBlock:^{
 
@@ -501,9 +501,8 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 + (void)importArrayInBackground:(NSArray *)inputArray
                        forClass:(Class)objectClass
-                     completion:(VOKObjectIDReturnBlock)completion
+                     completion:(VOKObjectIDsReturnBlock)completion
 {
-    [[VOKCoreDataManager sharedInstance] managedObjectContext];
     [VOK_WritingQueue addOperationWithBlock:^{
         
         NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];

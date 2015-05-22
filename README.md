@@ -60,6 +60,7 @@ NSArray *maps = @[
                                                dateFormatter:dateFormatter],
                   ];
 // VOK_CDSELECTOR will prevent you from specifying a nonexistent attribute
+// The unique key is an NSString to uniquely identify local entities. If nil each import can create duplicate objects.
 VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOK_CDSELECTOR(ticketNumber)
                                                                      andMaps:maps];
 // By default missing parameters and null parameters in the import data will nil out an attribute's value
@@ -82,7 +83,7 @@ Vokoder offers many ways to get data into Core Data. The simplest and most appro
 ```objective-c
 [SomeManagedObjectSubclass vok_addWithArrayInBackground:importArray
                                              completion:^(NSArray *arrayOfManagedObjects) {
-                                                //back on the main queue
+                                                // This completion block runs on the main queue
                                                 SomeManagedObjectSubclass *obj = arrayOfManagedObjects[0];
                                              }];
 
