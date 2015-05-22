@@ -95,7 +95,6 @@
         NSLog(@"%@", [VIPerson vok_addWithDictionary:[self dictForCustomMapper] forManagedObjectContext:context]);
         j++;
     }
-    [[VOKCoreDataManager sharedInstance] saveMainContext];
 }
 
 #pragma mark - Fake Data Makers
