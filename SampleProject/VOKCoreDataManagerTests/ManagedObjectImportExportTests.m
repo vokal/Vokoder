@@ -151,12 +151,13 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 
     XCTAssertTrue([arrayOfPeople count] == 5, @"person array has incorrect number of people");
 
-    [arrayOfPeople enumerateObjectsUsingBlock:^(VIPerson *obj, NSUInteger idx, BOOL *stop) {
-        [self checkCustomMappingForPerson:obj andDictionary:[self makePersonDictForCustomMapper]];
-    }];
+    for (VIPerson *obj in arrayOfPeople) {
+        [self checkCustomMappingForPerson:obj
+                            andDictionary:[self makePersonDictForCustomMapper]];
+    }
 }
 
-- (void)testImportArrayWithCustomMapperOnWriteBlock
+- (void)testAsynchronousImportArrayWithCustomMapperOnWriteBlock
 {
     NSArray *array = @[[self makePersonDictForCustomMapper],
                        [self makePersonDictForCustomMapper],
@@ -170,15 +171,44 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     [VOKCoreDataManager writeToTemporaryContext:^(NSManagedObjectContext *tempContext) {
         [VIPerson vok_addWithArray:array forManagedObjectContext:tempContext];
         dispatch_semaphore_signal(semaphore);
-    } completion:NULL];
+    } completion:nil];
     [self waitForResponse:1 semaphore:semaphore];
 
     NSArray *arrayOfPeople = [VIPerson vok_fetchAllForPredicate:nil forManagedObjectContext:nil];
     XCTAssertTrue([arrayOfPeople count] == 5, @"person array has incorrect number of people");
 
-    [arrayOfPeople enumerateObjectsUsingBlock:^(VIPerson *obj, NSUInteger idx, BOOL *stop) {
-        [self checkCustomMappingForPerson:obj andDictionary:[self makePersonDictForCustomMapper]];
-    }];
+    for (VIPerson *obj in arrayOfPeople) {
+        [self checkCustomMappingForPerson:obj
+                            andDictionary:[self makePersonDictForCustomMapper]];
+    }
+}
+
+- (void)testAsynchronousImportArrayWithCustomMapperReturningArrayOfManagedObjectIDs
+{
+    NSArray *array = @[[self makePersonDictForCustomMapper],
+                       [self makePersonDictForCustomMapper],
+                       [self makePersonDictForCustomMapper],
+                       [self makePersonDictForCustomMapper],
+                       [self makePersonDictForCustomMapper]];
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:nil andMaps:[self customMapsArray]];
+    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    [VOKCoreDataManager importArrayInBackground:array
+                                       forClass:[VIPerson class]
+                                     completion:^(NSArray *arrayOfManagedObjectIDs) {
+                                         NSMutableArray *arrayOfPeople = [NSMutableArray array];
+                                         NSManagedObjectContext *moc = [[VOKCoreDataManager sharedInstance] managedObjectContext];
+                                         for (NSManagedObjectID *objectID in arrayOfManagedObjectIDs) {
+                                             VIPerson *obj = (VIPerson *)[moc objectWithID:objectID];
+                                             [arrayOfPeople addObject:obj];
+                                             [self checkCustomMappingForPerson:obj
+                                                                 andDictionary:[self makePersonDictForCustomMapper]];
+                                         }
+                                         XCTAssertTrue([arrayOfPeople count] == 5, @"person array has incorrect number of people");
+                                         dispatch_semaphore_signal(semaphore);
+                                     }];
+    [self waitForResponse:1 semaphore:semaphore];
 }
 
 - (void)testImportArrayWithDefaultMapper

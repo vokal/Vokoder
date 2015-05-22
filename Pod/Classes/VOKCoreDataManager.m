@@ -16,28 +16,6 @@
 @property (nonatomic, copy) NSString *databaseFilename;
 @property (nonatomic, strong) NSMutableDictionary *mapperCollection;
 
-//Getters
-- (NSManagedObjectContext *)tempManagedObjectContext;
-- (NSManagedObjectContext *)managedObjectContext;
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
-
-//Initializers
-- (void)initManagedObjectModel;
-- (void)initPersistentStoreCoordinator;
-- (void)initManagedObjectContext;
-
-//Thread Safety with Main MOC
-- (NSManagedObjectContext *)safeContext:(NSManagedObjectContext *)context;
-
-//Context Saving and Merging
-- (void)saveContext:(NSManagedObjectContext *)managedObjectContext;
-- (void)saveTempContext:(NSManagedObjectContext *)tempContext;
-- (void)tempContextSaved:(NSNotification *)notification;
-
-//Convenience Methods
-- (NSFetchRequest *)fetchRequestWithClass:(Class)managedObjectClass predicate:(NSPredicate *)predicate;
-- (NSURL *)applicationLibraryDirectory;
-
 @end
 
 //private interface to VOKManagedObjectMapper
@@ -502,15 +480,15 @@ static VOKCoreDataManager *VOK_SharedObject;
     [self saveTempContext:context];
 }
 
-#pragma mark - Convenience Methods
+#pragma mark - Background Importing
 
-+ (void)writeToTemporaryContext:(void (^)(NSManagedObjectContext *tempContext))writeBlock
++ (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock
                      completion:(void (^)(void))completion
 {
     [[VOKCoreDataManager sharedInstance]  managedObjectContext];
     NSAssert(writeBlock, @"Write block must not be nil");
     [VOK_WritingQueue addOperationWithBlock:^{
-        
+
         NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
         writeBlock(tempContext);
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
@@ -520,6 +498,38 @@ static VOKCoreDataManager *VOK_SharedObject;
         }
     }];
 }
+
++ (void)importArrayInBackground:(NSArray *)inputArray
+                       forClass:(Class)objectClass
+                     completion:(VOKBackgroundWriteCompletionBlock)completion
+{
+    [[VOKCoreDataManager sharedInstance]  managedObjectContext];
+    [VOK_WritingQueue addOperationWithBlock:^{
+        
+        NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+        NSArray *managedObjectsArray = [[VOKCoreDataManager sharedInstance] importArray:inputArray
+                                                                               forClass:objectClass
+                                                                            withContext:tempContext];
+        [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
+
+        if (completion) {
+            // only obtain permanent IDs if they're needed for the completion block
+            NSError *error;
+            BOOL gotPermanentID = [tempContext obtainPermanentIDsForObjects:managedObjectsArray error:&error];
+            if (!gotPermanentID) {
+                VOK_CDLog(@"Unable to obtain permanent object IDs %@, %@", error, [error userInfo]);
+            }
+
+            NSArray *arrayOfManagedObjectIDs = [managedObjectsArray valueForKeyPath:VOK_CDSELECTOR(objectID)];
+
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                completion(arrayOfManagedObjectIDs);
+            });
+        }
+    }];
+}
+
+#pragma mark - Convenience Methods
 
 - (NSFetchRequest *)fetchRequestWithClass:(Class)managedObjectClass predicate:(NSPredicate *)predicate
 {

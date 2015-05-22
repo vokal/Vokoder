@@ -22,6 +22,11 @@ typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
     VOKMigrationFailureOptionWipeRecoveryAndAlert,
 };
 
+/// The action block for asynchronous writing to a temporary context.
+typedef void(^VOKWriteBlock)(NSManagedObjectContext *tempContext);
+
+/// The return block for asynchronous object deserialization on a temporary context. NSManagedObjectID's are threadsafe.
+typedef void(^VOKBackgroundWriteCompletionBlock)(NSArray *arrayOfManagedObjectIDs);
 
 @interface VOKCoreDataManager : NSObject
 
@@ -248,8 +253,19 @@ typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
  @param writeBlock Do not use GCD or thread jumping inside this block. Handle all fetches, creates and writes using the tempContext variable passed to this block. Do not save or merge this context, it will be done for you.
  @param completion This will be fired on the main thread once the context has been saved.
  */
-+ (void)writeToTemporaryContext:(void (^)(NSManagedObjectContext *tempContext))writeBlock
++ (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock
                      completion:(void (^)(void))completion;
+
+/**
+ Deserializes the NSDictionaries full of strings in the background and creates/updates instances in the given context.
+ @param inputArray      An NSArray of NSDictionaries with data to be deserialized, imported, and merged into the main managed object context.
+ @param objectClass     Specifies the class to instantiate or fetch when importing data.
+ @param completion      This will be fired on the main thread once the context has been saved.
+ @return                An NSArray of permanent NSManagedObjectIDs matching the objects deserialized from the import array.
+ */
++ (void)importArrayInBackground:(NSArray *)inputArray
+                       forClass:(Class)objectClass
+                     completion:(VOKBackgroundWriteCompletionBlock)completion;
 
 /**
  Saves any temporary managed object context and merges those changes with the main managed object context in a thread-safe way.
