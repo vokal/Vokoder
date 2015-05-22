@@ -17,6 +17,4 @@
 
 @property (strong, nonatomic) UINavigationController *navController;
 
-+ (VIAppDelegate *)appDelegate;
-
 @end
