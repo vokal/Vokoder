@@ -167,20 +167,23 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:nil andMaps:[self customMapsArray]];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
 
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    XCTestExpectation *completionExpectation = [self expectationWithDescription:@"completion"];
     [VOKCoreDataManager writeToTemporaryContext:^(NSManagedObjectContext *tempContext) {
         [VIPerson vok_addWithArray:array forManagedObjectContext:tempContext];
-        dispatch_semaphore_signal(semaphore);
-    } completion:nil];
-    [self waitForResponse:1 semaphore:semaphore];
+    } completion:^{
+        NSArray *arrayOfPeople = [VIPerson vok_fetchAllForPredicate:nil forManagedObjectContext:nil];
+        XCTAssertTrue([arrayOfPeople count] == 5, @"person array has incorrect number of people");
 
-    NSArray *arrayOfPeople = [VIPerson vok_fetchAllForPredicate:nil forManagedObjectContext:nil];
-    XCTAssertTrue([arrayOfPeople count] == 5, @"person array has incorrect number of people");
+        for (VIPerson *obj in arrayOfPeople) {
+            [self checkCustomMappingForPerson:obj
+                                andDictionary:[self makePersonDictForCustomMapper]];
+        }
+        [completionExpectation fulfill];
+    }];
 
-    for (VIPerson *obj in arrayOfPeople) {
-        [self checkCustomMappingForPerson:obj
-                            andDictionary:[self makePersonDictForCustomMapper]];
-    }
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error, @"Error waiting for response:%@", error.description);
+    }];
 }
 
 - (void)testAsynchronousImportArrayWithCustomMapperReturningArrayOfManagedObjectIDs
@@ -193,7 +196,7 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:nil andMaps:[self customMapsArray]];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
 
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    XCTestExpectation *completionExpectation = [self expectationWithDescription:@"completion"];
     [VOKCoreDataManager importArrayInBackground:array
                                        forClass:[VIPerson class]
                                      completion:^(NSArray *arrayOfManagedObjectIDs) {
@@ -206,9 +209,11 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
                                                                  andDictionary:[self makePersonDictForCustomMapper]];
                                          }
                                          XCTAssertTrue([arrayOfPeople count] == 5, @"person array has incorrect number of people");
-                                         dispatch_semaphore_signal(semaphore);
+                                         [completionExpectation fulfill];
                                      }];
-    [self waitForResponse:1 semaphore:semaphore];
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error, @"Error waiting for response:%@", error.description);
+    }];
 }
 
 - (void)testImportArrayWithDefaultMapper
@@ -549,18 +554,6 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 }
 
 #pragma mark - Convenience stuff
-
-- (void)waitForResponse:(NSInteger)waitTimeInSeconds semaphore:(dispatch_semaphore_t)semaphore
-{
-    NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:waitTimeInSeconds];
-    while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:timeoutDate];
-        if (timeoutDate == [timeoutDate earlierDate:[NSDate date]]) {
-            XCTAssertTrue(NO, @"Waiting for completion took longer than %ldsec", (long)waitTimeInSeconds);
-            return;
-        }
-    }
-}
 
 - (void)checkMappingForPerson:(VIPerson *)person andDictionary:(NSDictionary *)dict
 {

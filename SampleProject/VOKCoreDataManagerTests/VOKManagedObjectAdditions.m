@@ -6,10 +6,6 @@
 //
 //
 
-#ifndef __IPHONE_8_0
-#warning "VOKManagedObjectAdditionTests uses expectations only available in iOS SDK 8.0 and later."
-#endif
-
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
@@ -88,8 +84,8 @@ static const NSUInteger BasicTestDataSize = 5;
         [completionExpectation fulfill];
     });
     
-    [self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
-        XCTAssertNil(error, @"Error:%@", error.description);
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error, @"Error waiting for response:%@", error.description);
         XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
                                  forManagedObjectContext:nil].count, 1);
     }];
@@ -115,8 +111,8 @@ static const NSUInteger BasicTestDataSize = 5;
         [completionHandlerExpectation fulfill];
     }];
 
-    [self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
-        XCTAssertNil(error, @"Error:%@", error.description);
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error, @"Error waiting for response:%@", error.description);
     }];
 }
 
@@ -163,8 +159,8 @@ static const NSUInteger BasicTestDataSize = 5;
                                    [completionHandlerExpectation fulfill];
     }];
 
-    [self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
-        XCTAssertNil(error, @"Error:%@", error.description);
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error, @"Error waiting for response:%@", error.description);
     }];
 }
 

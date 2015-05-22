@@ -3,8 +3,8 @@
 //  VOKCoreData
 //
 
-#ifndef __IPHONE_5_0
-#warning "VOKCoreDataManager uses features only available in iOS SDK 5.0 and later."
+#ifndef __IPHONE_7_0
+#warning "VOKCoreDataManager uses features only available in iOS SDK 7.0 and later."
 #endif
 
 #import <Foundation/Foundation.h>
