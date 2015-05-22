@@ -31,13 +31,81 @@ Data sources to facilitate backing various kinds of views with data from Core Da
 ```objective-c
 [[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:@"VICoreDataModel.sqlite"]; //Saved to Disk
 ```
-Or
+or
 
 ```objective-c
 [[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:nil]; //In memory data store
 ```
-    
-----
+
+###Using Vokoders Mapper
+
+Vokoder offers a lightweight mapper for importing Foundation objects into Core Data. Arrays of dictionarys can be imported with ease once maps are set up. If no maps are provided Vokoder will use its default maps. The default map assumes that foreign keys have the same names as your core data attributes. It will make its best effort to identify dates and numbers.
+
+Setting up your own maps is more reliable. Macros are provided to make it fun and easy. Here's an example of setting up a mapper for an arbitrary managed object subclass. Mappers are not persisted between app launches, so be sure to setup your maps every time your application starts.
+
+```objective-c
+// A date formatter will enable Vokoder to turn strings into NSDates
+NSDateFormatter *dateFormatter = [NSDateFormatter someCustomDateFormatter];
+// A number formatter will do the same, turning strings into NSNumbers
+NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
+NSArray *maps = @[
+                  VOK_MAP_FOREIGN_TO_LOCAL(@"first_name", firstName),   //the first argument is the foreign key
+                  VOK_MAP_FOREIGN_TO_LOCAL(@"last_name", lastName),     //the second argument is the local attribute
+                  VOK_MAP_FOREIGN_TO_LOCAL(@"ss_num", socialSecurityNumber),
+                  [VOKManagedObjectMap mapWithForeignKeyPath:@"salary"
+                                                 coreDataKey:VOK_CDSELECTOR(salary)
+                                             numberFormatter:numberFormatter],
+                  [VOKManagedObjectMap mapWithForeignKeyPath:@"dob"
+                                                 coreDataKey:VOK_CDSELECTOR(dateOfBirth)
+                                               dateFormatter:dateFormatter],
+                  ];
+// VOK_CDSELECTOR will prevent you from specifying a nonexistent attribute
+VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOK_CDSELECTOR(ticketNumber)
+                                                                     andMaps:maps];
+// By default missing parameters and null parameters in the import data will nil out an attribute
+// With ignoreNullValueOverwrites set to YES the maps will leave set attributes alone unless new data is provided.
+mapper.ignoreNullValueOverwrites = YES;
+// By default Vokoder will complain about every single parameter that can't be set
+// With ignoreOptionalNullValues set to YES Vokoder will not warn about mismatched classes or null/nil values
+mapper.ignoreOptionalNullValues = YES;
+// Set the mapper and Vokoder will handle the rest.
+[[VOKCoreDataManager sharedInstance] setObjectMapper:mapper
+                                            forClass:[SomeManagedObjectSubclass class]];
+```
+
+Once the mapper is set Vokoder can round trip Foundation objects to managed objects and back to Foundation objects.
+
+###Importing Safely
+
+Vokoder offers many ways to work with Core Data. The simplest and most approachable interface is offered through the VOKManagedObjectAdditions category. Given an array of dictionaries Vokoder will create or edit managed objects on a background queue and then safely return managed objects to the main queue through the completion block.
+
+```objective-c
+[SomeManagedObjectSubclass vok_addWithArrayInBackground:importArray
+                                             completion:^(NSArray *arrayOfManagedObjects) {
+                                                //back on the main queue
+                                                SomeManagedObjectSubclass *obj = arrayOfManagedObjects[0];
+                                             }];
+
+```
+
+For more control over background operations the VOKCoreDataManager class offers a more generic method. Vokoder will handle the queues and provide a temporary context, but will not automatically import or return anything. 
+
+```objective-c
++ (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock completion:(void (^)(void))completion;
+```
+
+Finally, for those that want full control, feel free to make your own temporary contexts on your own background queue. As long as you use a temporary context for background operations Vokoder will let you go your own way.
+
+```objective-c
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+    NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+        
+    SomeManagedObjectSubclass *thing = [SomeManagedObjectSubclass vok_newInstanceWithContext:backgroundContext];
+	thing.someArbitrayAttribute = @"hello";
+    [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
+});
+```
+
 ###Inserting records
 
 ```objective-c
@@ -46,7 +114,7 @@ VIPerson *person = [VIPerson vok_newInstance];
 [person setLastName:@"Panchal"];
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 ```
-----
+
 ###Querying Records	
 
 ####Query with basic predicate
@@ -61,8 +129,7 @@ NSArray *results = [VIPerson vok_fetchAllForPredicate:nil
                                             ascending:YES
                               forManagedObjectContext:nil];
 ```
-	
-----	
+
 ###Deleting records
 ```objective-c
 VOKCoreDataManager *manager = [VOKCoreDataManager sharedInstance];
@@ -70,27 +137,12 @@ VOKCoreDataManager *manager = [VOKCoreDataManager sharedInstance];
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 ```	
 
-----
 ###Saving 
 
 ```objective-c
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait]; //Saves synchronously
 ```
 
-####Saving on background thread
-
-```objective-c
-dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-    NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
-        
-    VIPerson *person = [VIThing vok_newInstanceWithContext:backgroundContext];
-	[person setNumberOfCats:@1];
-    [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
-});
-```
-
-
 ## License
 
 Vokoder is available under the MIT license. See the LICENSE file for more info.
-
