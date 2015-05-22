@@ -14,11 +14,11 @@
     [super loadView];
 
     UIBarButtonItem *reloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                                           target:self
-                                                                                           action:@selector(reloadData)];
+                                                                                  target:self
+                                                                                  action:@selector(reloadData)];
     UIBarButtonItem *reloadInBackgroundButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize
-                                                                                          target:self
-                                                                                          action:@selector(reloadDataInBackground)];
+                                                                                              target:self
+                                                                                              action:@selector(reloadDataInBackground)];
     UIBarButtonItem *deleteSomeStuffButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
                                                                                            target:self
                                                                                            action:@selector(deleteDataInBackground)];
