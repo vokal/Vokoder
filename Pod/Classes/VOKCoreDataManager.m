@@ -485,7 +485,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 + (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock
                      completion:(void (^)(void))completion
 {
-    [[VOKCoreDataManager sharedInstance]  managedObjectContext];
+    [[VOKCoreDataManager sharedInstance] managedObjectContext];
     NSAssert(writeBlock, @"Write block must not be nil");
     [VOK_WritingQueue addOperationWithBlock:^{
 
@@ -503,7 +503,7 @@ static VOKCoreDataManager *VOK_SharedObject;
                        forClass:(Class)objectClass
                      completion:(VOKObjectIDReturnBlock)completion
 {
-    [[VOKCoreDataManager sharedInstance]  managedObjectContext];
+    [[VOKCoreDataManager sharedInstance] managedObjectContext];
     [VOK_WritingQueue addOperationWithBlock:^{
         
         NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];

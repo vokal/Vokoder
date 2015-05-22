@@ -39,9 +39,9 @@ or
 
 ###Using Vokoders Mapper
 
-Vokoder offers a lightweight mapper for importing Foundation objects into Core Data. Arrays of dictionarys can be imported with ease once maps are set up. If no maps are provided Vokoder will use its default maps. The default map assumes that foreign keys have the same names as your core data attributes. It will make its best effort to identify dates and numbers.
+Vokoder offers a lightweight mapper for importing Foundation objects into Core Data. Arrays of dictionaries can be imported with ease once maps are set up. If no maps are provided Vokoder will use its default maps. The default maps assume that foreign keys have the same names as your core data attributes. It will make its best effort to identify dates and numbers.
 
-Setting up your own maps is more reliable. Macros are provided to make it fun and easy. Here's an example of setting up a mapper for an arbitrary managed object subclass. Mappers are not persisted between app launches, so be sure to setup your maps every time your application starts.
+Setting up your own maps is recommended. Macros are provided to make it fun and easy. Below is an example of setting up a mapper for an arbitrary managed object subclass. Mappers are not persisted between app launches, so be sure to setup your maps every time your application starts.
 
 ```objective-c
 // A date formatter will enable Vokoder to turn strings into NSDates
@@ -62,7 +62,7 @@ NSArray *maps = @[
 // VOK_CDSELECTOR will prevent you from specifying a nonexistent attribute
 VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOK_CDSELECTOR(ticketNumber)
                                                                      andMaps:maps];
-// By default missing parameters and null parameters in the import data will nil out an attribute
+// By default missing parameters and null parameters in the import data will nil out an attribute's value
 // With ignoreNullValueOverwrites set to YES the maps will leave set attributes alone unless new data is provided.
 mapper.ignoreNullValueOverwrites = YES;
 // By default Vokoder will complain about every single parameter that can't be set
@@ -73,11 +73,11 @@ mapper.ignoreOptionalNullValues = YES;
                                             forClass:[SomeManagedObjectSubclass class]];
 ```
 
-Once the mapper is set Vokoder can round trip Foundation objects to managed objects and back to Foundation objects.
+Once the mapper is set Vokoder can turn Foundation objects in to managed objects and then back again to Foundation objects.
 
 ###Importing Safely
 
-Vokoder offers many ways to work with Core Data. The simplest and most approachable interface is offered through the VOKManagedObjectAdditions category. Given an array of dictionaries Vokoder will create or edit managed objects on a background queue and then safely return managed objects to the main queue through the completion block.
+Vokoder offers many ways to get data into Core Data. The simplest and most approachable interface is offered through the VOKManagedObjectAdditions category. Given an array of dictionaries Vokoder will create or edit managed objects on a background queue and then safely return managed objects to the main queue through the completion block.
 
 ```objective-c
 [SomeManagedObjectSubclass vok_addWithArrayInBackground:importArray
@@ -88,7 +88,7 @@ Vokoder offers many ways to work with Core Data. The simplest and most approacha
 
 ```
 
-For more control over background operations the VOKCoreDataManager class offers a more generic method. Vokoder will handle the queues and provide a temporary context, but will not automatically import or return anything. 
+For more control over background operations the VOKCoreDataManager class offers more generic methods. Vokoder can handle queues and provide a temporary context without automatically importing or returning anything. 
 
 ```objective-c
 + (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock completion:(void (^)(void))completion;
