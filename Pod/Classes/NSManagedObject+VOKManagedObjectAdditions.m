@@ -74,11 +74,13 @@
     return [[VOKCoreDataManager sharedInstance] managedObjectOfClass:self inContext:context];
 }
 
-#pragma mark - Add Objects
+#pragma mark - Add and Edit Objects
 
 + (NSArray *)vok_addWithArray:(NSArray *)inputArray forManagedObjectContext:(NSManagedObjectContext *)contextOrNil
 {
-    return [[VOKCoreDataManager sharedInstance] importArray:inputArray forClass:[self class] withContext:contextOrNil];
+    return [[VOKCoreDataManager sharedInstance] importArray:inputArray
+                                                   forClass:[self class]
+                                                withContext:contextOrNil];
 }
 
 + (instancetype)vok_addWithDictionary:(NSDictionary *)inputDict forManagedObjectContext:(NSManagedObjectContext *)contextOrNil
@@ -87,14 +89,30 @@
         return nil;
     }
 
-    NSArray *array = [[VOKCoreDataManager sharedInstance] importArray:@[inputDict] forClass:[self class] withContext:contextOrNil];
-    
+    NSArray *array = [[VOKCoreDataManager sharedInstance] importArray:@[inputDict]
+                                                             forClass:[self class]
+                                                          withContext:contextOrNil];    
     if ([array count]) {
         return [array firstObject];
     } else {
         return nil;
     }
 }
+
++ (void)vok_addWithArrayInBackground:(NSArray *)inputArray completion:(VOKManagedObjectReturnBlock)completion
+{
+    [VOKCoreDataManager importArrayInBackground:inputArray
+                                       forClass:[self class]
+                                     completion:^(NSArray *arrayOfManagedObjectIDs) {
+                                         NSMutableArray *returnArray = [NSMutableArray array];
+                                         NSManagedObjectContext *moc = [[VOKCoreDataManager sharedInstance] managedObjectContext];
+                                         for (NSManagedObjectID *objectID in arrayOfManagedObjectIDs) {
+                                             [returnArray addObject:[moc objectWithID:objectID]];
+                                         }
+                                         completion([returnArray copy]);
+                                     }];
+}
+
 
 #pragma mark - Fetching
 

@@ -6,6 +6,10 @@
 //
 //
 
+#ifndef __IPHONE_8_0
+#warning "VOKManagedObjectAdditionTests uses expectations only available in iOS SDK 8.0 and later."
+#endif
+
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
@@ -27,7 +31,7 @@ static const NSUInteger BasicTestDataSize = 5;
     [super setUp];
     [[VOKCoreDataManager sharedInstance] resetCoreData];
     [[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel"
-                                            database:@"VICoreDataModel.sqlite"];
+                                            database:nil];
 }
 
 - (void)tearDown
@@ -65,32 +69,7 @@ static const NSUInteger BasicTestDataSize = 5;
                              forManagedObjectContext:nil].count, 1);    
 }
 
-- (void)testRecordInsertionTemporaryContext
-{
-    XCTestExpectation *completionHandlerExpectation = [self expectationWithDescription:@"completion"];
-    
-    XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
-                             forManagedObjectContext:nil].count, 0);
-    
-    [VOKCoreDataManager writeToTemporaryContext:^(NSManagedObjectContext *tempContext) {
-        
-        VIThing *thing = [VIThing vok_newInstanceWithContext:tempContext];
-        [thing setName:@"test-2"];
-        [thing setNumberOfHats:@2];
-        
-    } completion:^{
-        XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
-                                 forManagedObjectContext:nil].count, 1);
-        
-        [completionHandlerExpectation fulfill];
-    }];
-    
-    [self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
-        XCTAssertNil(error, @"Error:%@", error.description);
-    }];
-}
-
-- (void)testRecordInsertionBackgroundThread
+- (void)testRecordInsertionBackgroundThreadManual
 {
     XCTestExpectation *completionExpectation = [self expectationWithDescription:@"completion"];
     
@@ -113,6 +92,79 @@ static const NSUInteger BasicTestDataSize = 5;
         XCTAssertNil(error, @"Error:%@", error.description);
         XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
                                  forManagedObjectContext:nil].count, 1);
+    }];
+}
+
+- (void)testRecordInsertionBackgroundThreadConvenience
+{
+    XCTestExpectation *completionHandlerExpectation = [self expectationWithDescription:@"completion"];
+
+    XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
+                             forManagedObjectContext:nil].count, 0);
+
+    [VOKCoreDataManager writeToTemporaryContext:^(NSManagedObjectContext *tempContext) {
+
+        VIThing *thing = [VIThing vok_newInstanceWithContext:tempContext];
+        [thing setName:@"test-2"];
+        [thing setNumberOfHats:@2];
+
+    } completion:^{
+        XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
+                                 forManagedObjectContext:nil].count, 1);
+
+        [completionHandlerExpectation fulfill];
+    }];
+
+    [self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
+        XCTAssertNil(error, @"Error:%@", error.description);
+    }];
+}
+
+- (void)testRecordInsertionBackgroundThreadConvenienceReturningManagedObjectsArray
+{
+    XCTestExpectation *completionHandlerExpectation = [self expectationWithDescription:@"completion"];
+
+    XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
+                             forManagedObjectContext:nil].count, 0);
+    NSArray *importArray = @[
+                             @{
+                                 @"name" : @"bobbbb",
+                                 @"numberOfHats" : @0,
+                                 },
+                             @{
+                                 @"name" : @"francis",
+                                 @"numberOfHats" : @7,
+                                 },
+                             @{
+                                 @"name" : @"mcgil",
+                                 @"numberOfHats" : @13247,
+                                 },
+                             @{
+                                 @"name" : @"archie",
+                                 @"numberOfHats" : @98,
+                                 },
+                             @{
+                                 @"name" : @"francis part II",
+                                 @"numberOfHats" : @8,
+                                 },
+                             @{
+                                 @"name" : @"grandma",
+                                 @"numberOfHats" : @1,
+                                 },
+                             ];
+
+    [VIThing vok_addWithArrayInBackground:importArray
+                               completion:^(NSArray *arrayOfManagedObjects) {
+                                   XCTAssertEqual(arrayOfManagedObjects.count, importArray.count);
+                                   for (NSInteger i = 0; i < importArray.count; i++) {
+                                       XCTAssertEqualObjects([arrayOfManagedObjects[i] name], [importArray[i] valueForKey:@"name"]);
+                                       XCTAssertEqualObjects([arrayOfManagedObjects[i] numberOfHats], [importArray[i] valueForKey:@"numberOfHats"]);
+                                   }
+                                   [completionHandlerExpectation fulfill];
+    }];
+
+    [self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
+        XCTAssertNil(error, @"Error:%@", error.description);
     }];
 }
 

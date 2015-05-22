@@ -25,8 +25,9 @@ typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
 /// The action block for asynchronous writing to a temporary context.
 typedef void(^VOKWriteBlock)(NSManagedObjectContext *tempContext);
 
-/// The return block for asynchronous object deserialization on a temporary context. NSManagedObjectID's are threadsafe.
-typedef void(^VOKBackgroundWriteCompletionBlock)(NSArray *arrayOfManagedObjectIDs);
+/// A completion block after an asynchronous operation on a temporary context. NSManagedObjectID's are threadsafe.
+typedef void(^VOKObjectIDReturnBlock)(NSArray *arrayOfManagedObjectIDs);
+
 
 @interface VOKCoreDataManager : NSObject
 
@@ -265,7 +266,7 @@ typedef void(^VOKBackgroundWriteCompletionBlock)(NSArray *arrayOfManagedObjectID
  */
 + (void)importArrayInBackground:(NSArray *)inputArray
                        forClass:(Class)objectClass
-                     completion:(VOKBackgroundWriteCompletionBlock)completion;
+                     completion:(VOKObjectIDReturnBlock)completion;
 
 /**
  Saves any temporary managed object context and merges those changes with the main managed object context in a thread-safe way.

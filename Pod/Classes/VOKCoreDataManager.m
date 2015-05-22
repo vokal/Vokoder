@@ -501,7 +501,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 + (void)importArrayInBackground:(NSArray *)inputArray
                        forClass:(Class)objectClass
-                     completion:(VOKBackgroundWriteCompletionBlock)completion
+                     completion:(VOKObjectIDReturnBlock)completion
 {
     [[VOKCoreDataManager sharedInstance]  managedObjectContext];
     [VOK_WritingQueue addOperationWithBlock:^{
