@@ -174,7 +174,7 @@
 
     NSUInteger count = [results count];
     if (count) {
-        NSAssert(count == 1, @"Your predicate is returning more than 1 object, but the coredatamanger returns only one.");
+        NSAssert(count == 1, @"Your predicate is returning more than 1 object, but the coredatamanager returns only one.");
         return [results lastObject];
     }
 
