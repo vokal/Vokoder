@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
       'Pod/Classes/Internal',
     ]
     ss.framework    = "CoreData"
+    ss.dependency 'ILGDynamicObjC/ILGClasses', '~> 0.1.1'
   end
 
   s.subspec 'DataSources' do |ss|
