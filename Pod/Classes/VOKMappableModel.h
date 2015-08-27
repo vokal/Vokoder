@@ -8,6 +8,10 @@
 /**
  *  Any models that conform to this protocol will be automatically registered for mapping with the shared instance 
  *  of VOKCoreDataManager.
+ *
+ *  Note that runtime protocol-conformance is based on declared conformance (the angle-bracketed protocol name appended 
+ *  to the interface) and not by checking that the required methods are implemented.  If you ignore the compiler 
+ *  warnings about failing to implement required methods, your app will crash.
  */
 @protocol VOKMappableModel <NSObject>
 
