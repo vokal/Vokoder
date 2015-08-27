@@ -47,6 +47,7 @@ static VOKCoreDataManager *VOK_SharedObject;
         VOK_SharedObject = [[self alloc] init];
         VOK_WritingQueue = [[NSOperationQueue alloc] init];
         [VOK_WritingQueue setMaxConcurrentOperationCount:1];
+        [VOK_SharedObject addMappableModelMappers];
     });
     return VOK_SharedObject;
 }
@@ -56,7 +57,6 @@ static VOKCoreDataManager *VOK_SharedObject;
     self = [super init];
     if (self) {
         _mapperCollection = [NSMutableDictionary dictionary];
-        [self addMappableModelMappers];
     }
     return self;
 }
