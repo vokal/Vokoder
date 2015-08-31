@@ -607,6 +607,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     _managedObjectContext = nil;
     _managedObjectModel = nil;
     [_mapperCollection removeAllObjects];
+    [self addMappableModelMappers];
 }
 
 - (NSURL *)persistentStoreFileURL
