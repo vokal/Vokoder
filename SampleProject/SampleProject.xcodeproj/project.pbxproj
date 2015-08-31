@@ -12,6 +12,7 @@
 		3D40DE3E180729A10048D5EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A615C196500089AA44 /* Foundation.framework */; };
 		3D40DE3F180729A10048D5EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A415C196500089AA44 /* UIKit.framework */; };
 		487ADC79AEB21F0C4A5B6963 /* libPods-VOKCoreDataManager Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A15387FCC51E8AC46390CE29 /* libPods-VOKCoreDataManager Tests.a */; };
+		718462C21B9505D000015274 /* VIMappablePerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 718462C11B9505D000015274 /* VIMappablePerson.m */; };
 		71E1AAE21A53408D004311E5 /* VIPersonDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE11A53408D004311E5 /* VIPersonDataSource.m */; };
 		71E1AAEA1A5340A1004311E5 /* VICoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE41A5340A1004311E5 /* VICoreDataModel.xcdatamodeld */; };
 		71E1AAEB1A5340A1004311E5 /* VIPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE71A5340A1004311E5 /* VIPerson.m */; };
@@ -51,6 +52,8 @@
 		7172B5031B8E82D400589204 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		7172B5041B8E82D400589204 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7172B5051B8E82D400589204 /* Vokoder.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = Vokoder.podspec; path = ../Vokoder.podspec; sourceTree = "<group>"; };
+		718462C01B9505D000015274 /* VIMappablePerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIMappablePerson.h; sourceTree = "<group>"; };
+		718462C11B9505D000015274 /* VIMappablePerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMappablePerson.m; sourceTree = "<group>"; };
 		71E1AAE01A53408D004311E5 /* VIPersonDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPersonDataSource.h; sourceTree = "<group>"; };
 		71E1AAE11A53408D004311E5 /* VIPersonDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPersonDataSource.m; sourceTree = "<group>"; };
 		71E1AAE51A5340A1004311E5 /* VICoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VICoreDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				71E1AAE41A5340A1004311E5 /* VICoreDataModel.xcdatamodeld */,
+				718462C01B9505D000015274 /* VIMappablePerson.h */,
+				718462C11B9505D000015274 /* VIMappablePerson.m */,
 				71E1AAE61A5340A1004311E5 /* VIPerson.h */,
 				71E1AAE71A5340A1004311E5 /* VIPerson.m */,
 				71E1AAE81A5340A1004311E5 /* VIThing.h */,
@@ -429,6 +434,7 @@
 				71E1AAEC1A5340A1004311E5 /* VIThing.m in Sources */,
 				71E1AAEA1A5340A1004311E5 /* VICoreDataModel.xcdatamodeld in Sources */,
 				71E1AB031A534221004311E5 /* VIAppDelegate.m in Sources */,
+				718462C21B9505D000015274 /* VIMappablePerson.m in Sources */,
 				71E1AAF31A5340CE004311E5 /* main.m in Sources */,
 				71E1AAEB1A5340A1004311E5 /* VIPerson.m in Sources */,
 			);
