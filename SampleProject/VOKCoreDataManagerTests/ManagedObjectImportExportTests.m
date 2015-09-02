@@ -5,6 +5,7 @@
 
 #import <XCTest/XCTest.h>
 #import "VOKCoreDataManager.h"
+#import "VIMappablePerson.h"
 #import "VIPerson.h"
 #import "VIThing.h"
 
@@ -98,6 +99,15 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     XCTAssertTrue([dict isEqualToDictionary:[self makePersonDictForCustomMapperAndMissingParameter]], @"dictionary representation failed to match input dictionary");
 }
 
+- (void)testImportExportDictionaryWithAutoRegisteredMapper
+{
+    VIMappablePerson *person = [VIMappablePerson vok_addWithDictionary:[self makePersonDictForCustomMapper] forManagedObjectContext:nil];
+    [self checkCustomMappingForPerson:person andDictionary:[self makePersonDictForCustomMapper]];
+    
+    NSDictionary *dict = [person vok_dictionaryRepresentation];
+    XCTAssertTrue([dict isEqualToDictionary:[self makePersonDictForCustomMapper]], @"dictionary representation failed to match input dictionary");
+}
+
 - (void)testImportExportDictionaryWithCustomKeyPathMapper
 {
     VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:nil andMaps:[self customMapsArrayWithKeyPaths]];
@@ -148,9 +158,28 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:nil andMaps:[self customMapsArray]];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
     NSArray *arrayOfPeople = [VIPerson vok_addWithArray:array forManagedObjectContext:nil];
-
+    
     XCTAssertTrue([arrayOfPeople count] == 5, @"person array has incorrect number of people");
+    
+    for (VIPerson *obj in arrayOfPeople) {
+        [self checkCustomMappingForPerson:obj
+                            andDictionary:[self makePersonDictForCustomMapper]];
+    }
+}
 
+- (void)testImportArrayWithAutoRegisteredMapper
+{
+    NSArray *array = @[
+                       [self makePersonDictForCustomMapper],
+                       [self makePersonDictForCustomMapper],
+                       [self makePersonDictForCustomMapper],
+                       [self makePersonDictForCustomMapper],
+                       [self makePersonDictForCustomMapper],
+                       ];
+    NSArray *arrayOfPeople = [VIMappablePerson vok_addWithArray:array forManagedObjectContext:nil];
+    
+    XCTAssertTrue([arrayOfPeople count] == 5, @"person array has incorrect number of people");
+    
     for (VIPerson *obj in arrayOfPeople) {
         [self checkCustomMappingForPerson:obj
                             andDictionary:[self makePersonDictForCustomMapper]];

@@ -37,7 +37,7 @@ or
 [[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:nil]; //In memory data store
 ```
 
-###Using Vokoders Mapper
+###Using Vokoder's Mapper
 
 Vokoder offers a lightweight mapper for importing Foundation objects into Core Data. Arrays of dictionaries can be imported with ease once maps are set up. If no maps are provided Vokoder will use its default maps. The default maps assume that foreign keys have the same names as your core data attributes. It will make its best effort to identify dates and numbers.
 
@@ -75,6 +75,65 @@ mapper.ignoreOptionalNullValues = YES;
 ```
 
 Once the mapper is set Vokoder can turn Foundation objects in to managed objects and then back again to Foundation objects.
+
+####VOKMappableModel
+Vokoder includes the `VOKMappableModel` protocol, which gives a structure for a model class to specify how it should be mapped.  Any classes that declare themselves to conform to `VOKMappableModel` will automatically have mappers created based on the protocol methods and registered with the shared instance of `VOKCoreDataManager`.
+
+The `VOKMappableModel` protocol requires implementing `+ (NSString *)uniqueKey` and `+ (NSArray *)coreDataMaps`, which should return the two parameters passed to `[VOKManagedObjectMapper mapperWithUniqueKey:andMaps:]` in the example in the section above.  Optionally, `+ (BOOL)ignoreNullValueOverwrites`, `+ (BOOL)ignoreOptionalNullValues`, and `+ (VOKPostImportBlock)importCompletionBlock` can each be implemented to set the ignore values on the mapper or to set a post-import block.
+
+The mapper constructed in the example in the section above could be included in `SomeManagedObjectSubclass` by making it conform to `VOKMappableModel`:
+
+```objective-c
+@interface SomeManagedObjectSubclass : NSManagedObject <VOKMappableModel>
+…
+@end
+
+@implementation SomeManagedObjectSubclass
+…
+#pragma mark - VOKMappableModel
+
++ (NSArray *)coreDataMaps
+{
+    // A date formatter will enable Vokoder to turn strings into NSDates
+    NSDateFormatter *dateFormatter = [NSDateFormatter someCustomDateFormatter];
+    // A number formatter will do the same, turning strings into NSNumbers
+    NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
+    return = @[
+               VOK_MAP_FOREIGN_TO_LOCAL(@"first_name", firstName),   //the first argument is the foreign key
+               VOK_MAP_FOREIGN_TO_LOCAL(@"last_name", lastName),     //the second argument is the local attribute
+               VOK_MAP_FOREIGN_TO_LOCAL(@"ss_num", socialSecurityNumber),
+               [VOKManagedObjectMap mapWithForeignKeyPath:@"salary"
+                                              coreDataKey:VOK_CDSELECTOR(salary)
+                                          numberFormatter:numberFormatter],
+               [VOKManagedObjectMap mapWithForeignKeyPath:@"dob"
+                                              coreDataKey:VOK_CDSELECTOR(dateOfBirth)
+                                            dateFormatter:dateFormatter],
+               ];
+}
+
++ (NSString *)uniqueKey
+{
+	// VOK_CDSELECTOR will prevent you from specifying a nonexistent attribute
+	// The unique key is an NSString to uniquely identify local entities. If nil each import can create duplicate objects.
+	return VOK_CDSELECTOR(ticketNumber);
+}
+
++ (BOOL)ignoreNullValueOverwrites
+{
+	// By default missing parameters and null parameters in the import data will nil out an attribute's value
+	// With ignoreNullValueOverwrites set to YES the maps will leave set attributes alone unless new data is provided.
+	return YES;
+}
+
++ (BOOL)ignoreOptionalNullValues
+{
+	// By default Vokoder will complain about every single parameter that can't be set
+	// With ignoreOptionalNullValues set to YES Vokoder will not warn about mismatched classes or null/nil values
+	return YES;
+}
+…
+@end
+```
 
 ###Importing Safely
 

@@ -63,9 +63,13 @@
 
 - (void)updateForeignComparisonKey
 {
+    if (!self.uniqueComparisonKey) {
+        return;
+    }
     for (VOKManagedObjectMap *aMap in self.mapsArray) {
         if ([aMap.coreDataKey isEqualToString:self.uniqueComparisonKey]) {
             _foreignUniqueComparisonKey = aMap.inputKeyPath;
+            return;
         }
     }
 }

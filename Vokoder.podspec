@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Vokoder"
-  s.version          = "1.2.0"
+  s.version          = "1.3.0"
   s.summary          = "Vokal's Core Data Manager"
   s.homepage         = "https://github.com/vokal/Vokoder"
   s.license          = { :type => "MIT", :file => "LICENSE"}
@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
       'Pod/Classes/Internal',
     ]
     ss.framework    = "CoreData"
+    ss.dependency 'ILGDynamicObjC/ILGClasses', '~> 0.1.1'
   end
 
   s.subspec 'DataSources' do |ss|

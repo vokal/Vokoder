@@ -6,6 +6,10 @@
 #import "VOKCoreDataManager.h"
 #import "VOKCoreDataManagerInternalMacros.h"
 
+#import <ILGClasses.h>
+
+#import "VOKMappableModel.h"
+
 @interface VOKCoreDataManager () {
     NSManagedObjectContext *_managedObjectContext;
     NSManagedObjectModel *_managedObjectModel;
@@ -43,6 +47,7 @@ static VOKCoreDataManager *VOK_SharedObject;
         VOK_SharedObject = [[self alloc] init];
         VOK_WritingQueue = [[NSOperationQueue alloc] init];
         [VOK_WritingQueue setMaxConcurrentOperationCount:1];
+        [VOK_SharedObject addMappableModelMappers];
     });
     return VOK_SharedObject;
 }
@@ -198,6 +203,25 @@ static VOKCoreDataManager *VOK_SharedObject;
     }
 
     return NO;
+}
+
+- (void)addMappableModelMappers
+{
+    for (Class mappableModelClass in [ILGClasses classesConformingToProtocol:@protocol(VOKMappableModel)]) {
+        VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:[mappableModelClass uniqueKey]
+                                                                             andMaps:[mappableModelClass coreDataMaps]];
+        if ([mappableModelClass respondsToSelector:@selector(ignoreNullValueOverwrites)]) {
+            mapper.ignoreNullValueOverwrites = [mappableModelClass ignoreNullValueOverwrites];
+        }
+        if ([mappableModelClass respondsToSelector:@selector(ignoreOptionalNullValues)]) {
+            mapper.ignoreOptionalNullValues = [mappableModelClass ignoreOptionalNullValues];
+        }
+        if ([mappableModelClass respondsToSelector:@selector(importCompletionBlock)]) {
+            mapper.importCompletionBlock = [mappableModelClass importCompletionBlock];
+        }
+        [self setObjectMapper:mapper
+                     forClass:mappableModelClass];
+    }
 }
 
 - (NSArray *)importArray:(NSArray *)inputArray forClass:(Class)objectClass withContext:(NSManagedObjectContext *)contextOrNil;
@@ -583,6 +607,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     _managedObjectContext = nil;
     _managedObjectModel = nil;
     [_mapperCollection removeAllObjects];
+    [self addMappableModelMappers];
 }
 
 - (NSURL *)persistentStoreFileURL
