@@ -6,7 +6,7 @@
 #import "VOKCoreDataManager.h"
 #import "VOKCoreDataManagerInternalMacros.h"
 
-#import <ILGClasses.h>
+#import <ILGDynamicObjC/ILGClasses.h>
 
 #import "VOKMappableModel.h"
 
