@@ -7,471 +7,471 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0168610B2686C2FB3E4A9562 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729C78A178AE689ACC40CA34 /* Foundation.framework */; };
-		04A4FF39C0141A580DB2B11B /* VOKFetchedResultsDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B910F19C6FA8435CF3957AE /* VOKFetchedResultsDataSource.h */; };
-		04BBFE18E90747DDAA42592F /* VOKCollectionDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E0F9DF5AE2AE42AAD0C98F /* VOKCollectionDataSource.h */; };
-		086F4B9770161BF83AA8CD5B /* VOKPagingFetchedResultsDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F7E83619715DB55DB876DA9 /* VOKPagingFetchedResultsDataSource.h */; };
-		0B8D499404FA8638E340E766 /* Pods-Paging Data Source Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A529D08657D9DBE70F1BAB3 /* Pods-Paging Data Source Example-dummy.m */; };
-		11C0140D5DB61C495C764073 /* VOKManagedObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F9A647B3B3EBA5FA89AE0BA /* VOKManagedObjectMapper.h */; };
-		138ABCD68577BBB46C71BC69 /* Pods-Paging Data Source Example-Vokoder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F94DFE2C66B0403A4F2BA8B2 /* Pods-Paging Data Source Example-Vokoder-dummy.m */; };
-		142E46E1C075CB5E6675F682 /* VOKCoreDataManagerInternalMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 80199AD60311A6837F1B7950 /* VOKCoreDataManagerInternalMacros.h */; };
-		17A332725AC579B9C6BE2EF1 /* VOKManagedObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B780094B6D8222809E7F31 /* VOKManagedObjectMapper.m */; };
-		1BC89B48437D29C27AB413DD /* VOKDefaultPagingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = C1E80B62BECC480A0FCA9B4B /* VOKDefaultPagingAccessory.m */; };
-		1DF9D78E6526898B815CACF3 /* Pods-Paging Data Source Example-ILGDynamicObjC-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD5DBA9DE06C737F48994B0 /* Pods-Paging Data Source Example-ILGDynamicObjC-dummy.m */; };
-		295EE40B9B29E7AE8061FDE5 /* VOKDefaultPagingAccessory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D7980A8DB21FEB74D734253 /* VOKDefaultPagingAccessory.h */; };
-		354D98FCB65FA0F684E96470 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729C78A178AE689ACC40CA34 /* Foundation.framework */; };
-		3A5D8F55DF52EDC296A668B7 /* VOKPagingFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 71136819973CAD436262759D /* VOKPagingFetchedResultsDataSource.m */; };
-		3C53D276B7862B25776AF68D /* VOKCoreDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 08CBFFB479E6F90F3C428CA5 /* VOKCoreDataManager.h */; };
-		4807974D1ACCA8FAD1780AE5 /* VOKFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 28923859671E76797C3C2888 /* VOKFetchedResultsDataSource.m */; };
-		503FEE14CEC9CF2164D0E842 /* VOKManagedObjectMap.h in Headers */ = {isa = PBXBuildFile; fileRef = BD89A43211C81BD301770887 /* VOKManagedObjectMap.h */; };
-		543DD3C0E180A505EE25C972 /* ILGClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = A607AB1885D2FCFECBFC0687 /* ILGClasses.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		68265077C3AB29D3E45B6A32 /* VOKCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0119C7BF58153399A9AA690C /* VOKCoreDataManager.m */; };
-		81FC7146B93D41DF23DA987B /* NSManagedObject+VOKManagedObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FC65BCA8C5C1E84AFA2A47 /* NSManagedObject+VOKManagedObjectAdditions.m */; };
-		923F526A4D060C823987FD37 /* NSManagedObject+VOKManagedObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B0FE17B901C1DF6863C6AAE7 /* NSManagedObject+VOKManagedObjectAdditions.h */; };
-		B22943A7075EC2C19C358E63 /* VOKMappableModel.h in Headers */ = {isa = PBXBuildFile; fileRef = D2E6FCC443A937563572281F /* VOKMappableModel.h */; };
-		B3DC9334296BF41407AD7310 /* ILGClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = 658CC86E630F629CE28471A0 /* ILGClasses.h */; };
-		D4BB386B12F2118F124C6390 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729C78A178AE689ACC40CA34 /* Foundation.framework */; };
-		D7FDA5F49B0123EF8B0883C0 /* VOKManagedObjectMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C87E02C6DDC0F878B78EF885 /* VOKManagedObjectMap.m */; };
-		D8B2F043A3273B968D617F7E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACDBA97DF71A3C0A8EBA7DC /* CoreData.framework */; };
-		DF34EA35DF16B26A112079C4 /* VOKCollectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0659057EACEDB1AE3E2FF0D5 /* VOKCollectionDataSource.m */; };
+		00E07C326A645FB06374EC04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3441DD1BD85B7C81AC34FF /* Foundation.framework */; };
+		0E82BCB1E319D7DD3E02FC7A /* NSManagedObject+VOKManagedObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B519117CE157DC0133F0C70 /* NSManagedObject+VOKManagedObjectAdditions.m */; };
+		0FEEAD2438C9B134F75EF547 /* ILGClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B11DFB14202081C8B24169D /* ILGClasses.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1503CD19E4AC5D623D6C57AD /* VOKCollectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C770792E16960EFEBD1B5F5F /* VOKCollectionDataSource.m */; };
+		2028F0570847E431D0D6B9C8 /* VOKCollectionDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 1457FEFBE23618947D11DE2E /* VOKCollectionDataSource.h */; };
+		27394CB094B017A4AA2B4E58 /* VOKCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F59FBE2C63E927CD97E2FF /* VOKCoreDataManager.m */; };
+		27E5788960E285CAFA7EEFDD /* VOKPagingFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 310367659493797777FA81DA /* VOKPagingFetchedResultsDataSource.m */; };
+		2DF3533A4C9045D7B39CC03D /* VOKCoreDataManagerInternalMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 124A4965AC2C604D201BF979 /* VOKCoreDataManagerInternalMacros.h */; };
+		4FA3259D8B5AD9A0E21DCBA1 /* Pods-Paging Data Source Example-ILGDynamicObjC-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EA1EB05E9F94CA7F3C5212 /* Pods-Paging Data Source Example-ILGDynamicObjC-dummy.m */; };
+		5813B23FAACCE03EB96DA367 /* VOKManagedObjectMap.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA633EB67C400882CD04280 /* VOKManagedObjectMap.m */; };
+		5A14564514A32B275A1FB282 /* VOKFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC47EB66E89847E80F64DE0 /* VOKFetchedResultsDataSource.m */; };
+		636AFB0A5BB0BA4FBC67286D /* NSManagedObject+VOKManagedObjectAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 991FD1793B0066292017E0B3 /* NSManagedObject+VOKManagedObjectAdditions.h */; };
+		68E879681B38A8133B9DFABA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D83BFE9FBCA4CA1106ED00 /* CoreData.framework */; };
+		750492D9B007FC1B218C361C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3441DD1BD85B7C81AC34FF /* Foundation.framework */; };
+		76E6B0144B458797FB0A18ED /* Pods-Paging Data Source Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6FB27EFDA24B3A13AEF7AA /* Pods-Paging Data Source Example-dummy.m */; };
+		7C7984BC3C0F54802F9D1E0C /* VOKPagingFetchedResultsDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 1257F4AB38BDCDBA69CC3BFD /* VOKPagingFetchedResultsDataSource.h */; };
+		853BB73399024489D9CEAE4D /* VOKManagedObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B99166F2EAB46EC7B26A9E /* VOKManagedObjectMapper.h */; };
+		863CDCAC2CD5F8AF731DF165 /* VOKDefaultPagingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D284C4DA682786E883DB9 /* VOKDefaultPagingAccessory.m */; };
+		9B7789DB1195B7B64FED7FA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3441DD1BD85B7C81AC34FF /* Foundation.framework */; };
+		A319D9AF46ED81C40EC5D419 /* VOKManagedObjectMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 655EE9475A16EF706978EF54 /* VOKManagedObjectMap.h */; };
+		AC085D02F559847F1E555592 /* VOKCoreDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BA58B1C61EA58C1ABAEC654C /* VOKCoreDataManager.h */; };
+		B8A9EE27177F3A6546B08FB9 /* ILGClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E3EFEB85477AA68B9C995CC /* ILGClasses.h */; };
+		BCBB3337C937DAB26D47C6BF /* VOKDefaultPagingAccessory.h in Headers */ = {isa = PBXBuildFile; fileRef = 09F52655DC2613DED783F145 /* VOKDefaultPagingAccessory.h */; };
+		DC3779C0025EDF2DD0C7ADAE /* VOKManagedObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F722F06B88B7805BDAE8E3 /* VOKManagedObjectMapper.m */; };
+		DEE45D8150BC692321945E72 /* Pods-Paging Data Source Example-Vokoder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C05FB1A8176C8F10981669F1 /* Pods-Paging Data Source Example-Vokoder-dummy.m */; };
+		ECA4718FBF1389BDFE9D1AB7 /* VOKMappableModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 29F5F49A69C847A6CD24331B /* VOKMappableModel.h */; };
+		F42883CF21E658E9B2E75196 /* VOKFetchedResultsDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BCA3A8FDC6714100880EC57 /* VOKFetchedResultsDataSource.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		19F500D054756C30BBE6A138 /* PBXContainerItemProxy */ = {
+		41BC06F1185BCA05FB3AB71E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 53C0A2E3383644D3A31F90A3 /* Project object */;
+			containerPortal = 2BFADA3CDB76F77DBB155234 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D01F6DA2324F7AF192C821CB;
-			remoteInfo = "Pods-Paging Data Source Example-Vokoder";
-		};
-		7FCE0D33EC3B27BA2A0E79F5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 53C0A2E3383644D3A31F90A3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AF08C7801A40CFB4E62E9A3A;
+			remoteGlobalIDString = C102B8C9884E78365BF14F1A;
 			remoteInfo = "Pods-Paging Data Source Example-ILGDynamicObjC";
 		};
-		88573DF23BCCCBA773558D0B /* PBXContainerItemProxy */ = {
+		692CA483DD8F9A8C0FB7CF47 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 53C0A2E3383644D3A31F90A3 /* Project object */;
+			containerPortal = 2BFADA3CDB76F77DBB155234 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AF08C7801A40CFB4E62E9A3A;
+			remoteGlobalIDString = E2C01E9D8E24D95FE689851F;
+			remoteInfo = "Pods-Paging Data Source Example-Vokoder";
+		};
+		74D4C398749F503F086AAAFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BFADA3CDB76F77DBB155234 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C102B8C9884E78365BF14F1A;
 			remoteInfo = "Pods-Paging Data Source Example-ILGDynamicObjC";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0119C7BF58153399A9AA690C /* VOKCoreDataManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKCoreDataManager.m; sourceTree = "<group>"; };
-		02B780094B6D8222809E7F31 /* VOKManagedObjectMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKManagedObjectMapper.m; sourceTree = "<group>"; };
-		0659057EACEDB1AE3E2FF0D5 /* VOKCollectionDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKCollectionDataSource.m; sourceTree = "<group>"; };
-		08CBFFB479E6F90F3C428CA5 /* VOKCoreDataManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKCoreDataManager.h; sourceTree = "<group>"; };
-		0ABD46C3A9A191652BFDDEBA /* Pods-Paging Data Source Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Paging Data Source Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		11FC65BCA8C5C1E84AFA2A47 /* NSManagedObject+VOKManagedObjectAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+VOKManagedObjectAdditions.m"; sourceTree = "<group>"; };
-		1599B07B8A96F0E829496706 /* Pods-Paging Data Source Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paging Data Source Example.debug.xcconfig"; sourceTree = "<group>"; };
-		1A529D08657D9DBE70F1BAB3 /* Pods-Paging Data Source Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Paging Data Source Example-dummy.m"; sourceTree = "<group>"; };
-		1D7980A8DB21FEB74D734253 /* VOKDefaultPagingAccessory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKDefaultPagingAccessory.h; sourceTree = "<group>"; };
-		28923859671E76797C3C2888 /* VOKFetchedResultsDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKFetchedResultsDataSource.m; sourceTree = "<group>"; };
-		29113B9F42A204EAE4DE99C2 /* Pods-Paging Data Source Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Paging Data Source Example-resources.sh"; sourceTree = "<group>"; };
-		2F9A647B3B3EBA5FA89AE0BA /* VOKManagedObjectMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKManagedObjectMapper.h; sourceTree = "<group>"; };
-		36B5F0CB22AEB6761C77CB3E /* Pods-Paging Data Source Example-Vokoder-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Paging Data Source Example-Vokoder-prefix.pch"; sourceTree = "<group>"; };
-		37EB2CD6865F64D7B0BF13FE /* Pods-Paging Data Source Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paging Data Source Example.release.xcconfig"; sourceTree = "<group>"; };
-		3ACDBA97DF71A3C0A8EBA7DC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
-		3B41A2767D3AEC18E58C782A /* libPods-Paging Data Source Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Paging Data Source Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5192BF1FAC59BB862809E170 /* libPods-Paging Data Source Example-Vokoder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Paging Data Source Example-Vokoder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F4C27F44990A7306325BB7D /* Pods-Paging Data Source Example-Vokoder.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paging Data Source Example-Vokoder.xcconfig"; sourceTree = "<group>"; };
-		658CC86E630F629CE28471A0 /* ILGClasses.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ILGClasses.h; path = Pod/ILGClasses/ILGClasses.h; sourceTree = "<group>"; };
-		71136819973CAD436262759D /* VOKPagingFetchedResultsDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKPagingFetchedResultsDataSource.m; sourceTree = "<group>"; };
-		718E9E8DCEC59787D9C7FA35 /* libPods-Paging Data Source Example-ILGDynamicObjC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Paging Data Source Example-ILGDynamicObjC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		729C78A178AE689ACC40CA34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		77156A4DEADAAC0583D0D926 /* Pods-Paging Data Source Example-ILGDynamicObjC-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Paging Data Source Example-ILGDynamicObjC-prefix.pch"; sourceTree = "<group>"; };
-		7F7E83619715DB55DB876DA9 /* VOKPagingFetchedResultsDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKPagingFetchedResultsDataSource.h; sourceTree = "<group>"; };
-		80199AD60311A6837F1B7950 /* VOKCoreDataManagerInternalMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKCoreDataManagerInternalMacros.h; sourceTree = "<group>"; };
-		8AD5DBA9DE06C737F48994B0 /* Pods-Paging Data Source Example-ILGDynamicObjC-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Paging Data Source Example-ILGDynamicObjC-dummy.m"; sourceTree = "<group>"; };
-		8B910F19C6FA8435CF3957AE /* VOKFetchedResultsDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKFetchedResultsDataSource.h; sourceTree = "<group>"; };
-		8F891EFD74F73203BD22126E /* Pods-Paging Data Source Example-ILGDynamicObjC-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paging Data Source Example-ILGDynamicObjC-Private.xcconfig"; sourceTree = "<group>"; };
-		A607AB1885D2FCFECBFC0687 /* ILGClasses.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ILGClasses.m; path = Pod/ILGClasses/ILGClasses.m; sourceTree = "<group>"; };
-		B0EF6A8E523373B981C0DE44 /* Pods-Paging Data Source Example-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Paging Data Source Example-environment.h"; sourceTree = "<group>"; };
-		B0FE17B901C1DF6863C6AAE7 /* NSManagedObject+VOKManagedObjectAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+VOKManagedObjectAdditions.h"; sourceTree = "<group>"; };
-		B19C0DB9E21A9C48691A0304 /* Pods-Paging Data Source Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Paging Data Source Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		BD89A43211C81BD301770887 /* VOKManagedObjectMap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKManagedObjectMap.h; sourceTree = "<group>"; };
-		BF38E4E2D83926AAA16009F7 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C1E80B62BECC480A0FCA9B4B /* VOKDefaultPagingAccessory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKDefaultPagingAccessory.m; sourceTree = "<group>"; };
-		C87E02C6DDC0F878B78EF885 /* VOKManagedObjectMap.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKManagedObjectMap.m; sourceTree = "<group>"; };
-		D1E0F9DF5AE2AE42AAD0C98F /* VOKCollectionDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKCollectionDataSource.h; sourceTree = "<group>"; };
-		D2E6FCC443A937563572281F /* VOKMappableModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKMappableModel.h; sourceTree = "<group>"; };
-		E5C66DA4FADD4D1614105943 /* Pods-Paging Data Source Example-ILGDynamicObjC.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paging Data Source Example-ILGDynamicObjC.xcconfig"; sourceTree = "<group>"; };
-		F93DDF2CFFBFEA5C0E57CDC1 /* Pods-Paging Data Source Example-Vokoder-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paging Data Source Example-Vokoder-Private.xcconfig"; sourceTree = "<group>"; };
-		F94DFE2C66B0403A4F2BA8B2 /* Pods-Paging Data Source Example-Vokoder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Paging Data Source Example-Vokoder-dummy.m"; sourceTree = "<group>"; };
+		09F52655DC2613DED783F145 /* VOKDefaultPagingAccessory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKDefaultPagingAccessory.h; sourceTree = "<group>"; };
+		0C7B42CB3E5B0C034C52565E /* Pods-Paging Data Source Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Paging Data Source Example-resources.sh"; sourceTree = "<group>"; };
+		10B99166F2EAB46EC7B26A9E /* VOKManagedObjectMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKManagedObjectMapper.h; sourceTree = "<group>"; };
+		124A4965AC2C604D201BF979 /* VOKCoreDataManagerInternalMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKCoreDataManagerInternalMacros.h; sourceTree = "<group>"; };
+		1257F4AB38BDCDBA69CC3BFD /* VOKPagingFetchedResultsDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKPagingFetchedResultsDataSource.h; sourceTree = "<group>"; };
+		13AC27B9500718A2739C4DD6 /* libPods-Paging Data Source Example-ILGDynamicObjC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Paging Data Source Example-ILGDynamicObjC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1457FEFBE23618947D11DE2E /* VOKCollectionDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKCollectionDataSource.h; sourceTree = "<group>"; };
+		1CC47EB66E89847E80F64DE0 /* VOKFetchedResultsDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKFetchedResultsDataSource.m; sourceTree = "<group>"; };
+		2645CC430A1306D2979F81E6 /* Pods-Paging Data Source Example-ILGDynamicObjC-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Paging Data Source Example-ILGDynamicObjC-prefix.pch"; sourceTree = "<group>"; };
+		29F5F49A69C847A6CD24331B /* VOKMappableModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKMappableModel.h; sourceTree = "<group>"; };
+		2FA479D7D1797279A3E2FE3C /* Pods-Paging Data Source Example-ILGDynamicObjC.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paging Data Source Example-ILGDynamicObjC.xcconfig"; sourceTree = "<group>"; };
+		310367659493797777FA81DA /* VOKPagingFetchedResultsDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKPagingFetchedResultsDataSource.m; sourceTree = "<group>"; };
+		48CF30649C8B990BAFB0C59E /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4B953F453ABCB12A14204827 /* Pods-Paging Data Source Example-Vokoder.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paging Data Source Example-Vokoder.xcconfig"; sourceTree = "<group>"; };
+		4BCA3A8FDC6714100880EC57 /* VOKFetchedResultsDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKFetchedResultsDataSource.h; sourceTree = "<group>"; };
+		58D469E4272554439558F964 /* Pods-Paging Data Source Example-Vokoder-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paging Data Source Example-Vokoder-Private.xcconfig"; sourceTree = "<group>"; };
+		5B519117CE157DC0133F0C70 /* NSManagedObject+VOKManagedObjectAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+VOKManagedObjectAdditions.m"; sourceTree = "<group>"; };
+		655EE9475A16EF706978EF54 /* VOKManagedObjectMap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKManagedObjectMap.h; sourceTree = "<group>"; };
+		65F722F06B88B7805BDAE8E3 /* VOKManagedObjectMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKManagedObjectMapper.m; sourceTree = "<group>"; };
+		67D83BFE9FBCA4CA1106ED00 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		6E3EFEB85477AA68B9C995CC /* ILGClasses.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ILGClasses.h; path = Pod/ILGClasses/ILGClasses.h; sourceTree = "<group>"; };
+		6F8174152609505486485A36 /* libPods-Paging Data Source Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Paging Data Source Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A6FB27EFDA24B3A13AEF7AA /* Pods-Paging Data Source Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Paging Data Source Example-dummy.m"; sourceTree = "<group>"; };
+		7B11DFB14202081C8B24169D /* ILGClasses.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ILGClasses.m; path = Pod/ILGClasses/ILGClasses.m; sourceTree = "<group>"; };
+		86BF8D6F43CD613036DD6D1B /* Pods-Paging Data Source Example-Vokoder-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Paging Data Source Example-Vokoder-prefix.pch"; sourceTree = "<group>"; };
+		8EB18887028DD735E7A52CA0 /* Pods-Paging Data Source Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Paging Data Source Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		908D284C4DA682786E883DB9 /* VOKDefaultPagingAccessory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKDefaultPagingAccessory.m; sourceTree = "<group>"; };
+		95CEDC59C91B2D19B106DB8A /* Pods-Paging Data Source Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paging Data Source Example.release.xcconfig"; sourceTree = "<group>"; };
+		991FD1793B0066292017E0B3 /* NSManagedObject+VOKManagedObjectAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+VOKManagedObjectAdditions.h"; sourceTree = "<group>"; };
+		A4D475B7DC8041737DF64AF3 /* Pods-Paging Data Source Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paging Data Source Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A6EA1EB05E9F94CA7F3C5212 /* Pods-Paging Data Source Example-ILGDynamicObjC-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Paging Data Source Example-ILGDynamicObjC-dummy.m"; sourceTree = "<group>"; };
+		AF3441DD1BD85B7C81AC34FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		B8F59FBE2C63E927CD97E2FF /* VOKCoreDataManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKCoreDataManager.m; sourceTree = "<group>"; };
+		BA58B1C61EA58C1ABAEC654C /* VOKCoreDataManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKCoreDataManager.h; sourceTree = "<group>"; };
+		C05FB1A8176C8F10981669F1 /* Pods-Paging Data Source Example-Vokoder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Paging Data Source Example-Vokoder-dummy.m"; sourceTree = "<group>"; };
+		C770792E16960EFEBD1B5F5F /* VOKCollectionDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKCollectionDataSource.m; sourceTree = "<group>"; };
+		CBE500A20F04CDFA6F822489 /* Pods-Paging Data Source Example-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Paging Data Source Example-environment.h"; sourceTree = "<group>"; };
+		D776D397C6F5DA57CDE59C15 /* libPods-Paging Data Source Example-Vokoder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Paging Data Source Example-Vokoder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC3298905754B84ED069F196 /* Pods-Paging Data Source Example-ILGDynamicObjC-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paging Data Source Example-ILGDynamicObjC-Private.xcconfig"; sourceTree = "<group>"; };
+		E39D4A861F3CE4741F5EE8AA /* Pods-Paging Data Source Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Paging Data Source Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		FDA633EB67C400882CD04280 /* VOKManagedObjectMap.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKManagedObjectMap.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		583FAADA2C131353D1CAB5A1 /* Frameworks */ = {
+		6DD4DD91DB0D145A156968E7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0168610B2686C2FB3E4A9562 /* Foundation.framework in Frameworks */,
+				00E07C326A645FB06374EC04 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8CF0BC6C6F850D7392F03C5B /* Frameworks */ = {
+		A1CE8AD0F0426DA699FF00D7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8B2F043A3273B968D617F7E /* CoreData.framework in Frameworks */,
-				354D98FCB65FA0F684E96470 /* Foundation.framework in Frameworks */,
+				68E879681B38A8133B9DFABA /* CoreData.framework in Frameworks */,
+				750492D9B007FC1B218C361C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DEF6F6FD3CDEDC4B680162C4 /* Frameworks */ = {
+		BDEC679B56391F1029FD11BE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4BB386B12F2118F124C6390 /* Foundation.framework in Frameworks */,
+				9B7789DB1195B7B64FED7FA7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1CFF0287AD9C9C1FE94AC43D /* Pods-Paging Data Source Example */ = {
+		02B2FA30EF5981CBDA840CE7 = {
 			isa = PBXGroup;
 			children = (
-				0ABD46C3A9A191652BFDDEBA /* Pods-Paging Data Source Example-acknowledgements.markdown */,
-				B19C0DB9E21A9C48691A0304 /* Pods-Paging Data Source Example-acknowledgements.plist */,
-				1A529D08657D9DBE70F1BAB3 /* Pods-Paging Data Source Example-dummy.m */,
-				B0EF6A8E523373B981C0DE44 /* Pods-Paging Data Source Example-environment.h */,
-				29113B9F42A204EAE4DE99C2 /* Pods-Paging Data Source Example-resources.sh */,
-				1599B07B8A96F0E829496706 /* Pods-Paging Data Source Example.debug.xcconfig */,
-				37EB2CD6865F64D7B0BF13FE /* Pods-Paging Data Source Example.release.xcconfig */,
+				48CF30649C8B990BAFB0C59E /* Podfile */,
+				32679C5CF9EAC3D1E1F9F280 /* Development Pods */,
+				D1B5088847F5DF3EAC9069D2 /* Frameworks */,
+				E88BAE61ABA8D7B9513045A7 /* Pods */,
+				205EDFEDBD819D9B83C54879 /* Products */,
+				140AADF5E985A2D4DA03E1E2 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		039503A967447CA668E7EB49 /* Optional Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1457FEFBE23618947D11DE2E /* VOKCollectionDataSource.h */,
+				C770792E16960EFEBD1B5F5F /* VOKCollectionDataSource.m */,
+			);
+			path = "Optional Data Sources";
+			sourceTree = "<group>";
+		};
+		04DD15575E849C7945F5C09F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				67D83BFE9FBCA4CA1106ED00 /* CoreData.framework */,
+				AF3441DD1BD85B7C81AC34FF /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		0AB91E97B6EB9692645CEB33 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				039503A967447CA668E7EB49 /* Optional Data Sources */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		140AADF5E985A2D4DA03E1E2 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				169C2415B51C639781825B81 /* Pods-Paging Data Source Example */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		169C2415B51C639781825B81 /* Pods-Paging Data Source Example */ = {
+			isa = PBXGroup;
+			children = (
+				8EB18887028DD735E7A52CA0 /* Pods-Paging Data Source Example-acknowledgements.markdown */,
+				E39D4A861F3CE4741F5EE8AA /* Pods-Paging Data Source Example-acknowledgements.plist */,
+				7A6FB27EFDA24B3A13AEF7AA /* Pods-Paging Data Source Example-dummy.m */,
+				CBE500A20F04CDFA6F822489 /* Pods-Paging Data Source Example-environment.h */,
+				0C7B42CB3E5B0C034C52565E /* Pods-Paging Data Source Example-resources.sh */,
+				A4D475B7DC8041737DF64AF3 /* Pods-Paging Data Source Example.debug.xcconfig */,
+				95CEDC59C91B2D19B106DB8A /* Pods-Paging Data Source Example.release.xcconfig */,
 			);
 			name = "Pods-Paging Data Source Example";
 			path = "Target Support Files/Pods-Paging Data Source Example";
 			sourceTree = "<group>";
 		};
-		203527C272CDF1D2DC31346D /* Development Pods */ = {
+		171645E0E45DA2751F43674E /* Vokoder */ = {
 			isa = PBXGroup;
 			children = (
-				DEE597D6EA26F111C377BD7A /* Vokoder */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		3DD196D1C9244F5BDE0B917D /* Optional Data Sources */ = {
-			isa = PBXGroup;
-			children = (
-				8B910F19C6FA8435CF3957AE /* VOKFetchedResultsDataSource.h */,
-				28923859671E76797C3C2888 /* VOKFetchedResultsDataSource.m */,
-			);
-			path = "Optional Data Sources";
-			sourceTree = "<group>";
-		};
-		4999EBA97DCD8DB77F58CC49 /* DataSources */ = {
-			isa = PBXGroup;
-			children = (
-				F2C3510CFED169D2B2C6E4E8 /* Collection */,
-				6E1F2C0B1225C59BE9DAC336 /* FetchedResults */,
-				560D66CCD528750337264AED /* PagingFetchedResults */,
-			);
-			name = DataSources;
-			sourceTree = "<group>";
-		};
-		4D63233E5096FEDD50CBB8FB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3B41A2767D3AEC18E58C782A /* libPods-Paging Data Source Example.a */,
-				718E9E8DCEC59787D9C7FA35 /* libPods-Paging Data Source Example-ILGDynamicObjC.a */,
-				5192BF1FAC59BB862809E170 /* libPods-Paging Data Source Example-Vokoder.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		5537B5F39DBE63B9E81CE4C9 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				B0FE17B901C1DF6863C6AAE7 /* NSManagedObject+VOKManagedObjectAdditions.h */,
-				11FC65BCA8C5C1E84AFA2A47 /* NSManagedObject+VOKManagedObjectAdditions.m */,
-				08CBFFB479E6F90F3C428CA5 /* VOKCoreDataManager.h */,
-				0119C7BF58153399A9AA690C /* VOKCoreDataManager.m */,
-				BD89A43211C81BD301770887 /* VOKManagedObjectMap.h */,
-				C87E02C6DDC0F878B78EF885 /* VOKManagedObjectMap.m */,
-				2F9A647B3B3EBA5FA89AE0BA /* VOKManagedObjectMapper.h */,
-				02B780094B6D8222809E7F31 /* VOKManagedObjectMapper.m */,
-				D2E6FCC443A937563572281F /* VOKMappableModel.h */,
-				7AD4F0F5B0261F2CB1F2C010 /* Internal */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		560D66CCD528750337264AED /* PagingFetchedResults */ = {
-			isa = PBXGroup;
-			children = (
-				B46BF5980ECC727363D6D948 /* Pod */,
-			);
-			name = PagingFetchedResults;
-			sourceTree = "<group>";
-		};
-		63C837472D549F2B4028F07D /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				AAECC0F38AFDC6D173BC1CFE /* Pod */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		64C533B5C29BD0610D3CAAC1 = {
-			isa = PBXGroup;
-			children = (
-				BF38E4E2D83926AAA16009F7 /* Podfile */,
-				203527C272CDF1D2DC31346D /* Development Pods */,
-				D38EB1E3B37DA358B197D895 /* Frameworks */,
-				6F8741877FC9FE2AA0F6CEAC /* Pods */,
-				4D63233E5096FEDD50CBB8FB /* Products */,
-				B323EAB5A07D526721832389 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		6E1F2C0B1225C59BE9DAC336 /* FetchedResults */ = {
-			isa = PBXGroup;
-			children = (
-				7A17DEEA8EA80AC014658269 /* Pod */,
-			);
-			name = FetchedResults;
-			sourceTree = "<group>";
-		};
-		6F8741877FC9FE2AA0F6CEAC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				81C38DAAC4F15DCF4DF00968 /* ILGDynamicObjC */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		7969880783AF2D96694C6FC9 /* ILGClasses */ = {
-			isa = PBXGroup;
-			children = (
-				658CC86E630F629CE28471A0 /* ILGClasses.h */,
-				A607AB1885D2FCFECBFC0687 /* ILGClasses.m */,
-			);
-			name = ILGClasses;
-			sourceTree = "<group>";
-		};
-		7A17DEEA8EA80AC014658269 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				9E0FD15EFB769FA3BEF5C2DA /* Classes */,
-			);
-			path = Pod;
-			sourceTree = "<group>";
-		};
-		7AD4F0F5B0261F2CB1F2C010 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				80199AD60311A6837F1B7950 /* VOKCoreDataManagerInternalMacros.h */,
-			);
-			path = Internal;
-			sourceTree = "<group>";
-		};
-		81C38DAAC4F15DCF4DF00968 /* ILGDynamicObjC */ = {
-			isa = PBXGroup;
-			children = (
-				7969880783AF2D96694C6FC9 /* ILGClasses */,
-				B178AD794B49BFB68BFF189E /* Support Files */,
-			);
-			path = ILGDynamicObjC;
-			sourceTree = "<group>";
-		};
-		8BC798A1E0504EC5A225C745 /* Optional Data Sources */ = {
-			isa = PBXGroup;
-			children = (
-				D1E0F9DF5AE2AE42AAD0C98F /* VOKCollectionDataSource.h */,
-				0659057EACEDB1AE3E2FF0D5 /* VOKCollectionDataSource.m */,
-			);
-			path = "Optional Data Sources";
-			sourceTree = "<group>";
-		};
-		9167C2F7F05069912EC6CC44 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				FB0CC8129CC9E03DB7ABACC6 /* Classes */,
-			);
-			path = Pod;
-			sourceTree = "<group>";
-		};
-		9E0FD15EFB769FA3BEF5C2DA /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				3DD196D1C9244F5BDE0B917D /* Optional Data Sources */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		A640523864D9A6B0347F1656 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3ACDBA97DF71A3C0A8EBA7DC /* CoreData.framework */,
-				729C78A178AE689ACC40CA34 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		AAECC0F38AFDC6D173BC1CFE /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				5537B5F39DBE63B9E81CE4C9 /* Classes */,
-			);
-			path = Pod;
-			sourceTree = "<group>";
-		};
-		B08391F10B481D2B3BC482B6 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				C8B59810B724624AEBC047AD /* Optional Data Sources */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		B178AD794B49BFB68BFF189E /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E5C66DA4FADD4D1614105943 /* Pods-Paging Data Source Example-ILGDynamicObjC.xcconfig */,
-				8F891EFD74F73203BD22126E /* Pods-Paging Data Source Example-ILGDynamicObjC-Private.xcconfig */,
-				8AD5DBA9DE06C737F48994B0 /* Pods-Paging Data Source Example-ILGDynamicObjC-dummy.m */,
-				77156A4DEADAAC0583D0D926 /* Pods-Paging Data Source Example-ILGDynamicObjC-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-Paging Data Source Example-ILGDynamicObjC";
-			sourceTree = "<group>";
-		};
-		B323EAB5A07D526721832389 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				1CFF0287AD9C9C1FE94AC43D /* Pods-Paging Data Source Example */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		B46BF5980ECC727363D6D948 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				B08391F10B481D2B3BC482B6 /* Classes */,
-			);
-			path = Pod;
-			sourceTree = "<group>";
-		};
-		C8B59810B724624AEBC047AD /* Optional Data Sources */ = {
-			isa = PBXGroup;
-			children = (
-				1D7980A8DB21FEB74D734253 /* VOKDefaultPagingAccessory.h */,
-				C1E80B62BECC480A0FCA9B4B /* VOKDefaultPagingAccessory.m */,
-				7F7E83619715DB55DB876DA9 /* VOKPagingFetchedResultsDataSource.h */,
-				71136819973CAD436262759D /* VOKPagingFetchedResultsDataSource.m */,
-			);
-			path = "Optional Data Sources";
-			sourceTree = "<group>";
-		};
-		CCD4CC501836E6731865FCE4 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5F4C27F44990A7306325BB7D /* Pods-Paging Data Source Example-Vokoder.xcconfig */,
-				F93DDF2CFFBFEA5C0E57CDC1 /* Pods-Paging Data Source Example-Vokoder-Private.xcconfig */,
-				F94DFE2C66B0403A4F2BA8B2 /* Pods-Paging Data Source Example-Vokoder-dummy.m */,
-				36B5F0CB22AEB6761C77CB3E /* Pods-Paging Data Source Example-Vokoder-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "Paging Data Source Example/Pods/Target Support Files/Pods-Paging Data Source Example-Vokoder";
-			sourceTree = "<group>";
-		};
-		D38EB1E3B37DA358B197D895 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A640523864D9A6B0347F1656 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DEE597D6EA26F111C377BD7A /* Vokoder */ = {
-			isa = PBXGroup;
-			children = (
-				63C837472D549F2B4028F07D /* Core */,
-				4999EBA97DCD8DB77F58CC49 /* DataSources */,
-				CCD4CC501836E6731865FCE4 /* Support Files */,
+				7BBF4DEFEFD75CF1EDFF812F /* Core */,
+				F8FE1F2D4D2136AF3D8B9D99 /* DataSources */,
+				E7C43C73ECE19FD4ED1DDBA0 /* Support Files */,
 			);
 			name = Vokoder;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		F2C3510CFED169D2B2C6E4E8 /* Collection */ = {
+		1A89A38BA05D853D1715F840 /* Optional Data Sources */ = {
 			isa = PBXGroup;
 			children = (
-				9167C2F7F05069912EC6CC44 /* Pod */,
+				09F52655DC2613DED783F145 /* VOKDefaultPagingAccessory.h */,
+				908D284C4DA682786E883DB9 /* VOKDefaultPagingAccessory.m */,
+				1257F4AB38BDCDBA69CC3BFD /* VOKPagingFetchedResultsDataSource.h */,
+				310367659493797777FA81DA /* VOKPagingFetchedResultsDataSource.m */,
+			);
+			path = "Optional Data Sources";
+			sourceTree = "<group>";
+		};
+		1BBA019B7A5387019EE0004A /* ILGDynamicObjC */ = {
+			isa = PBXGroup;
+			children = (
+				E5637BE08550F1ED3828F768 /* ILGClasses */,
+				F61B2631C3D034D8FB22B9D5 /* Support Files */,
+			);
+			path = ILGDynamicObjC;
+			sourceTree = "<group>";
+		};
+		205EDFEDBD819D9B83C54879 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6F8174152609505486485A36 /* libPods-Paging Data Source Example.a */,
+				13AC27B9500718A2739C4DD6 /* libPods-Paging Data Source Example-ILGDynamicObjC.a */,
+				D776D397C6F5DA57CDE59C15 /* libPods-Paging Data Source Example-Vokoder.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		293C4A582406957E3F8B014C /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				124A4965AC2C604D201BF979 /* VOKCoreDataManagerInternalMacros.h */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		32679C5CF9EAC3D1E1F9F280 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				171645E0E45DA2751F43674E /* Vokoder */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		3DD617EBB6AEBD283F80E3C7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				991FD1793B0066292017E0B3 /* NSManagedObject+VOKManagedObjectAdditions.h */,
+				5B519117CE157DC0133F0C70 /* NSManagedObject+VOKManagedObjectAdditions.m */,
+				BA58B1C61EA58C1ABAEC654C /* VOKCoreDataManager.h */,
+				B8F59FBE2C63E927CD97E2FF /* VOKCoreDataManager.m */,
+				655EE9475A16EF706978EF54 /* VOKManagedObjectMap.h */,
+				FDA633EB67C400882CD04280 /* VOKManagedObjectMap.m */,
+				10B99166F2EAB46EC7B26A9E /* VOKManagedObjectMapper.h */,
+				65F722F06B88B7805BDAE8E3 /* VOKManagedObjectMapper.m */,
+				29F5F49A69C847A6CD24331B /* VOKMappableModel.h */,
+				293C4A582406957E3F8B014C /* Internal */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		509B870E3606DDA6FAA8360B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1A89A38BA05D853D1715F840 /* Optional Data Sources */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		7BBF4DEFEFD75CF1EDFF812F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A71CA7A91EBB24D21F1EDE48 /* Pod */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		81BD6B67E5CD6548AEF242FA /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				9D235CA0306BF4BD387D7818 /* Pod */,
 			);
 			name = Collection;
 			sourceTree = "<group>";
 		};
-		FB0CC8129CC9E03DB7ABACC6 /* Classes */ = {
+		8865F8BD75BD080202861072 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				8BC798A1E0504EC5A225C745 /* Optional Data Sources */,
+				BD988948B754BB002286B88F /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		89F81539F503FE394A38B91E /* Optional Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4BCA3A8FDC6714100880EC57 /* VOKFetchedResultsDataSource.h */,
+				1CC47EB66E89847E80F64DE0 /* VOKFetchedResultsDataSource.m */,
+			);
+			path = "Optional Data Sources";
+			sourceTree = "<group>";
+		};
+		9D235CA0306BF4BD387D7818 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				0AB91E97B6EB9692645CEB33 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		A71CA7A91EBB24D21F1EDE48 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				3DD617EBB6AEBD283F80E3C7 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		A9CEDA6AECAF164EB0FDDB65 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				509B870E3606DDA6FAA8360B /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		BD988948B754BB002286B88F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				89F81539F503FE394A38B91E /* Optional Data Sources */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		CD5062434C27E2836E0A2F1F /* PagingFetchedResults */ = {
+			isa = PBXGroup;
+			children = (
+				A9CEDA6AECAF164EB0FDDB65 /* Pod */,
+			);
+			name = PagingFetchedResults;
+			sourceTree = "<group>";
+		};
+		D1B5088847F5DF3EAC9069D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04DD15575E849C7945F5C09F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D76BF595CA7B2C46D80A888A /* FetchedResults */ = {
+			isa = PBXGroup;
+			children = (
+				8865F8BD75BD080202861072 /* Pod */,
+			);
+			name = FetchedResults;
+			sourceTree = "<group>";
+		};
+		E5637BE08550F1ED3828F768 /* ILGClasses */ = {
+			isa = PBXGroup;
+			children = (
+				6E3EFEB85477AA68B9C995CC /* ILGClasses.h */,
+				7B11DFB14202081C8B24169D /* ILGClasses.m */,
+			);
+			name = ILGClasses;
+			sourceTree = "<group>";
+		};
+		E7C43C73ECE19FD4ED1DDBA0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B953F453ABCB12A14204827 /* Pods-Paging Data Source Example-Vokoder.xcconfig */,
+				58D469E4272554439558F964 /* Pods-Paging Data Source Example-Vokoder-Private.xcconfig */,
+				C05FB1A8176C8F10981669F1 /* Pods-Paging Data Source Example-Vokoder-dummy.m */,
+				86BF8D6F43CD613036DD6D1B /* Pods-Paging Data Source Example-Vokoder-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Paging Data Source Example/Pods/Target Support Files/Pods-Paging Data Source Example-Vokoder";
+			sourceTree = "<group>";
+		};
+		E88BAE61ABA8D7B9513045A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1BBA019B7A5387019EE0004A /* ILGDynamicObjC */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F61B2631C3D034D8FB22B9D5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2FA479D7D1797279A3E2FE3C /* Pods-Paging Data Source Example-ILGDynamicObjC.xcconfig */,
+				DC3298905754B84ED069F196 /* Pods-Paging Data Source Example-ILGDynamicObjC-Private.xcconfig */,
+				A6EA1EB05E9F94CA7F3C5212 /* Pods-Paging Data Source Example-ILGDynamicObjC-dummy.m */,
+				2645CC430A1306D2979F81E6 /* Pods-Paging Data Source Example-ILGDynamicObjC-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Paging Data Source Example-ILGDynamicObjC";
+			sourceTree = "<group>";
+		};
+		F8FE1F2D4D2136AF3D8B9D99 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				81BD6B67E5CD6548AEF242FA /* Collection */,
+				D76BF595CA7B2C46D80A888A /* FetchedResults */,
+				CD5062434C27E2836E0A2F1F /* PagingFetchedResults */,
+			);
+			name = DataSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		B44384BCBE0249C8DDBF2205 /* Headers */ = {
+		134BF91295BFAB11891CB235 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				923F526A4D060C823987FD37 /* NSManagedObject+VOKManagedObjectAdditions.h in Headers */,
-				04BBFE18E90747DDAA42592F /* VOKCollectionDataSource.h in Headers */,
-				3C53D276B7862B25776AF68D /* VOKCoreDataManager.h in Headers */,
-				142E46E1C075CB5E6675F682 /* VOKCoreDataManagerInternalMacros.h in Headers */,
-				295EE40B9B29E7AE8061FDE5 /* VOKDefaultPagingAccessory.h in Headers */,
-				04A4FF39C0141A580DB2B11B /* VOKFetchedResultsDataSource.h in Headers */,
-				503FEE14CEC9CF2164D0E842 /* VOKManagedObjectMap.h in Headers */,
-				11C0140D5DB61C495C764073 /* VOKManagedObjectMapper.h in Headers */,
-				B22943A7075EC2C19C358E63 /* VOKMappableModel.h in Headers */,
-				086F4B9770161BF83AA8CD5B /* VOKPagingFetchedResultsDataSource.h in Headers */,
+				636AFB0A5BB0BA4FBC67286D /* NSManagedObject+VOKManagedObjectAdditions.h in Headers */,
+				2028F0570847E431D0D6B9C8 /* VOKCollectionDataSource.h in Headers */,
+				AC085D02F559847F1E555592 /* VOKCoreDataManager.h in Headers */,
+				2DF3533A4C9045D7B39CC03D /* VOKCoreDataManagerInternalMacros.h in Headers */,
+				BCBB3337C937DAB26D47C6BF /* VOKDefaultPagingAccessory.h in Headers */,
+				F42883CF21E658E9B2E75196 /* VOKFetchedResultsDataSource.h in Headers */,
+				A319D9AF46ED81C40EC5D419 /* VOKManagedObjectMap.h in Headers */,
+				853BB73399024489D9CEAE4D /* VOKManagedObjectMapper.h in Headers */,
+				ECA4718FBF1389BDFE9D1AB7 /* VOKMappableModel.h in Headers */,
+				7C7984BC3C0F54802F9D1E0C /* VOKPagingFetchedResultsDataSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F15CF35D89A0276A80974B64 /* Headers */ = {
+		BE4A8878C21C83FFBC292051 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3DC9334296BF41407AD7310 /* ILGClasses.h in Headers */,
+				B8A9EE27177F3A6546B08FB9 /* ILGClasses.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1C54BB48D7B5CF9BACD15A96 /* Pods-Paging Data Source Example */ = {
+		225DAD07AB73BEEBA101B107 /* Pods-Paging Data Source Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 40BE2B2C65A38ACA5EF55416 /* Build configuration list for PBXNativeTarget "Pods-Paging Data Source Example" */;
+			buildConfigurationList = FA608589CF891F57A3F4F235 /* Build configuration list for PBXNativeTarget "Pods-Paging Data Source Example" */;
 			buildPhases = (
-				1C3AE0462263E9CD7CF8685E /* Sources */,
-				DEF6F6FD3CDEDC4B680162C4 /* Frameworks */,
+				CE4393051CAFB81E1EE500FD /* Sources */,
+				6DD4DD91DB0D145A156968E7 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C8F05AB2E36FAD9241BF291A /* PBXTargetDependency */,
-				7EA9F238EF0572C75E0DA36B /* PBXTargetDependency */,
+				53C4D693B80D885AF6C00AD1 /* PBXTargetDependency */,
+				BB0A0139D1383D78BB32B576 /* PBXTargetDependency */,
 			);
 			name = "Pods-Paging Data Source Example";
 			productName = "Pods-Paging Data Source Example";
-			productReference = 3B41A2767D3AEC18E58C782A /* libPods-Paging Data Source Example.a */;
+			productReference = 6F8174152609505486485A36 /* libPods-Paging Data Source Example.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		AF08C7801A40CFB4E62E9A3A /* Pods-Paging Data Source Example-ILGDynamicObjC */ = {
+		C102B8C9884E78365BF14F1A /* Pods-Paging Data Source Example-ILGDynamicObjC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 16CF4B5AD243E208EDD0238C /* Build configuration list for PBXNativeTarget "Pods-Paging Data Source Example-ILGDynamicObjC" */;
+			buildConfigurationList = 808783577333E39E8D132368 /* Build configuration list for PBXNativeTarget "Pods-Paging Data Source Example-ILGDynamicObjC" */;
 			buildPhases = (
-				73DAF32C3FC0C220A78DA18E /* Sources */,
-				583FAADA2C131353D1CAB5A1 /* Frameworks */,
-				F15CF35D89A0276A80974B64 /* Headers */,
+				A4F801F6D757FB8119E62800 /* Sources */,
+				BDEC679B56391F1029FD11BE /* Frameworks */,
+				BE4A8878C21C83FFBC292051 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -479,115 +479,115 @@
 			);
 			name = "Pods-Paging Data Source Example-ILGDynamicObjC";
 			productName = "Pods-Paging Data Source Example-ILGDynamicObjC";
-			productReference = 718E9E8DCEC59787D9C7FA35 /* libPods-Paging Data Source Example-ILGDynamicObjC.a */;
+			productReference = 13AC27B9500718A2739C4DD6 /* libPods-Paging Data Source Example-ILGDynamicObjC.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		D01F6DA2324F7AF192C821CB /* Pods-Paging Data Source Example-Vokoder */ = {
+		E2C01E9D8E24D95FE689851F /* Pods-Paging Data Source Example-Vokoder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9483A020DFFD460328866471 /* Build configuration list for PBXNativeTarget "Pods-Paging Data Source Example-Vokoder" */;
+			buildConfigurationList = B91BE8F525BC58EB1FAB89FF /* Build configuration list for PBXNativeTarget "Pods-Paging Data Source Example-Vokoder" */;
 			buildPhases = (
-				F68E8A9B4D4A1F40B5D31D7F /* Sources */,
-				8CF0BC6C6F850D7392F03C5B /* Frameworks */,
-				B44384BCBE0249C8DDBF2205 /* Headers */,
+				E93D219ACBD22FBA712EE9DE /* Sources */,
+				A1CE8AD0F0426DA699FF00D7 /* Frameworks */,
+				134BF91295BFAB11891CB235 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F68F4394866BE14C43421497 /* PBXTargetDependency */,
+				9F2E88538F3DFAF4C4BCEFB8 /* PBXTargetDependency */,
 			);
 			name = "Pods-Paging Data Source Example-Vokoder";
 			productName = "Pods-Paging Data Source Example-Vokoder";
-			productReference = 5192BF1FAC59BB862809E170 /* libPods-Paging Data Source Example-Vokoder.a */;
+			productReference = D776D397C6F5DA57CDE59C15 /* libPods-Paging Data Source Example-Vokoder.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		53C0A2E3383644D3A31F90A3 /* Project object */ = {
+		2BFADA3CDB76F77DBB155234 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 6250EF8B498A8A69D50035AC /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = D26A503551C08C0F2C5D38E5 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 64C533B5C29BD0610D3CAAC1;
-			productRefGroup = 4D63233E5096FEDD50CBB8FB /* Products */;
+			mainGroup = 02B2FA30EF5981CBDA840CE7;
+			productRefGroup = 205EDFEDBD819D9B83C54879 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1C54BB48D7B5CF9BACD15A96 /* Pods-Paging Data Source Example */,
-				AF08C7801A40CFB4E62E9A3A /* Pods-Paging Data Source Example-ILGDynamicObjC */,
-				D01F6DA2324F7AF192C821CB /* Pods-Paging Data Source Example-Vokoder */,
+				225DAD07AB73BEEBA101B107 /* Pods-Paging Data Source Example */,
+				C102B8C9884E78365BF14F1A /* Pods-Paging Data Source Example-ILGDynamicObjC */,
+				E2C01E9D8E24D95FE689851F /* Pods-Paging Data Source Example-Vokoder */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1C3AE0462263E9CD7CF8685E /* Sources */ = {
+		A4F801F6D757FB8119E62800 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B8D499404FA8638E340E766 /* Pods-Paging Data Source Example-dummy.m in Sources */,
+				0FEEAD2438C9B134F75EF547 /* ILGClasses.m in Sources */,
+				4FA3259D8B5AD9A0E21DCBA1 /* Pods-Paging Data Source Example-ILGDynamicObjC-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		73DAF32C3FC0C220A78DA18E /* Sources */ = {
+		CE4393051CAFB81E1EE500FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				543DD3C0E180A505EE25C972 /* ILGClasses.m in Sources */,
-				1DF9D78E6526898B815CACF3 /* Pods-Paging Data Source Example-ILGDynamicObjC-dummy.m in Sources */,
+				76E6B0144B458797FB0A18ED /* Pods-Paging Data Source Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F68E8A9B4D4A1F40B5D31D7F /* Sources */ = {
+		E93D219ACBD22FBA712EE9DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81FC7146B93D41DF23DA987B /* NSManagedObject+VOKManagedObjectAdditions.m in Sources */,
-				138ABCD68577BBB46C71BC69 /* Pods-Paging Data Source Example-Vokoder-dummy.m in Sources */,
-				DF34EA35DF16B26A112079C4 /* VOKCollectionDataSource.m in Sources */,
-				68265077C3AB29D3E45B6A32 /* VOKCoreDataManager.m in Sources */,
-				1BC89B48437D29C27AB413DD /* VOKDefaultPagingAccessory.m in Sources */,
-				4807974D1ACCA8FAD1780AE5 /* VOKFetchedResultsDataSource.m in Sources */,
-				D7FDA5F49B0123EF8B0883C0 /* VOKManagedObjectMap.m in Sources */,
-				17A332725AC579B9C6BE2EF1 /* VOKManagedObjectMapper.m in Sources */,
-				3A5D8F55DF52EDC296A668B7 /* VOKPagingFetchedResultsDataSource.m in Sources */,
+				0E82BCB1E319D7DD3E02FC7A /* NSManagedObject+VOKManagedObjectAdditions.m in Sources */,
+				DEE45D8150BC692321945E72 /* Pods-Paging Data Source Example-Vokoder-dummy.m in Sources */,
+				1503CD19E4AC5D623D6C57AD /* VOKCollectionDataSource.m in Sources */,
+				27394CB094B017A4AA2B4E58 /* VOKCoreDataManager.m in Sources */,
+				863CDCAC2CD5F8AF731DF165 /* VOKDefaultPagingAccessory.m in Sources */,
+				5A14564514A32B275A1FB282 /* VOKFetchedResultsDataSource.m in Sources */,
+				5813B23FAACCE03EB96DA367 /* VOKManagedObjectMap.m in Sources */,
+				DC3779C0025EDF2DD0C7ADAE /* VOKManagedObjectMapper.m in Sources */,
+				27E5788960E285CAFA7EEFDD /* VOKPagingFetchedResultsDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7EA9F238EF0572C75E0DA36B /* PBXTargetDependency */ = {
+		53C4D693B80D885AF6C00AD1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Paging Data Source Example-ILGDynamicObjC";
+			target = C102B8C9884E78365BF14F1A /* Pods-Paging Data Source Example-ILGDynamicObjC */;
+			targetProxy = 41BC06F1185BCA05FB3AB71E /* PBXContainerItemProxy */;
+		};
+		9F2E88538F3DFAF4C4BCEFB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Paging Data Source Example-ILGDynamicObjC";
+			target = C102B8C9884E78365BF14F1A /* Pods-Paging Data Source Example-ILGDynamicObjC */;
+			targetProxy = 74D4C398749F503F086AAAFD /* PBXContainerItemProxy */;
+		};
+		BB0A0139D1383D78BB32B576 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Paging Data Source Example-Vokoder";
-			target = D01F6DA2324F7AF192C821CB /* Pods-Paging Data Source Example-Vokoder */;
-			targetProxy = 19F500D054756C30BBE6A138 /* PBXContainerItemProxy */;
-		};
-		C8F05AB2E36FAD9241BF291A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Paging Data Source Example-ILGDynamicObjC";
-			target = AF08C7801A40CFB4E62E9A3A /* Pods-Paging Data Source Example-ILGDynamicObjC */;
-			targetProxy = 88573DF23BCCCBA773558D0B /* PBXContainerItemProxy */;
-		};
-		F68F4394866BE14C43421497 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Paging Data Source Example-ILGDynamicObjC";
-			target = AF08C7801A40CFB4E62E9A3A /* Pods-Paging Data Source Example-ILGDynamicObjC */;
-			targetProxy = 7FCE0D33EC3B27BA2A0E79F5 /* PBXContainerItemProxy */;
+			target = E2C01E9D8E24D95FE689851F /* Pods-Paging Data Source Example-Vokoder */;
+			targetProxy = 692CA483DD8F9A8C0FB7CF47 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		339493C9EF0211E30F364B9F /* Release */ = {
+		365C7DCCE1A86AA41C99133B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F93DDF2CFFBFEA5C0E57CDC1 /* Pods-Paging Data Source Example-Vokoder-Private.xcconfig */;
+			baseConfigurationReference = 58D469E4272554439558F964 /* Pods-Paging Data Source Example-Vokoder-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Paging Data Source Example-Vokoder/Pods-Paging Data Source Example-Vokoder-prefix.pch";
@@ -601,7 +601,39 @@
 			};
 			name = Release;
 		};
-		366FFCE58F07F3E8504A7203 /* Release */ = {
+		48D805EBD20349AB8357F74A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95CEDC59C91B2D19B106DB8A /* Pods-Paging Data Source Example.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4EA17E4E881B1D64641A6370 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4D475B7DC8041737DF64AF3 /* Pods-Paging Data Source Example.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		673EE6F24CE09B5B5ADFECC5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -635,41 +667,9 @@
 			};
 			name = Release;
 		};
-		54DEA8F72C7E2E80E66E3293 /* Release */ = {
+		74B930CE34691D42B2DAB332 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37EB2CD6865F64D7B0BF13FE /* Pods-Paging Data Source Example.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		A0AF9247333E7986B0954690 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1599B07B8A96F0E829496706 /* Pods-Paging Data Source Example.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		ACE038C5B35F4D4368EB7072 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F891EFD74F73203BD22126E /* Pods-Paging Data Source Example-ILGDynamicObjC-Private.xcconfig */;
+			baseConfigurationReference = DC3298905754B84ED069F196 /* Pods-Paging Data Source Example-ILGDynamicObjC-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Paging Data Source Example-ILGDynamicObjC/Pods-Paging Data Source Example-ILGDynamicObjC-prefix.pch";
@@ -683,39 +683,7 @@
 			};
 			name = Release;
 		};
-		AFBD5DEF58124C42FAF7A9F3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F891EFD74F73203BD22126E /* Pods-Paging Data Source Example-ILGDynamicObjC-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Paging Data Source Example-ILGDynamicObjC/Pods-Paging Data Source Example-ILGDynamicObjC-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		B7078DEB70566FE4B58FE20A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F93DDF2CFFBFEA5C0E57CDC1 /* Pods-Paging Data Source Example-Vokoder-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Paging Data Source Example-Vokoder/Pods-Paging Data Source Example-Vokoder-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		B732567F97859F7A20BC1554 /* Debug */ = {
+		BE621102886C9285C6ED579B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -754,46 +722,78 @@
 			};
 			name = Debug;
 		};
+		C5F0332DB6C1B7BB7FD3D84C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC3298905754B84ED069F196 /* Pods-Paging Data Source Example-ILGDynamicObjC-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Paging Data Source Example-ILGDynamicObjC/Pods-Paging Data Source Example-ILGDynamicObjC-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CB67C46531F476E60DE5E3BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58D469E4272554439558F964 /* Pods-Paging Data Source Example-Vokoder-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Paging Data Source Example-Vokoder/Pods-Paging Data Source Example-Vokoder-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		16CF4B5AD243E208EDD0238C /* Build configuration list for PBXNativeTarget "Pods-Paging Data Source Example-ILGDynamicObjC" */ = {
+		808783577333E39E8D132368 /* Build configuration list for PBXNativeTarget "Pods-Paging Data Source Example-ILGDynamicObjC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AFBD5DEF58124C42FAF7A9F3 /* Debug */,
-				ACE038C5B35F4D4368EB7072 /* Release */,
+				C5F0332DB6C1B7BB7FD3D84C /* Debug */,
+				74B930CE34691D42B2DAB332 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		40BE2B2C65A38ACA5EF55416 /* Build configuration list for PBXNativeTarget "Pods-Paging Data Source Example" */ = {
+		B91BE8F525BC58EB1FAB89FF /* Build configuration list for PBXNativeTarget "Pods-Paging Data Source Example-Vokoder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A0AF9247333E7986B0954690 /* Debug */,
-				54DEA8F72C7E2E80E66E3293 /* Release */,
+				CB67C46531F476E60DE5E3BE /* Debug */,
+				365C7DCCE1A86AA41C99133B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6250EF8B498A8A69D50035AC /* Build configuration list for PBXProject "Pods" */ = {
+		D26A503551C08C0F2C5D38E5 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B732567F97859F7A20BC1554 /* Debug */,
-				366FFCE58F07F3E8504A7203 /* Release */,
+				BE621102886C9285C6ED579B /* Debug */,
+				673EE6F24CE09B5B5ADFECC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9483A020DFFD460328866471 /* Build configuration list for PBXNativeTarget "Pods-Paging Data Source Example-Vokoder" */ = {
+		FA608589CF891F57A3F4F235 /* Build configuration list for PBXNativeTarget "Pods-Paging Data Source Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B7078DEB70566FE4B58FE20A /* Debug */,
-				339493C9EF0211E30F364B9F /* Release */,
+				4EA17E4E881B1D64641A6370 /* Debug */,
+				48D805EBD20349AB8357F74A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 53C0A2E3383644D3A31F90A3 /* Project object */;
+	rootObject = 2BFADA3CDB76F77DBB155234 /* Project object */;
 }
