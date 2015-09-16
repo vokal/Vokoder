@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F1EA661BB05FEA6EC7257036"
+               BlueprintIdentifier = "451DBCE15C0FA22A1DFB7998"
                BuildableName = "libPods-VOKCoreDataManager Tests-Vokoder.a"
                BlueprintName = "Pods-VOKCoreDataManager Tests-Vokoder"
                ReferencedContainer = "container:Pods.xcodeproj">
