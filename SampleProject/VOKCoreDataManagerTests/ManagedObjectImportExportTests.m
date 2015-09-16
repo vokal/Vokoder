@@ -148,6 +148,21 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     XCTAssertTrue([dict isEqualToDictionary:[self makePersonDictForCustomMapperWithKeyPathsAndMissingParameter]], @"dictionary representation failed to match input dictionary");
 }
 
+- (void)testImportDictionaryWithCustomMapperNotRegisteredAssert
+{
+    XCTAssertThrows([VIPerson vok_addWithDictionary:[self makePersonDictForCustomMapper] forManagedObjectContext:nil]);
+}
+
+- (void)testImportDictionaryWithCustomMapperMismatchedAssert
+{
+    NSArray *maps = [self customMapsArray];
+    VOKManagedObjectMap *map = maps.firstObject;
+    map.coreDataKey = [map.coreDataKey stringByAppendingString:@"-FAIL"];
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:nil andMaps:maps];
+    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
+    XCTAssertThrows([VIPerson vok_addWithDictionary:[self makePersonDictForCustomMapper] forManagedObjectContext:nil]);
+}
+
 - (void)testImportArrayWithCustomMapper
 {
     NSArray *array = @[[self makePersonDictForCustomMapper],
