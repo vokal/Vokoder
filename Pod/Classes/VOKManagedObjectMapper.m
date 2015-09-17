@@ -190,6 +190,11 @@
 
         Class managedObjectClass = objc_getClass(className);
         objc_property_t prop = class_getProperty(managedObjectClass, propertyName);
+        if ([self isKindOfClass:[VOKManagedObjectDefaultMapper class]]) {
+            NSAssert(prop, @"Property named %s doesn't exist on class named %s.  Did you mean to use the default mapper?", propertyName, className);
+        } else {
+            NSAssert(prop, @"Property named %s doesn't exist on class named %s.", propertyName, className);
+        }
 
         NSString *attributeString = [NSString stringWithCString:property_getAttributes(prop) encoding:NSUTF8StringEncoding];
         const char *destinationClassName = [[self propertyTypeFromAttributeString:attributeString] cStringUsingEncoding:NSUTF8StringEncoding];
