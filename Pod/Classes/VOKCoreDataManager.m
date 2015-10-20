@@ -619,19 +619,18 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (void)resetCoreData
 {
-    if (_persistentStoreCoordinator) {
-        NSArray *stores = [[self persistentStoreCoordinator] persistentStores];
-
-        for (NSPersistentStore *store in stores) {
-            [[self persistentStoreCoordinator] removePersistentStore:store error:nil];
-            if (self.databaseFilename) {
-                [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];            
-            }
-        }
-        
-        _persistentStoreCoordinator = nil;
-    } //else the persistent store coordinator is already nil and a bunch of this will crash.
+    //Use the instance variable so as not to accidentally spin up a new instance if
+    //one does not already exist.
+    NSArray *stores = [_persistentStoreCoordinator persistentStores];
     
+    for (NSPersistentStore *store in stores) {
+        [[self persistentStoreCoordinator] removePersistentStore:store error:nil];
+        if (self.databaseFilename) {
+            [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
+        }
+    }
+    
+    _persistentStoreCoordinator = nil;
     _managedObjectContext = nil;
     _managedObjectModel = nil;
     _bundleForModel = nil;
