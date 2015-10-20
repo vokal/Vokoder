@@ -34,4 +34,11 @@
                                                                bundle:[NSBundle mainBundle]]);
 }
 
+- (void)testFailsWithSettingBundleWithoutModel
+{
+    XCTAssertThrows([[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel"
+                                                            database:nil
+                                                              bundle:[NSBundle bundleForClass:[self class]]]);
+}
+
 @end
