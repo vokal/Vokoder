@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString *resource;
 @property (nonatomic, copy) NSString *databaseFilename;
 @property (nonatomic, strong) NSMutableDictionary *mapperCollection;
+@property (nonatomic, strong) NSBundle *bundleForModel;
 
 @end
 
@@ -63,8 +64,22 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (void)setResource:(NSString *)resource database:(NSString *)database
 {
+    [self setResource:resource
+             database:database
+               bundle:nil];
+}
+
+- (void)setResource:(NSString *)resource
+           database:(NSString *)database
+             bundle:(NSBundle *)bundle
+{
     self.resource = resource;
     self.databaseFilename = database;
+    
+    if (bundle) {
+        self.bundleForModel = bundle;
+    }
+    
     [[VOKCoreDataManager sharedInstance] managedObjectContext];
 }
 
@@ -112,13 +127,23 @@ static VOKCoreDataManager *VOK_SharedObject;
     return _persistentStoreCoordinator;
 }
 
+- (NSBundle *)bundleForModel
+{
+    if (!_bundleForModel) {
+        //Default to using the bundle for this class.
+        _bundleForModel = [NSBundle bundleForClass:[self class]];
+    }
+    
+    return _bundleForModel;
+}
+
 #pragma mark - Initializers
 
 - (void)initManagedObjectModel
 {
-    NSURL *modelURL = [[NSBundle bundleForClass:[self class]] URLForResource:self.resource withExtension:@"momd"];
+    NSURL *modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"momd"];
     if (!modelURL) {
-        modelURL = [[NSBundle bundleForClass:[self class]] URLForResource:self.resource withExtension:@"mom"];
+        modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"mom"];
     }
     NSAssert(modelURL, @"Managed object model not found.");
     if (modelURL) {
