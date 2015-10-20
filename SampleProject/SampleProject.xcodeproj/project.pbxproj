@@ -294,7 +294,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = VOK;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				TargetAttributes = {
 					3D40DE3B180729A10048D5EE = {
 						TestTargetID = EA5F199F15C196500089AA44;
@@ -505,6 +505,7 @@
 				INFOPLIST_FILE = "VOKCoreDataManagerTests/VOKCoreDataManager Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vokal.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "VOKCoreDataManager Tests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -538,6 +539,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "VOKCoreDataManagerTests/VOKCoreDataManager Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vokal.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "VOKCoreDataManager Tests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -560,6 +562,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -623,6 +626,7 @@
 				GCC_PREFIX_HEADER = "Supporting Files/VOKCoreDataManager-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/VOKCoreDataManager-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.VOKAL.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = VOKCoreDataManager;
 				WRAPPER_EXTENSION = app;
 			};
@@ -638,6 +642,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/VOKCoreDataManager-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.VOKAL.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = VOKCoreDataManager;
 				WRAPPER_EXTENSION = app;
 			};
