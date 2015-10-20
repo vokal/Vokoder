@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString *resource;
 @property (nonatomic, copy) NSString *databaseFilename;
 @property (nonatomic, strong) NSMutableDictionary *mapperCollection;
+@property (nonatomic, strong) NSBundle *bundleForModel;
 
 @end
 
@@ -63,8 +64,22 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (void)setResource:(NSString *)resource database:(NSString *)database
 {
+    [self setResource:resource
+             database:database
+               bundle:nil];
+}
+
+- (void)setResource:(NSString *)resource
+           database:(NSString *)database
+             bundle:(NSBundle *)bundle
+{
     self.resource = resource;
     self.databaseFilename = database;
+    
+    if (bundle) {
+        self.bundleForModel = bundle;
+    }
+    
     [[VOKCoreDataManager sharedInstance] managedObjectContext];
 }
 
@@ -112,13 +127,23 @@ static VOKCoreDataManager *VOK_SharedObject;
     return _persistentStoreCoordinator;
 }
 
+- (NSBundle *)bundleForModel
+{
+    if (!_bundleForModel) {
+        //Default to using the main bundle
+        _bundleForModel = [NSBundle mainBundle];
+    }
+    
+    return _bundleForModel;
+}
+
 #pragma mark - Initializers
 
 - (void)initManagedObjectModel
 {
-    NSURL *modelURL = [[NSBundle bundleForClass:[self class]] URLForResource:self.resource withExtension:@"momd"];
+    NSURL *modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"momd"];
     if (!modelURL) {
-        modelURL = [[NSBundle bundleForClass:[self class]] URLForResource:self.resource withExtension:@"mom"];
+        modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"mom"];
     }
     NSAssert(modelURL, @"Managed object model not found.");
     if (modelURL) {
@@ -594,18 +619,21 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (void)resetCoreData
 {
-    NSArray *stores = [[self persistentStoreCoordinator] persistentStores];
-
+    //Use the instance variable so as not to accidentally spin up a new instance if
+    //one does not already exist.
+    NSArray *stores = [_persistentStoreCoordinator persistentStores];
+    
     for (NSPersistentStore *store in stores) {
         [[self persistentStoreCoordinator] removePersistentStore:store error:nil];
         if (self.databaseFilename) {
-            [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];            
+            [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
         }
     }
     
     _persistentStoreCoordinator = nil;
     _managedObjectContext = nil;
     _managedObjectModel = nil;
+    _bundleForModel = nil;
     [_mapperCollection removeAllObjects];
     [self addMappableModelMappers];
 }

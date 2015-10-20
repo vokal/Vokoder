@@ -54,13 +54,25 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
 - (NSManagedObjectModel *)managedObjectModel;
 
 /**
- Set the name of the managed object model and the name of the SQL lite store on disk. Call this first when you setup the core data stack. 
+ Set the name of the managed object model and the name of the SQL lite store on disk. Call this first when you setup the core data stack.
  The main context will be initialized immediately. This method should only be called from the main queue.
- @param resource    The filename of the mom or momd file in your project. If nil the first model found in the main bundle will be used.
+ NOTE: This assumes your managed object file is in the main bundle. If it isn't, use setResource:database:bundle: instead.
+ @param resource    The filename of the mom or momd file in your project. If nil the first model found in this class's bundle will be used.
  @param database    The filename of the SQLite store in your application. A nil database name will create an in-memory store.
  */
 - (void)setResource:(NSString *)resource
            database:(NSString *)database;
+
+/**
+ Set the name of the managed object model and the name of the SQL lite store on disk, in the provided bundle. Call this first when you setup the core data stack.
+ The main context will be initialized immediately. This method should only be called from the main queue.
+ @param resource    The filename of the mom or momd file in your project. If nil the first model found in the provided bundle will be used.
+ @param database    The filename of the SQLite store in your application. A nil database name will create an in-memory store.
+ @param bundle      The bundle where the Managed Object Model can be found. If nil, the main bundle will be used. 
+ */
+- (void)setResource:(NSString *)resource
+           database:(NSString *)database
+             bundle:(NSBundle *)bundle;
 
 /**
  In case of a migration failure, these options allow possible recovery and notification
