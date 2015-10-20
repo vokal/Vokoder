@@ -68,7 +68,7 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  The main context will be initialized immediately. This method should only be called from the main queue.
  @param resource    The filename of the mom or momd file in your project. If nil the first model found in the provided bundle will be used.
  @param database    The filename of the SQLite store in your application. A nil database name will create an in-memory store.
- @param bundle      The bundle where the Managed Object Model can be found. 
+ @param bundle      The bundle where the Managed Object Model can be found. If nil, the bundle for this class will be used. 
  */
 - (void)setResource:(NSString *)resource
            database:(NSString *)database
