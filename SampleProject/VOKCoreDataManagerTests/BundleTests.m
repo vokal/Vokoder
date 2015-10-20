@@ -15,6 +15,13 @@
 
 @implementation BundleTests
 
+- (void)setUp
+{
+    [super setUp];
+    
+    [[VOKCoreDataManager sharedInstance] resetCoreData];
+}
+
 - (void)testWorksWithoutSettingCustomBundle
 {
     XCTAssertNoThrow([[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:nil]);
