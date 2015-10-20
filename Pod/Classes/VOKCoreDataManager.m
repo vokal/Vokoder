@@ -631,6 +631,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     _persistentStoreCoordinator = nil;
     _managedObjectContext = nil;
     _managedObjectModel = nil;
+    _bundleForModel = nil;
     [_mapperCollection removeAllObjects];
     [self addMappableModelMappers];
 }
