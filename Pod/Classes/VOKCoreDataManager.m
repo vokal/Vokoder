@@ -130,8 +130,8 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSBundle *)bundleForModel
 {
     if (!_bundleForModel) {
-        //Default to using the bundle for this class.
-        _bundleForModel = [NSBundle bundleForClass:[self class]];
+        //Default to using the main bundle
+        _bundleForModel = [NSBundle mainBundle];
     }
     
     return _bundleForModel;
