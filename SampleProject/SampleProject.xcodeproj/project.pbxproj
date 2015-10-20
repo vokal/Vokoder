@@ -26,7 +26,6 @@
 		71E1AB061A53423D004311E5 /* ManagedObjectImportExportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAF71A5340F3004311E5 /* ManagedObjectImportExportTests.m */; };
 		71E1AB091A534274004311E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71E1AB071A534274004311E5 /* InfoPlist.strings */; };
 		71E1AB0D1A5342E9004311E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71E1AB0A1A5342E5004311E5 /* InfoPlist.strings */; };
-		71E1AB0E1A534468004311E5 /* VICoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE41A5340A1004311E5 /* VICoreDataModel.xcdatamodeld */; };
 		8434D7401A93F44E005A9B2F /* VOKManagedObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8434D73F1A93F44E005A9B2F /* VOKManagedObjectAdditions.m */; };
 		EA5F19A515C196500089AA44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A415C196500089AA44 /* UIKit.framework */; };
 		EA5F19A715C196500089AA44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A615C196500089AA44 /* Foundation.framework */; };
@@ -424,7 +423,6 @@
 				3393A9ED1BD6B85200F43B45 /* BundleTests.m in Sources */,
 				71E1AB061A53423D004311E5 /* ManagedObjectImportExportTests.m in Sources */,
 				8434D7401A93F44E005A9B2F /* VOKManagedObjectAdditions.m in Sources */,
-				71E1AB0E1A534468004311E5 /* VICoreDataModel.xcdatamodeld in Sources */,
 				71E1AB051A534239004311E5 /* CoreDataManagerDeleteTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
