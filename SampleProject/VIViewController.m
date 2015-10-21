@@ -2,6 +2,8 @@
 //  VIViewController.m
 //  CoreData
 //
+//  Copyright © 2015 Vokal. All rights reserved.
+//
 
 #import "VIViewController.h"
 #import "VOKCoreDataManager.h"

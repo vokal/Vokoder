@@ -2,6 +2,8 @@
 //  VOKManagedObjectMap.h
 //  VOKCoreData
 //
+//  Copyright © 2015 Vokal. All rights reserved.
+//
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>

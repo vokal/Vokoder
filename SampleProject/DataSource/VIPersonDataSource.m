@@ -2,6 +2,8 @@
 //  VIPersonDataSource.m
 //  CoreData
 //
+//  Copyright © 2015 Vokal. All rights reserved.
+//
 
 #import "VIPersonDataSource.h"
 #import "VIPerson.h"

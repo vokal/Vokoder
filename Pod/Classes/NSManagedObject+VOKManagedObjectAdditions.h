@@ -2,6 +2,8 @@
 //  NSManagedObject+VOKManagedObjectAdditions.h
 //  VOKCoreData
 //
+//  Copyright © 2015 Vokal. All rights reserved.
+//
 
 #import <CoreData/CoreData.h>
 

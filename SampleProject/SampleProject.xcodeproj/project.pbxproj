@@ -294,6 +294,7 @@
 			attributes = {
 				CLASSPREFIX = VOK;
 				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Vokal;
 				TargetAttributes = {
 					3D40DE3B180729A10048D5EE = {
 						TestTargetID = EA5F199F15C196500089AA44;

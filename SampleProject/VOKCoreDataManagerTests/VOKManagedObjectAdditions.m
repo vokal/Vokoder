@@ -3,7 +3,7 @@
 //  SampleProject
 //
 //  Created by Rohan Vokal on 2/17/15.
-//
+//  Copyright © 2015 Vokal. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
