@@ -73,7 +73,7 @@ typedef void(^VOKManagedObjectsReturnBlock)(NSArray *arrayOfManagedObjects);
  @param contextOfNil    The managed object context to update and/or insert the object. If nil, the main context will be used.
  @return                An instance of this subclass of NSManagedObject.
  **/
-+ (nullable instancetype)vok_addWithDictionary:(nullable NSDictionary *)inputDict
++ (nullable instancetype)vok_addWithDictionary:(NSDictionary *)inputDict
                        forManagedObjectContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /*
