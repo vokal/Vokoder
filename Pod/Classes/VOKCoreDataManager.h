@@ -10,13 +10,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-//hide nullability qualifiers if they're not supported
-#if !__has_feature(nullability)
-#define NS_ASSUME_NONNULL_BEGIN
-#define NS_ASSUME_NONNULL_END
-#define nullable
-#define __nullable
-#endif
+#import "VOKNullabilityFeatures.h"
 
 #import "VOKManagedObjectMapper.h"
 #import "NSManagedObject+VOKManagedObjectAdditions.h"

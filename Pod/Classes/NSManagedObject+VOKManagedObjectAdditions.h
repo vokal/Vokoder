@@ -5,6 +5,8 @@
 
 #import <CoreData/CoreData.h>
 
+#import "VOKNullabilityFeatures.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSManagedObject (VOKManagedObjectAdditions)

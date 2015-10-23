@@ -157,6 +157,7 @@
 		D30BF1A3C9226DD2E313C735 /* Pods-VOKCoreDataManager-Vokoder-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager-Vokoder-Private.xcconfig"; path = "../Pods-VOKCoreDataManager-Vokoder/Pods-VOKCoreDataManager-Vokoder-Private.xcconfig"; sourceTree = "<group>"; };
 		DA81A08EBA7A6C84A7057BC4 /* VOKManagedObjectMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKManagedObjectMapper.m; sourceTree = "<group>"; };
 		DC4AEFE2B69A1F38968BFE70 /* Pods-VOKCoreDataManager Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VOKCoreDataManager Tests.release.xcconfig"; sourceTree = "<group>"; };
+		DED3DB771BDADEDD003E45DB /* VOKNullabilityFeatures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VOKNullabilityFeatures.h; sourceTree = "<group>"; };
 		DEE41BB887653DCB4EF7D6EB /* libPods-VOKCoreDataManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4559B91E313325C785B5FFE /* Pods-VOKCoreDataManager Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VOKCoreDataManager Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		EF96D159B026F4B4B122A067 /* Pods-VOKCoreDataManager-ILGDynamicObjC-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager-ILGDynamicObjC-Private.xcconfig"; path = "../Pods-VOKCoreDataManager-ILGDynamicObjC/Pods-VOKCoreDataManager-ILGDynamicObjC-Private.xcconfig"; sourceTree = "<group>"; };
@@ -477,6 +478,7 @@
 				49B3F5D81EEAEFFBE744D014 /* VOKManagedObjectMapper.h */,
 				DA81A08EBA7A6C84A7057BC4 /* VOKManagedObjectMapper.m */,
 				7CE94AC852B299861887281B /* VOKMappableModel.h */,
+				DED3DB771BDADEDD003E45DB /* VOKNullabilityFeatures.h */,
 				71CDFB960F093DC3FAC3BBDA /* Internal */,
 			);
 			path = Classes;

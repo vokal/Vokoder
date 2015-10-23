@@ -6,6 +6,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import "VOKNullabilityFeatures.h"
+
 #import "VOKManagedObjectMap.h"
 
 NS_ASSUME_NONNULL_BEGIN
