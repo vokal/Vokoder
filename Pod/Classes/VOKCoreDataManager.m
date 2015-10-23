@@ -335,7 +335,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 
     NSError *error;
     NSUInteger count = [contextOrNil countForFetchRequest:fetchRequest error:&error];
-    if (error) {
+    if (count == NSNotFound) {
         VOK_CDLog(@"%s Fetch Request Error\n%@", __PRETTY_FUNCTION__, [error localizedDescription]);
     }
 
@@ -377,7 +377,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 {
     NSError *error;
     NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
-    if (error) {
+    if (!results) {
         VOK_CDLog(@"%s Fetch Request Error\n%@", __PRETTY_FUNCTION__, [error localizedDescription]);
     }
     
@@ -427,7 +427,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 
     NSError *error;
     NSArray *results = [contextOrNil executeFetchRequest:fetchRequest error:&error];
-    if (error) {
+    if (!results) {
         VOK_CDLog(@"%s Fetch Request Error\n%@", __PRETTY_FUNCTION__, [error localizedDescription]);
         return NO;
     }

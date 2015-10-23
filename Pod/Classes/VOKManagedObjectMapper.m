@@ -158,6 +158,10 @@
 - (id)checkClass:(id)inputObject managedObject:(NSManagedObject *)object key:(NSString *)key
 {
     Class expectedClass = [self expectedClassForObject:object andKey:key];
+    if (!expectedClass) {
+        VOK_CDLog(@"Failed to get class for %@\nProperty: %@", object, key);
+        return nil;
+    }
     if (![inputObject isKindOfClass:expectedClass]) {
         if (!(self.ignoreOptionalNullValues
               && (!inputObject || [[NSNull null] isEqual:inputObject])
@@ -196,6 +200,9 @@
             NSAssert(prop, @"Property named %s doesn't exist on class named %s.  Did you mean to use the default mapper?", propertyName, className);
         } else {
             NSAssert(prop, @"Property named %s doesn't exist on class named %s.", propertyName, className);
+        }
+        if (!prop) {
+            return Nil;
         }
 
         NSString *attributeString = [NSString stringWithCString:property_getAttributes(prop) encoding:NSUTF8StringEncoding];
