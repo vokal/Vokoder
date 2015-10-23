@@ -43,10 +43,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *coreDataKey;
 
 /// Date formatter for input/output
-@property (nullable, nonatomic, strong) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) NSDateFormatter * __nullable dateFormatter;
 
 /// Number formatter for input/output
-@property (nullable, nonatomic, strong) NSNumberFormatter *numberFormatter;
+@property (nonatomic, strong) NSNumberFormatter * __nullable numberFormatter;
 
 /**
  Creates a map with the default date mapper.
