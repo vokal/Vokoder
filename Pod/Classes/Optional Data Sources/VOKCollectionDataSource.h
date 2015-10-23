@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, readonly) NSFetchedResultsController *fetchedResultsController;
 
-@property (nullable, weak) UICollectionView *collectionView;
+@property (weak) UICollectionView *collectionView;
 
 - (id)initWithPredicate:(nullable NSPredicate *)predicate
               cacheName:(nullable NSString *)cacheName

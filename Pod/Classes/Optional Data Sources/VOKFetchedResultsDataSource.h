@@ -22,17 +22,17 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 @property (readonly) Class managedObjectClass;
-@property (nullable, weak, readonly) UITableView *tableView;
+@property (weak, readonly) UITableView *tableView;
 @property (weak, readonly) NSManagedObjectContext *managedObjectContext;
 
-@property (nullable, weak) id <VOKFetchedResultsDataSourceDelegate> delegate;
+@property (weak) id<VOKFetchedResultsDataSourceDelegate> delegate;
 
 //these are exposed to handle reconfiguration of the protected _fetchedResultsController, when they change
 @property (assign, nonatomic) NSInteger batchSize;
 @property (assign, nonatomic) NSInteger fetchLimit;
 
-@property (nullable, weak, nonatomic) NSPredicate *predicate;
-@property (nullable, weak, nonatomic) NSArray *sortDescriptors;
+@property (weak, nonatomic) NSPredicate *predicate;
+@property (weak, nonatomic) NSArray *sortDescriptors;
 
 @property (nonatomic) BOOL includesSubentities;
 
