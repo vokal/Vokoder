@@ -7,6 +7,8 @@
 
 #import "VOKCoreDataManager.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol VOKFetchedResultsDataSourceDelegate <NSObject>
 @optional
 - (void)fetchResultsDataSourceSelectedObject:(NSManagedObject *)object;
@@ -20,17 +22,17 @@
 }
 
 @property (readonly) Class managedObjectClass;
-@property (weak, readonly) UITableView *tableView;
+@property (nullable, weak, readonly) UITableView *tableView;
 @property (weak, readonly) NSManagedObjectContext *managedObjectContext;
 
-@property (weak) id <VOKFetchedResultsDataSourceDelegate> delegate;
+@property (nullable, weak) id <VOKFetchedResultsDataSourceDelegate> delegate;
 
 //these are exposed to handle reconfiguration of the protected _fetchedResultsController, when they change
 @property (assign, nonatomic) NSInteger batchSize;
 @property (assign, nonatomic) NSInteger fetchLimit;
 
-@property (weak, nonatomic) NSPredicate *predicate;
-@property (weak, nonatomic) NSArray *sortDescriptors;
+@property (nullable, weak, nonatomic) NSPredicate *predicate;
+@property (nullable, weak, nonatomic) NSArray *sortDescriptors;
 
 @property (nonatomic) BOOL includesSubentities;
 
@@ -42,52 +44,55 @@
 //you can ignore deprecation warnings in subclasses
 @property (strong, readonly) NSFetchedResultsController *fetchedResultsController;
 
-- (NSArray *)fetchedObjects;
+- (nullable NSArray *)fetchedObjects;
 
 - (void)reloadData;
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-              tableView:(UITableView *)tableView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
+- (id)initWithPredicate:(nullable NSPredicate *)predicate
+              cacheName:(nullable NSString *)cacheName
+              tableView:(nullable UITableView *)tableView
+     sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
+        sortDescriptors:(nullable NSArray *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass;
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-              tableView:(UITableView *)tableView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
+- (id)initWithPredicate:(nullable NSPredicate *)predicate
+              cacheName:(nullable NSString *)cacheName
+              tableView:(nullable UITableView *)tableView
+     sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
+        sortDescriptors:(nullable NSArray *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
               batchSize:(NSInteger)batchSize;
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-              tableView:(UITableView *)tableView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
+- (id)initWithPredicate:(nullable NSPredicate *)predicate
+              cacheName:(nullable NSString *)cacheName
+              tableView:(nullable UITableView *)tableView
+     sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
+        sortDescriptors:(nullable NSArray *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
-               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate;
+               delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-              tableView:(UITableView *)tableView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
+- (id)initWithPredicate:(nullable NSPredicate *)predicate
+              cacheName:(nullable NSString *)cacheName
+              tableView:(nullable UITableView *)tableView
+     sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
+        sortDescriptors:(nullable NSArray *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
               batchSize:(NSInteger)batchSize
-               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate;
+               delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-              tableView:(UITableView *)tableView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
+- (id)initWithPredicate:(nullable NSPredicate *)predicate
+              cacheName:(nullable NSString *)cacheName
+              tableView:(nullable UITableView *)tableView
+     sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
+        sortDescriptors:(nullable NSArray *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
               batchSize:(NSInteger)batchSize
              fetchLimit:(NSInteger)fetchLimit
-               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate;
+               delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
 
 - (UITableViewCell *)cellAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
+
+NS_ASSUME_NONNULL_END
+
