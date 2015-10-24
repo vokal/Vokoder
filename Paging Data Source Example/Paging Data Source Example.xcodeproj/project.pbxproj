@@ -189,7 +189,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = VI;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 			};
 			buildConfigurationList = EA5F199A15C196500089AA44 /* Build configuration list for PBXProject "Paging Data Source Example" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -312,8 +312,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -350,6 +352,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -375,6 +378,7 @@
 				GCC_PREFIX_HEADER = "Paging Data Source Example-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Paging Data Source Example-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.VOKAL.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Paging Data Source Example";
 				WRAPPER_EXTENSION = app;
 			};
@@ -392,6 +396,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Paging Data Source Example-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.VOKAL.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Paging Data Source Example";
 				WRAPPER_EXTENSION = app;
 			};
