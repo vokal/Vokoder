@@ -19,14 +19,14 @@ NS_ASSUME_NONNULL_BEGIN
               cacheName:(nullable NSString *)cacheName
          collectionView:(nullable UICollectionView *)collectionView
      sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
-        sortDescriptors:(nullable NSArray *)sortDescriptors
+        sortDescriptors:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass;
 
 - (id)initWithPredicate:(nullable NSPredicate *)predicate
               cacheName:(nullable NSString *)cacheName
          collectionView:(nullable UICollectionView *)collectionView
      sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
-        sortDescriptors:(nullable NSArray *)sortDescriptors
+        sortDescriptors:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
               batchSize:(NSInteger)batchSize;
 
@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
               cacheName:(nullable NSString *)cacheName
          collectionView:(nullable UICollectionView *)collectionView
      sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
-        sortDescriptors:(nullable NSArray *)sortDescriptors
+        sortDescriptors:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
                delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
 
@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
               cacheName:(nullable NSString *)cacheName
          collectionView:(nullable UICollectionView *)collectionView
      sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
-        sortDescriptors:(nullable NSArray *)sortDescriptors
+        sortDescriptors:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
               batchSize:(NSInteger)batchSize
                delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
               cacheName:(nullable NSString *)cacheName
          collectionView:(nullable UICollectionView *)collectionView
      sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
-        sortDescriptors:(nullable NSArray *)sortDescriptors
+        sortDescriptors:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
               batchSize:(NSInteger)batchSize
              fetchLimit:(NSInteger)fetchLimit

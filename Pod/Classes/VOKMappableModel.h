@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol VOKMappableModel <NSObject>
 
 ///@return an array of VOKManagedObjectMap objects mapping foreign keys to local keys.
-+ (NSArray *)coreDataMaps;
++ (VOKArrayOfManagedObjectMaps *)coreDataMaps;
 
 ///@return the key name to use to uniquely compare two instances of a class.
 + (nullable NSString *)uniqueKey;
