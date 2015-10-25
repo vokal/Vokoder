@@ -260,7 +260,7 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  [self loadDataWithContext:backgroundContext]; //do some data loading
  [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
  @endcode
- @return        A managed object context with the same persistant store coordinator as tha main context, but otherwise no relationship.
+ @return        A managed object context with the same persistent store coordinator as the main context, but otherwise no relationship.
  */
 - (NSManagedObjectContext *)temporaryContext;
 
