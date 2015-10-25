@@ -252,7 +252,7 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
 - (void)saveMainContextAndWait;
 
 /**
- Provides a managed object context for scratch work or background processing. As with all managed object contexts it is not threadsafe.
+ Provides a managed object context for scratch work or background processing using the same persistent store coordinator as the main context. As with all managed object contexts, it is not thread-safe.
  Create the context and do work on the same queue. You are responsible for retaining temporary contexts yourself.
  Here is an example background import:
  @code
@@ -263,6 +263,14 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @return        A managed object context with the same persistent store coordinator as the main context, but otherwise no relationship.
  */
 - (NSManagedObjectContext *)temporaryContext;
+
+/**
+ Provides a managed object context which uses an in-memory store for scratch work. As with all managed object contexts, it is not thread-safe.
+ Create the context and do work on the same queue. You are responsible for retaining temporary contexts yourself.
+
+ @return        A managed object context with an in-memory store and the same managed object model as the main context, and otherwise no relationship to the main context.
+ */
+- (NSManagedObjectContext *)temporaryInMemoryContext;
 
 /**
  This provides a way for an application with heavy amounts of Core Data threading and writing to maintain object graph integrety by assuring that only one context is being written to at once.
