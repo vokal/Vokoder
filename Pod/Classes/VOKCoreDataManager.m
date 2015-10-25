@@ -258,11 +258,36 @@ static VOKCoreDataManager *VOK_SharedObject;
     contextOrNil = [self safeContext:contextOrNil];
 
     NSArray *existingObjectArray;
+    NSMutableArray *repeatedUniqueKeys = [NSMutableArray array];
 
     if (mapper.uniqueComparisonKey) {
-        NSArray *arrayOfUniqueKeys = [inputArray valueForKeyPath:mapper.foreignUniqueComparisonKey];
+        NSString *foreignUniqueKey = mapper.foreignUniqueComparisonKey;
+        NSArray *arrayOfUniqueKeys = [inputArray valueForKeyPath:foreignUniqueKey];
         //filter out all NSNull's
         arrayOfUniqueKeys = [arrayOfUniqueKeys filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self != nil"]];
+        
+        //Use a counted set to grab any repeated keys and notify the user
+        NSCountedSet *countedKeySet = [[NSCountedSet alloc] initWithArray:arrayOfUniqueKeys];
+        for (id key in countedKeySet) {
+            if ([countedKeySet countForObject:key] > 1) {
+                [repeatedUniqueKeys addObject:key];
+                
+                VOK_CDLog(@"**WARNING**:\nUnique key %@ for class %@ has multiple items with the same value %@\nThese items will be imported sequentially!", foreignUniqueKey, NSStringFromClass(objectClass), key);
+            }
+        }
+        
+        if (repeatedUniqueKeys.count) {
+            //We've got some repeated items - import them sequentially
+            inputArray = [self arrayToImportAfterImportingRepeatedUniqueKeys:repeatedUniqueKeys
+                                                     forForeignUniqueKeyPath:foreignUniqueKey
+                                                             usingInputArray:inputArray
+                                                                    forClass:objectClass
+                                                                 withContext:contextOrNil];
+            
+            //Make this *actually* unique. 
+            arrayOfUniqueKeys = [[NSOrderedSet orderedSetWithArray:arrayOfUniqueKeys] array];
+        }
+        
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(%K IN %@)", mapper.uniqueComparisonKey, arrayOfUniqueKeys];
         existingObjectArray = [self arrayForClass:objectClass withPredicate:predicate forContext:contextOrNil];
     }
@@ -296,6 +321,38 @@ static VOKCoreDataManager *VOK_SharedObject;
     };
     
     return [returnArray copy];
+}
+
+- (NSArray *)arrayToImportAfterImportingRepeatedUniqueKeys:(NSArray *)repeatedUniqueKeys
+                                   forForeignUniqueKeyPath:(NSString *)foreignUniqueKeyPath
+                                           usingInputArray:(NSArray *)inputArray
+                                                  forClass:(Class)objectClass
+                                               withContext:(NSManagedObjectContext *)contextOrNil
+{
+    NSMutableArray *normalNumberOfKeys = [NSMutableArray arrayWithArray:inputArray];
+    
+    NSMutableArray *itemsToRemove = [NSMutableArray array];
+    for (id repeatedKey in repeatedUniqueKeys) {
+        for (id item in inputArray) {
+            if ([[item valueForKeyPath:foreignUniqueKeyPath] isEqual:repeatedKey]) {
+                //Import this by itself
+                [self importArray:@[item]
+                         forClass:objectClass
+                      withContext:contextOrNil];
+                
+                //Remove from the list to be imported
+                [itemsToRemove addObject:item];
+            }
+        }
+
+        //Don't remove the last object for the list of expected imports, so that its value is still returned
+        //in the main return array. 
+        [itemsToRemove removeLastObject];
+    }
+    
+    [normalNumberOfKeys removeObjectsInArray:itemsToRemove];
+    
+    return [normalNumberOfKeys copy];
 }
 
 - (void)setInformationFromDictionary:(NSDictionary *)inputDict forManagedObject:(NSManagedObject *)object

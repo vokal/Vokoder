@@ -599,6 +599,34 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     XCTAssertEqualObjects([[self customDateFormatter] stringFromDate:person.birthDay], dateString);
 }
 
+- (void)testImportingTwoObjectsWithTheSameUniqueIDOverwritesWithUniqueKey
+{
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:LAST_NAME_DEFAULT_KEY
+                                                                         andMaps:[self customMapsArray]];
+    
+    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
+    
+    //Create two people with the same last name, one with a different name.
+    NSDictionary *person1 = [self makePersonDictForCustomMapper];
+    NSMutableDictionary *person2 = [[self makePersonDictForCustomMapper] mutableCopy];
+    NSString *overwrittenName = @"OVERWRITTEN";
+    person2[FIRST_NAME_CUSTOM_KEY] = overwrittenName;
+    
+    //Create a third person with a different last name
+    NSMutableDictionary *person3 = [[self makePersonDictForCustomMapper] mutableCopy];
+    person3[LAST_NAME_CUSTOM_KEY] = @"SOMEBODY-ELSE";
+    
+    NSArray *peopleDicts = @[person1, person2, person3];
+    
+    NSArray *arrayOfPeople = [VIPerson vok_addWithArray:peopleDicts forManagedObjectContext:nil];
+    
+    XCTAssertTrue([arrayOfPeople count] == 2, @"person array has incorrect number of people");
+    
+    [arrayOfPeople enumerateObjectsUsingBlock:^(VIPerson *obj, NSUInteger idx, BOOL *stop) {
+        [self checkCustomMappingForPerson:obj andDictionary:peopleDicts[idx+1]];
+    }];
+}
+
 #pragma mark - Convenience stuff
 
 - (void)checkMappingForPerson:(VIPerson *)person andDictionary:(NSDictionary *)dict
