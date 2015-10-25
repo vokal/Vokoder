@@ -95,7 +95,7 @@ static VOKCoreDataManager *VOK_SharedObject;
         return nil;
     }
 
-    NSManagedObjectContext *tempManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
+    NSManagedObjectContext *tempManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
         [tempManagedObjectContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
         [tempManagedObjectContext setPersistentStoreCoordinator:coordinator];
 
