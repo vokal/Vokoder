@@ -3,7 +3,7 @@
 //  CoreData
 //
 //  Created by Anthony Alesia on 7/26/12.
-//  Copyright © 2012 Vokal. All rights reserved.
+//  Copyright © 2012 Vokal.
 //
 
 #import "VIAppDelegate.h"
