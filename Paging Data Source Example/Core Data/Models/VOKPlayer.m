@@ -6,10 +6,10 @@
 //
 //
 
-#import "VIPlayer.h"
+#import "VOKPlayer.h"
 #import "VOKCoreDataManager.h"
 
-@implementation VIPlayer
+@implementation VOKPlayer
 
 @dynamic cUsername;
 @dynamic cHighscore;
@@ -21,7 +21,7 @@
                       [VOKManagedObjectMap mapWithForeignKeyPath:@"highscore" coreDataKey:@"cHighscore"]];
     
     VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:@"cUsername" andMaps:maps];
-    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPlayer class]];
+    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VOKPlayer class]];
 }
 
 @end

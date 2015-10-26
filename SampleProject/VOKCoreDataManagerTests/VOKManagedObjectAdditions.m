@@ -11,7 +11,7 @@
 
 #import <VOKCoreDataManager.h>
 #import <NSManagedObject+VOKManagedObjectAdditions.h>
-#import "VIThing.h"
+#import "VOKThing.h"
 
 static const NSUInteger BasicTestDataStartPoint = 0;
 static const NSUInteger BasicTestDataSize = 5;
@@ -26,14 +26,14 @@ static const NSUInteger BasicTestDataSize = 5;
 {
     [super setUp];
     [[VOKCoreDataManager sharedInstance] resetCoreData];
-    [[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel"
+    [[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel"
                                             database:nil];
 }
 
 - (void)tearDown
 {
     [super tearDown];
-    [[VOKCoreDataManager sharedInstance] deleteAllObjectsOfClass:[VIThing class] context:nil];
+    [[VOKCoreDataManager sharedInstance] deleteAllObjectsOfClass:[VOKThing class] context:nil];
     [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 }
 
@@ -42,7 +42,7 @@ static const NSUInteger BasicTestDataSize = 5;
 - (void)loadWithBasicTestData
 {
     for (int i = BasicTestDataStartPoint; i < BasicTestDataSize; i++) {
-        VIThing *thing = [VIThing vok_newInstance];
+        VOKThing *thing = [VOKThing vok_newInstance];
         [thing setName:[NSString stringWithFormat:@"test-%i", i]];
         [thing setNumberOfHats:[NSNumber numberWithInt:i]];
     }
@@ -53,15 +53,15 @@ static const NSUInteger BasicTestDataSize = 5;
 
 - (void)testRecordInsertion
 {
-    XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
+    XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
                              forManagedObjectContext:nil].count, 0);
     
-    VIThing *thing = [VIThing vok_newInstance];
+    VOKThing *thing = [VOKThing vok_newInstance];
     [thing setName:@"test-1"];
     [thing setNumberOfHats:@1];
     [[VOKCoreDataManager sharedInstance] saveMainContext];
     
-    XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
+    XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
                              forManagedObjectContext:nil].count, 1);    
 }
 
@@ -69,14 +69,14 @@ static const NSUInteger BasicTestDataSize = 5;
 {
     XCTestExpectation *completionExpectation = [self expectationWithDescription:@"completion"];
     
-    XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
+    XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
                              forManagedObjectContext:nil].count, 0);
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         
         NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
         
-        VIThing *thing = [VIThing vok_newInstanceWithContext:backgroundContext];
+        VOKThing *thing = [VOKThing vok_newInstanceWithContext:backgroundContext];
         [thing setName:@"test-2"];
         [thing setNumberOfHats:@2];
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
@@ -86,7 +86,7 @@ static const NSUInteger BasicTestDataSize = 5;
     
     [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
         XCTAssertNil(error, @"Error waiting for response:%@", error.description);
-        XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
+        XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
                                  forManagedObjectContext:nil].count, 1);
     }];
 }
@@ -95,17 +95,17 @@ static const NSUInteger BasicTestDataSize = 5;
 {
     XCTestExpectation *completionHandlerExpectation = [self expectationWithDescription:@"completion"];
 
-    XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
+    XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
                              forManagedObjectContext:nil].count, 0);
 
     [VOKCoreDataManager writeToTemporaryContext:^(NSManagedObjectContext *tempContext) {
 
-        VIThing *thing = [VIThing vok_newInstanceWithContext:tempContext];
+        VOKThing *thing = [VOKThing vok_newInstanceWithContext:tempContext];
         [thing setName:@"test-2"];
         [thing setNumberOfHats:@2];
 
     } completion:^{
-        XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
+        XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
                                  forManagedObjectContext:nil].count, 1);
 
         [completionHandlerExpectation fulfill];
@@ -120,7 +120,7 @@ static const NSUInteger BasicTestDataSize = 5;
 {
     XCTestExpectation *completionHandlerExpectation = [self expectationWithDescription:@"completion"];
 
-    XCTAssertEqual([VIThing vok_fetchAllForPredicate:nil
+    XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
                              forManagedObjectContext:nil].count, 0);
     NSArray *importArray = @[
                              @{
@@ -149,7 +149,7 @@ static const NSUInteger BasicTestDataSize = 5;
                                  },
                              ];
 
-    [VIThing vok_addWithArrayInBackground:importArray
+    [VOKThing vok_addWithArrayInBackground:importArray
                                completion:^(NSArray *arrayOfManagedObjects) {
                                    XCTAssertEqual(arrayOfManagedObjects.count, importArray.count);
                                    for (NSInteger i = 0; i < importArray.count; i++) {
@@ -170,7 +170,7 @@ static const NSUInteger BasicTestDataSize = 5;
 {
     [self loadWithBasicTestData];
     
-    NSArray *results = [VIThing vok_fetchAllForPredicate:nil
+    NSArray *results = [VOKThing vok_fetchAllForPredicate:nil
                                  forManagedObjectContext:nil];
     XCTAssertNotNil(results);
     XCTAssertGreaterThan(results.count, 0);
@@ -180,7 +180,7 @@ static const NSUInteger BasicTestDataSize = 5;
 - (void)testRecordFetchingWithSortDescriptor
 {
     [self loadWithBasicTestData];
-    NSArray *results = [VIThing vok_fetchAllForPredicate:nil
+    NSArray *results = [VOKThing vok_fetchAllForPredicate:nil
                                              sortedByKey:@"numberOfHats"
                                                ascending:YES
                                  forManagedObjectContext:nil];
@@ -196,7 +196,7 @@ static const NSUInteger BasicTestDataSize = 5;
 {
     [self loadWithBasicTestData];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"numberOfHats" ascending:YES];
-    NSArray *results = [VIThing vok_fetchAllForPredicate:nil
+    NSArray *results = [VOKThing vok_fetchAllForPredicate:nil
                                                 sortedBy:@[sortDescriptor]
                                  forManagedObjectContext:nil];
     
@@ -212,7 +212,7 @@ static const NSUInteger BasicTestDataSize = 5;
 {
     [self loadWithBasicTestData];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"numberOfHats" ascending:NO];
-    NSArray *results = [VIThing vok_fetchAllForPredicate:nil
+    NSArray *results = [VOKThing vok_fetchAllForPredicate:nil
                                                 sortedBy:@[sortDescriptor]
                                  forManagedObjectContext:nil];
     

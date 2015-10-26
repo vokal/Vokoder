@@ -1,20 +1,20 @@
 //
-//  VIMappablePerson.m
+//  VOKMappablePerson.m
 //  SampleProject
 //
 //  Created by Isaac Greenspan on 8/31/15.
 //
 //
 
-#import "VIMappablePerson.h"
+#import "VOKMappablePerson.h"
 
 #import <VOKMappableModel.h>
 
-@interface VIMappablePerson () <VOKMappableModel>
+@interface VOKMappablePerson () <VOKMappableModel>
 
 @end
 
-@implementation VIMappablePerson
+@implementation VOKMappablePerson
 
 #pragma mark - VOKMappableModel
 

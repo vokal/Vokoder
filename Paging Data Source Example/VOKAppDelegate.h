@@ -1,5 +1,5 @@
 //
-//  VIAppDelegate.h
+//  VOKAppDelegate.h
 //  CoreData
 //
 //  Created by Anthony Alesia on 7/26/12.
@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class VIPagingViewController;
+@class VOKPagingViewController;
 
-@interface VIAppDelegate : UIResponder <UIApplicationDelegate>
+@interface VOKAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) UINavigationController *navController;
 
-+ (VIAppDelegate *)appDelegate;
++ (VOKAppDelegate *)appDelegate;
 
 @end

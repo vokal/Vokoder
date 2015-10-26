@@ -40,7 +40,7 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
  Returns the singleton core data manager. VOKCoreDataManager is not expected to be subclassed.
  On launch you should also set the resource and database names. Example:
  @code
- [[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:@"VICoreDataModel.sqlite"];
+ [[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:@"VOKCoreDataModel.sqlite"];
  @endcode
  @return    The shared core data manager.
  */

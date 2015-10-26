@@ -3,3 +3,6 @@
 //
 
 #import <VOKCoreDataManager.h>
+
+#import "VOKPerson.h"
+#import "VOKThing.h"

@@ -1,15 +1,15 @@
 //
-//  VIPerson.m
+//  VOKPerson.m
 //  SampleProject
 //
 //  Created by Sean Wolter on 8/23/14.
 //
 //
 
-#import "VIPerson.h"
-#import "VIThing.h"
+#import "VOKPerson.h"
+#import "VOKThing.h"
 
-@implementation VIPerson
+@implementation VOKPerson
 
 @dynamic birthDay;
 @dynamic firstName;

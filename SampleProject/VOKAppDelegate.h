@@ -1,5 +1,5 @@
 //
-//  VIAppDelegate.h
+//  VOKAppDelegate.h
 //  CoreData
 //
 //  Created by Anthony Alesia on 7/26/12.
@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "VOKCoreDataManager.h"
 
-@class VIViewController;
+@class VOKViewController;
 
-@interface VIAppDelegate : UIResponder <UIApplicationDelegate>
+@interface VOKAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

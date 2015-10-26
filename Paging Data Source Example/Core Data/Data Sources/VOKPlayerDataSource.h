@@ -1,11 +1,11 @@
 //
-//  VIPlayerDataSource.h
+//  VOKPlayerDataSource.h
 //  CoreData
 //
 
 #import <Foundation/Foundation.h>
 #import "VOKPagingFetchedResultsDataSource.h"
 
-@interface VIPlayerDataSource : VOKPagingFetchedResultsDataSource
+@interface VOKPlayerDataSource : VOKPagingFetchedResultsDataSource
 
 @end

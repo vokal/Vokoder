@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F1021" minimumToolsVersion="Xcode 4.3">
+    <entity name="VOKMappablePerson" representedClassName="VOKMappablePerson" parentEntity="VOKPerson" syncable="YES"/>
+    <entity name="VOKPerson" representedClassName="VOKPerson" syncable="YES">
+        <attribute name="birthDay" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lovesCoolRanch" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="numberOfCats" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="thing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VOKThing" inverseName="person" inverseEntity="VOKThing" syncable="YES"/>
+    </entity>
+    <entity name="VOKThing" representedClassName="VOKThing" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numberOfHats" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VOKPerson" inverseName="thing" inverseEntity="VOKPerson" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="VOKMappablePerson" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="VOKPerson" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="VOKThing" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

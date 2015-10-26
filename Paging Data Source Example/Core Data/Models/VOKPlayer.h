@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface VIPlayer : NSManagedObject
+@interface VOKPlayer : NSManagedObject
 
 @property (nonatomic, retain) NSString *cUsername;
 @property (nonatomic, retain) NSNumber *cHighscore;

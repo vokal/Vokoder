@@ -1,11 +1,11 @@
 //
-//  VIPersonDataSource.h
+//  VOKPersonDataSource.h
 //  CoreData
 //
 
 #import <Foundation/Foundation.h>
 #import "VOKFetchedResultsDataSource.h"
 
-@interface VIPersonDataSource : VOKFetchedResultsDataSource
+@interface VOKPersonDataSource : VOKFetchedResultsDataSource
 
 @end
