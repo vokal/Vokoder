@@ -590,8 +590,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     
     //Use the same MOM as the main context.
-    NSManagedObjectContext *mainContext = [[VOKCoreDataManager sharedInstance] managedObjectContext];
-    NSManagedObjectModel *model = mainContext.persistentStoreCoordinator.managedObjectModel;
+    NSManagedObjectModel *model = self.managedObjectModel;
     
     //Use an in-memory store
     NSPersistentStoreCoordinator *coordinator;
