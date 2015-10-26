@@ -329,7 +329,7 @@ static VOKCoreDataManager *VOK_SharedObject;
                                                   forClass:(Class)objectClass
                                                withContext:(NSManagedObjectContext *)contextOrNil
 {
-    NSMutableArray *normalNumberOfKeys = [NSMutableArray arrayWithArray:inputArray];
+    NSMutableArray *uniquedInputArray = [NSMutableArray arrayWithArray:inputArray];
     
     NSMutableArray *itemsToRemove = [NSMutableArray array];
     for (id repeatedKey in repeatedUniqueKeys) {
@@ -350,9 +350,9 @@ static VOKCoreDataManager *VOK_SharedObject;
         [itemsToRemove removeLastObject];
     }
     
-    [normalNumberOfKeys removeObjectsInArray:itemsToRemove];
+    [uniquedInputArray removeObjectsInArray:itemsToRemove];
     
-    return [normalNumberOfKeys copy];
+    return [uniquedInputArray copy];
 }
 
 - (void)setInformationFromDictionary:(NSDictionary *)inputDict forManagedObject:(NSManagedObject *)object
