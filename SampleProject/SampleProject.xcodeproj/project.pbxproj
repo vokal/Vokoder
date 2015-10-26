@@ -663,7 +663,7 @@
 				GCC_PREFIX_HEADER = "Supporting Files/VOKCoreDataManager-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/VOKCoreDataManager-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.VOKAL.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vokal.VOKCoreDataManager;
 				PRODUCT_NAME = VOKCoreDataManager;
 				WRAPPER_EXTENSION = app;
 			};
@@ -679,7 +679,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/VOKCoreDataManager-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.VOKAL.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vokal.VOKCoreDataManager;
 				PRODUCT_NAME = VOKCoreDataManager;
 				WRAPPER_EXTENSION = app;
 			};

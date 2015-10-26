@@ -382,7 +382,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     return results;
 }
 
-- (id)existingObjectAtURI:(NSURL *)uri forManagedObjectContext:(NSManagedObjectContext *)contextOrNil
+- (NSManagedObject *)existingObjectAtURI:(NSURL *)uri forManagedObjectContext:(NSManagedObjectContext *)contextOrNil
 {
     NSManagedObjectID *objectID = [self.persistentStoreCoordinator managedObjectIDForURIRepresentation:uri];
     

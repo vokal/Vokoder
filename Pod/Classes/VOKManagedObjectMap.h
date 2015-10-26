@@ -5,6 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "VOKCoreDataCollectionTypes.h"
 #import "VOKNullabilityFeatures.h"
 
 /**
@@ -86,7 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param mapDict     Each key is the expected input keyPath and each value is core data key.
  @return            An array of VOKManagedObjectMaps.
  */
-+ (NSArray *)mapsFromDictionary:(NSDictionary *)mapDict;
++ (VOKArrayOfManagedObjectMaps *)mapsFromDictionary:(VOKStringToStringDictionary *)mapDict;
 
 /**
  Default formatter used for date fields. This is the RFC 3339 format, with

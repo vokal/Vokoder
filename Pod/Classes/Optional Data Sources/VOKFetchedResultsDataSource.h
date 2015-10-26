@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) NSInteger fetchLimit;
 
 @property (weak, nonatomic) NSPredicate *predicate;
-@property (weak, nonatomic) NSArray *sortDescriptors;
+@property (weak, nonatomic) VOKArrayOfSortDescriptors *sortDescriptors;
 
 @property (nonatomic) BOOL includesSubentities;
 
@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 //you can ignore deprecation warnings in subclasses
 @property (strong, readonly) NSFetchedResultsController *fetchedResultsController;
 
-- (nullable NSArray *)fetchedObjects;
+- (nullable VOKArrayOfManagedObjects *)fetchedObjects;
 
 - (void)reloadData;
 
@@ -52,14 +52,14 @@ NS_ASSUME_NONNULL_BEGIN
               cacheName:(nullable NSString *)cacheName
               tableView:(nullable UITableView *)tableView
      sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
-        sortDescriptors:(nullable NSArray *)sortDescriptors
+        sortDescriptors:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass;
 
 - (id)initWithPredicate:(nullable NSPredicate *)predicate
               cacheName:(nullable NSString *)cacheName
               tableView:(nullable UITableView *)tableView
      sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
-        sortDescriptors:(nullable NSArray *)sortDescriptors
+        sortDescriptors:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
               batchSize:(NSInteger)batchSize;
 
@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
               cacheName:(nullable NSString *)cacheName
               tableView:(nullable UITableView *)tableView
      sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
-        sortDescriptors:(nullable NSArray *)sortDescriptors
+        sortDescriptors:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
                delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
 
@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
               cacheName:(nullable NSString *)cacheName
               tableView:(nullable UITableView *)tableView
      sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
-        sortDescriptors:(nullable NSArray *)sortDescriptors
+        sortDescriptors:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
               batchSize:(NSInteger)batchSize
                delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
               cacheName:(nullable NSString *)cacheName
               tableView:(nullable UITableView *)tableView
      sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
-        sortDescriptors:(nullable NSArray *)sortDescriptors
+        sortDescriptors:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
               batchSize:(NSInteger)batchSize
              fetchLimit:(NSInteger)fetchLimit

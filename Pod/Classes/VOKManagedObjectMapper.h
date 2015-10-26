@@ -6,15 +6,18 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import "VOKCoreDataCollectionTypes.h"
 #import "VOKNullabilityFeatures.h"
 
 #import "VOKManagedObjectMap.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^VOKPostImportBlock)(NSDictionary *inputDict, NSManagedObject *outputObject);
+/// An completion block to run after importing each foreign dictionary.
+typedef void(^VOKPostImportBlock)(VOKStringToObjectDictionary *inputDict, VOKManagedObjectSubclass *outputObject);
 
-typedef void(^VOKPostExportBlock)(NSMutableDictionary *outputDict, NSManagedObject *inputObject);
+/// A completion block to run after exporting a managed object to a dictionary.
+typedef void(^VOKPostExportBlock)(VOKStringToObjectMutableDictionary *outputDict, VOKManagedObjectSubclass *inputObject);
 
 @interface VOKManagedObjectMapper : NSObject
 
@@ -36,13 +39,13 @@ typedef void(^VOKPostExportBlock)(NSMutableDictionary *outputDict, NSManagedObje
 @property (nonatomic, copy) VOKPostExportBlock __nullable exportCompletionBlock;
 
 /**
- Creates a new map.
+ Creates a new mapper.
  @param comparisonKey   An NSString to uniquely identify local entities. Can be nil to enable duplicates.
  @param mapsArray       An NSArray of VOKManagedObjectMaps to corrdinate input data and the core data model.
  @return                A new mapper with the given unique key and maps.
  */
 + (instancetype)mapperWithUniqueKey:(nullable NSString *)comparisonKey
-                            andMaps:(NSArray *)mapsArray;
+                            andMaps:(VOKArrayOfManagedObjectMaps *)mapsArray;
 /**
  Convenience constructor for default mapper.
  @return    A default mapper wherein the local keys and foreign keys are identical.
