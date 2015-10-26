@@ -7,52 +7,56 @@
 
 #import "VOKFetchedResultsDataSource.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface VOKCollectionDataSource : VOKFetchedResultsDataSource <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (strong, readonly) NSFetchedResultsController *fetchedResultsController;
 
 @property (weak) UICollectionView *collectionView;
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-         collectionView:(UICollectionView *)collectionView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
+- (id)initWithPredicate:(nullable NSPredicate *)predicate
+              cacheName:(nullable NSString *)cacheName
+         collectionView:(nullable UICollectionView *)collectionView
+     sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
+        sortDescriptors:(nullable NSArray *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass;
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-         collectionView:(UICollectionView *)collectionView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
+- (id)initWithPredicate:(nullable NSPredicate *)predicate
+              cacheName:(nullable NSString *)cacheName
+         collectionView:(nullable UICollectionView *)collectionView
+     sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
+        sortDescriptors:(nullable NSArray *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
               batchSize:(NSInteger)batchSize;
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-         collectionView:(UICollectionView *)collectionView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
+- (id)initWithPredicate:(nullable NSPredicate *)predicate
+              cacheName:(nullable NSString *)cacheName
+         collectionView:(nullable UICollectionView *)collectionView
+     sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
+        sortDescriptors:(nullable NSArray *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
-               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate;
+               delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-         collectionView:(UICollectionView *)collectionView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
+- (id)initWithPredicate:(nullable NSPredicate *)predicate
+              cacheName:(nullable NSString *)cacheName
+         collectionView:(nullable UICollectionView *)collectionView
+     sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
+        sortDescriptors:(nullable NSArray *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
               batchSize:(NSInteger)batchSize
-               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate;
+               delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-         collectionView:(UICollectionView *)collectionView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
+- (id)initWithPredicate:(nullable NSPredicate *)predicate
+              cacheName:(nullable NSString *)cacheName
+         collectionView:(nullable UICollectionView *)collectionView
+     sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
+        sortDescriptors:(nullable NSArray *)sortDescriptors
      managedObjectClass:(Class)managedObjectClass
               batchSize:(NSInteger)batchSize
              fetchLimit:(NSInteger)fetchLimit
-               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate;
+               delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
 
 @end
+
+NS_ASSUME_NONNULL_END

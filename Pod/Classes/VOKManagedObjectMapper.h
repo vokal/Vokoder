@@ -6,7 +6,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import "VOKNullabilityFeatures.h"
+
 #import "VOKManagedObjectMap.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^VOKPostImportBlock)(NSDictionary *inputDict, NSManagedObject *outputObject);
 
@@ -15,9 +19,9 @@ typedef void(^VOKPostExportBlock)(NSMutableDictionary *outputDict, NSManagedObje
 @interface VOKManagedObjectMapper : NSObject
 
 /// Used to identify and update NSManagedObjects. Like a "primary key" in databases.
-@property (nonatomic, copy) NSString *uniqueComparisonKey;
+@property (nonatomic, copy) NSString * __nullable uniqueComparisonKey;
 /// Used internally to filter input data. Updates automatically to match the uniqueComparisonKey.
-@property (nonatomic, copy) NSString *foreignUniqueComparisonKey;
+@property (nonatomic, copy) NSString * __nullable foreignUniqueComparisonKey;
 /// If set to NO changes are discarded if a local object exists with the same unique comparison key. Defaults to YES.
 @property (nonatomic, assign) BOOL overwriteObjectsWithServerChanges;
 /// If set to YES remote null/nil values are ignored when updating. Defaults to NO.
@@ -27,9 +31,9 @@ typedef void(^VOKPostExportBlock)(NSMutableDictionary *outputDict, NSManagedObje
  */
 @property (nonatomic, assign) BOOL ignoreOptionalNullValues;
 /// An optional completion block to run after importing each foreign dictionary. Defaults to nil.
-@property (nonatomic, copy) VOKPostImportBlock importCompletionBlock;
+@property (nonatomic, copy) VOKPostImportBlock __nullable importCompletionBlock;
 /// An optional completion block to run after exporting a managed object to a dictionary. Defaults to nil.
-@property (nonatomic, copy) VOKPostExportBlock exportCompletionBlock;
+@property (nonatomic, copy) VOKPostExportBlock __nullable exportCompletionBlock;
 
 /**
  Creates a new map.
@@ -37,7 +41,7 @@ typedef void(^VOKPostExportBlock)(NSMutableDictionary *outputDict, NSManagedObje
  @param mapsArray       An NSArray of VOKManagedObjectMaps to corrdinate input data and the core data model.
  @return                A new mapper with the given unique key and maps.
  */
-+ (instancetype)mapperWithUniqueKey:(NSString *)comparisonKey
++ (instancetype)mapperWithUniqueKey:(nullable NSString *)comparisonKey
                             andMaps:(NSArray *)mapsArray;
 /**
  Convenience constructor for default mapper.
@@ -53,3 +57,5 @@ typedef void(^VOKPostExportBlock)(NSMutableDictionary *outputDict, NSManagedObje
 - (id)objectForKeyedSubscript:(id)key;
 
 @end
+
+NS_ASSUME_NONNULL_END

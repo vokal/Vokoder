@@ -1,6 +1,5 @@
-#include "Pods-VOKCoreDataManager-Vokoder.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Vokoder" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" "${PODS_ROOT}/Headers/Public/Vokoder"
-OTHER_LDFLAGS = ${PODS_VOKCOREDATAMANAGER_VOKODER_OTHER_LDFLAGS} -ObjC
+OTHER_LDFLAGS = -framework "CoreData"
 PODS_ROOT = ${SRCROOT}
 SKIP_INSTALL = YES
