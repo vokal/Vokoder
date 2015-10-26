@@ -10,10 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSManagedObject (VOKManagedObjectAdditions)
-
 /// A completion block after an asynchronous operation on a temporary context. NSManagedObject's are not threadsafe.
 typedef void(^VOKManagedObjectsReturnBlock)(VOKArrayOfManagedObjects *managedObjects);
+
+@interface NSManagedObject (VOKManagedObjectAdditions)
 
 /**
  Checks for NSNull before seting a value.
