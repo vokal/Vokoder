@@ -14,6 +14,8 @@ it, simply add the following line to your Podfile:
 
     pod "Vokoder"
 
+Vokoder requires Xcode 5.1 or higher.  The unit tests require features found in Xcode 6 and higher.
+
 ## Subspecs
 
 The bulk of the functionality is in the `Core` subspec.  If you aren't using any of the data sources, you can just include the `Core` subspec.
