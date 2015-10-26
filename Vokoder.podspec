@@ -40,11 +40,5 @@ Pod::Spec.new do |s|
       sss.source_files = 'Pod/Classes/Optional Data Sources/VOKCollectionDataSource.{h,m}'
       sss.dependency 'Vokoder/DataSources/FetchedResults'
     end
-
-    ss.subspec 'Carousel' do |sss|
-      sss.source_files = 'Pod/Classes/Optional Data Sources/VOKCarouselDataSource.{h,m}'
-      sss.dependency 'Vokoder/DataSources/FetchedResults'
-      sss.dependency 'iCarousel', '~> 1.7.3'
-    end
   end
 end
