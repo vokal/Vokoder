@@ -13,8 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// An completion block to run after importing each foreign dictionary.
 typedef void(^VOKPostImportBlock)(VOKStringToObjectDictionary *inputDict, VOKManagedObjectSubclass *outputObject);
 
+/// A completion block to run after exporting a managed object to a dictionary.
 typedef void(^VOKPostExportBlock)(VOKStringToObjectMutableDictionary *outputDict, VOKManagedObjectSubclass *inputObject);
 
 @interface VOKManagedObjectMapper : NSObject
