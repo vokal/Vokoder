@@ -217,8 +217,8 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
  @param contextOrNil    The managed object context in which fetch instances of the given class. A nil context will use the main context.
  @return                The object matching the uri passed in. If the object doesn't exist nil is returned.
  */
-- (nullable VOKManagedObjectSubclassPtr)existingObjectAtURI:(NSURL *)uri
-                                    forManagedObjectContext:(nullable NSManagedObjectContext *)contextOrNil;
+- (nullable VOKManagedObjectSubclass *)existingObjectAtURI:(NSURL *)uri
+                                   forManagedObjectContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /**
  Deletes a given object in its current context. Uses the object's context. As always, remember to keep NSManagedObjects on one queue.

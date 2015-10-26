@@ -13,9 +13,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^VOKPostImportBlock)(VOKStringToObjectDictionary *inputDict, NSManagedObject *outputObject);
+typedef void(^VOKPostImportBlock)(VOKStringToObjectDictionary *inputDict, VOKManagedObjectSubclass *outputObject);
 
-typedef void(^VOKPostExportBlock)(VOKStringToObjectMutableDictionary *outputDict, NSManagedObject *inputObject);
+typedef void(^VOKPostExportBlock)(VOKStringToObjectMutableDictionary *outputDict, VOKManagedObjectSubclass *inputObject);
 
 @interface VOKManagedObjectMapper : NSObject
 

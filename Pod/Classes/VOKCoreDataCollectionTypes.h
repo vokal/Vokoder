@@ -15,11 +15,10 @@
 @class NSManagedObjectID;
 @class VOKManagedObjectMap;
 
-//include the pointer for this one since the fallback is id
-#define VOKManagedObjectSubclassPtr __kindof NSManagedObject *
+typedef __kindof NSManagedObject VOKManagedObjectSubclass;
 
 // [NSManagedObject]
-typedef NSArray<VOKManagedObjectSubclassPtr> VOKArrayOfManagedObjects;
+typedef NSArray<VOKManagedObjectSubclass *> VOKArrayOfManagedObjects;
 
 // [NSManagedObjectID]
 typedef NSArray<__kindof NSManagedObjectID *> VOKArrayOfManagedObjectIDs;
@@ -45,7 +44,7 @@ typedef NSDictionary<NSString *, NSString *> VOKStringToStringDictionary;
 #else
 //no generic support, fallback to regular NSArray, NSDictionary
 
-#define VOKManagedObjectSubclassPtr id
+#define VOKManagedObjectSubclass NSManagedObject
 #define VOKArrayOfManagedObjects NSArray
 #define VOKArrayOfManagedObjectIDs NSArray
 #define VOKStringToObjectDictionary NSDictionary
