@@ -378,7 +378,7 @@
 				GCC_PREFIX_HEADER = "Paging Data Source Example-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Paging Data Source Example-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.VOKAL.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Vokal.Paging-Data-Source-Example";
 				PRODUCT_NAME = "Paging Data Source Example";
 				WRAPPER_EXTENSION = app;
 			};
@@ -396,7 +396,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Paging Data Source Example-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.VOKAL.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Vokal.Paging-Data-Source-Example";
 				PRODUCT_NAME = "Paging Data Source Example";
 				WRAPPER_EXTENSION = app;
 			};
