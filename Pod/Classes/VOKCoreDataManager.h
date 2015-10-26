@@ -2,7 +2,7 @@
 //  VOKCoreDataManager.h
 //  VOKCoreData
 //
-//  Copyright © 2015 Vokal. All rights reserved.
+//  Copyright © 2015 Vokal.
 //
 
 #ifndef __IPHONE_7_0

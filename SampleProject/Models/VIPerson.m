@@ -3,7 +3,7 @@
 //  SampleProject
 //
 //  Created by Sean Wolter on 8/23/14.
-//  Copyright © 2015 Vokal. All rights reserved.
+//  Copyright © 2015 Vokal.
 //
 
 #import "VIPerson.h"
