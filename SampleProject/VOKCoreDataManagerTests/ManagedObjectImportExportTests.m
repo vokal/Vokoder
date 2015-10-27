@@ -622,11 +622,12 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     
     NSArray *arrayOfPeople = [VOKPerson vok_addWithArray:peopleDicts forManagedObjectContext:nil];
     
-    XCTAssertTrue([arrayOfPeople count] == 2, @"person array has incorrect number of people");
+    XCTAssertTrue(arrayOfPeople.count == 2, @"person array has incorrect number of people");
     
-    [arrayOfPeople enumerateObjectsUsingBlock:^(VOKPerson *obj, NSUInteger idx, BOOL *stop) {
-        [self checkCustomMappingForPerson:obj andDictionary:peopleDicts[idx+1]];
-    }];
+    if (arrayOfPeople.count == 2) {
+        [self checkCustomMappingForPerson:arrayOfPeople[0] andDictionary:person2];
+        [self checkCustomMappingForPerson:arrayOfPeople[1] andDictionary:person3];
+    }
 }
 
 #pragma mark - Convenience stuff
