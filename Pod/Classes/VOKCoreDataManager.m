@@ -586,15 +586,13 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSManagedObjectContext *)temporaryInMemoryContext
 {
     //Spin up a new context
-    NSManagedObjectContext *context;
-    context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     
     //Use the same MOM as the main context.
     NSManagedObjectModel *model = self.managedObjectModel;
     
     //Use an in-memory store
-    NSPersistentStoreCoordinator *coordinator;
-    coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
     NSError *error;
     NSPersistentStore *addedStore = [coordinator addPersistentStoreWithType:NSInMemoryStoreType
                                                               configuration:nil
