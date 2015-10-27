@@ -186,7 +186,7 @@ static VOKCoreDataManager *VOK_SharedObject;
             self.migrationFailureOptions == VOKMigrationFailureOptionWipeRecovery) {
             VOK_CDLog(@"Full database delete and rebuild");
             [[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:nil];
-            if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+            if (![_persistentStoreCoordinator addPersistentStoreWithType:storeType
                                                            configuration:nil
                                                                      URL:storeURL
                                                                  options:nil
