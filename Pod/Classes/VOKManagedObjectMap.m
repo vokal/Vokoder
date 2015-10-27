@@ -68,7 +68,7 @@
         DateFormatterWithoutMicroseconds = [NSDateFormatter new];
         DateFormatterWithoutMicroseconds.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
         DateFormatterWithoutMicroseconds.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-         });
+    });
 
     return DateFormatterWithoutMicroseconds;
 }
