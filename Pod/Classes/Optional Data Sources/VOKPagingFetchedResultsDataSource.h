@@ -1,5 +1,5 @@
 //
-//  VIPagingFetchedResultsDataSource.h
+//  VOKPagingFetchedResultsDataSource.h
 //
 //  Created by teejay on 1/21/14.
 //  Copyright © 2015 Vokal.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol VIPagingAccessory <NSObject>
+@protocol VOKPagingAccessory <NSObject>
 
 - (void)loadingHasFinished;
 - (void)loadingWillBegin;
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-typedef void (^VICompletionAction)(void);
+typedef void (^VOKCompletionAction)(void);
 /**
  *  This is your primary interaction with this class. Inside this block you should fetch your data, insert it into Core Data, and then execute the fetchCompleted() block.
  *
@@ -26,7 +26,7 @@ typedef void (^VICompletionAction)(void);
  *  @param fetchCompleted       Execute this block when you have finished your data fetching.
  *
  */
-typedef void (^VIPagingResultsAction)(UITableView *tableView, VICompletionAction fetchCompleted);
+typedef void (^VOKPagingResultsAction)(UITableView *tableView, VOKCompletionAction fetchCompleted);
 
 @interface VOKPagingFetchedResultsDataSource : VOKFetchedResultsDataSource
 
@@ -44,10 +44,10 @@ typedef void (^VIPagingResultsAction)(UITableView *tableView, VICompletionAction
  *  By not including either an action for a specified direction, the controller will not attempt to handle that direction
  */
 - (void)setupForTriggerDistance:(CGFloat)overscrollTriggerDistance
-                       upAction:(nullable VIPagingResultsAction)upPageActionOrNil
-                     headerView:(nullable UIView<VIPagingAccessory> *)headerViewOrNil
-                     downAction:(nullable VIPagingResultsAction)downPageActionOrNil
-                     footerView:(nullable UIView<VIPagingAccessory> *)footerViewOrNil;
+                       upAction:(nullable VOKPagingResultsAction)upPageActionOrNil
+                     headerView:(nullable UIView<VOKPagingAccessory> *)headerViewOrNil
+                     downAction:(nullable VOKPagingResultsAction)downPageActionOrNil
+                     footerView:(nullable UIView<VOKPagingAccessory> *)footerViewOrNil;
 
 /**
  *  Call to handle memory management before deallocating a view that contains this class.

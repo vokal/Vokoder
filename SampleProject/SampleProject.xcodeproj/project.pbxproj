@@ -13,15 +13,15 @@
 		3D40DE3E180729A10048D5EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A615C196500089AA44 /* Foundation.framework */; };
 		3D40DE3F180729A10048D5EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A415C196500089AA44 /* UIKit.framework */; };
 		487ADC79AEB21F0C4A5B6963 /* libPods-VOKCoreDataManager Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A15387FCC51E8AC46390CE29 /* libPods-VOKCoreDataManager Tests.a */; };
-		718462C21B9505D000015274 /* VIMappablePerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 718462C11B9505D000015274 /* VIMappablePerson.m */; };
-		71E1AAE21A53408D004311E5 /* VIPersonDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE11A53408D004311E5 /* VIPersonDataSource.m */; };
-		71E1AAEA1A5340A1004311E5 /* VICoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE41A5340A1004311E5 /* VICoreDataModel.xcdatamodeld */; };
-		71E1AAEB1A5340A1004311E5 /* VIPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE71A5340A1004311E5 /* VIPerson.m */; };
-		71E1AAEC1A5340A1004311E5 /* VIThing.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE91A5340A1004311E5 /* VIThing.m */; };
+		718462C21B9505D000015274 /* VOKMappablePerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 718462C11B9505D000015274 /* VOKMappablePerson.m */; };
+		71E1AAE21A53408D004311E5 /* VOKPersonDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE11A53408D004311E5 /* VOKPersonDataSource.m */; };
+		71E1AAEA1A5340A1004311E5 /* VOKCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE41A5340A1004311E5 /* VOKCoreDataModel.xcdatamodeld */; };
+		71E1AAEB1A5340A1004311E5 /* VOKPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE71A5340A1004311E5 /* VOKPerson.m */; };
+		71E1AAEC1A5340A1004311E5 /* VOKThing.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE91A5340A1004311E5 /* VOKThing.m */; };
 		71E1AAF21A5340CE004311E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E1AAEE1A5340CE004311E5 /* Default-568h@2x.png */; };
 		71E1AAF31A5340CE004311E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAEF1A5340CE004311E5 /* main.m */; };
-		71E1AB031A534221004311E5 /* VIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB001A534221004311E5 /* VIAppDelegate.m */; };
-		71E1AB041A534221004311E5 /* VIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB021A534221004311E5 /* VIViewController.m */; };
+		71E1AB031A534221004311E5 /* VOKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB001A534221004311E5 /* VOKAppDelegate.m */; };
+		71E1AB041A534221004311E5 /* VOKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB021A534221004311E5 /* VOKViewController.m */; };
 		71E1AB051A534239004311E5 /* CoreDataManagerDeleteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAF51A5340ED004311E5 /* CoreDataManagerDeleteTests.m */; };
 		71E1AB061A53423D004311E5 /* ManagedObjectImportExportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAF71A5340F3004311E5 /* ManagedObjectImportExportTests.m */; };
 		71E1AB091A534274004311E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71E1AB071A534274004311E5 /* InfoPlist.strings */; };
@@ -53,15 +53,15 @@
 		7172B5031B8E82D400589204 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		7172B5041B8E82D400589204 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7172B5051B8E82D400589204 /* Vokoder.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = Vokoder.podspec; path = ../Vokoder.podspec; sourceTree = "<group>"; };
-		718462C01B9505D000015274 /* VIMappablePerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIMappablePerson.h; sourceTree = "<group>"; };
-		718462C11B9505D000015274 /* VIMappablePerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMappablePerson.m; sourceTree = "<group>"; };
-		71E1AAE01A53408D004311E5 /* VIPersonDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPersonDataSource.h; sourceTree = "<group>"; };
-		71E1AAE11A53408D004311E5 /* VIPersonDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPersonDataSource.m; sourceTree = "<group>"; };
-		71E1AAE51A5340A1004311E5 /* VICoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VICoreDataModel.xcdatamodel; sourceTree = "<group>"; };
-		71E1AAE61A5340A1004311E5 /* VIPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPerson.h; sourceTree = "<group>"; };
-		71E1AAE71A5340A1004311E5 /* VIPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPerson.m; sourceTree = "<group>"; };
-		71E1AAE81A5340A1004311E5 /* VIThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIThing.h; sourceTree = "<group>"; };
-		71E1AAE91A5340A1004311E5 /* VIThing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIThing.m; sourceTree = "<group>"; };
+		718462C01B9505D000015274 /* VOKMappablePerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKMappablePerson.h; sourceTree = "<group>"; };
+		718462C11B9505D000015274 /* VOKMappablePerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKMappablePerson.m; sourceTree = "<group>"; };
+		71E1AAE01A53408D004311E5 /* VOKPersonDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPersonDataSource.h; sourceTree = "<group>"; };
+		71E1AAE11A53408D004311E5 /* VOKPersonDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKPersonDataSource.m; sourceTree = "<group>"; };
+		71E1AAE51A5340A1004311E5 /* VOKCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VOKCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		71E1AAE61A5340A1004311E5 /* VOKPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPerson.h; sourceTree = "<group>"; };
+		71E1AAE71A5340A1004311E5 /* VOKPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKPerson.m; sourceTree = "<group>"; };
+		71E1AAE81A5340A1004311E5 /* VOKThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKThing.h; sourceTree = "<group>"; };
+		71E1AAE91A5340A1004311E5 /* VOKThing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKThing.m; sourceTree = "<group>"; };
 		71E1AAEE1A5340CE004311E5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		71E1AAEF1A5340CE004311E5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		71E1AAF01A5340CE004311E5 /* VOKCoreDataManager-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VOKCoreDataManager-Info.plist"; sourceTree = "<group>"; };
@@ -70,10 +70,10 @@
 		71E1AAF71A5340F3004311E5 /* ManagedObjectImportExportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedObjectImportExportTests.m; sourceTree = "<group>"; };
 		71E1AAF91A5340F8004311E5 /* VOKCoreDataManager Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VOKCoreDataManager Tests-Info.plist"; sourceTree = "<group>"; };
 		71E1AAFB1A5340FD004311E5 /* VOKCoreDataManager Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VOKCoreDataManager Tests-Prefix.pch"; sourceTree = "<group>"; };
-		71E1AAFF1A534221004311E5 /* VIAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIAppDelegate.h; sourceTree = SOURCE_ROOT; };
-		71E1AB001A534221004311E5 /* VIAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIAppDelegate.m; sourceTree = SOURCE_ROOT; };
-		71E1AB011A534221004311E5 /* VIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIViewController.h; sourceTree = SOURCE_ROOT; };
-		71E1AB021A534221004311E5 /* VIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIViewController.m; sourceTree = SOURCE_ROOT; };
+		71E1AAFF1A534221004311E5 /* VOKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		71E1AB001A534221004311E5 /* VOKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		71E1AB011A534221004311E5 /* VOKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKViewController.h; sourceTree = SOURCE_ROOT; };
+		71E1AB021A534221004311E5 /* VOKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKViewController.m; sourceTree = SOURCE_ROOT; };
 		71E1AB081A534274004311E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		71E1AB0B1A5342E5004311E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = VOKCoreDataManagerTests/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		8434D73F1A93F44E005A9B2F /* VOKManagedObjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKManagedObjectAdditions.m; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 		71E1AADF1A53408D004311E5 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				71E1AAE01A53408D004311E5 /* VIPersonDataSource.h */,
-				71E1AAE11A53408D004311E5 /* VIPersonDataSource.m */,
+				71E1AAE01A53408D004311E5 /* VOKPersonDataSource.h */,
+				71E1AAE11A53408D004311E5 /* VOKPersonDataSource.m */,
 			);
 			path = DataSource;
 			sourceTree = SOURCE_ROOT;
@@ -160,13 +160,13 @@
 		71E1AAE31A5340A1004311E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				71E1AAE41A5340A1004311E5 /* VICoreDataModel.xcdatamodeld */,
-				718462C01B9505D000015274 /* VIMappablePerson.h */,
-				718462C11B9505D000015274 /* VIMappablePerson.m */,
-				71E1AAE61A5340A1004311E5 /* VIPerson.h */,
-				71E1AAE71A5340A1004311E5 /* VIPerson.m */,
-				71E1AAE81A5340A1004311E5 /* VIThing.h */,
-				71E1AAE91A5340A1004311E5 /* VIThing.m */,
+				71E1AAE41A5340A1004311E5 /* VOKCoreDataModel.xcdatamodeld */,
+				718462C01B9505D000015274 /* VOKMappablePerson.h */,
+				718462C11B9505D000015274 /* VOKMappablePerson.m */,
+				71E1AAE61A5340A1004311E5 /* VOKPerson.h */,
+				71E1AAE71A5340A1004311E5 /* VOKPerson.m */,
+				71E1AAE81A5340A1004311E5 /* VOKThing.h */,
+				71E1AAE91A5340A1004311E5 /* VOKThing.m */,
 			);
 			path = Models;
 			sourceTree = SOURCE_ROOT;
@@ -234,10 +234,10 @@
 			children = (
 				71E1AADF1A53408D004311E5 /* DataSource */,
 				71E1AAE31A5340A1004311E5 /* Models */,
-				71E1AAFF1A534221004311E5 /* VIAppDelegate.h */,
-				71E1AB001A534221004311E5 /* VIAppDelegate.m */,
-				71E1AB011A534221004311E5 /* VIViewController.h */,
-				71E1AB021A534221004311E5 /* VIViewController.m */,
+				71E1AAFF1A534221004311E5 /* VOKAppDelegate.h */,
+				71E1AB001A534221004311E5 /* VOKAppDelegate.m */,
+				71E1AB011A534221004311E5 /* VOKViewController.h */,
+				71E1AB021A534221004311E5 /* VOKViewController.m */,
 				71E1AAED1A5340CE004311E5 /* Supporting Files */,
 			);
 			name = "Sample Project";
@@ -466,14 +466,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71E1AAE21A53408D004311E5 /* VIPersonDataSource.m in Sources */,
-				71E1AB041A534221004311E5 /* VIViewController.m in Sources */,
-				71E1AAEC1A5340A1004311E5 /* VIThing.m in Sources */,
-				71E1AAEA1A5340A1004311E5 /* VICoreDataModel.xcdatamodeld in Sources */,
-				71E1AB031A534221004311E5 /* VIAppDelegate.m in Sources */,
-				718462C21B9505D000015274 /* VIMappablePerson.m in Sources */,
+				71E1AAE21A53408D004311E5 /* VOKPersonDataSource.m in Sources */,
+				71E1AB041A534221004311E5 /* VOKViewController.m in Sources */,
+				71E1AAEC1A5340A1004311E5 /* VOKThing.m in Sources */,
+				71E1AAEA1A5340A1004311E5 /* VOKCoreDataModel.xcdatamodeld in Sources */,
+				71E1AB031A534221004311E5 /* VOKAppDelegate.m in Sources */,
+				718462C21B9505D000015274 /* VOKMappablePerson.m in Sources */,
 				71E1AAF31A5340CE004311E5 /* main.m in Sources */,
-				71E1AAEB1A5340A1004311E5 /* VIPerson.m in Sources */,
+				71E1AAEB1A5340A1004311E5 /* VOKPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,13 +719,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		71E1AAE41A5340A1004311E5 /* VICoreDataModel.xcdatamodeld */ = {
+		71E1AAE41A5340A1004311E5 /* VOKCoreDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				71E1AAE51A5340A1004311E5 /* VICoreDataModel.xcdatamodel */,
+				71E1AAE51A5340A1004311E5 /* VOKCoreDataModel.xcdatamodel */,
 			);
-			currentVersion = 71E1AAE51A5340A1004311E5 /* VICoreDataModel.xcdatamodel */;
-			path = VICoreDataModel.xcdatamodeld;
+			currentVersion = 71E1AAE51A5340A1004311E5 /* VOKCoreDataModel.xcdatamodel */;
+			path = VOKCoreDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

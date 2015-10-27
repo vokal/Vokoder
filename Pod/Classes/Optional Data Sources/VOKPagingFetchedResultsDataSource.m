@@ -1,5 +1,5 @@
 //
-//  VIPagingFetchedResultsDataSource.m
+//  VOKPagingFetchedResultsDataSource.m
 //
 //  Created by teejay on 1/21/14.
 //  Copyright © 2015 Vokal.
@@ -10,11 +10,11 @@
 
 @interface VOKPagingFetchedResultsDataSource () <UIScrollViewDelegate>
 
-@property (copy) VIPagingResultsAction upAction;
-@property (copy) VIPagingResultsAction downAction;
+@property (copy) VOKPagingResultsAction upAction;
+@property (copy) VOKPagingResultsAction downAction;
 
-@property UIView<VIPagingAccessory> *headerView;
-@property UIView<VIPagingAccessory> *footerView;
+@property UIView<VOKPagingAccessory> *headerView;
+@property UIView<VOKPagingAccessory> *footerView;
 
 @property BOOL isLoading;
 @property CGFloat triggerDistance;
@@ -27,10 +27,10 @@
 #pragma mark Setup
 
 - (void)setupForTriggerDistance:(CGFloat)overscrollTriggerDistance
-                       upAction:(VIPagingResultsAction)upPageActionOrNil
-                     headerView:(UIView<VIPagingAccessory> *)headerViewOrNil
-                     downAction:(VIPagingResultsAction)downPageActionOrNil
-                     footerView:(UIView<VIPagingAccessory> *)footerViewOrNil;
+                       upAction:(VOKPagingResultsAction)upPageActionOrNil
+                     headerView:(UIView<VOKPagingAccessory> *)headerViewOrNil
+                     downAction:(VOKPagingResultsAction)downPageActionOrNil
+                     footerView:(UIView<VOKPagingAccessory> *)footerViewOrNil;
 {
     self.upAction = upPageActionOrNil;
     self.downAction = downPageActionOrNil;
@@ -143,8 +143,8 @@
 
 #pragma mark Trigger Calls
 
-- (void)triggerAction:(VIPagingResultsAction)action
-     forAccessoryView:(UIView<VIPagingAccessory> *)accessory
+- (void)triggerAction:(VOKPagingResultsAction)action
+     forAccessoryView:(UIView<VOKPagingAccessory> *)accessory
            withInsets:(UIEdgeInsets)insets
 {
     self.isLoading = YES;
@@ -155,7 +155,7 @@
     [UIView animateWithDuration:.3 animations:^{
         [self.tableView setContentInset:insets];
     } completion:^(BOOL finished) {
-        VICompletionAction completionAction = ^void (void)
+        VOKCompletionAction completionAction = ^void (void)
         {
             self.isLoading = NO;
             [accessory loadingHasFinished];

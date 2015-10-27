@@ -1,5 +1,5 @@
 //
-//  VICollectionDataSource.m
+//  VOKCollectionDataSource.m
 //
 //  Created by teejay on 5/6/13.
 //  Copyright © 2013 Vokal.
@@ -122,7 +122,7 @@
     return [super fetchedResultsController];
 }
 
-#pragma mark - UICollectionVIew
+#pragma mark - UICollectionView
 
 - (void)reloadData
 {
