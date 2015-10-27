@@ -257,43 +257,16 @@ static VOKCoreDataManager *VOK_SharedObject;
     
     contextOrNil = [self safeContext:contextOrNil];
     
-    NSArray *existingObjectArray;
+    NSMutableArray *existingObjectArray;
+    NSMutableArray *existingUniqueKeys;
 
     if (mapper.uniqueComparisonKey) {
-        NSString *foreignUniqueKey = mapper.foreignUniqueComparisonKey;
-        NSArray *arrayOfUniqueKeys = [inputArray valueForKeyPath:foreignUniqueKey];
+        NSArray *arrayOfUniqueKeys = [inputArray valueForKeyPath:mapper.foreignUniqueComparisonKey];
         //filter out all NSNull's
         arrayOfUniqueKeys = [arrayOfUniqueKeys filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self != nil"]];
-        
-        //Use a counted set to see if there are any repeated unique keys
-        NSCountedSet *countedKeySet = [[NSCountedSet alloc] initWithArray:arrayOfUniqueKeys];
-        if (countedKeySet.count != arrayOfUniqueKeys.count) {
-            NSMutableArray *repeatedUniqueKeys = [NSMutableArray array];
-
-            //grab any repeated keys and notify the user
-            for (id key in countedKeySet) {
-                if ([countedKeySet countForObject:key] > 1) {
-                    [repeatedUniqueKeys addObject:key];
-                    
-                    VOK_CDLog(@"**WARNING**:\nUnique key %@ for class %@ has multiple items with the same value %@\nThese items will be imported sequentially!", foreignUniqueKey, NSStringFromClass(objectClass), key);
-                }
-            }
-            
-            if (repeatedUniqueKeys.count) {
-                //We've got some repeated items - import them sequentially
-                inputArray = [self arrayToImportAfterImportingRepeatedUniqueKeys:repeatedUniqueKeys
-                                                         forForeignUniqueKeyPath:foreignUniqueKey
-                                                                 usingInputArray:inputArray
-                                                                        forClass:objectClass
-                                                                     withContext:contextOrNil];
-                
-                //Make this *actually* unique.
-                arrayOfUniqueKeys = [[NSOrderedSet orderedSetWithArray:arrayOfUniqueKeys] array];
-            }
-        }
-        
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(%K IN %@)", mapper.uniqueComparisonKey, arrayOfUniqueKeys];
-        existingObjectArray = [self arrayForClass:objectClass withPredicate:predicate forContext:contextOrNil];
+        existingObjectArray = [[self arrayForClass:objectClass withPredicate:predicate forContext:contextOrNil] mutableCopy];
+        existingUniqueKeys = [[existingObjectArray valueForKeyPath:mapper.uniqueComparisonKey] mutableCopy];
     }
     
     NSMutableArray *returnArray = [NSMutableArray array];
@@ -306,9 +279,13 @@ static VOKCoreDataManager *VOK_SharedObject;
         
         NSManagedObject *returnObject;
         
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", mapper.uniqueComparisonKey, [inputDict valueForKeyPath:mapper.foreignUniqueComparisonKey]];
-        NSArray *matchingObjects = [existingObjectArray filteredArrayUsingPredicate:predicate];
-        NSUInteger matchingObjectsCount = [matchingObjects count];
+        NSArray *matchingObjects;
+        id inputKey = [inputDict valueForKeyPath:mapper.foreignUniqueComparisonKey];
+        if (inputKey && [existingUniqueKeys containsObject:inputKey]) {
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", mapper.uniqueComparisonKey, inputKey];
+            matchingObjects = [existingObjectArray filteredArrayUsingPredicate:predicate];
+        }
+        NSUInteger matchingObjectsCount = matchingObjects.count;
         
         if (matchingObjectsCount) {
             NSAssert(matchingObjectsCount < 2, @"UNIQUE IDENTIFIER IS NOT UNIQUE. MORE THAN ONE MATCHING OBJECT FOUND");
@@ -319,44 +296,18 @@ static VOKCoreDataManager *VOK_SharedObject;
         } else {
             returnObject = [self managedObjectOfClass:objectClass inContext:contextOrNil];
             [mapper setInformationFromDictionary:inputDict forManagedObject:returnObject];
+            if (inputKey) {
+                [existingObjectArray addObject:returnObject];
+                [existingUniqueKeys addObject:inputKey];
+            }
         }
         
-        [returnArray addObject:returnObject];
+        if (![returnArray containsObject:returnObject]) {
+            [returnArray addObject:returnObject];
+        }
     };
     
     return [returnArray copy];
-}
-
-- (NSArray *)arrayToImportAfterImportingRepeatedUniqueKeys:(NSArray *)repeatedUniqueKeys
-                                   forForeignUniqueKeyPath:(NSString *)foreignUniqueKeyPath
-                                           usingInputArray:(NSArray *)inputArray
-                                                  forClass:(Class)objectClass
-                                               withContext:(NSManagedObjectContext *)contextOrNil
-{
-    NSMutableArray *uniquedInputArray = [NSMutableArray arrayWithArray:inputArray];
-    
-    NSMutableArray *itemsToRemove = [NSMutableArray array];
-    for (id repeatedKey in repeatedUniqueKeys) {
-        for (id item in inputArray) {
-            if ([[item valueForKeyPath:foreignUniqueKeyPath] isEqual:repeatedKey]) {
-                //Import this by itself
-                [self importArray:@[item]
-                         forClass:objectClass
-                      withContext:contextOrNil];
-                
-                //Remove from the list to be imported
-                [itemsToRemove addObject:item];
-            }
-        }
-
-        //Don't remove the last object for the list of expected imports, so that its value is still returned
-        //in the main return array. 
-        [itemsToRemove removeLastObject];
-    }
-    
-    [uniquedInputArray removeObjectsInArray:itemsToRemove];
-    
-    return [uniquedInputArray copy];
 }
 
 - (void)setInformationFromDictionary:(NSDictionary *)inputDict forManagedObject:(NSManagedObject *)object
