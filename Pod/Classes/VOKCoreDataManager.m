@@ -47,7 +47,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     dispatch_once(&pred, ^{
         VOK_SharedObject = [[self alloc] init];
         VOK_WritingQueue = [[NSOperationQueue alloc] init];
-        [VOK_WritingQueue setMaxConcurrentOperationCount:1];
+        VOK_WritingQueue.maxConcurrentOperationCount = 1;
         [VOK_SharedObject addMappableModelMappers];
     });
     return VOK_SharedObject;
@@ -94,8 +94,8 @@ static VOKCoreDataManager *VOK_SharedObject;
     }
     
     NSManagedObjectContext *tempManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
-    [tempManagedObjectContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
-    [tempManagedObjectContext setPersistentStoreCoordinator:coordinator];
+    tempManagedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
+    tempManagedObjectContext.persistentStoreCoordinator = coordinator;
     
     return tempManagedObjectContext;
 }
@@ -208,8 +208,8 @@ static VOKCoreDataManager *VOK_SharedObject;
         return;
     }
     _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-    [_managedObjectContext setMergePolicy:NSMergeByPropertyStoreTrumpMergePolicy];
+    _managedObjectContext.persistentStoreCoordinator = coordinator;
+    _managedObjectContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy;
 }
 
 #pragma mark - Create and configure
@@ -217,13 +217,14 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSManagedObject *)managedObjectOfClass:(Class)managedObjectClass inContext:(NSManagedObjectContext *)contextOrNil
 {
     contextOrNil = [self safeContext:contextOrNil];
-    return [NSEntityDescription insertNewObjectForEntityForName:[managedObjectClass vok_entityName] inManagedObjectContext:contextOrNil];
+    return [NSEntityDescription insertNewObjectForEntityForName:[managedObjectClass vok_entityName]
+                                         inManagedObjectContext:contextOrNil];
 }
 
 - (BOOL)setObjectMapper:(VOKManagedObjectMapper *)objMapper forClass:(Class)objectClass
 {
     if (objMapper && objectClass) {
-        (self.mapperCollection)[NSStringFromClass(objectClass)] = objMapper;
+        self.mapperCollection[NSStringFromClass(objectClass)] = objMapper;
         return YES;
     }
     
@@ -281,7 +282,7 @@ static VOKCoreDataManager *VOK_SharedObject;
         
         if (matchingObjectsCount) {
             NSAssert(matchingObjectsCount < 2, @"UNIQUE IDENTIFIER IS NOT UNIQUE. MORE THAN ONE MATCHING OBJECT FOUND");
-            returnObject = [matchingObjects firstObject];
+            returnObject = matchingObjects.firstObject;
             if (mapper.overwriteObjectsWithServerChanges) {
                 [mapper setInformationFromDictionary:inputDict forManagedObject:returnObject];
             }
@@ -421,7 +422,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 {
     contextOrNil = [self safeContext:contextOrNil];
     NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass predicate:predicate];
-    [fetchRequest setIncludesPropertyValues:NO];
+    fetchRequest.includesPropertyValues = NO;
     
     NSError *error;
     NSArray *results = [contextOrNil executeFetchRequest:fetchRequest error:&error];
@@ -430,9 +431,9 @@ static VOKCoreDataManager *VOK_SharedObject;
         return NO;
     }
     
-    [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [contextOrNil deleteObject:obj];
-    }];
+    for (id object in results) {
+        [contextOrNil deleteObject:object];
+    }
     
     return YES;
 }
@@ -583,7 +584,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 {
     NSString *entityName = [managedObjectClass vok_entityName];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
-    [fetchRequest setPredicate:predicate];
+    fetchRequest.predicate = predicate;
     return fetchRequest;
 }
 
@@ -593,7 +594,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 {
     NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass
                                                      predicate:predicate];
-    [fetchRequest setSortDescriptors:sortDescriptors];
+    fetchRequest.sortDescriptors = sortDescriptors;
     return fetchRequest;
 }
 
@@ -614,7 +615,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (NSURL *)applicationLibraryDirectory
 {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask] lastObject];
+    return [[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask].lastObject;
 }
 
 - (void)resetCoreData
