@@ -7,6 +7,7 @@
 
 #import "VOKCoreDataManager.h"
 
+NS_ASSUME_NONNULL_BEGIN
 /**
  *  Any models that conform to this protocol will be automatically registered for mapping with the shared instance 
  *  of VOKCoreDataManager.
@@ -18,10 +19,10 @@
 @protocol VOKMappableModel <NSObject>
 
 ///@return an array of VOKManagedObjectMap objects mapping foreign keys to local keys.
-+ (NSArray *)coreDataMaps;
++ (VOKArrayOfManagedObjectMaps *)coreDataMaps;
 
 ///@return the key name to use to uniquely compare two instances of a class.
-+ (NSString *)uniqueKey;
++ (nullable NSString *)uniqueKey;
 
 // If an optional method isn't defined, the default VOKManagedObjectMap behavior/value will be used.
 @optional
@@ -36,3 +37,5 @@
 + (VOKPostImportBlock)importCompletionBlock;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -454,7 +454,8 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     person = nil;
     [[[VOKCoreDataManager sharedInstance] managedObjectContext] reset];
 
-    VIPerson *personFromURI = [[VOKCoreDataManager sharedInstance] existingObjectAtURI:uri forManagedObjectContext:nil];
+    VIPerson *personFromURI = (VIPerson *)[[VOKCoreDataManager sharedInstance] existingObjectAtURI:uri
+                                                                           forManagedObjectContext:nil];
     XCTAssertTrue(personFromURI, @"failed to get existing person object from URI");
     XCTAssertTrue([personFromURI isKindOfClass:[VIPerson class]], @"existing person object was not correct class");
 }
@@ -462,7 +463,8 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 - (void)testFetchWithMalformedURI
 {
     NSURL *uri = [NSURL URLWithString:@"x-coredata://1C8D8740-06E2-4B79-A739-94071E03CD74/VIPerson/p99"];
-    VIPerson *personFromURI = [[VOKCoreDataManager sharedInstance] existingObjectAtURI:uri forManagedObjectContext:nil];
+    VIPerson *personFromURI = (VIPerson *)[[VOKCoreDataManager sharedInstance] existingObjectAtURI:uri
+                                                                           forManagedObjectContext:nil];
     XCTAssertNil(personFromURI, @"existingObjectAtURI did not fail correctly. returned non nil value for malformed URI");
 }
 

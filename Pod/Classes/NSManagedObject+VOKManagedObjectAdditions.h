@@ -7,31 +7,36 @@
 
 #import <CoreData/CoreData.h>
 
-@interface NSManagedObject (VOKManagedObjectAdditions)
+#import "VOKCoreDataCollectionTypes.h"
+#import "VOKNullabilityFeatures.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 /// A completion block after an asynchronous operation on a temporary context. NSManagedObject's are not threadsafe.
-typedef void(^VOKManagedObjectsReturnBlock)(NSArray *arrayOfManagedObjects);
+typedef void(^VOKManagedObjectsReturnBlock)(VOKArrayOfManagedObjects *managedObjects);
+
+@interface NSManagedObject (VOKManagedObjectAdditions)
 
 /**
  Checks for NSNull before seting a value.
  @param value   The input object.
  @param key     The key to set.
  */
-- (void)vok_safeSetValue:(id)value forKey:(NSString *)key;
+- (void)vok_safeSetValue:(nullable id)value forKey:(NSString *)key;
 
 /**
  Creates a dictionary based on the set mapping. This should round-trip data from dictionaries to core data and back.
  This method does not respect keyPaths. The dictionary is flat.
  @return    An NSDictionary matching the original input dictionary.
  */
-- (NSDictionary *)vok_dictionaryRepresentation;
+- (VOKStringToObjectDictionary *)vok_dictionaryRepresentation;
 
 /**
  Creates a dictionary based on the set mapping. This should round-trip data from dictionaries to core data and back.
  This method respects keyPaths.
  @return    An NSDictionary matching the original input dictionary.
  */
-- (NSDictionary *)vok_dictionaryRepresentationRespectingKeyPaths;
+- (VOKStringToObjectDictionary *)vok_dictionaryRepresentationRespectingKeyPaths;
 
 /**
  Gets the entity name string for the particular NSManagedObject subclass on which the method is called.
@@ -50,7 +55,7 @@ typedef void(^VOKManagedObjectsReturnBlock)(NSArray *arrayOfManagedObjects);
  @param contextOrNil    The managed object context to insert the new object.  If nil, the main context will be used.
  @return                A new managed object subclass in the main context.
  */
-+ (instancetype)vok_newInstanceWithContext:(NSManagedObjectContext *)contextOrNil;
++ (instancetype)vok_newInstanceWithContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /*
  Create or update many NSManagedObjects, respecting the mapper's overwriteObjectsWithServerChanges and ignoreNullValueOverwrites properties.
@@ -61,7 +66,8 @@ typedef void(^VOKManagedObjectsReturnBlock)(NSArray *arrayOfManagedObjects);
  @param contextOfNil    The managed object context to update and/or insert the objects. If nil, the main context will be used.
  @return                An array of this subclass of NSManagedObject.
  **/
-+ (NSArray *)vok_addWithArray:(NSArray *)inputArray forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
++ (VOKArrayOfManagedObjects *)vok_addWithArray:(VOKArrayOfObjectDictionaries *)inputArray
+                       forManagedObjectContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /*
  Create or update a NSManagedObject, respecting the mapper's overwriteObjectsWithServerChanges and ignoreNullValueOverwrites properties.
@@ -72,7 +78,8 @@ typedef void(^VOKManagedObjectsReturnBlock)(NSArray *arrayOfManagedObjects);
  @param contextOfNil    The managed object context to update and/or insert the object. If nil, the main context will be used.
  @return                An instance of this subclass of NSManagedObject.
  **/
-+ (instancetype)vok_addWithDictionary:(NSDictionary *)inputDict forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
++ (nullable instancetype)vok_addWithDictionary:(VOKStringToObjectDictionary *)inputDict
+                       forManagedObjectContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /*
  Create or update many NSManagedObjects, respecting the mapper's overwriteObjectsWithServerChanges and ignoreNullValueOverwrites properties.
@@ -82,7 +89,8 @@ typedef void(^VOKManagedObjectsReturnBlock)(NSArray *arrayOfManagedObjects);
  @param inputArray      An array of dictionaries with foreign data to input on a background queue in a temporary context.
  @param completion      Executed after the background operation. The array contains the objects imported/updated. It will be executed on the main queue.
  **/
-+ (void)vok_addWithArrayInBackground:(NSArray *)inputArray completion:(VOKManagedObjectsReturnBlock)completion;
++ (void)vok_addWithArrayInBackground:(VOKArrayOfObjectDictionaries *)inputArray
+                          completion:(nullable VOKManagedObjectsReturnBlock)completion;
 
 /*
  Convenience method to create a fetch request.
@@ -95,7 +103,7 @@ typedef void(^VOKManagedObjectsReturnBlock)(NSArray *arrayOfManagedObjects);
  @param predicate   Predicate to construct the fetch request.
  @return            A fetch request on the given class.
  */
-+ (NSFetchRequest *)vok_fetchRequestWithPredicate:(NSPredicate *)predicate;
++ (NSFetchRequest *)vok_fetchRequestWithPredicate:(nullable NSPredicate *)predicate;
 
 /*
  Checks the count to determine if entities exist matching the predicate.
@@ -103,7 +111,8 @@ typedef void(^VOKManagedObjectsReturnBlock)(NSArray *arrayOfManagedObjects);
  @param contextOrNil    The managed object context to fetch in.  If nil, the main context will be used.
  @return                YES the object exists or NO it does not.
  */
-+ (BOOL)vok_existsForPredicate:(NSPredicate *)predicate forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
++ (BOOL)vok_existsForPredicate:(nullable NSPredicate *)predicate
+       forManagedObjectContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /*
  Returns all entites matching the predicate.
@@ -111,7 +120,8 @@ typedef void(^VOKManagedObjectsReturnBlock)(NSArray *arrayOfManagedObjects);
  @param contextOrNil    The managed object context to fetch in.  If nil, the main context will be used.
  @return                NSArray full of the instances of the current class.
  */
-+ (NSArray *)vok_fetchAllForPredicate:(NSPredicate *)predicate forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
++ (VOKArrayOfManagedObjects *)vok_fetchAllForPredicate:(nullable NSPredicate *)predicate
+                               forManagedObjectContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /*
  Returns all entites matching the predicate, sorted using the array of sort descriptors.
@@ -120,9 +130,9 @@ typedef void(^VOKManagedObjectsReturnBlock)(NSArray *arrayOfManagedObjects);
  @param contextOrNil    The managed object context to fetch in.  If nil, the main context will be used.
  @return                NSArray full of the instances of the current class.
  */
-+ (NSArray *)vok_fetchAllForPredicate:(NSPredicate *)predicate
-                             sortedBy:(NSArray *)sortDescriptors
-              forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
++ (VOKArrayOfManagedObjects *)vok_fetchAllForPredicate:(nullable NSPredicate *)predicate
+                                              sortedBy:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
+                               forManagedObjectContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /*
  Returns all entites matching the predicate.
@@ -132,10 +142,10 @@ typedef void(^VOKManagedObjectsReturnBlock)(NSArray *arrayOfManagedObjects);
  @param contextOrNil    The managed object context to fetch in.  If nil, the main context will be used.
  @return                NSArray full of the instances of the current class.
  */
-+ (NSArray *)vok_fetchAllForPredicate:(NSPredicate *)predicate
-                          sortedByKey:(NSString *)sortKey
-                            ascending:(BOOL)ascending
-              forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
++ (VOKArrayOfManagedObjects *)vok_fetchAllForPredicate:(nullable NSPredicate *)predicate
+                                           sortedByKey:(NSString *)sortKey
+                                             ascending:(BOOL)ascending
+                               forManagedObjectContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /*
  Returns one entite matching the predicate. Asserts the count is exactly 1. If more objects are returned this method will let you know.
@@ -143,6 +153,9 @@ typedef void(^VOKManagedObjectsReturnBlock)(NSArray *arrayOfManagedObjects);
  @param contextOrNil    The managed object context to fetch in.  If nil, the main context will be used.
  @return                An instance of the current class.
  */
-+ (instancetype)vok_fetchForPredicate:(NSPredicate *)predicate forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
++ (nullable instancetype)vok_fetchForPredicate:(nullable NSPredicate *)predicate
+                       forManagedObjectContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 @end
+
+NS_ASSUME_NONNULL_END
