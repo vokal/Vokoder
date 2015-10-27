@@ -1,14 +1,16 @@
 //
-//  VIViewController.m
+//  VOKViewController.m
 //  CoreData
 //
+//  Copyright © 2015 Vokal.
+//
 
-#import "VIPagingViewController.h"
+#import "VOKPagingViewController.h"
 #import "VOKCoreDataManager.h"
-#import "VIPlayer.h"
+#import "VOKPlayer.h"
 #import "NSManagedObject+VOKManagedObjectAdditions.h"
 
-@implementation VIPagingViewController
+@implementation VOKPagingViewController
 
 - (void)loadView
 {
@@ -46,18 +48,18 @@
 
 - (void)setupDataSource
 {
-    [VIPlayer setupMaps];
+    [VOKPlayer setupMaps];
     
     NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"cHighscore" ascending:NO]];
 
-    self.dataSource = [[VIPlayerDataSource alloc] initWithPredicate:nil
+    self.dataSource = [[VOKPlayerDataSource alloc] initWithPredicate:nil
                                                           cacheName:nil
                                                           tableView:self.tableView
                                                  sectionNameKeyPath:nil
                                                     sortDescriptors:sortDescriptors
-                                                managedObjectClass:[VIPlayer class]];
+                                                managedObjectClass:[VOKPlayer class]];
     
-    [self.dataSource setupForTriggerDistance:60 upAction:^(UITableView *tableView, VICompletionAction fetchCompleted) {
+    [self.dataSource setupForTriggerDistance:60 upAction:^(UITableView *tableView, VOKCompletionAction fetchCompleted) {
         //Normally this wait would be waiting on an API call.
         
         double delayInSeconds = 3.0;
@@ -70,7 +72,7 @@
                 fetchCompleted();
             }
         });
-    } headerView:nil downAction:^(UITableView *tableView, VICompletionAction fetchCompleted) {
+    } headerView:nil downAction:^(UITableView *tableView, VOKCompletionAction fetchCompleted) {
         //Normally this wait would actually be an API call.
         
         double delayInSeconds = 3.0;
@@ -91,8 +93,8 @@
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
-        NSArray *playerArray = [VIPlayer vok_fetchAllForPredicate:nil forManagedObjectContext:tempContext];
-        [playerArray enumerateObjectsUsingBlock:^(VIPlayer *obj, NSUInteger idx, BOOL *stop) {
+        NSArray *playerArray = [VOKPlayer vok_fetchAllForPredicate:nil forManagedObjectContext:tempContext];
+        [playerArray enumerateObjectsUsingBlock:^(VOKPlayer *obj, NSUInteger idx, BOOL *stop) {
             [tempContext deleteObject:obj];
         }];
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
@@ -107,7 +109,7 @@
         NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
         int j = 0;
         while (j < 21 ) {
-            NSLog(@"%@", [VIPlayer vok_addWithDictionary:[self randomInitializeDict] forManagedObjectContext:tempContext]);
+            NSLog(@"%@", [VOKPlayer vok_addWithDictionary:[self randomInitializeDict] forManagedObjectContext:tempContext]);
             j++;
         }
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
@@ -120,7 +122,7 @@
         NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
         int j = 0;
         while (j < 21 ) {
-            NSLog(@"%@", [VIPlayer vok_addWithDictionary:[self higherScoreDict] forManagedObjectContext:tempContext]);
+            NSLog(@"%@", [VOKPlayer vok_addWithDictionary:[self higherScoreDict] forManagedObjectContext:tempContext]);
             j++;
         }
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
@@ -133,7 +135,7 @@
         NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
         int j = 0;
         while (j < 21 ) {
-            NSLog(@"%@", [VIPlayer vok_addWithDictionary:[self lowerScoreDict] forManagedObjectContext:tempContext]);
+            NSLog(@"%@", [VOKPlayer vok_addWithDictionary:[self lowerScoreDict] forManagedObjectContext:tempContext]);
             j++;
         }
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
@@ -150,14 +152,14 @@
 
 - (NSDictionary *)higherScoreDict
 {
-    VIPlayer *topPlayer = [[self.dataSource fetchedObjects] firstObject];
+    VOKPlayer *topPlayer = [[self.dataSource fetchedObjects] firstObject];
     return @{@"username" :  [self randomString],
              @"highscore" : [self randomScoreAbove:[topPlayer.cHighscore integerValue]]};
 }
 
 - (NSDictionary *)lowerScoreDict
 {
-    VIPlayer *bottomBitch = [[self.dataSource fetchedObjects] lastObject];
+    VOKPlayer *bottomBitch = [[self.dataSource fetchedObjects] lastObject];
     return @{@"username" :  [self randomString],
              @"highscore" : [self randomScoreBelow:[bottomBitch.cHighscore integerValue]]};
 }

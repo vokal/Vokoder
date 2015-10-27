@@ -1,12 +1,12 @@
 //
-//  VIPlayerDataSource.m
+//  VOKPlayerDataSource.m
 //  CoreData
 //
 
-#import "VIPlayerDataSource.h"
-#import "VIPlayer.h"
+#import "VOKPlayerDataSource.h"
+#import "VOKPlayer.h"
 
-@implementation VIPlayerDataSource
+@implementation VOKPlayerDataSource
 
 - (UITableViewCell *)cellAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -18,7 +18,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    VIPlayer *player = [_fetchedResultsController objectAtIndexPath:indexPath];
+    VOKPlayer *player = [_fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = [NSString stringWithFormat:@"Username: %@", player.cUsername];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"HighScore: %ld", (long)[player.cHighscore integerValue]];

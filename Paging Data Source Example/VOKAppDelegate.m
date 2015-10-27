@@ -1,33 +1,33 @@
 //
-//  VIAppDelegate.m
+//  VOKAppDelegate.m
 //  CoreData
 //
 //  Created by Anthony Alesia on 7/26/12.
 //  Copyright (c) 2012 Vokal. All rights reserved.
 //
 
-#import "VIAppDelegate.h"
+#import "VOKAppDelegate.h"
 #import "VOKCoreDataManager.h"
-#import "VIPagingViewController.h"
+#import "VOKPagingViewController.h"
 
-@implementation VIAppDelegate
+@implementation VOKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[VOKCoreDataManager sharedInstance] setResource:@"VIPagingDataModel" database:@"VIPagingDataModel.sqlite"];
+    [[VOKCoreDataManager sharedInstance] setResource:@"VOKPagingDataModel" database:@"VOKPagingDataModel.sqlite"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    VIPagingViewController *viewController = [[VIPagingViewController alloc] initWithStyle:UITableViewStylePlain];
+    VOKPagingViewController *viewController = [[VOKPagingViewController alloc] initWithStyle:UITableViewStylePlain];
     self.navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
     return YES;
 }
 
-+ (VIAppDelegate *)appDelegate
++ (VOKAppDelegate *)appDelegate
 {
-    return (VIAppDelegate *)[[UIApplication sharedApplication] delegate];
+    return (VOKAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 @end

@@ -1,10 +1,10 @@
 #import <UIKit/UIKit.h>
 
-#import "VIAppDelegate.h"
+#import "VOKAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([VIAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([VOKAppDelegate class]));
     }
 }
