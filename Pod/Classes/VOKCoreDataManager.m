@@ -258,7 +258,6 @@ static VOKCoreDataManager *VOK_SharedObject;
     contextOrNil = [self safeContext:contextOrNil];
     
     NSArray *existingObjectArray;
-    NSMutableArray *repeatedUniqueKeys = [NSMutableArray array];
 
     if (mapper.uniqueComparisonKey) {
         NSString *foreignUniqueKey = mapper.foreignUniqueComparisonKey;
@@ -266,26 +265,31 @@ static VOKCoreDataManager *VOK_SharedObject;
         //filter out all NSNull's
         arrayOfUniqueKeys = [arrayOfUniqueKeys filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self != nil"]];
         
-        //Use a counted set to grab any repeated keys and notify the user
+        //Use a counted set to see if there are any repeated unique keys
         NSCountedSet *countedKeySet = [[NSCountedSet alloc] initWithArray:arrayOfUniqueKeys];
-        for (id key in countedKeySet) {
-            if ([countedKeySet countForObject:key] > 1) {
-                [repeatedUniqueKeys addObject:key];
-                
-                VOK_CDLog(@"**WARNING**:\nUnique key %@ for class %@ has multiple items with the same value %@\nThese items will be imported sequentially!", foreignUniqueKey, NSStringFromClass(objectClass), key);
+        if (countedKeySet.count != arrayOfUniqueKeys.count) {
+            NSMutableArray *repeatedUniqueKeys = [NSMutableArray array];
+
+            //grab any repeated keys and notify the user
+            for (id key in countedKeySet) {
+                if ([countedKeySet countForObject:key] > 1) {
+                    [repeatedUniqueKeys addObject:key];
+                    
+                    VOK_CDLog(@"**WARNING**:\nUnique key %@ for class %@ has multiple items with the same value %@\nThese items will be imported sequentially!", foreignUniqueKey, NSStringFromClass(objectClass), key);
+                }
             }
-        }
-        
-        if (repeatedUniqueKeys.count) {
-            //We've got some repeated items - import them sequentially
-            inputArray = [self arrayToImportAfterImportingRepeatedUniqueKeys:repeatedUniqueKeys
-                                                     forForeignUniqueKeyPath:foreignUniqueKey
-                                                             usingInputArray:inputArray
-                                                                    forClass:objectClass
-                                                                 withContext:contextOrNil];
             
-            //Make this *actually* unique. 
-            arrayOfUniqueKeys = [[NSOrderedSet orderedSetWithArray:arrayOfUniqueKeys] array];
+            if (repeatedUniqueKeys.count) {
+                //We've got some repeated items - import them sequentially
+                inputArray = [self arrayToImportAfterImportingRepeatedUniqueKeys:repeatedUniqueKeys
+                                                         forForeignUniqueKeyPath:foreignUniqueKey
+                                                                 usingInputArray:inputArray
+                                                                        forClass:objectClass
+                                                                     withContext:contextOrNil];
+                
+                //Make this *actually* unique.
+                arrayOfUniqueKeys = [[NSOrderedSet orderedSetWithArray:arrayOfUniqueKeys] array];
+            }
         }
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(%K IN %@)", mapper.uniqueComparisonKey, arrayOfUniqueKeys];
