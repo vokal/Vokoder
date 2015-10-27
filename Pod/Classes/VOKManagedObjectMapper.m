@@ -30,8 +30,8 @@
 + (instancetype)mapperWithUniqueKey:(NSString *)comparisonKey andMaps:(NSArray *)mapsArray;
 {
     VOKManagedObjectMapper *mapper = [[self alloc] init];
-    [mapper setMapsArray:mapsArray];
-    [mapper setUniqueComparisonKey:comparisonKey];
+    mapper.mapsArray = mapsArray;
+    mapper.uniqueComparisonKey = comparisonKey;
     return mapper;
 }
 
@@ -185,11 +185,11 @@
 
 - (Class)expectedClassForObject:(NSManagedObject *)object andKey:(id)key
 {
-    NSDictionary *attributes = [[object entity] attributesByName];
+    NSDictionary *attributes = object.entity.attributesByName;
     NSAttributeDescription *attributeDescription = [attributes valueForKey:key];
-    NSString *className = [attributeDescription attributeValueClassName];
+    NSString *className = attributeDescription.attributeValueClassName;
     if (!className) {
-        const char *className = [[object.entity managedObjectClassName] cStringUsingEncoding:NSUTF8StringEncoding];
+        const char *className = [object.entity.managedObjectClassName cStringUsingEncoding:NSUTF8StringEncoding];
         const char *propertyName = [key cStringUsingEncoding:NSUTF8StringEncoding];
 
         Class managedObjectClass = objc_getClass(className);
@@ -293,7 +293,7 @@ static NSString *const period = @".";
 - (void)createNestedDictionary:(NSMutableDictionary *)outputDict fromKeyPathComponents:(NSArray *)components
 {
     __block NSMutableDictionary *nestedDict = outputDict;
-    NSUInteger lastObjectIndex = [components count] - 1;
+    NSUInteger lastObjectIndex = components.count - 1;
     [components enumerateObjectsUsingBlock:^(NSString *keyPathComponent, NSUInteger idx, BOOL *stop) {
         if (![nestedDict valueForKey:keyPathComponent] && idx < lastObjectIndex) {
             nestedDict[keyPathComponent] = [NSMutableDictionary dictionary];
@@ -330,7 +330,7 @@ static NSString *const period = @".";
 
 - (NSDictionary *)dictionaryRepresentationOfManagedObject:(NSManagedObject *)object
 {
-    NSDictionary *attributes = [[object entity] attributesByName];
+    NSDictionary *attributes = object.entity.attributesByName;
     NSMutableDictionary *outputDict = [NSMutableDictionary new];
     [attributes enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         id outputObject = [object valueForKey:key];

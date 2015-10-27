@@ -278,7 +278,7 @@ static VOKCoreDataManager *VOK_SharedObject;
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", mapper.uniqueComparisonKey, [inputDict valueForKeyPath:mapper.foreignUniqueComparisonKey]];
         NSArray *matchingObjects = [existingObjectArray filteredArrayUsingPredicate:predicate];
-        NSUInteger matchingObjectsCount = [matchingObjects count];
+        NSUInteger matchingObjectsCount = matchingObjects.count;
         
         if (matchingObjectsCount) {
             NSAssert(matchingObjectsCount < 2, @"UNIQUE IDENTIFIER IS NOT UNIQUE. MORE THAN ONE MATCHING OBJECT FOUND");

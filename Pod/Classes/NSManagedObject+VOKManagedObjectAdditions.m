@@ -91,12 +91,8 @@
 
     NSArray *array = [[VOKCoreDataManager sharedInstance] importArray:@[inputDict]
                                                              forClass:[self class]
-                                                          withContext:contextOrNil];    
-    if ([array count]) {
-        return [array firstObject];
-    } else {
-        return nil;
-    }
+                                                          withContext:contextOrNil];
+    return array.firstObject;
 }
 
 + (void)vok_addWithArrayInBackground:(NSArray *)inputArray completion:(VOKManagedObjectsReturnBlock)completion
@@ -126,7 +122,7 @@
 + (NSFetchRequest *)vok_fetchRequestWithPredicate:(NSPredicate *)predicate
 {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[self vok_entityName]];
-    [fetchRequest setPredicate:predicate];
+    fetchRequest.predicate = predicate;
     return fetchRequest;
 }
 
@@ -172,13 +168,8 @@
 {
     NSArray *results = [self vok_fetchAllForPredicate:predicate forManagedObjectContext:contextOrNil];
 
-    NSUInteger count = [results count];
-    if (count) {
-        NSAssert(count == 1, @"Your predicate is returning more than 1 object, but the coredatamanager returns only one.");
-        return [results lastObject];
-    }
-
-    return nil;
+    NSAssert(results.count == 1, @"Your predicate is returning more than 1 object, but the coredatamanager returns only one.");
+    return results.lastObject;
 }
 
 @end
