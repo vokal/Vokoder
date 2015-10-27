@@ -460,9 +460,9 @@ static VOKCoreDataManager *VOK_SharedObject;
     if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
         [self saveContext:[self managedObjectContext]];
     } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self saveContext:[self managedObjectContext]];
-        });
+        }];
     }
 }
 
@@ -471,9 +471,9 @@ static VOKCoreDataManager *VOK_SharedObject;
     if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
         [self saveContext:[self managedObjectContext]];
     } else {
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self saveContext:[self managedObjectContext]];
-        });
+        }];
     }
 }
 
@@ -513,9 +513,9 @@ static VOKCoreDataManager *VOK_SharedObject;
     if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
         [[self managedObjectContext] mergeChangesFromContextDidSaveNotification:notification];
     } else {
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [[self managedObjectContext] mergeChangesFromContextDidSaveNotification:notification];
-        });
+        }];
     }
     [self saveMainContextAndWait];
 }
@@ -544,7 +544,7 @@ static VOKCoreDataManager *VOK_SharedObject;
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
         
         if (completion) {
-            dispatch_async(dispatch_get_main_queue(), completion);
+            [[NSOperationQueue mainQueue] addOperationWithBlock:completion];
         }
     }];
 }
@@ -571,9 +571,9 @@ static VOKCoreDataManager *VOK_SharedObject;
             
             NSArray *arrayOfManagedObjectIDs = [managedObjectsArray valueForKeyPath:VOK_CDSELECTOR(objectID)];
             
-            dispatch_sync(dispatch_get_main_queue(), ^{
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 completion(arrayOfManagedObjectIDs);
-            });
+            }];
         }
     }];
 }
