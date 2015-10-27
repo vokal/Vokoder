@@ -12,8 +12,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import "VOKCoreDataCollectionTypes.h"
+#import "VOKNullabilityFeatures.h"
+
 #import "VOKManagedObjectMapper.h"
 #import "NSManagedObject+VOKManagedObjectAdditions.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
     /// No handling of a failed migration, will likely cause app instability and crashing when a migration fails.
@@ -28,7 +33,7 @@ typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
 typedef void(^VOKWriteBlock)(NSManagedObjectContext *tempContext);
 
 /// A completion block after an asynchronous operation on a temporary context. NSManagedObjectID's are threadsafe.
-typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
+typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObjectIDs);
 
 
 @interface VOKCoreDataManager : NSObject
@@ -62,8 +67,8 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @param resource    The filename of the mom or momd file in your project. If nil the first model found in this class's bundle will be used.
  @param database    The filename of the SQLite store in your application. A nil database name will create an in-memory store.
  */
-- (void)setResource:(NSString *)resource
-           database:(NSString *)database;
+- (void)setResource:(nullable NSString *)resource
+           database:(nullable NSString *)database;
 
 /**
  Set the name of the managed object model and the name of the SQL lite store on disk, in the provided bundle. Call this first when you setup the core data stack.
@@ -72,9 +77,9 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @param database    The filename of the SQLite store in your application. A nil database name will create an in-memory store.
  @param bundle      The bundle where the Managed Object Model can be found. If nil, the main bundle will be used. 
  */
-- (void)setResource:(NSString *)resource
-           database:(NSString *)database
-             bundle:(NSBundle *)bundle;
+- (void)setResource:(nullable NSString *)resource
+           database:(nullable NSString *)database
+             bundle:(nullable NSBundle *)bundle;
 
 /**
  In case of a migration failure, these options allow possible recovery and notification
@@ -88,7 +93,7 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @return                    A new instance of the requested managed object subclass.
  */
 - (NSManagedObject *)managedObjectOfClass:(Class)managedObjectClass
-                                inContext:(NSManagedObjectContext *)contextOrNil;
+                                inContext:(nullable NSManagedObjectContext *)contextOrNil;
 /**
  Set the object mapper for a given NSManagedObject subclass
  @param objMap          The object mapper for importing data.
@@ -112,16 +117,16 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @param contextOrNil    The managed object context in which to insert or fetch instances of the given class. A nil context will use the main context.
  @return                An NSArray of instances of the given class. As subclasses of NSManagedObject they are not threadsafe.
  */
-- (NSArray *)importArray:(NSArray *)inputArray
-                forClass:(Class)objectClass
-             withContext:(NSManagedObjectContext *)contextOrNil;
+- (VOKArrayOfManagedObjects *)importArray:(VOKArrayOfObjectDictionaries *)inputArray
+                                 forClass:(Class)objectClass
+                              withContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /**
  Deserializes a single NSDictionaries full of strings and updates instances the given object.
  @param inputDict   An NSDictionary with data to be deserialized.
  @param object  The object to update.
  */
-- (void)setInformationFromDictionary:(NSDictionary *)inputDict
+- (void)setInformationFromDictionary:(VOKStringToObjectDictionary *)inputDict
                     forManagedObject:(NSManagedObject *)object;
 
 /**
@@ -130,7 +135,8 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @param keyPathsEnabled     If enabled the dictionary will include nexted dictionaries, following keys paths. If disabled the resulting dictionary will be flat.
  @return                    An NSDictionary representation of the given object using the mapper associated with the object's class.
  */
-- (NSDictionary *)dictionaryRepresentationOfManagedObject:(NSManagedObject *)object respectKeyPaths:(BOOL)keyPathsEnabled;
+- (VOKStringToObjectDictionary *)dictionaryRepresentationOfManagedObject:(NSManagedObject *)object
+                                                         respectKeyPaths:(BOOL)keyPathsEnabled;
 
 /**
  Counts every instance of a given class using the main managed object context. Includes subentities.
@@ -148,7 +154,7 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @return                        Zero or greater count of the instances of the class.
  */
 - (NSUInteger)countForClass:(Class)managedObjectClass
-                 forContext:(NSManagedObjectContext *)contextOrNil;
+                 forContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /**
  Counts every instance of a given class that matches the predicate using the given managed object context. Includes subentities.
@@ -159,8 +165,8 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @return                    Zero or greater count of the instances of the class.
  */
 - (NSUInteger)countForClass:(Class)managedObjectClass
-              withPredicate:(NSPredicate *)predicate
-                 forContext:(NSManagedObjectContext *)contextOrNil;
+              withPredicate:(nullable NSPredicate *)predicate
+                 forContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /**
  Fetches every instance of a given class using the main managed object context. Includes subentities.
@@ -168,7 +174,7 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @param managedObjectClass  The class to fetch
  @return                    An NSArray of managed object subclasses. Not threadsafe.
  */
-- (NSArray *)arrayForClass:(Class)managedObjectClass;
+- (VOKArrayOfManagedObjects *)arrayForClass:(Class)managedObjectClass;
 
 /**
  Fetches every instance of a given class using the given managed object context. Includes subentities.
@@ -177,8 +183,8 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @param contextOrNil        The managed object context in which fetch instances of the given class. A nil context will use the main context.
  @return                    An NSArray of managed object subclasses. Not threadsafe.
  */
-- (NSArray *)arrayForClass:(Class)managedObjectClass
-                forContext:(NSManagedObjectContext *)contextOrNil;
+- (VOKArrayOfManagedObjects *)arrayForClass:(Class)managedObjectClass
+                                 forContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /**
  Fetches every instance of a given class that matches the predicate using the given managed object context. Includes subentities.
@@ -188,9 +194,9 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @param contextOrNil            The managed object context in which fetch instances of the given class. A nil context will use the main context.
  @return                        An NSArray of managed object subclasses. Not threadsafe.
  */
-- (NSArray *)arrayForClass:(Class)managedObjectClass
-             withPredicate:(NSPredicate *)predicate
-                forContext:(NSManagedObjectContext *)contextOrNil;
+- (VOKArrayOfManagedObjects *)arrayForClass:(Class)managedObjectClass
+                              withPredicate:(nullable NSPredicate *)predicate
+                                 forContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /**
  Fetches every instance of a given class that matches the predicate using the given managed object context. Includes subentities.
@@ -201,10 +207,10 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @param contextOrNil            The managed object context in which fetch instances of the given class. A nil context will use the main context.
  @return                        An NSArray of managed object subclasses. Not threadsafe.
  */
-- (NSArray *)arrayForClass:(Class)managedObjectClass
-             withPredicate:(NSPredicate *)predicate
-                  sortedBy:(NSArray *)sortDescriptors
-                forContext:(NSManagedObjectContext *)contextOrNil;
+- (VOKArrayOfManagedObjects *)arrayForClass:(Class)managedObjectClass
+                              withPredicate:(nullable NSPredicate *)predicate
+                                   sortedBy:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
+                                 forContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /**
  Finds an object for a given NSManagedObjectID URI Representation. This method relies on existingObjectWithID:error:.
@@ -213,7 +219,8 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @param contextOrNil    The managed object context in which fetch instances of the given class. A nil context will use the main context.
  @return                The object matching the uri passed in. If the object doesn't exist nil is returned.
  */
-- (id)existingObjectAtURI:(NSURL *)uri forManagedObjectContext:(NSManagedObjectContext *)contextOrNil;
+- (nullable VOKManagedObjectSubclass *)existingObjectAtURI:(NSURL *)uri
+                                   forManagedObjectContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /**
  Deletes a given object in its current context. Uses the object's context. As always, remember to keep NSManagedObjects on one queue.
@@ -228,7 +235,7 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @return                        YES if all objects were successfully deleted. NO if the attemp to delete was unsuccessful.
  */
 - (BOOL)deleteAllObjectsOfClass:(Class)managedObjectClass
-                        context:(NSManagedObjectContext *)contextOrNil;
+                        context:(nullable NSManagedObjectContext *)contextOrNil;
 
 /**
  Deletes all instances of a class matching the given predicate in the given context.
@@ -238,8 +245,8 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @return                        YES if all objects were successfully deleted. NO if the attemp to delete was unsuccessful.
  */
 - (BOOL)deleteAllObjectsOfClass:(Class)managedObjectClass
-              matchingPredicate:(NSPredicate *)predicate
-                        context:(NSManagedObjectContext *)contextOrNil;
+              matchingPredicate:(nullable NSPredicate *)predicate
+                        context:(nullable NSManagedObjectContext *)contextOrNil;
 
 /**
  Saves the main context asynchronously on the main queue. If already on the main queue it will block and save synchronously.
@@ -279,7 +286,7 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @prarm completion      Fired on the main queue once the changes have been merged.
  */
 + (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock
-                     completion:(void (^)(void))completion;
+                     completion:(nullable void (^)(void))completion;
 
 /**
  Deserializes an NSArray full of NSDictionaries in the background and creates/updates instances in the given context.
@@ -287,9 +294,9 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  @param objectClass     Specifies the class to instantiate or fetch when importing data.
  @param completion      Fired on the main queue once the changes have been merged. It brings an NSArray of permanent NSManagedObjectIDs matching the objects deserialized from the import array.
  */
-+ (void)importArrayInBackground:(NSArray *)inputArray
++ (void)importArrayInBackground:(VOKArrayOfObjectDictionaries *)inputArray
                        forClass:(Class)objectClass
-                     completion:(VOKObjectIDsReturnBlock)completion;
+                     completion:(nullable VOKObjectIDsReturnBlock)completion;
 
 /**
  Saves any temporary managed object context and merges those changes with the main managed object context in a thread-safe way.
@@ -307,6 +314,8 @@ typedef void(^VOKObjectIDsReturnBlock)(NSArray *arrayOfManagedObjectIDs);
  Method to facilitate logging of the persistent store's file URL so the file itself can be examined on the simulator.
  @return The file URL for the persistent store's .sqlite file, or nil if no filename exists.
  */
-- (NSURL *)persistentStoreFileURL;
+- (nullable NSURL *)persistentStoreFileURL;
 
 @end
+
+NS_ASSUME_NONNULL_END

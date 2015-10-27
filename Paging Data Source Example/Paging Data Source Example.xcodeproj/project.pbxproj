@@ -171,6 +171,7 @@
 				EA5F199D15C196500089AA44 /* Frameworks */,
 				EA5F199E15C196500089AA44 /* Resources */,
 				248EC6872E513823D1BBC574 /* Copy Pods Resources */,
+				D5A7252F97055A2FDE30708C /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,7 +189,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = VI;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 			};
 			buildConfigurationList = EA5F199A15C196500089AA44 /* Build configuration list for PBXProject "Paging Data Source Example" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -250,6 +251,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		D5A7252F97055A2FDE30708C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Paging Data Source Example/Pods-Paging Data Source Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -296,8 +312,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -334,6 +352,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -359,6 +378,7 @@
 				GCC_PREFIX_HEADER = "Paging Data Source Example-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Paging Data Source Example-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Vokal.Paging-Data-Source-Example";
 				PRODUCT_NAME = "Paging Data Source Example";
 				WRAPPER_EXTENSION = app;
 			};
@@ -376,6 +396,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Paging Data Source Example-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Vokal.Paging-Data-Source-Example";
 				PRODUCT_NAME = "Paging Data Source Example";
 				WRAPPER_EXTENSION = app;
 			};

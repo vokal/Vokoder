@@ -7,6 +7,8 @@
 
 #import "VOKFetchedResultsDataSource.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol VIPagingAccessory <NSObject>
 
 - (void)loadingHasFinished;
@@ -42,10 +44,10 @@ typedef void (^VIPagingResultsAction)(UITableView *tableView, VICompletionAction
  *  By not including either an action for a specified direction, the controller will not attempt to handle that direction
  */
 - (void)setupForTriggerDistance:(CGFloat)overscrollTriggerDistance
-                       upAction:(VIPagingResultsAction)upPageActionOrNil
-                     headerView:(UIView<VIPagingAccessory> *)headerViewOrNil
-                     downAction:(VIPagingResultsAction)downPageActionOrNil
-                     footerView:(UIView<VIPagingAccessory> *)footerViewOrNil;
+                       upAction:(nullable VIPagingResultsAction)upPageActionOrNil
+                     headerView:(nullable UIView<VIPagingAccessory> *)headerViewOrNil
+                     downAction:(nullable VIPagingResultsAction)downPageActionOrNil
+                     footerView:(nullable UIView<VIPagingAccessory> *)footerViewOrNil;
 
 /**
  *  Call to handle memory management before deallocating a view that contains this class.
@@ -53,3 +55,5 @@ typedef void (^VIPagingResultsAction)(UITableView *tableView, VICompletionAction
 - (void)cleanUpPageController;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -34,7 +34,7 @@ static const NSUInteger BasicTestDataSize = 5;
 {
     [super tearDown];
     [[VOKCoreDataManager sharedInstance] deleteAllObjectsOfClass:[VIThing class] context:nil];
-    [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:nil];
+    [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 }
 
 #pragma mark - Test Data Helper Methods
