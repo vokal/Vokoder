@@ -2,7 +2,7 @@
 //  VICollectionDataSource.h
 //
 //  Created by teejay on 5/6/13.
-//  Copyright (c) 2013 Vokal. All rights reserved.
+//  Copyright © 2013 Vokal.
 //
 
 #import "VOKFetchedResultsDataSource.h"

@@ -3,7 +3,7 @@
 //  SampleProject
 //
 //  Created by Carl Hill-Popper on 11/24/14.
-//
+//  Copyright © 2014 Vokal.
 //
 
 #import <XCTest/XCTest.h>

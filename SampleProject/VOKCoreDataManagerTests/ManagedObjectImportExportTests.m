@@ -2,6 +2,8 @@
 //  CoreDataTests.m
 //  CoreDataTests
 //
+//  Copyright © 2015 Vokal.
+//
 
 #import <XCTest/XCTest.h>
 #import "VOKCoreDataManager.h"
