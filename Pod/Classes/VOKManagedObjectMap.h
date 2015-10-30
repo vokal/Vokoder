@@ -44,7 +44,7 @@
  *  @param coreDataSelectorSymbol   The local selector symbol
  */
 #ifndef VOK_MAP_FOREIGN_STRING_TO_LOCAL_NUMBER
-#   define VOK_MAP_FOREIGN_STRING_TO_LOCAL_NUMBER(inputKeyPath, coreDataSelectorSymbol) [VOKManagedObjectMap mapWithForeignKeyPath:inputKeyPath coreDataKey:VOK_CDSELECTOR(coreDataSelectorSymbol) numberFormatter:[NSNumberFormatter new]]
+#   define VOK_MAP_FOREIGN_STRING_TO_LOCAL_NUMBER(inputKeyPath, coreDataSelectorSymbol) [VOKManagedObjectMap mapWithForeignKeyPath:inputKeyPath coreDataKey:VOK_CDSELECTOR(coreDataSelectorSymbol) numberFormatter:[VOKManagedObjectMap vok_defaultNumberFormatter]]
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
@@ -121,6 +121,10 @@ NS_ASSUME_NONNULL_BEGIN
  @return            Default date formatter, without the microseconds
  */
 + (NSDateFormatter *)vok_dateFormatterWithoutMicroseconds;
+
+
+///A shared, default number formatter
++ (NSNumberFormatter *)vok_defaultNumberFormatter;
 
 @end
 
