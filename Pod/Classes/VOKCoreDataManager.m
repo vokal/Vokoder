@@ -587,33 +587,6 @@ static VOKCoreDataManager *VOK_SharedObject;
     return [self tempManagedObjectContext];
 }
 
-- (NSManagedObjectContext *)temporaryInMemoryContext
-{
-    //Spin up a new context
-    NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    
-    //Use the same MOM as the main context.
-    NSManagedObjectModel *model = self.managedObjectModel;
-    
-    //Use an in-memory store
-    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-    NSError *error;
-    NSPersistentStore *addedStore = [coordinator addPersistentStoreWithType:NSInMemoryStoreType
-                                                              configuration:nil
-                                                                        URL:nil
-                                                                    options:nil
-                                                                      error:&error];
-    
-    if (!addedStore) {
-        NSAssert(NO, @"Error creating in memory store: %@", error);
-        return nil;
-    }
-    
-    context.persistentStoreCoordinator = coordinator;
-    
-    return context;
-}
-
 - (void)saveAndMergeWithMainContext:(NSManagedObjectContext *)context
 {
     NSAssert(context != [self managedObjectContext], @"This is NOT for saving the main context.");

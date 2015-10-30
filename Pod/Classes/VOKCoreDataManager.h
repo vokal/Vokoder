@@ -272,14 +272,6 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
 - (NSManagedObjectContext *)temporaryContext;
 
 /**
- Provides a managed object context which uses an in-memory store for scratch work. As with all managed object contexts, it is not thread-safe.
- Create the context and do work on the same queue. You are responsible for retaining temporary contexts yourself.
-
- @return        A managed object context with an in-memory store and the same managed object model as the main context, and otherwise no relationship to the main context.
- */
-- (NSManagedObjectContext *)temporaryInMemoryContext;
-
-/**
  This provides a way for an application with heavy amounts of Core Data threading and writing to maintain object graph integrety by assuring that only one context is being written to at once.
  @param writeBlock      Do not save or merge this context, it will be done for you.  Do not use GCD or thread jumping inside this block. 
                         Handle all fetches, creates and writes using the tempContext variable passed to this block.
