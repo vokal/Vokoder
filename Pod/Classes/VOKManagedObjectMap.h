@@ -37,16 +37,6 @@
 #   define VOK_MAP_FOREIGN_TO_LOCAL(inputKeyPath, coreDataSelectorSymbol) [VOKManagedObjectMap mapWithForeignKeyPath:inputKeyPath coreDataKey:VOK_CDSELECTOR(coreDataSelectorSymbol)]
 #endif
 
-/**
- *  Creates a map for a string to a number using a default NSNumberFormatter.
- *
- *  @param inputKeyPath             The foreign key to match with the local key.
- *  @param coreDataSelectorSymbol   The local selector symbol
- */
-#ifndef VOK_MAP_FOREIGN_STRING_TO_LOCAL_NUMBER
-#   define VOK_MAP_FOREIGN_STRING_TO_LOCAL_NUMBER(inputKeyPath, coreDataSelectorSymbol) [VOKManagedObjectMap mapWithForeignKeyPath:inputKeyPath coreDataKey:VOK_CDSELECTOR(coreDataSelectorSymbol) numberFormatter:[NSNumberFormatter new]]
-#endif
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VOKManagedObjectMap : NSObject
@@ -121,6 +111,10 @@ NS_ASSUME_NONNULL_BEGIN
  @return            Default date formatter, without the microseconds
  */
 + (NSDateFormatter *)vok_dateFormatterWithoutMicroseconds;
+
+
+///A shared, default number formatter
++ (NSNumberFormatter *)vok_defaultNumberFormatter;
 
 @end
 

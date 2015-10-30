@@ -3,7 +3,7 @@
 //  SampleProject
 //
 //  Created by Isaac Greenspan on 5/21/14.
-//  Copyright © 2015 Vokal.
+//  Copyright © 2014 Vokal.
 //
 
 #ifndef VOKCoreDataManagerInternalMacros_h
