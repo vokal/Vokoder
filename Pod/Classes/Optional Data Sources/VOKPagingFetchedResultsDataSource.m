@@ -2,7 +2,7 @@
 //  VIPagingFetchedResultsDataSource.m
 //
 //  Created by teejay on 1/21/14.
-//  Copyright © 2015 Vokal.
+//  Copyright © 2014 Vokal.
 //
 
 #import "VOKPagingFetchedResultsDataSource.h"
