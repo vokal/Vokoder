@@ -251,49 +251,22 @@ static VOKCoreDataManager *VOK_SharedObject;
     }
 }
 
-- (NSArray *)importArray:(NSArray *)inputArray forClass:(Class)objectClass withContext:(NSManagedObjectContext *)contextOrNil;
+- (NSArray *)importArray:(NSArray *)inputArray forClass:(Class)objectClass withContext:(NSManagedObjectContext *)contextOrNil
 {
     VOKManagedObjectMapper *mapper = [self mapperForClass:objectClass];
     
     contextOrNil = [self safeContext:contextOrNil];
     
-    NSArray *existingObjectArray;
+    NSMutableArray *existingObjectArray;
+    NSMutableArray *existingUniqueKeys;
 
     if (mapper.uniqueComparisonKey) {
-        NSString *foreignUniqueKey = mapper.foreignUniqueComparisonKey;
-        NSArray *arrayOfUniqueKeys = [inputArray valueForKeyPath:foreignUniqueKey];
+        NSArray *arrayOfUniqueKeys = [inputArray valueForKeyPath:mapper.foreignUniqueComparisonKey];
         //filter out all NSNull's
         arrayOfUniqueKeys = [arrayOfUniqueKeys filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self != nil"]];
-        
-        //Use a counted set to see if there are any repeated unique keys
-        NSCountedSet *countedKeySet = [[NSCountedSet alloc] initWithArray:arrayOfUniqueKeys];
-        if (countedKeySet.count != arrayOfUniqueKeys.count) {
-            NSMutableArray *repeatedUniqueKeys = [NSMutableArray array];
-
-            //grab any repeated keys and notify the user
-            for (id key in countedKeySet) {
-                if ([countedKeySet countForObject:key] > 1) {
-                    [repeatedUniqueKeys addObject:key];
-                    
-                    VOK_CDLog(@"**WARNING**:\nUnique key %@ for class %@ has multiple items with the same value %@\nThese items will be imported sequentially!", foreignUniqueKey, NSStringFromClass(objectClass), key);
-                }
-            }
-            
-            if (repeatedUniqueKeys.count) {
-                //We've got some repeated items - import them sequentially
-                inputArray = [self arrayToImportAfterImportingRepeatedUniqueKeys:repeatedUniqueKeys
-                                                         forForeignUniqueKeyPath:foreignUniqueKey
-                                                                 usingInputArray:inputArray
-                                                                        forClass:objectClass
-                                                                     withContext:contextOrNil];
-                
-                //Make this *actually* unique.
-                arrayOfUniqueKeys = [[NSOrderedSet orderedSetWithArray:arrayOfUniqueKeys] array];
-            }
-        }
-        
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(%K IN %@)", mapper.uniqueComparisonKey, arrayOfUniqueKeys];
-        existingObjectArray = [self arrayForClass:objectClass withPredicate:predicate forContext:contextOrNil];
+        existingObjectArray = [[self arrayForClass:objectClass withPredicate:predicate forContext:contextOrNil] mutableCopy];
+        existingUniqueKeys = [[existingObjectArray valueForKeyPath:mapper.uniqueComparisonKey] mutableCopy];
     }
     
     NSMutableArray *returnArray = [NSMutableArray array];
@@ -306,57 +279,44 @@ static VOKCoreDataManager *VOK_SharedObject;
         
         NSManagedObject *returnObject;
         
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", mapper.uniqueComparisonKey, [inputDict valueForKeyPath:mapper.foreignUniqueComparisonKey]];
-        NSArray *matchingObjects = [existingObjectArray filteredArrayUsingPredicate:predicate];
-        NSUInteger matchingObjectsCount = [matchingObjects count];
+        NSArray *matchingObjects;
+        id inputKey = [inputDict valueForKeyPath:mapper.foreignUniqueComparisonKey];
         
+        // If the incoming dictionary has the unique key and that unique key is in the array of existing unique keys…
+        if (inputKey && [existingUniqueKeys containsObject:inputKey]) {
+            // … find any objects we already know about with that unique key.
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", mapper.uniqueComparisonKey, inputKey];
+            matchingObjects = [existingObjectArray filteredArrayUsingPredicate:predicate];
+        }
+        
+        // If there are already existing object(s) with the same unique key as the incoming dictionary…
+        NSUInteger matchingObjectsCount = matchingObjects.count;
         if (matchingObjectsCount) {
+            // … there should only be one…
             NSAssert(matchingObjectsCount < 2, @"UNIQUE IDENTIFIER IS NOT UNIQUE. MORE THAN ONE MATCHING OBJECT FOUND");
-            returnObject = [matchingObjects firstObject];
+            returnObject = matchingObjects.firstObject;
+            // … update the existing object, if we're supposed to update it with changes.
             if (mapper.overwriteObjectsWithServerChanges) {
                 [mapper setInformationFromDictionary:inputDict forManagedObject:returnObject];
             }
         } else {
+            // Otherwise (no existing objects that match the incoming dictionary's unique key), create a new object…
             returnObject = [self managedObjectOfClass:objectClass inContext:contextOrNil];
             [mapper setInformationFromDictionary:inputDict forManagedObject:returnObject];
+            // … and if the incoming dictionary had a unique key, add the new object and its key to the appropriate arrays.
+            if (inputKey) {
+                [existingObjectArray addObject:returnObject];
+                [existingUniqueKeys addObject:inputKey];
+            }
         }
         
-        [returnArray addObject:returnObject];
+        // If the object we just created or updated isn't already in the return array, add it.
+        if (![returnArray containsObject:returnObject]) {
+            [returnArray addObject:returnObject];
+        }
     };
     
     return [returnArray copy];
-}
-
-- (NSArray *)arrayToImportAfterImportingRepeatedUniqueKeys:(NSArray *)repeatedUniqueKeys
-                                   forForeignUniqueKeyPath:(NSString *)foreignUniqueKeyPath
-                                           usingInputArray:(NSArray *)inputArray
-                                                  forClass:(Class)objectClass
-                                               withContext:(NSManagedObjectContext *)contextOrNil
-{
-    NSMutableArray *uniquedInputArray = [NSMutableArray arrayWithArray:inputArray];
-    
-    NSMutableArray *itemsToRemove = [NSMutableArray array];
-    for (id repeatedKey in repeatedUniqueKeys) {
-        for (id item in inputArray) {
-            if ([[item valueForKeyPath:foreignUniqueKeyPath] isEqual:repeatedKey]) {
-                //Import this by itself
-                [self importArray:@[item]
-                         forClass:objectClass
-                      withContext:contextOrNil];
-                
-                //Remove from the list to be imported
-                [itemsToRemove addObject:item];
-            }
-        }
-
-        //Don't remove the last object for the list of expected imports, so that its value is still returned
-        //in the main return array. 
-        [itemsToRemove removeLastObject];
-    }
-    
-    [uniquedInputArray removeObjectsInArray:itemsToRemove];
-    
-    return [uniquedInputArray copy];
 }
 
 - (void)setInformationFromDictionary:(NSDictionary *)inputDict forManagedObject:(NSManagedObject *)object
