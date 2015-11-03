@@ -2,6 +2,8 @@
 //  VOKManagedObjectMap.h
 //  VOKCoreData
 //
+//  Copyright © 2015 Vokal.
+//
 
 #import <Foundation/Foundation.h>
 
@@ -109,6 +111,10 @@ NS_ASSUME_NONNULL_BEGIN
  @return            Default date formatter, without the microseconds
  */
 + (NSDateFormatter *)vok_dateFormatterWithoutMicroseconds;
+
+
+///A shared, default number formatter
++ (NSNumberFormatter *)vok_defaultNumberFormatter;
 
 @end
 

@@ -2,6 +2,8 @@
 //  VOKMappableModel.h
 //  VOKCoreData
 //
+//  Copyright © 2015 Vokal.
+//
 
 #import "VOKCoreDataManager.h"
 

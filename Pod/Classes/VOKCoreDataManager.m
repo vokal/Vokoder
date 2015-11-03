@@ -2,6 +2,8 @@
 //  VOKCoreDataManager.m
 //  VOKCoreData
 //
+//  Copyright © 2015 Vokal.
+//
 
 #import "VOKCoreDataManager.h"
 #import "VOKCoreDataManagerInternalMacros.h"
@@ -92,7 +94,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     if (!coordinator) {
         return nil;
     }
-    
+
     NSManagedObjectContext *tempManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
     tempManagedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
     tempManagedObjectContext.persistentStoreCoordinator = coordinator;
@@ -250,20 +252,22 @@ static VOKCoreDataManager *VOK_SharedObject;
     }
 }
 
-- (NSArray *)importArray:(NSArray *)inputArray forClass:(Class)objectClass withContext:(NSManagedObjectContext *)contextOrNil;
+- (NSArray *)importArray:(NSArray *)inputArray forClass:(Class)objectClass withContext:(NSManagedObjectContext *)contextOrNil
 {
     VOKManagedObjectMapper *mapper = [self mapperForClass:objectClass];
     
     contextOrNil = [self safeContext:contextOrNil];
     
-    NSArray *existingObjectArray;
-    
+    NSMutableArray *existingObjectArray;
+    NSMutableArray *existingUniqueKeys;
+
     if (mapper.uniqueComparisonKey) {
         NSArray *arrayOfUniqueKeys = [inputArray valueForKeyPath:mapper.foreignUniqueComparisonKey];
         //filter out all NSNull's
         arrayOfUniqueKeys = [arrayOfUniqueKeys filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self != nil"]];
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(%K IN %@)", mapper.uniqueComparisonKey, arrayOfUniqueKeys];
-        existingObjectArray = [self arrayForClass:objectClass withPredicate:predicate forContext:contextOrNil];
+        existingObjectArray = [[self arrayForClass:objectClass withPredicate:predicate forContext:contextOrNil] mutableCopy];
+        existingUniqueKeys = [[existingObjectArray valueForKeyPath:mapper.uniqueComparisonKey] mutableCopy];
     }
     
     NSMutableArray *returnArray = [NSMutableArray array];
@@ -276,22 +280,41 @@ static VOKCoreDataManager *VOK_SharedObject;
         
         NSManagedObject *returnObject;
         
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", mapper.uniqueComparisonKey, [inputDict valueForKeyPath:mapper.foreignUniqueComparisonKey]];
-        NSArray *matchingObjects = [existingObjectArray filteredArrayUsingPredicate:predicate];
-        NSUInteger matchingObjectsCount = matchingObjects.count;
+        NSArray *matchingObjects;
+        id inputKey = [inputDict valueForKeyPath:mapper.foreignUniqueComparisonKey];
         
+        // If the incoming dictionary has the unique key and that unique key is in the array of existing unique keys…
+        if (inputKey && [existingUniqueKeys containsObject:inputKey]) {
+            // … find any objects we already know about with that unique key.
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", mapper.uniqueComparisonKey, inputKey];
+            matchingObjects = [existingObjectArray filteredArrayUsingPredicate:predicate];
+        }
+        
+        // If there are already existing object(s) with the same unique key as the incoming dictionary…
+        NSUInteger matchingObjectsCount = matchingObjects.count;
         if (matchingObjectsCount) {
+            // … there should only be one…
             NSAssert(matchingObjectsCount < 2, @"UNIQUE IDENTIFIER IS NOT UNIQUE. MORE THAN ONE MATCHING OBJECT FOUND");
             returnObject = matchingObjects.firstObject;
+            // … update the existing object, if we're supposed to update it with changes.
             if (mapper.overwriteObjectsWithServerChanges) {
                 [mapper setInformationFromDictionary:inputDict forManagedObject:returnObject];
             }
         } else {
+            // Otherwise (no existing objects that match the incoming dictionary's unique key), create a new object…
             returnObject = [self managedObjectOfClass:objectClass inContext:contextOrNil];
             [mapper setInformationFromDictionary:inputDict forManagedObject:returnObject];
+            // … and if the incoming dictionary had a unique key, add the new object and its key to the appropriate arrays.
+            if (inputKey) {
+                [existingObjectArray addObject:returnObject];
+                [existingUniqueKeys addObject:inputKey];
+            }
         }
         
-        [returnArray addObject:returnObject];
+        // If the object we just created or updated isn't already in the return array, add it.
+        if (![returnArray containsObject:returnObject]) {
+            [returnArray addObject:returnObject];
+        }
     };
     
     return [returnArray copy];

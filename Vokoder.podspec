@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Vokoder"
-  s.version          = "1.4.0"
+  s.version          = "2.0.0"
   s.summary          = "Vokal's Core Data Manager"
   s.homepage         = "https://github.com/vokal/Vokoder"
   s.license          = { :type => "MIT", :file => "LICENSE"}
@@ -39,12 +39,6 @@ Pod::Spec.new do |s|
     ss.subspec 'Collection' do |sss|
       sss.source_files = 'Pod/Classes/Optional Data Sources/VOKCollectionDataSource.{h,m}'
       sss.dependency 'Vokoder/DataSources/FetchedResults'
-    end
-
-    ss.subspec 'Carousel' do |sss|
-      sss.source_files = 'Pod/Classes/Optional Data Sources/VOKCarouselDataSource.{h,m}'
-      sss.dependency 'Vokoder/DataSources/FetchedResults'
-      sss.dependency 'iCarousel', '~> 1.7.3'
     end
   end
 end

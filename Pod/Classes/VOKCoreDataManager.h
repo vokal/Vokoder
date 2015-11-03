@@ -2,6 +2,8 @@
 //  VOKCoreDataManager.h
 //  VOKCoreData
 //
+//  Copyright © 2015 Vokal.
+//
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
@@ -257,7 +259,7 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
 - (void)saveMainContextAndWait;
 
 /**
- Provides a managed object context for scratch work or background processing. As with all managed object contexts it is not threadsafe.
+ Provides a managed object context for scratch work or background processing using the same persistent store coordinator as the main context. As with all managed object contexts, it is not thread-safe.
  Create the context and do work on the same queue. You are responsible for retaining temporary contexts yourself.
  Here is an example background import:
  @code
@@ -265,12 +267,12 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
  [self loadDataWithContext:backgroundContext]; //do some data loading
  [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
  @endcode
- @return        A managed object context with the same persistant store coordinator as tha main context, but otherwise no relationship.
+ @return        A managed object context with the same persistent store coordinator as the main context, but otherwise no relationship.
  */
 - (NSManagedObjectContext *)temporaryContext;
 
 /**
- This provides a way for an application with heavy amounts of Core Data threading and writing to maintain object graph integrity by assuring that only one context is being written to at once.
+ This provides a way for an application with heavy amounts of Core Data threading and writing to maintain object graph integrety by assuring that only one context is being written to at once.
  @param writeBlock      Do not save or merge this context, it will be done for you.  Do not use GCD or thread jumping inside this block. 
                         Handle all fetches, creates and writes using the tempContext variable passed to this block.
  @prarm completion      Fired on the main queue once the changes have been merged.

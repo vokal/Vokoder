@@ -2,6 +2,8 @@
 //  VOKManagedObjectMap.m
 //  VOKCoreData
 //
+//  Copyright © 2015 Vokal.
+//
 
 #import "VOKManagedObjectMap.h"
 #import "VOKCoreDataManager.h"
@@ -71,6 +73,17 @@
     });
 
     return DateFormatterWithoutMicroseconds;
+}
+
++ (NSNumberFormatter *)vok_defaultNumberFormatter
+{
+    static NSNumberFormatter *NumberFormatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NumberFormatter = [NSNumberFormatter new];
+    });
+    
+    return NumberFormatter;
 }
 
 #pragma mark - Description

@@ -2,6 +2,8 @@
 //  VOKViewController.m
 //  CoreData
 //
+//  Copyright © 2015 Vokal.
+//
 
 #import "VOKViewController.h"
 #import "VOKCoreDataManager.h"

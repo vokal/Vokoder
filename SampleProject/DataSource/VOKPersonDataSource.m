@@ -2,6 +2,8 @@
 //  VOKPersonDataSource.m
 //  CoreData
 //
+//  Copyright © 2015 Vokal.
+//
 
 #import "VOKPersonDataSource.h"
 #import "VOKPerson.h"

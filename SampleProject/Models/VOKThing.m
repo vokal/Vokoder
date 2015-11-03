@@ -3,7 +3,7 @@
 //  SampleProject
 //
 //  Created by Sean Wolter on 8/23/14.
-//
+//  Copyright © 2014 Vokal.
 //
 
 #import "VOKThing.h"

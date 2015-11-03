@@ -2,6 +2,8 @@
 //  CoreDataTests.m
 //  CoreDataTests
 //
+//  Copyright © 2015 Vokal.
+//
 
 #import <XCTest/XCTest.h>
 
@@ -641,6 +643,35 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     
     person = people.firstObject;
     XCTAssertEqualObjects([[self customDateFormatter] stringFromDate:person.birthDay], dateString);
+}
+
+- (void)testImportingTwoObjectsWithTheSameUniqueIDOverwritesWithUniqueKey
+{
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:LAST_NAME_DEFAULT_KEY
+                                                                         andMaps:[self customMapsArray]];
+    
+    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VOKPerson class]];
+    
+    //Create two people with the same last name, one with a different name.
+    NSDictionary *person1 = [self makePersonDictForCustomMapper];
+    NSMutableDictionary *person2 = [[self makePersonDictForCustomMapper] mutableCopy];
+    NSString *overwrittenName = @"OVERWRITTEN";
+    person2[FIRST_NAME_CUSTOM_KEY] = overwrittenName;
+    
+    //Create a third person with a different last name
+    NSMutableDictionary *person3 = [[self makePersonDictForCustomMapper] mutableCopy];
+    person3[LAST_NAME_CUSTOM_KEY] = @"SOMEBODY-ELSE";
+    
+    NSArray *peopleDicts = @[person1, person2, person3];
+    
+    NSArray *arrayOfPeople = [VOKPerson vok_addWithArray:peopleDicts forManagedObjectContext:nil];
+    
+    XCTAssertTrue(arrayOfPeople.count == 2, @"person array has incorrect number of people");
+    
+    if (arrayOfPeople.count == 2) {
+        [self checkCustomMappingForPerson:arrayOfPeople[0] andDictionary:person2];
+        [self checkCustomMappingForPerson:arrayOfPeople[1] andDictionary:person3];
+    }
 }
 
 #pragma mark - Convenience stuff

@@ -4,6 +4,7 @@
 //
 //  Created by Carl Hill-Popper on 10/23/15.
 //
+//  Copyright © 2015 Vokal.
 //
 
 #ifndef VOKCoreDataCollectionTypes_h

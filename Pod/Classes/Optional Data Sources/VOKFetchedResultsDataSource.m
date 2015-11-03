@@ -2,6 +2,8 @@
 //  VOKFetchedResultsDataSource.m
 //  CoreData
 //
+//  Copyright © 2015 Vokal.
+//
 
 #import "VOKFetchedResultsDataSource.h"
 #import "VOKCoreDataManager.h"

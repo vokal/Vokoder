@@ -1,5 +1,5 @@
 //
-//  VIPlayer.m
+//  VOKPlayer.m
 //  PagedCoreData
 //
 //  Created by teejay on 1/21/14.
