@@ -1,5 +1,5 @@
 //
-//  VIDefaultPagingAccessory.m
+//  VOKDefaultPagingAccessory.m
 //  PagingCoreData
 //
 //  Created by teejay on 1/21/14.

@@ -25,19 +25,19 @@
 
 - (void)testWorksWithoutSettingCustomBundle
 {
-    XCTAssertNoThrow([[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:nil]);
+    XCTAssertNoThrow([[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:nil]);
 }
 
 - (void)testWorksWithSettingCustomBundle
 {
-    XCTAssertNoThrow([[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel"
+    XCTAssertNoThrow([[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel"
                                                              database:nil
                                                                bundle:[NSBundle mainBundle]]);
 }
 
 - (void)testFailsWithSettingBundleWithoutModel
 {
-    XCTAssertThrows([[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel"
+    XCTAssertThrows([[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel"
                                                             database:nil
                                                               bundle:[NSBundle bundleForClass:[self class]]]);
 }

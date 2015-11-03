@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4674938B19D2FC49007F8031 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4674938A19D2FC49007F8031 /* QuartzCore.framework */; };
-		71E1AB111A53452D004311E5 /* VIPlayerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB101A53452D004311E5 /* VIPlayerDataSource.m */; };
-		71E1AB141A53453A004311E5 /* VIPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB131A53453A004311E5 /* VIPlayer.m */; };
-		71E1AB191A534597004311E5 /* VIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB161A534597004311E5 /* VIAppDelegate.m */; };
-		71E1AB1A1A534597004311E5 /* VIPagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB181A534597004311E5 /* VIPagingViewController.m */; };
+		71E1AB111A53452D004311E5 /* VOKPlayerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB101A53452D004311E5 /* VOKPlayerDataSource.m */; };
+		71E1AB141A53453A004311E5 /* VOKPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB131A53453A004311E5 /* VOKPlayer.m */; };
+		71E1AB191A534597004311E5 /* VOKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB161A534597004311E5 /* VOKAppDelegate.m */; };
+		71E1AB1A1A534597004311E5 /* VOKPagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB181A534597004311E5 /* VOKPagingViewController.m */; };
 		71E1AB1C1A5345AA004311E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB1B1A5345AA004311E5 /* main.m */; };
 		71E1AB1F1A5345C6004311E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71E1AB1D1A5345C6004311E5 /* InfoPlist.strings */; };
 		71E1AB211A5345DE004311E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71E1AB201A5345DE004311E5 /* Images.xcassets */; };
-		71E1AB251A5346DC004311E5 /* VIPagingDataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB241A5346DC004311E5 /* VIPagingDataModel.xcdatamodel */; };
+		71E1AB251A5346DC004311E5 /* VOKPagingDataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB241A5346DC004311E5 /* VOKPagingDataModel.xcdatamodel */; };
 		794BBA00229E0F28C67A3AEE /* libPods-Paging Data Source Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E42CB1EBA218E92E1F45021A /* libPods-Paging Data Source Example.a */; };
 		EA5F19A515C196500089AA44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A415C196500089AA44 /* UIKit.framework */; };
 		EA5F19A715C196500089AA44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A615C196500089AA44 /* Foundation.framework */; };
@@ -29,18 +29,18 @@
 		37FD96791890818E00A6FBD2 /* Paging Data Source Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Paging Data Source Example-Info.plist"; sourceTree = "<group>"; };
 		37FD967A1890818E00A6FBD2 /* Paging Data Source Example-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Paging Data Source Example-Prefix.pch"; sourceTree = "<group>"; };
 		4674938A19D2FC49007F8031 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		71E1AB0F1A53452D004311E5 /* VIPlayerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIPlayerDataSource.h; path = "Core Data/Data Sources/VIPlayerDataSource.h"; sourceTree = SOURCE_ROOT; };
-		71E1AB101A53452D004311E5 /* VIPlayerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIPlayerDataSource.m; path = "Core Data/Data Sources/VIPlayerDataSource.m"; sourceTree = SOURCE_ROOT; };
-		71E1AB121A53453A004311E5 /* VIPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIPlayer.h; path = "Core Data/Models/VIPlayer.h"; sourceTree = SOURCE_ROOT; };
-		71E1AB131A53453A004311E5 /* VIPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIPlayer.m; path = "Core Data/Models/VIPlayer.m"; sourceTree = SOURCE_ROOT; };
-		71E1AB151A534597004311E5 /* VIAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIAppDelegate.h; sourceTree = SOURCE_ROOT; };
-		71E1AB161A534597004311E5 /* VIAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIAppDelegate.m; sourceTree = SOURCE_ROOT; };
-		71E1AB171A534597004311E5 /* VIPagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPagingViewController.h; sourceTree = SOURCE_ROOT; };
-		71E1AB181A534597004311E5 /* VIPagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPagingViewController.m; sourceTree = SOURCE_ROOT; };
+		71E1AB0F1A53452D004311E5 /* VOKPlayerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VOKPlayerDataSource.h; path = "Core Data/Data Sources/VOKPlayerDataSource.h"; sourceTree = SOURCE_ROOT; };
+		71E1AB101A53452D004311E5 /* VOKPlayerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VOKPlayerDataSource.m; path = "Core Data/Data Sources/VOKPlayerDataSource.m"; sourceTree = SOURCE_ROOT; };
+		71E1AB121A53453A004311E5 /* VOKPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VOKPlayer.h; path = "Core Data/Models/VOKPlayer.h"; sourceTree = SOURCE_ROOT; };
+		71E1AB131A53453A004311E5 /* VOKPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VOKPlayer.m; path = "Core Data/Models/VOKPlayer.m"; sourceTree = SOURCE_ROOT; };
+		71E1AB151A534597004311E5 /* VOKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		71E1AB161A534597004311E5 /* VOKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		71E1AB171A534597004311E5 /* VOKPagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPagingViewController.h; sourceTree = SOURCE_ROOT; };
+		71E1AB181A534597004311E5 /* VOKPagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKPagingViewController.m; sourceTree = SOURCE_ROOT; };
 		71E1AB1B1A5345AA004311E5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		71E1AB1E1A5345C6004311E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		71E1AB201A5345DE004311E5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
-		71E1AB241A5346DC004311E5 /* VIPagingDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = VIPagingDataModel.xcdatamodel; path = "Core Data/VIPagingDataModel.xcdatamodel"; sourceTree = SOURCE_ROOT; };
+		71E1AB241A5346DC004311E5 /* VOKPagingDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = VOKPagingDataModel.xcdatamodel; path = "Core Data/VOKPagingDataModel.xcdatamodel"; sourceTree = SOURCE_ROOT; };
 		E42CB1EBA218E92E1F45021A /* libPods-Paging Data Source Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Paging Data Source Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA5F19A015C196500089AA44 /* Paging Data Source Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Paging Data Source Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA5F19A415C196500089AA44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -69,10 +69,10 @@
 		37FD966C1890818E00A6FBD2 /* Paging Example */ = {
 			isa = PBXGroup;
 			children = (
-				71E1AB151A534597004311E5 /* VIAppDelegate.h */,
-				71E1AB161A534597004311E5 /* VIAppDelegate.m */,
-				71E1AB171A534597004311E5 /* VIPagingViewController.h */,
-				71E1AB181A534597004311E5 /* VIPagingViewController.m */,
+				71E1AB151A534597004311E5 /* VOKAppDelegate.h */,
+				71E1AB161A534597004311E5 /* VOKAppDelegate.m */,
+				71E1AB171A534597004311E5 /* VOKPagingViewController.h */,
+				71E1AB181A534597004311E5 /* VOKPagingViewController.m */,
 				37FD966D1890818E00A6FBD2 /* Core Data */,
 				37FD96A21890825100A6FBD2 /* Supporting Files */,
 			);
@@ -82,7 +82,7 @@
 		37FD966D1890818E00A6FBD2 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				71E1AB241A5346DC004311E5 /* VIPagingDataModel.xcdatamodel */,
+				71E1AB241A5346DC004311E5 /* VOKPagingDataModel.xcdatamodel */,
 				37FD966E1890818E00A6FBD2 /* Data Sources */,
 				37FD96711890818E00A6FBD2 /* Models */,
 			);
@@ -92,8 +92,8 @@
 		37FD966E1890818E00A6FBD2 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
-				71E1AB0F1A53452D004311E5 /* VIPlayerDataSource.h */,
-				71E1AB101A53452D004311E5 /* VIPlayerDataSource.m */,
+				71E1AB0F1A53452D004311E5 /* VOKPlayerDataSource.h */,
+				71E1AB101A53452D004311E5 /* VOKPlayerDataSource.m */,
 			);
 			path = "Data Sources";
 			sourceTree = "<group>";
@@ -101,8 +101,8 @@
 		37FD96711890818E00A6FBD2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				71E1AB121A53453A004311E5 /* VIPlayer.h */,
-				71E1AB131A53453A004311E5 /* VIPlayer.m */,
+				71E1AB121A53453A004311E5 /* VOKPlayer.h */,
+				71E1AB131A53453A004311E5 /* VOKPlayer.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,12 +273,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71E1AB251A5346DC004311E5 /* VIPagingDataModel.xcdatamodel in Sources */,
-				71E1AB191A534597004311E5 /* VIAppDelegate.m in Sources */,
-				71E1AB141A53453A004311E5 /* VIPlayer.m in Sources */,
-				71E1AB1A1A534597004311E5 /* VIPagingViewController.m in Sources */,
+				71E1AB251A5346DC004311E5 /* VOKPagingDataModel.xcdatamodel in Sources */,
+				71E1AB191A534597004311E5 /* VOKAppDelegate.m in Sources */,
+				71E1AB141A53453A004311E5 /* VOKPlayer.m in Sources */,
+				71E1AB1A1A534597004311E5 /* VOKPagingViewController.m in Sources */,
 				71E1AB1C1A5345AA004311E5 /* main.m in Sources */,
-				71E1AB111A53452D004311E5 /* VIPlayerDataSource.m in Sources */,
+				71E1AB111A53452D004311E5 /* VOKPlayerDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

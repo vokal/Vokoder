@@ -1,5 +1,5 @@
 //
-//  VIPerson.h
+//  VOKPerson.h
 //  SampleProject
 //
 //  Created by Sean Wolter on 8/23/14.
@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class VIThing;
+@class VOKThing;
 
-@interface VIPerson : NSManagedObject
+@interface VOKPerson : NSManagedObject
 
 @property (nonatomic, retain) NSDate *birthDay;
 @property (nonatomic, retain) NSString *firstName;
 @property (nonatomic, retain) NSString *lastName;
 @property (nonatomic, retain) NSNumber *lovesCoolRanch;
 @property (nonatomic, retain) NSNumber *numberOfCats;
-@property (nonatomic, retain) VIThing *thing;
+@property (nonatomic, retain) VOKThing *thing;
 
 @end

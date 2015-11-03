@@ -31,12 +31,12 @@ Data sources to facilitate backing various kinds of views with data from Core Da
 ###Setting up the data model
 
 ```objective-c
-[[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:@"VICoreDataModel.sqlite"]; //Saved to Disk
+[[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:@"VOKCoreDataModel.sqlite"]; //Saved to Disk
 ```
 or
 
 ```objective-c
-[[VOKCoreDataManager sharedInstance] setResource:@"VICoreDataModel" database:nil]; //In memory data store
+[[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:nil]; //In memory data store
 ```
 
 ###Using Vokoder's Mapper
@@ -171,7 +171,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
 ###Inserting records
 
 ```objective-c
-VIPerson *person = [VIPerson vok_newInstance];
+VOKPerson *person = [VOKPerson vok_newInstance];
 [person setFirstName:@"Rohan"];
 [person setLastName:@"Panchal"];
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
@@ -181,12 +181,12 @@ VIPerson *person = [VIPerson vok_newInstance];
 
 ####Query with basic predicate
 ```objective-c
-NSArray *results = [VIPerson vok_fetchAllForPredicate:nil forManagedObjectContext:nil]; //Basic Fetch
+NSArray *results = [VOKPerson vok_fetchAllForPredicate:nil forManagedObjectContext:nil]; //Basic Fetch
 ```
 
 ####Query with basic predicate and sorting
 ```objective-c
-NSArray *results = [VIPerson vok_fetchAllForPredicate:nil
+NSArray *results = [VOKPerson vok_fetchAllForPredicate:nil
                                           sortedByKey:@"numberOfCats"
                                             ascending:YES
                               forManagedObjectContext:nil];

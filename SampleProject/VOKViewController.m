@@ -1,15 +1,15 @@
 //
-//  VIViewController.m
+//  VOKViewController.m
 //  CoreData
 //
 //  Copyright © 2015 Vokal.
 //
 
-#import "VIViewController.h"
+#import "VOKViewController.h"
 #import "VOKCoreDataManager.h"
-#import "VIPerson.h"
+#import "VOKPerson.h"
 
-@implementation VIViewController
+@implementation VOKViewController
 
 - (void)loadView
 {
@@ -37,11 +37,11 @@
     NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"numberOfCats" ascending:NO],
                                  [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES]];
 
-    self.dataSource = [[VIPersonDataSource alloc] initWithPredicate:nil
+    self.dataSource = [[VOKPersonDataSource alloc] initWithPredicate:nil
                                                           cacheName:nil
                                                           tableView:self.tableView
                                                  sectionNameKeyPath:nil sortDescriptors:sortDescriptors
-                                                 managedObjectClass:[VIPerson class]];
+                                                 managedObjectClass:[VOKPerson class]];
 }
 
 - (void)setupCustomMapper
@@ -57,7 +57,7 @@
                       VOK_MAP_FOREIGN_TO_LOCAL(@"CR_PREF", lovesCoolRanch)];
 
     VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOK_CDSELECTOR(lastName) andMaps:maps];
-    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VIPerson class]];
+    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VOKPerson class]];
 }
 
 - (void)reloadData
@@ -81,8 +81,8 @@
         NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
 
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"lovesCoolRanch == YES"];
-        NSArray *personArray = [VIPerson vok_fetchAllForPredicate:pred forManagedObjectContext:backgroundContext];
-        [personArray enumerateObjectsUsingBlock:^(VIPerson *obj, NSUInteger idx, BOOL *stop) {
+        NSArray *personArray = [VOKPerson vok_fetchAllForPredicate:pred forManagedObjectContext:backgroundContext];
+        [personArray enumerateObjectsUsingBlock:^(VOKPerson *obj, NSUInteger idx, BOOL *stop) {
             [backgroundContext deleteObject:obj];
         }];
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
@@ -94,7 +94,7 @@
     //MAKE 20 PEOPLE WITH A CUSTOM MAPPER
     int j = 0;
     while (j < 21 ) {
-        NSLog(@"%@", [VIPerson vok_addWithDictionary:[self dictForCustomMapper] forManagedObjectContext:context]);
+        NSLog(@"%@", [VOKPerson vok_addWithDictionary:[self dictForCustomMapper] forManagedObjectContext:context]);
         j++;
     }
 }

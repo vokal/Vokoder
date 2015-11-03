@@ -1,14 +1,14 @@
 //
-//  VIPersonDataSource.m
+//  VOKPersonDataSource.m
 //  CoreData
 //
 //  Copyright © 2015 Vokal.
 //
 
-#import "VIPersonDataSource.h"
-#import "VIPerson.h"
+#import "VOKPersonDataSource.h"
+#import "VOKPerson.h"
 
-@implementation VIPersonDataSource
+@implementation VOKPersonDataSource
 
 - (UITableViewCell *)cellAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -20,7 +20,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    VIPerson *person = [_fetchedResultsController objectAtIndexPath:indexPath];
+    VOKPerson *person = [_fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %@", person.lastName, person.firstName];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Number of cats: %@", person.numberOfCats];

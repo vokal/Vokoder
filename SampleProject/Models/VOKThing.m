@@ -1,15 +1,15 @@
 //
-//  VIThing.m
+//  VOKThing.m
 //  SampleProject
 //
 //  Created by Sean Wolter on 8/23/14.
 //  Copyright © 2014 Vokal.
 //
 
-#import "VIThing.h"
-#import "VIPerson.h"
+#import "VOKThing.h"
+#import "VOKPerson.h"
 
-@implementation VIThing
+@implementation VOKThing
 
 @dynamic name;
 @dynamic numberOfHats;

@@ -1,5 +1,5 @@
 //
-//  VIThing.h
+//  VOKThing.h
 //  SampleProject
 //
 //  Created by Sean Wolter on 8/23/14.
@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class VIPerson;
+@class VOKPerson;
 
-@interface VIThing : NSManagedObject
+@interface VOKThing : NSManagedObject
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSNumber *numberOfHats;
-@property (nonatomic, retain) VIPerson *person;
+@property (nonatomic, retain) VOKPerson *person;
 
 @end
