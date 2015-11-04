@@ -117,11 +117,6 @@
                           delegate:nil];
 }
 
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    return [super fetchedResultsController];
-}
-
 #pragma mark - UICollectionView
 
 - (void)reloadData

@@ -20,7 +20,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    VOKPerson *person = [_fetchedResultsController objectAtIndexPath:indexPath];
+    VOKPerson *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %@", person.lastName, person.firstName];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Number of cats: %@", person.numberOfCats];

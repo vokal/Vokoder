@@ -172,7 +172,7 @@
 {
     VOK_CDLog(@"NSNotification: Underlying data changed ... refreshing!");
     NSError *error = nil;
-    if (![_fetchedResultsController performFetch:&error]) {
+    if (![self.fetchedResultsController performFetch:&error]) {
         VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
@@ -181,7 +181,7 @@
 - (void)reloadData
 {
     NSError *error = nil;
-    if (![_fetchedResultsController performFetch:&error]) {
+    if (![self.fetchedResultsController performFetch:&error]) {
         VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
@@ -192,11 +192,11 @@
 - (NSArray *)fetchedObjects
 {
 //    NSError *error = nil;
-//    if (![_fetchedResultsController performFetch:&error]) {
+//    if (![self.fetchedResultsController performFetch:&error]) {
 //        VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
 //        abort();
 //    }
-   return _fetchedResultsController.fetchedObjects;
+   return self.fetchedResultsController.fetchedObjects;
 }
 
 #pragma mark - UITableViewDelegate
@@ -204,7 +204,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([self.delegate respondsToSelector:@selector(fetchResultsDataSourceSelectedObject:)]) {
-        [self.delegate fetchResultsDataSourceSelectedObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
+        [self.delegate fetchResultsDataSourceSelectedObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     }
 
     if (self.clearsTableViewCellSelection) {
@@ -215,7 +215,7 @@
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([self.delegate respondsToSelector:@selector(fetchResultsDataSourceDeselectedObject:)]) {
-        [self.delegate fetchResultsDataSourceDeselectedObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
+        [self.delegate fetchResultsDataSourceDeselectedObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     }
 }
 
@@ -223,7 +223,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSInteger sectionCount = _fetchedResultsController.sections.count;
+    NSInteger sectionCount = self.fetchedResultsController.sections.count;
 
     // If there are no sections, the numberOfRowsInSection: method is never called,
     // so the delegeate fetchResultsDataSourceHasResults: method isn't called
@@ -236,7 +236,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = _fetchedResultsController.sections[section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
 
     // NSFetchedResultsController doesn't really respect fetchLimit, so we have
     // to work around it: don't allow more items than the limit.
@@ -263,15 +263,6 @@
 }
 
 #pragma mark - Fetched results controller
-
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (!_fetchedResultsController) {
-        [self initFetchedResultsController];
-    }
-
-    return _fetchedResultsController;
-}
 
 - (void)initFetchedResultsController
 {
@@ -409,7 +400,7 @@
          self.tableView.dataSource = nil;
     }
 
-    _fetchedResultsController.delegate = nil;
+    self.fetchedResultsController.delegate = nil;
 }
 
 @end
