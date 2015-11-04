@@ -5,12 +5,12 @@
 //  Copyright © 2015 Vokal.
 //
 
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+
 #ifndef __IPHONE_7_0
 #warning "VOKCoreDataManager uses features only available in iOS SDK 7.0 and later."
 #endif
-
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
 #import "VOKCoreDataCollectionTypes.h"
 #import "VOKNullabilityFeatures.h"

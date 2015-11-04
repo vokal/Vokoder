@@ -188,8 +188,8 @@ static const NSUInteger BasicTestDataSize = 5;
     XCTAssertGreaterThan(results.count, 0);
     XCTAssertEqual(results.count, BasicTestDataSize);
     
-    XCTAssertEqual([[results firstObject] numberOfHats].intValue, BasicTestDataStartPoint);
-    XCTAssertEqual([[results lastObject] numberOfHats].intValue, BasicTestDataStartPoint + BasicTestDataSize-1);
+    XCTAssertEqual([results.firstObject numberOfHats].intValue, BasicTestDataStartPoint);
+    XCTAssertEqual([results.lastObject numberOfHats].intValue, BasicTestDataStartPoint + BasicTestDataSize-1);
 }
 
 - (void)testRecordFetchingWithSortDescriptorAscending
@@ -204,8 +204,8 @@ static const NSUInteger BasicTestDataSize = 5;
     XCTAssertGreaterThan(results.count, 0);
     XCTAssertEqual(results.count, BasicTestDataSize);
     
-    XCTAssertEqual([[results firstObject] numberOfHats].intValue, BasicTestDataStartPoint);
-    XCTAssertEqual([[results lastObject] numberOfHats].intValue, BasicTestDataStartPoint + BasicTestDataSize-1);
+    XCTAssertEqual([results.firstObject numberOfHats].intValue, BasicTestDataStartPoint);
+    XCTAssertEqual([results.lastObject numberOfHats].intValue, BasicTestDataStartPoint + BasicTestDataSize-1);
 }
 
 - (void)testRecordFetchingWithSortDescriptorDescending
@@ -220,8 +220,8 @@ static const NSUInteger BasicTestDataSize = 5;
     XCTAssertGreaterThan(results.count, 0);
     XCTAssertEqual(results.count, BasicTestDataSize);
     
-    XCTAssertEqual([[results firstObject] numberOfHats].intValue, BasicTestDataStartPoint + BasicTestDataSize-1);
-    XCTAssertEqual([[results lastObject] numberOfHats].intValue, BasicTestDataStartPoint);
+    XCTAssertEqual([results.firstObject numberOfHats].intValue, BasicTestDataStartPoint + BasicTestDataSize-1);
+    XCTAssertEqual([results.lastObject numberOfHats].intValue, BasicTestDataStartPoint);
 }
 
 @end

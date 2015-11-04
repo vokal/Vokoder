@@ -49,7 +49,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     dispatch_once(&pred, ^{
         VOK_SharedObject = [[self alloc] init];
         VOK_WritingQueue = [[NSOperationQueue alloc] init];
-        [VOK_WritingQueue setMaxConcurrentOperationCount:1];
+        VOK_WritingQueue.maxConcurrentOperationCount = 1;
         [VOK_SharedObject addMappableModelMappers];
     });
     return VOK_SharedObject;
@@ -96,9 +96,9 @@ static VOKCoreDataManager *VOK_SharedObject;
     }
 
     NSManagedObjectContext *tempManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
-    [tempManagedObjectContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
-    [tempManagedObjectContext setPersistentStoreCoordinator:coordinator];
-
+    tempManagedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
+    tempManagedObjectContext.persistentStoreCoordinator = coordinator;
+    
     return tempManagedObjectContext;
 }
 
@@ -188,7 +188,7 @@ static VOKCoreDataManager *VOK_SharedObject;
             self.migrationFailureOptions == VOKMigrationFailureOptionWipeRecovery) {
             VOK_CDLog(@"Full database delete and rebuild");
             [[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:nil];
-            if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+            if (![_persistentStoreCoordinator addPersistentStoreWithType:storeType
                                                            configuration:nil
                                                                      URL:storeURL
                                                                  options:nil
@@ -210,8 +210,8 @@ static VOKCoreDataManager *VOK_SharedObject;
         return;
     }
     _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-    [_managedObjectContext setMergePolicy:NSMergeByPropertyStoreTrumpMergePolicy];
+    _managedObjectContext.persistentStoreCoordinator = coordinator;
+    _managedObjectContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy;
 }
 
 #pragma mark - Create and configure
@@ -219,13 +219,14 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSManagedObject *)managedObjectOfClass:(Class)managedObjectClass inContext:(NSManagedObjectContext *)contextOrNil
 {
     contextOrNil = [self safeContext:contextOrNil];
-    return [NSEntityDescription insertNewObjectForEntityForName:[managedObjectClass vok_entityName] inManagedObjectContext:contextOrNil];
+    return [NSEntityDescription insertNewObjectForEntityForName:[managedObjectClass vok_entityName]
+                                         inManagedObjectContext:contextOrNil];
 }
 
 - (BOOL)setObjectMapper:(VOKManagedObjectMapper *)objMapper forClass:(Class)objectClass
 {
     if (objMapper && objectClass) {
-        (self.mapperCollection)[NSStringFromClass(objectClass)] = objMapper;
+        self.mapperCollection[NSStringFromClass(objectClass)] = objMapper;
         return YES;
     }
     
@@ -357,7 +358,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     NSError *error;
     NSUInteger count = [contextOrNil countForFetchRequest:fetchRequest error:&error];
     if (count == NSNotFound) {
-        VOK_CDLog(@"%s Fetch Request Error\n%@", __PRETTY_FUNCTION__, [error localizedDescription]);
+        VOK_CDLog(@"Fetch Request Error\n%@", [error localizedDescription]);
     }
     
     return count;
@@ -399,7 +400,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     NSError *error;
     NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
     if (!results) {
-        VOK_CDLog(@"%s Fetch Request Error\n%@", __PRETTY_FUNCTION__, [error localizedDescription]);
+        VOK_CDLog(@"Fetch Request Error\n%@", [error localizedDescription]);
     }
     
     return results;
@@ -444,18 +445,18 @@ static VOKCoreDataManager *VOK_SharedObject;
 {
     contextOrNil = [self safeContext:contextOrNil];
     NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass predicate:predicate];
-    [fetchRequest setIncludesPropertyValues:NO];
+    fetchRequest.includesPropertyValues = NO;
     
     NSError *error;
     NSArray *results = [contextOrNil executeFetchRequest:fetchRequest error:&error];
     if (!results) {
-        VOK_CDLog(@"%s Fetch Request Error\n%@", __PRETTY_FUNCTION__, [error localizedDescription]);
+        VOK_CDLog(@"Fetch Request Error\n%@", [error localizedDescription]);
         return NO;
     }
     
-    [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [contextOrNil deleteObject:obj];
-    }];
+    for (NSManagedObject *object in results) {
+        [contextOrNil deleteObject:object];
+    }
     
     return YES;
 }
@@ -482,9 +483,9 @@ static VOKCoreDataManager *VOK_SharedObject;
     if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
         [self saveContext:[self managedObjectContext]];
     } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self saveContext:[self managedObjectContext]];
-        });
+        }];
     }
 }
 
@@ -493,9 +494,9 @@ static VOKCoreDataManager *VOK_SharedObject;
     if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
         [self saveContext:[self managedObjectContext]];
     } else {
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self saveContext:[self managedObjectContext]];
-        });
+        }];
     }
 }
 
@@ -535,9 +536,9 @@ static VOKCoreDataManager *VOK_SharedObject;
     if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
         [[self managedObjectContext] mergeChangesFromContextDidSaveNotification:notification];
     } else {
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [[self managedObjectContext] mergeChangesFromContextDidSaveNotification:notification];
-        });
+        }];
     }
     [self saveMainContextAndWait];
 }
@@ -566,7 +567,7 @@ static VOKCoreDataManager *VOK_SharedObject;
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
         
         if (completion) {
-            dispatch_async(dispatch_get_main_queue(), completion);
+            [[NSOperationQueue mainQueue] addOperationWithBlock:completion];
         }
     }];
 }
@@ -593,9 +594,9 @@ static VOKCoreDataManager *VOK_SharedObject;
             
             NSArray *arrayOfManagedObjectIDs = [managedObjectsArray valueForKeyPath:VOK_CDSELECTOR(objectID)];
             
-            dispatch_sync(dispatch_get_main_queue(), ^{
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 completion(arrayOfManagedObjectIDs);
-            });
+            }];
         }
     }];
 }
@@ -606,7 +607,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 {
     NSString *entityName = [managedObjectClass vok_entityName];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
-    [fetchRequest setPredicate:predicate];
+    fetchRequest.predicate = predicate;
     return fetchRequest;
 }
 
@@ -616,7 +617,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 {
     NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass
                                                      predicate:predicate];
-    [fetchRequest setSortDescriptors:sortDescriptors];
+    fetchRequest.sortDescriptors = sortDescriptors;
     return fetchRequest;
 }
 
@@ -637,7 +638,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (NSURL *)applicationLibraryDirectory
 {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask] lastObject];
+    return [[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask].lastObject;
 }
 
 - (void)resetCoreData

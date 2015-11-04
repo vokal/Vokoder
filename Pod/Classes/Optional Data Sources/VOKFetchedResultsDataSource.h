@@ -19,9 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface VOKFetchedResultsDataSource : NSObject <NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource> {
-    NSFetchedResultsController *_fetchedResultsController;
-}
+@interface VOKFetchedResultsDataSource : NSObject <NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (readonly) Class managedObjectClass;
 @property (weak, readonly) UITableView *tableView;
@@ -29,7 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak) id<VOKFetchedResultsDataSourceDelegate> delegate;
 
-//these are exposed to handle reconfiguration of the protected _fetchedResultsController, when they change
+@property (strong, readonly) NSFetchedResultsController *fetchedResultsController;
+
+//these are exposed to handle reconfiguration of the fetchedResultsController when they change
 @property (assign, nonatomic) NSInteger batchSize;
 @property (assign, nonatomic) NSInteger fetchLimit;
 
@@ -42,9 +42,6 @@ NS_ASSUME_NONNULL_BEGIN
 //after sending the selected object to the delegate
 //defaults to YES
 @property BOOL clearsTableViewCellSelection;
-
-//you can ignore deprecation warnings in subclasses
-@property (strong, readonly) NSFetchedResultsController *fetchedResultsController;
 
 - (nullable VOKArrayOfManagedObjects *)fetchedObjects;
 

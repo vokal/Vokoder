@@ -172,7 +172,7 @@
 {
     VOK_CDLog(@"NSNotification: Underlying data changed ... refreshing!");
     NSError *error = nil;
-    if (![_fetchedResultsController performFetch:&error]) {
+    if (![self.fetchedResultsController performFetch:&error]) {
         VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
@@ -181,30 +181,30 @@
 - (void)reloadData
 {
     NSError *error = nil;
-    if (![_fetchedResultsController performFetch:&error]) {
+    if (![self.fetchedResultsController performFetch:&error]) {
         VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
     //FOR TESTING ONLY, NOT NECESSARY
-    [_tableView reloadData];
+    [self.tableView reloadData];
 }
 
 - (NSArray *)fetchedObjects
 {
 //    NSError *error = nil;
-//    if (![_fetchedResultsController performFetch:&error]) {
+//    if (![self.fetchedResultsController performFetch:&error]) {
 //        VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
 //        abort();
 //    }
-   return _fetchedResultsController.fetchedObjects;
+   return self.fetchedResultsController.fetchedObjects;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([_delegate respondsToSelector:@selector(fetchResultsDataSourceSelectedObject:)]) {
-        [_delegate fetchResultsDataSourceSelectedObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
+    if ([self.delegate respondsToSelector:@selector(fetchResultsDataSourceSelectedObject:)]) {
+        [self.delegate fetchResultsDataSourceSelectedObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     }
 
     if (self.clearsTableViewCellSelection) {
@@ -214,8 +214,8 @@
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([_delegate respondsToSelector:@selector(fetchResultsDataSourceDeselectedObject:)]) {
-        [_delegate fetchResultsDataSourceDeselectedObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
+    if ([self.delegate respondsToSelector:@selector(fetchResultsDataSourceDeselectedObject:)]) {
+        [self.delegate fetchResultsDataSourceDeselectedObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     }
 }
 
@@ -223,24 +223,24 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSInteger sectionCount = [[_fetchedResultsController sections] count];
+    NSInteger sectionCount = self.fetchedResultsController.sections.count;
 
     // If there are no sections, the numberOfRowsInSection: method is never called,
     // so the delegeate fetchResultsDataSourceHasResults: method isn't called
     // with NO. Do so here, if necessary.
-    if (sectionCount == 0 && [_delegate respondsToSelector:@selector(fetchResultsDataSourceHasResults:)]) {
-        [_delegate fetchResultsDataSourceHasResults:NO];
+    if (sectionCount == 0 && [self.delegate respondsToSelector:@selector(fetchResultsDataSourceHasResults:)]) {
+        [self.delegate fetchResultsDataSourceHasResults:NO];
     }
     return sectionCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [_fetchedResultsController sections][section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
 
     // NSFetchedResultsController doesn't really respect fetchLimit, so we have
     // to work around it: don't allow more items than the limit.
-    NSInteger resultCount = [sectionInfo numberOfObjects];
+    NSInteger resultCount = sectionInfo.numberOfObjects;
     if (self.fetchedResultsController.fetchRequest.fetchLimit > 0
         && resultCount > self.fetchedResultsController.fetchRequest.fetchLimit) {
         resultCount = self.fetchedResultsController.fetchRequest.fetchLimit;
@@ -264,31 +264,22 @@
 
 #pragma mark - Fetched results controller
 
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (!_fetchedResultsController) {
-        [self initFetchedResultsController];
-    }
-
-    return _fetchedResultsController;
-}
-
 - (void)initFetchedResultsController
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:[_managedObjectClass vok_entityName]
                                               inManagedObjectContext:_managedObjectContext];
-    [fetchRequest setEntity:entity];
+    fetchRequest.entity = entity;
     
-    [fetchRequest setFetchBatchSize:_batchSize];
+    fetchRequest.fetchBatchSize = _batchSize;
     
-    [fetchRequest setFetchLimit:_fetchLimit];
+    fetchRequest.fetchLimit = _fetchLimit;
 
-    [fetchRequest setSortDescriptors:_sortDescriptors];
+    fetchRequest.sortDescriptors = _sortDescriptors;
 
-    [fetchRequest setPredicate:_predicate];
+    fetchRequest.predicate = _predicate;
     
-    [fetchRequest setIncludesSubentities:_includesSubentities];
+    fetchRequest.includesSubentities = _includesSubentities;
 
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                                                 managedObjectContext:_managedObjectContext
@@ -304,7 +295,7 @@
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
-    [_tableView beginUpdates];
+    [self.tableView beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller
@@ -314,11 +305,11 @@
 {
     switch (type) {
         case NSFetchedResultsChangeInsert:
-            [_tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
 
         case NSFetchedResultsChangeDelete:
-            [_tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
         default:
             //Do nothing, shut up the compiler.
@@ -340,19 +331,19 @@
     switch (type) {
         case NSFetchedResultsChangeInsert:
             if (fetchLimit == 0 || newIndexPath.row < fetchLimit) {
-                [_tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             }
             break;
 
         case NSFetchedResultsChangeDelete:
             if (fetchLimit == 0 || indexPath.row < fetchLimit) {
-                [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             }
             break;
 
         case NSFetchedResultsChangeUpdate:
             if (fetchLimit == 0 || indexPath.row < fetchLimit) {
-                [_tableView reloadRowsAtIndexPaths:@[indexPath]
+                [self.tableView reloadRowsAtIndexPaths:@[indexPath]
                                   withRowAnimation:UITableViewRowAnimationNone];
             }
             break;
@@ -361,21 +352,21 @@
             if (fetchLimit > 0) {
                 if (indexPath.row < fetchLimit && newIndexPath.row < fetchLimit) {
                     // Before and after are both in range
-                    [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                    [_tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                    [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
                 } else if (indexPath.row >= fetchLimit && newIndexPath.row >= fetchLimit) {
                     // Both out of range: do nothing
                 } else if (indexPath.row < fetchLimit && newIndexPath.row >= fetchLimit) {
                     // Destination is out of range: remove the original row
-                    [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
                 } else if (indexPath.row >= fetchLimit && newIndexPath.row < fetchLimit) {
                     // Origin is out of range: add the new row
-                    [_tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                    [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
                 }
             } else {
                 // No fetch limit: behave normally
-                [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                [_tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             }
             break;
     }
@@ -383,14 +374,14 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [_tableView endUpdates];
+    [self.tableView endUpdates];
 }
 
 - (UITableViewCell *)cellAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"CellIdentifier";
 
-    UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -409,7 +400,7 @@
          self.tableView.dataSource = nil;
     }
 
-    _fetchedResultsController.delegate = nil;
+    self.fetchedResultsController.delegate = nil;
 }
 
 @end

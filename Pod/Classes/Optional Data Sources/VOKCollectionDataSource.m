@@ -10,10 +10,10 @@
 #import "VOKCoreDataManager.h"
 #import "VOKCoreDataManagerInternalMacros.h"
 
-@interface VOKCollectionDataSource () {
-    NSMutableArray *_objectChanges;
-    NSMutableArray *_sectionChanges;
-}
+@interface VOKCollectionDataSource ()
+
+@property (nonatomic, strong) NSMutableArray *objectChanges;
+@property (nonatomic, strong) NSMutableArray *sectionChanges;
 
 @end
 
@@ -29,11 +29,11 @@
              fetchLimit:(NSInteger)fetchLimit
                delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
 {
-    self.collectionView = collectionView;
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
-    _objectChanges = [@[] mutableCopy];
-    _sectionChanges = [@[] mutableCopy];
+    _collectionView = collectionView;
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    _objectChanges = [NSMutableArray array];
+    _sectionChanges = [NSMutableArray array];
 
     return [self initWithPredicate:predicate
                          cacheName:cacheName
@@ -117,27 +117,22 @@
                           delegate:nil];
 }
 
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    return [super fetchedResultsController];
-}
-
 #pragma mark - UICollectionView
 
 - (void)reloadData
 {
     NSError *error = nil;
-    if (![_fetchedResultsController performFetch:&error]) {
+    if (![self.fetchedResultsController performFetch:&error]) {
         VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
     //FOR REVIEW controllerWillChangeContent is not being called in tests - this updates the table explicitly
-    [_collectionView reloadData];
+    [self.collectionView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    NSInteger sectionCount = [[self.fetchedResultsController sections] count];
+    NSInteger sectionCount = self.fetchedResultsController.sections.count;
 
     // If there are no sections, the numberOfItemsInSection: method is never called,
     // so the delegeate fetchResultsDataSourceHasResults: method isn't called
@@ -150,11 +145,11 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    id<NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
 
     // NSFetchedResultsController doesn't really respect fetchLimit, so we have
     // to work around it: don't allow more items than the limit.
-    NSInteger resultCount = [sectionInfo numberOfObjects];
+    NSInteger resultCount = sectionInfo.numberOfObjects;
     if (self.fetchedResultsController.fetchRequest.fetchLimit > 0
         && resultCount > self.fetchedResultsController.fetchRequest.fetchLimit) {
         resultCount = self.fetchedResultsController.fetchRequest.fetchLimit;
@@ -196,8 +191,10 @@
 
 #pragma mark - Fetched results controller
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
+- (void)controller:(NSFetchedResultsController *)controller
+  didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex
+     forChangeType:(NSFetchedResultsChangeType)type
 {
     
     NSMutableDictionary *change = [NSMutableDictionary new];
@@ -214,11 +211,13 @@
             break;
     }
     
-    [_sectionChanges addObject:change];
+    [self.sectionChanges addObject:change];
 }
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
-       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
     
@@ -237,15 +236,15 @@
             change[@(type)] = @[indexPath, newIndexPath];
             break;
     }
-    [_objectChanges addObject:change];
+    [self.objectChanges addObject:change];
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    if ([_sectionChanges count] > 0) {
+    if (self.sectionChanges.count > 0) {
         [self.collectionView performBatchUpdates:^{
             
-            for (NSDictionary *change in _sectionChanges) {
+            for (NSDictionary *change in self.sectionChanges) {
                 [change enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, id obj, BOOL *stop) {
                     NSIndexPath *indexPath, *newIndexPath;
                     if ([obj isKindOfClass:[NSIndexPath class]]) {
@@ -260,7 +259,7 @@
                     // limit before acting on the change.
                     NSUInteger fetchLimit = controller.fetchRequest.fetchLimit;
 
-                    NSFetchedResultsChangeType type = [key unsignedIntegerValue];
+                    NSFetchedResultsChangeType type = key.unsignedIntegerValue;
                     switch (type) {
                         case NSFetchedResultsChangeInsert:
                             if (fetchLimit == 0 || indexPath.row < fetchLimit) {
@@ -302,7 +301,7 @@
         } completion:nil];
     }
 
-    if ([_objectChanges count] > 0 && [_sectionChanges count] == 0) {
+    if (self.objectChanges.count > 0 && self.sectionChanges.count == 0) {
         
         if ([self shouldReloadCollectionViewToPreventKnownIssue]) {
             // This is to prevent a bug in UICollectionView from occurring.
@@ -316,7 +315,7 @@
 
             [self.collectionView performBatchUpdates:^{
 
-                for (NSDictionary *change in _objectChanges) {
+                for (NSDictionary *change in self.objectChanges) {
                     [change enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, id obj, BOOL *stop) {
                         NSIndexPath *indexPath, *newIndexPath;
                         if ([obj isKindOfClass:[NSIndexPath class]]) {
@@ -331,7 +330,7 @@
                         // limit before acting on the change.
                         NSUInteger fetchLimit = controller.fetchRequest.fetchLimit;
 
-                        NSFetchedResultsChangeType type = [key unsignedIntegerValue];
+                        NSFetchedResultsChangeType type = key.unsignedIntegerValue;
                         switch (type) {
                             case NSFetchedResultsChangeInsert:
                                 if (fetchLimit == 0 || indexPath.row < fetchLimit) {
@@ -374,16 +373,16 @@
         }
     }
     
-    [_sectionChanges removeAllObjects];
-    [_objectChanges removeAllObjects];
+    [self.sectionChanges removeAllObjects];
+    [self.objectChanges removeAllObjects];
 }
 
 - (BOOL)shouldReloadCollectionViewToPreventKnownIssue
 {
     __block BOOL shouldReload = NO;
-    for (NSDictionary *change in _objectChanges) {
-        [change enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            NSFetchedResultsChangeType type = [key unsignedIntegerValue];
+    for (NSDictionary *change in self.objectChanges) {
+        [change enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, id obj, BOOL *stop) {
+            NSFetchedResultsChangeType type = key.unsignedIntegerValue;
             NSIndexPath *indexPath = obj;
             switch (type) {
                 case NSFetchedResultsChangeInsert:

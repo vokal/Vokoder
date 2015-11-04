@@ -55,8 +55,8 @@
     static NSDateFormatter *DefaultDateFormatter;
     dispatch_once(&pred, ^{
         DefaultDateFormatter = [NSDateFormatter new];
-        [DefaultDateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"];
-        [DefaultDateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+        DefaultDateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'";
+        DefaultDateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     });
 
     return DefaultDateFormatter;
@@ -68,8 +68,8 @@
     static NSDateFormatter *DateFormatterWithoutMicroseconds;
     dispatch_once(&formatter_dispatch_token, ^{
         DateFormatterWithoutMicroseconds = [NSDateFormatter new];
-        [DateFormatterWithoutMicroseconds setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
-        [DateFormatterWithoutMicroseconds setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+        DateFormatterWithoutMicroseconds.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
+        DateFormatterWithoutMicroseconds.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     });
 
     return DateFormatterWithoutMicroseconds;

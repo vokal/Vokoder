@@ -18,7 +18,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    VOKPlayer *player = [_fetchedResultsController objectAtIndexPath:indexPath];
+    VOKPlayer *player = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = [NSString stringWithFormat:@"Username: %@", player.cUsername];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"HighScore: %ld", (long)[player.cHighscore integerValue]];

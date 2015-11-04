@@ -11,8 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VOKCollectionDataSource : VOKFetchedResultsDataSource <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (strong, readonly) NSFetchedResultsController *fetchedResultsController;
-
 @property (weak) UICollectionView *collectionView;
 
 - (id)initWithPredicate:(nullable NSPredicate *)predicate
