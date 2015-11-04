@@ -454,7 +454,7 @@ static VOKCoreDataManager *VOK_SharedObject;
         return NO;
     }
     
-    for (id object in results) {
+    for (NSManagedObject *object in results) {
         [contextOrNil deleteObject:object];
     }
     
