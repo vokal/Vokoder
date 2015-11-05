@@ -10,4 +10,7 @@ matrix:
         - xcode_workspace: Paging Data Source Example/Paging Data Source Example.xcworkspace
           xcode_scheme: Paging Data Source Example
           xcode_sdk: iphonesimulator
+        - xcode_workspace: SwiftSampleProject/SwiftSampleProject.xcworkspace
+          xcode_scheme: SwiftyVokoder
+          xcode_sdk: iphonesimulator
 
