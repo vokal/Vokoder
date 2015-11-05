@@ -1,0 +1,6 @@
+framework module Vokoder {
+  umbrella header "Vokoder-umbrella.h"
+
+  export *
+  module * { export * }
+}
