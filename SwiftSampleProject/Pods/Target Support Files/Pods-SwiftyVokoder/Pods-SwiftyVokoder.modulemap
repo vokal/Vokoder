@@ -1,0 +1,6 @@
+framework module Pods_SwiftyVokoder {
+  umbrella header "Pods-SwiftyVokoder-umbrella.h"
+
+  export *
+  module * { export * }
+}
