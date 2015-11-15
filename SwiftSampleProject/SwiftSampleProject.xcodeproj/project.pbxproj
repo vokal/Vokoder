@@ -9,12 +9,20 @@
 /* Begin PBXBuildFile section */
 		BD933D600CBF86542442FDE0 /* Pods_SwiftyVokoderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F035F26C14E954FD3C335BA8 /* Pods_SwiftyVokoderTests.framework */; };
 		CA56478011E7DB3E3CB84257 /* Pods_SwiftyVokoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF07AC8DBE4283D739347E6 /* Pods_SwiftyVokoder.framework */; };
+		DE8EA1021BF6797D002FDF6A /* Stop+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA0FC1BF6797D002FDF6A /* Stop+CoreDataProperties.swift */; };
+		DE8EA1031BF6797D002FDF6A /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA0FD1BF6797D002FDF6A /* Stop.swift */; };
+		DE8EA1041BF6797D002FDF6A /* TrainLine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA0FE1BF6797D002FDF6A /* TrainLine+CoreDataProperties.swift */; };
+		DE8EA1051BF6797D002FDF6A /* TrainLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA0FF1BF6797D002FDF6A /* TrainLine.swift */; };
+		DE8EA1061BF6797D002FDF6A /* Station+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA1001BF6797D002FDF6A /* Station+CoreDataProperties.swift */; };
+		DE8EA1071BF6797D002FDF6A /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA1011BF6797D002FDF6A /* Station.swift */; };
+		DE8EA1091BF67D91002FDF6A /* VOKManagedObjectMap+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA1081BF67D91002FDF6A /* VOKManagedObjectMap+Swift.swift */; };
 		DEAD7AA91BEBCACD004FE281 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAD7AA81BEBCACD004FE281 /* AppDelegate.swift */; };
 		DEAD7AAB1BEBCACD004FE281 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAD7AAA1BEBCACD004FE281 /* ViewController.swift */; };
 		DEAD7AAE1BEBCACD004FE281 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAD7AAC1BEBCACD004FE281 /* Main.storyboard */; };
 		DEAD7AB01BEBCACD004FE281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEAD7AAF1BEBCACD004FE281 /* Assets.xcassets */; };
 		DEAD7AB31BEBCACD004FE281 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAD7AB11BEBCACD004FE281 /* LaunchScreen.storyboard */; };
 		DEAD7ABE1BEBCACE004FE281 /* SwiftyVokoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAD7ABD1BEBCACE004FE281 /* SwiftyVokoderTests.swift */; };
+		DEAD7ACB1BEBDC2A004FE281 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DEAD7AC91BEBDC2A004FE281 /* CoreDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +40,13 @@
 		52DD5325250D7C4A94E1C893 /* Pods-SwiftyVokoder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder.release.xcconfig"; sourceTree = "<group>"; };
 		81F2BDA431493805F246D4DD /* Pods-SwiftyVokoderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8CF07AC8DBE4283D739347E6 /* Pods_SwiftyVokoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyVokoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE8EA0FC1BF6797D002FDF6A /* Stop+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stop+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DE8EA0FD1BF6797D002FDF6A /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
+		DE8EA0FE1BF6797D002FDF6A /* TrainLine+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrainLine+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DE8EA0FF1BF6797D002FDF6A /* TrainLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainLine.swift; sourceTree = "<group>"; };
+		DE8EA1001BF6797D002FDF6A /* Station+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Station+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DE8EA1011BF6797D002FDF6A /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		DE8EA1081BF67D91002FDF6A /* VOKManagedObjectMap+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VOKManagedObjectMap+Swift.swift"; sourceTree = "<group>"; };
 		DEAD7AA51BEBCACD004FE281 /* SwiftyVokoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyVokoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEAD7AA81BEBCACD004FE281 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEAD7AAA1BEBCACD004FE281 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +57,7 @@
 		DEAD7AB91BEBCACE004FE281 /* SwiftyVokoderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyVokoderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEAD7ABD1BEBCACE004FE281 /* SwiftyVokoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyVokoderTests.swift; sourceTree = "<group>"; };
 		DEAD7ABF1BEBCACE004FE281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEAD7ACA1BEBDC2A004FE281 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		E28B7B252364A9E1F69945D4 /* Pods-SwiftyVokoderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests.release.xcconfig"; sourceTree = "<group>"; };
 		F035F26C14E954FD3C335BA8 /* Pods_SwiftyVokoderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyVokoderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -111,10 +127,10 @@
 			children = (
 				DEAD7AA81BEBCACD004FE281 /* AppDelegate.swift */,
 				DEAD7AAA1BEBCACD004FE281 /* ViewController.swift */,
+				DE8EA1081BF67D91002FDF6A /* VOKManagedObjectMap+Swift.swift */,
 				DEAD7AAC1BEBCACD004FE281 /* Main.storyboard */,
-				DEAD7AAF1BEBCACD004FE281 /* Assets.xcassets */,
-				DEAD7AB11BEBCACD004FE281 /* LaunchScreen.storyboard */,
-				DEAD7AB41BEBCACD004FE281 /* Info.plist */,
+				DEAD7AC81BEBDC05004FE281 /* Models */,
+				DEAD7AC71BEBDBA8004FE281 /* Resources */,
 			);
 			path = SwiftyVokoder;
 			sourceTree = "<group>";
@@ -126,6 +142,30 @@
 				DEAD7ABF1BEBCACE004FE281 /* Info.plist */,
 			);
 			path = SwiftyVokoderTests;
+			sourceTree = "<group>";
+		};
+		DEAD7AC71BEBDBA8004FE281 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DEAD7AAF1BEBCACD004FE281 /* Assets.xcassets */,
+				DEAD7AB41BEBCACD004FE281 /* Info.plist */,
+				DEAD7AB11BEBCACD004FE281 /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DEAD7AC81BEBDC05004FE281 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DE8EA1011BF6797D002FDF6A /* Station.swift */,
+				DE8EA0FD1BF6797D002FDF6A /* Stop.swift */,
+				DE8EA0FF1BF6797D002FDF6A /* TrainLine.swift */,
+				DE8EA1001BF6797D002FDF6A /* Station+CoreDataProperties.swift */,
+				DE8EA0FC1BF6797D002FDF6A /* Stop+CoreDataProperties.swift */,
+				DE8EA0FE1BF6797D002FDF6A /* TrainLine+CoreDataProperties.swift */,
+				DEAD7AC91BEBDC2A004FE281 /* CoreDataModel.xcdatamodeld */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +220,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = Vokal;
 				TargetAttributes = {
 					DEAD7AA41BEBCACD004FE281 = {
 						CreatedOnToolsVersion = 7.1;
@@ -327,8 +368,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE8EA1041BF6797D002FDF6A /* TrainLine+CoreDataProperties.swift in Sources */,
+				DE8EA1021BF6797D002FDF6A /* Stop+CoreDataProperties.swift in Sources */,
+				DE8EA1031BF6797D002FDF6A /* Stop.swift in Sources */,
 				DEAD7AAB1BEBCACD004FE281 /* ViewController.swift in Sources */,
+				DE8EA1071BF6797D002FDF6A /* Station.swift in Sources */,
+				DE8EA1091BF67D91002FDF6A /* VOKManagedObjectMap+Swift.swift in Sources */,
 				DEAD7AA91BEBCACD004FE281 /* AppDelegate.swift in Sources */,
+				DE8EA1061BF6797D002FDF6A /* Station+CoreDataProperties.swift in Sources */,
+				DEAD7ACB1BEBDC2A004FE281 /* CoreDataModel.xcdatamodeld in Sources */,
+				DE8EA1051BF6797D002FDF6A /* TrainLine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +422,8 @@
 		DEAD7A9F1BEBCA7D004FE281 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
@@ -600,6 +651,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DEAD7AC91BEBDC2A004FE281 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DEAD7ACA1BEBDC2A004FE281 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = DEAD7ACA1BEBDC2A004FE281 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DEAD7A9B1BEBCA7D004FE281 /* Project object */;
 }
