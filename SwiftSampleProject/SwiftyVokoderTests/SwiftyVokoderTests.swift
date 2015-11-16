@@ -57,6 +57,7 @@ class SwiftyVokoderTests: XCTestCase {
         XCTAssertEqual(station.name, "Grand")
         XCTAssertEqual(station.identifier, 40490)
         XCTAssertEqual(station.descriptiveName, "Grand (Blue Line)")
+        XCTAssertEqual(station.accessible, false)
         XCTAssertEqual(station.locationString, "(41.891189, -87.647578)")
         XCTAssertEqualWithAccuracy(station.coordinate.latitude, 41.891189, accuracy: 1e-5)
         XCTAssertEqualWithAccuracy(station.coordinate.longitude, -87.647578, accuracy: 1e-5)
