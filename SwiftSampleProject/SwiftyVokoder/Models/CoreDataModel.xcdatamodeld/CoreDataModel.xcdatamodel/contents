@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
+    <entity name="Station" representedClassName="Station" syncable="YES">
+        <attribute name="accessible" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="descriptiveName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="locationString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="stops" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stop" inverseName="station" inverseEntity="Stop" syncable="YES"/>
+    </entity>
+    <entity name="Stop" representedClassName="Stop" syncable="YES">
+        <attribute name="directionString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="station" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Station" inverseName="stops" inverseEntity="Station" syncable="YES"/>
+        <relationship name="trainLine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TrainLine" inverseName="stops" inverseEntity="TrainLine" syncable="YES"/>
+    </entity>
+    <entity name="TrainLine" representedClassName="TrainLine" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="stops" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stop" inverseName="trainLine" inverseEntity="Stop" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Station" positionX="-63" positionY="45" width="128" height="165"/>
+        <element name="TrainLine" positionX="-54" positionY="90" width="128" height="90"/>
+        <element name="Stop" positionX="-36" positionY="117" width="128" height="120"/>
+    </elements>
+</model>
