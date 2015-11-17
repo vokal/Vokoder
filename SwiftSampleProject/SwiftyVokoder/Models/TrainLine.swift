@@ -1,6 +1,6 @@
 //
 //  TrainLine.swift
-//  
+//  SwiftyVokoder
 //
 //  Created by Carl Hill-Popper on 11/13/15.
 //  Copyright © 2015 Vokal.

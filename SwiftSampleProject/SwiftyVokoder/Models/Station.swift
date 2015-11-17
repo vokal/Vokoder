@@ -1,6 +1,6 @@
 //
 //  Station.swift
-//  
+//  SwiftyVokoder
 //
 //  Created by Carl Hill-Popper on 11/13/15.
 //  Copyright © 2015 Vokal.
@@ -24,7 +24,6 @@ enum StationAttributes: String {
 
 @objc(Station)
 class Station: NSManagedObject {
-
     lazy private(set) var coordinate: CLLocationCoordinate2D = {
         CLLocationCoordinate2D(latitude: Double(self.latitude ?? 0),
             longitude: Double(self.longitude ?? 0))
@@ -52,6 +51,8 @@ extension Station: VOKMappableModel {
     }
     
     static func importCompletionBlock() -> VOKPostImportBlock {
+        //we aren't using the first param so use the underscore symbol
+        //explicit typing for clarity
         return { (_, inputObject: NSManagedObject) in
             guard let
                 station = inputObject as? Station,
