@@ -290,7 +290,6 @@
     _fetchedResultsController = aFetchedResultsController;
     
     [self reloadData];
-
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
