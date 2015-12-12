@@ -38,10 +38,10 @@
                                  [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES]];
 
     self.dataSource = [[VOKPersonDataSource alloc] initWithPredicate:nil
-                                                          cacheName:nil
-                                                          tableView:self.tableView
-                                                 sectionNameKeyPath:nil sortDescriptors:sortDescriptors
-                                                 managedObjectClass:[VOKPerson class]];
+                                                           cacheName:nil
+                                                           tableView:self.tableView
+                                                  sectionNameKeyPath:nil sortDescriptors:sortDescriptors
+                                                  managedObjectClass:[VOKPerson class]];
 }
 
 - (void)setupCustomMapper
