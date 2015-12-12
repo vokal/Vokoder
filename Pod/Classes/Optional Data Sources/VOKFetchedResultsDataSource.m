@@ -173,8 +173,6 @@
     if (![self.fetchedResultsController performFetch:&error]) {
         NSAssert(NO, @"Unresolved error %@, %@", error, [error userInfo]);
     }
-    //FOR TESTING ONLY, NOT NECESSARY
-    [self.tableView reloadData];
 }
 
 - (NSArray *)fetchedObjects
