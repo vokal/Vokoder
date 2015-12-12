@@ -167,15 +167,6 @@
 
 #pragma mark - Instance Methods
 
-- (void)reloadFetchedResults:(NSNotification *)note
-{
-    VOK_CDLog(@"NSNotification: Underlying data changed ... refreshing!");
-    NSError *error = nil;
-    if (![self.fetchedResultsController performFetch:&error]) {
-        NSAssert(NO, @"Unresolved error %@, %@", error, [error userInfo]);
-    }
-}
-
 - (void)reloadData
 {
     NSError *error = nil;
@@ -188,11 +179,6 @@
 
 - (NSArray *)fetchedObjects
 {
-//    NSError *error = nil;
-//    if (![self.fetchedResultsController performFetch:&error]) {
-//        VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//        abort();
-//    }
    return self.fetchedResultsController.fetchedObjects;
 }
 
