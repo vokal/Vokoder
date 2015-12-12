@@ -205,8 +205,9 @@
         case NSFetchedResultsChangeDelete:
             change[@(type)] = @(sectionIndex);
             break;
-        default:
-            //Do nothing, shut up the compiler with a default case.
+        case NSFetchedResultsChangeMove:
+        case NSFetchedResultsChangeUpdate:
+            // nothing to do for these
             break;
     }
     
