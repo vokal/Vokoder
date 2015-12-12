@@ -193,7 +193,7 @@ static VOKCoreDataManager *VOK_SharedObject;
                                                                      URL:storeURL
                                                                  options:nil
                                                                    error:&error]) {
-                [NSException raise:@"Vokoder Persistant Store Creation Failure"
+                [NSException raise:@"Vokoder Persistant Store Creation Failure after migration"
                             format:@"Unresolved error %@, %@", error, [error userInfo]];
             }
         }
