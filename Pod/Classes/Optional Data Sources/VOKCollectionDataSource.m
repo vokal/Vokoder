@@ -117,7 +117,7 @@
                           delegate:nil];
 }
 
-#pragma mark - UICollectionView
+#pragma mark - UICollectionViewDataSource & UICollectionViewDelegate
 
 - (void)reloadData
 {
