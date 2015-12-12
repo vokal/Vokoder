@@ -326,7 +326,7 @@
         case NSFetchedResultsChangeUpdate:
             if (fetchLimit == 0 || indexPath.row < fetchLimit) {
                 [self.tableView reloadRowsAtIndexPaths:@[indexPath]
-                                  withRowAnimation:UITableViewRowAnimationNone];
+                                      withRowAnimation:UITableViewRowAnimationNone];
             }
             break;
 
