@@ -121,11 +121,7 @@
 
 - (void)reloadData
 {
-    NSError *error = nil;
-    if (![self.fetchedResultsController performFetch:&error]) {
-        NSAssert(NO, @"Unresolved error %@, %@", error, [error userInfo]);
-    }
-    //FOR REVIEW controllerWillChangeContent is not being called in tests - this updates the table explicitly
+    [super reloadData];
     [self.collectionView reloadData];
 }
 
