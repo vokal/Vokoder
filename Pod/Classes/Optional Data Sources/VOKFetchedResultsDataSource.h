@@ -23,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly) Class managedObjectClass;
 @property (weak, readonly) UITableView *tableView;
-@property (weak, readonly) NSManagedObjectContext *managedObjectContext;
 
 @property (weak) id<VOKFetchedResultsDataSourceDelegate> delegate;
 

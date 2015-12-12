@@ -31,7 +31,6 @@
     self = [super init];
 
     if (self) {
-        _managedObjectContext = [[VOKCoreDataManager sharedInstance] managedObjectContext];
         _predicate = predicate;
         _sortDescriptors = sortDescriptors;
         _managedObjectClass = managedObjectClass;
@@ -264,9 +263,11 @@
 
 - (void)initFetchedResultsController
 {
+    NSManagedObjectContext *moc = [[VOKCoreDataManager sharedInstance] managedObjectContext];
+
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:[_managedObjectClass vok_entityName]
-                                              inManagedObjectContext:_managedObjectContext];
+                                              inManagedObjectContext:moc];
     fetchRequest.entity = entity;
     
     fetchRequest.fetchBatchSize = _batchSize;
@@ -280,7 +281,7 @@
     fetchRequest.includesSubentities = _includesSubentities;
 
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                                                managedObjectContext:_managedObjectContext
+                                                                                                managedObjectContext:moc
                                                                                                   sectionNameKeyPath:_sectionNameKeyPath
                                                                                                            cacheName:_cacheName];
     aFetchedResultsController.delegate = self;
