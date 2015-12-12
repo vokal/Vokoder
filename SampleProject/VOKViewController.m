@@ -106,11 +106,13 @@
 
 - (NSDictionary *)dictForCustomMapper
 {
-    return @{@"first" :  [self randomString],
+    return @{
+             @"first" :  [self randomString],
              @"last" : [self randomString],
              @"date_of_birth" : @"24 Jul 83 14:16",
              @"cat_num" : [self randomNumber],
-             @"CR_PREF" : [self randomCoolRanchPreference]};
+             @"CR_PREF" : [self randomCoolRanchPreference],
+             };
 }
 
 - (NSNumber *)randomCoolRanchPreference
