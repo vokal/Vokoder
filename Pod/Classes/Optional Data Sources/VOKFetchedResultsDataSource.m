@@ -173,8 +173,7 @@
     VOK_CDLog(@"NSNotification: Underlying data changed ... refreshing!");
     NSError *error = nil;
     if (![self.fetchedResultsController performFetch:&error]) {
-        VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        NSAssert(NO, @"Unresolved error %@, %@", error, [error userInfo]);
     }
 }
 
@@ -182,8 +181,7 @@
 {
     NSError *error = nil;
     if (![self.fetchedResultsController performFetch:&error]) {
-        VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        NSAssert(NO, @"Unresolved error %@, %@", error, [error userInfo]);
     }
     //FOR TESTING ONLY, NOT NECESSARY
     [self.tableView reloadData];

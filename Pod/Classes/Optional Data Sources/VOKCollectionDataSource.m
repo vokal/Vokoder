@@ -123,8 +123,7 @@
 {
     NSError *error = nil;
     if (![self.fetchedResultsController performFetch:&error]) {
-        VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        NSAssert(NO, @"Unresolved error %@, %@", error, [error userInfo]);
     }
     //FOR REVIEW controllerWillChangeContent is not being called in tests - this updates the table explicitly
     [self.collectionView reloadData];
