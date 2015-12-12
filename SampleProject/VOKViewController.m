@@ -40,7 +40,8 @@
     self.dataSource = [[VOKPersonDataSource alloc] initWithPredicate:nil
                                                            cacheName:nil
                                                            tableView:self.tableView
-                                                  sectionNameKeyPath:nil sortDescriptors:sortDescriptors
+                                                  sectionNameKeyPath:nil
+                                                     sortDescriptors:sortDescriptors
                                                   managedObjectClass:[VOKPerson class]];
 }
 
