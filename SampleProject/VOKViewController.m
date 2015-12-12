@@ -34,8 +34,10 @@
 
 - (void)setupDataSource
 {
-    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"numberOfCats" ascending:NO],
-                                 [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES]];
+    NSArray *sortDescriptors = @[
+                                 [NSSortDescriptor sortDescriptorWithKey:@"numberOfCats" ascending:NO],
+                                 [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES],
+                                 ];
 
     self.dataSource = [[VOKPersonDataSource alloc] initWithPredicate:nil
                                                            cacheName:nil
