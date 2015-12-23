@@ -1,6 +1,6 @@
 //
 //  CoreDataManagerDeleteTests.m
-//  SampleProject
+//  Vokoder Sample Project
 //
 //  Created by Carl Hill-Popper on 11/24/14.
 //  Copyright © 2014 Vokal.

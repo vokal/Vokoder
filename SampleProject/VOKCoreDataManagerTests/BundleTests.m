@@ -1,6 +1,6 @@
 //
 //  BundleTests.m
-//  SampleProject
+//  Vokoder Sample Project
 //
 //  Created by Ellen Shapiro (Vokal) on 10/20/15.
 //
