@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable VOKArrayOfManagedObjects *)fetchedObjects;
 
 - (void)reloadData;
+- (BOOL)reloadData:(NSError **)error;
 
 - (id)initWithPredicate:(nullable NSPredicate *)predicate
               cacheName:(nullable NSString *)cacheName

@@ -170,9 +170,13 @@
 - (void)reloadData
 {
     NSError *error = nil;
-    if (![self.fetchedResultsController performFetch:&error]) {
+    if (![self reloadData:&error]) {
         NSAssert(NO, @"Unresolved error %@, %@", error, [error userInfo]);
     }
+}
+
+- (BOOL)reloadData:(NSError **)error {
+    return [self.fetchedResultsController performFetch:error];
 }
 
 - (NSArray *)fetchedObjects
