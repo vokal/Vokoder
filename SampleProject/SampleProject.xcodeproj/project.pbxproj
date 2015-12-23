@@ -12,6 +12,12 @@
 		3D40DE3D180729A10048D5EE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D40DE34180728BF0048D5EE /* XCTest.framework */; };
 		3D40DE3E180729A10048D5EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A615C196500089AA44 /* Foundation.framework */; };
 		3D40DE3F180729A10048D5EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5F19A415C196500089AA44 /* UIKit.framework */; };
+		3D4DD8BE1C1CCAE900986067 /* VOKPersonCollectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DD8BD1C1CCAE900986067 /* VOKPersonCollectionDataSource.m */; };
+		3DBE7F8C1C2AD6EF00FAFA05 /* UIViewController+VOKConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE7F871C2AD6EF00FAFA05 /* UIViewController+VOKConvenience.m */; };
+		3DBE7F8D1C2AD6EF00FAFA05 /* VOKCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE7F891C2AD6EF00FAFA05 /* VOKCollectionViewController.m */; };
+		3DBE7F8E1C2AD6EF00FAFA05 /* VOKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE7F8B1C2AD6EF00FAFA05 /* VOKTableViewController.m */; };
+		3DBE7F931C2AD77A00FAFA05 /* VOKCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE7F911C2AD77A00FAFA05 /* VOKCollectionViewCell.m */; };
+		3DBE7F941C2AD77A00FAFA05 /* VOKCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE7F921C2AD77A00FAFA05 /* VOKCollectionViewCell.xib */; };
 		487ADC79AEB21F0C4A5B6963 /* libPods-VOKCoreDataManager Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A15387FCC51E8AC46390CE29 /* libPods-VOKCoreDataManager Tests.a */; };
 		718462C21B9505D000015274 /* VOKMappablePerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 718462C11B9505D000015274 /* VOKMappablePerson.m */; };
 		71E1AAE21A53408D004311E5 /* VOKPersonDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE11A53408D004311E5 /* VOKPersonDataSource.m */; };
@@ -21,7 +27,6 @@
 		71E1AAF21A5340CE004311E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E1AAEE1A5340CE004311E5 /* Default-568h@2x.png */; };
 		71E1AAF31A5340CE004311E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAEF1A5340CE004311E5 /* main.m */; };
 		71E1AB031A534221004311E5 /* VOKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB001A534221004311E5 /* VOKAppDelegate.m */; };
-		71E1AB041A534221004311E5 /* VOKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB021A534221004311E5 /* VOKViewController.m */; };
 		71E1AB051A534239004311E5 /* CoreDataManagerDeleteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAF51A5340ED004311E5 /* CoreDataManagerDeleteTests.m */; };
 		71E1AB061A53423D004311E5 /* ManagedObjectImportExportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAF71A5340F3004311E5 /* ManagedObjectImportExportTests.m */; };
 		71E1AB091A534274004311E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71E1AB071A534274004311E5 /* InfoPlist.strings */; };
@@ -49,6 +54,17 @@
 		3525B1DF80B2F57050AE6E85 /* Pods-VOKCoreDataManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager.release.xcconfig"; sourceTree = "<group>"; };
 		3D40DE34180728BF0048D5EE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3D40DE3C180729A10048D5EE /* VOKCoreDataManager Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VOKCoreDataManager Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D4DD8BC1C1CCAE900986067 /* VOKPersonCollectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPersonCollectionDataSource.h; sourceTree = "<group>"; };
+		3D4DD8BD1C1CCAE900986067 /* VOKPersonCollectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKPersonCollectionDataSource.m; sourceTree = "<group>"; };
+		3DBE7F861C2AD6EF00FAFA05 /* UIViewController+VOKConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VOKConvenience.h"; sourceTree = "<group>"; };
+		3DBE7F871C2AD6EF00FAFA05 /* UIViewController+VOKConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VOKConvenience.m"; sourceTree = "<group>"; };
+		3DBE7F881C2AD6EF00FAFA05 /* VOKCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKCollectionViewController.h; sourceTree = "<group>"; };
+		3DBE7F891C2AD6EF00FAFA05 /* VOKCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKCollectionViewController.m; sourceTree = "<group>"; };
+		3DBE7F8A1C2AD6EF00FAFA05 /* VOKTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKTableViewController.h; sourceTree = "<group>"; };
+		3DBE7F8B1C2AD6EF00FAFA05 /* VOKTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKTableViewController.m; sourceTree = "<group>"; };
+		3DBE7F901C2AD77A00FAFA05 /* VOKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKCollectionViewCell.h; sourceTree = "<group>"; };
+		3DBE7F911C2AD77A00FAFA05 /* VOKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKCollectionViewCell.m; sourceTree = "<group>"; };
+		3DBE7F921C2AD77A00FAFA05 /* VOKCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VOKCollectionViewCell.xib; sourceTree = "<group>"; };
 		4F92780151AFBE02160324DF /* Pods-VOKCoreDataManager Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager Tests/Pods-VOKCoreDataManager Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7172B5031B8E82D400589204 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		7172B5041B8E82D400589204 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -72,8 +88,6 @@
 		71E1AAFB1A5340FD004311E5 /* VOKCoreDataManager Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VOKCoreDataManager Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71E1AAFF1A534221004311E5 /* VOKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		71E1AB001A534221004311E5 /* VOKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKAppDelegate.m; sourceTree = SOURCE_ROOT; };
-		71E1AB011A534221004311E5 /* VOKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKViewController.h; sourceTree = SOURCE_ROOT; };
-		71E1AB021A534221004311E5 /* VOKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKViewController.m; sourceTree = SOURCE_ROOT; };
 		71E1AB081A534274004311E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		71E1AB0B1A5342E5004311E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = VOKCoreDataManagerTests/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		8434D73F1A93F44E005A9B2F /* VOKManagedObjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKManagedObjectAdditions.m; sourceTree = "<group>"; };
@@ -138,6 +152,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3DBE7F851C2AD6EF00FAFA05 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3DBE7F861C2AD6EF00FAFA05 /* UIViewController+VOKConvenience.h */,
+				3DBE7F871C2AD6EF00FAFA05 /* UIViewController+VOKConvenience.m */,
+				3DBE7F881C2AD6EF00FAFA05 /* VOKCollectionViewController.h */,
+				3DBE7F891C2AD6EF00FAFA05 /* VOKCollectionViewController.m */,
+				3DBE7F8A1C2AD6EF00FAFA05 /* VOKTableViewController.h */,
+				3DBE7F8B1C2AD6EF00FAFA05 /* VOKTableViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = SOURCE_ROOT;
+		};
+		3DBE7F8F1C2AD75900FAFA05 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DBE7F901C2AD77A00FAFA05 /* VOKCollectionViewCell.h */,
+				3DBE7F911C2AD77A00FAFA05 /* VOKCollectionViewCell.m */,
+				3DBE7F921C2AD77A00FAFA05 /* VOKCollectionViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = SOURCE_ROOT;
+		};
 		7172B5021B8E82C000589204 /* Vokoder Pod Metadata */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +190,8 @@
 			children = (
 				71E1AAE01A53408D004311E5 /* VOKPersonDataSource.h */,
 				71E1AAE11A53408D004311E5 /* VOKPersonDataSource.m */,
+				3D4DD8BC1C1CCAE900986067 /* VOKPersonCollectionDataSource.h */,
+				3D4DD8BD1C1CCAE900986067 /* VOKPersonCollectionDataSource.m */,
 			);
 			path = DataSource;
 			sourceTree = SOURCE_ROOT;
@@ -236,8 +275,8 @@
 				71E1AAE31A5340A1004311E5 /* Models */,
 				71E1AAFF1A534221004311E5 /* VOKAppDelegate.h */,
 				71E1AB001A534221004311E5 /* VOKAppDelegate.m */,
-				71E1AB011A534221004311E5 /* VOKViewController.h */,
-				71E1AB021A534221004311E5 /* VOKViewController.m */,
+				3DBE7F8F1C2AD75900FAFA05 /* Views */,
+				3DBE7F851C2AD6EF00FAFA05 /* ViewControllers */,
 				71E1AAED1A5340CE004311E5 /* Supporting Files */,
 			);
 			name = "Sample Project";
@@ -336,6 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DBE7F941C2AD77A00FAFA05 /* VOKCollectionViewCell.xib in Resources */,
 				71E1AAF21A5340CE004311E5 /* Default-568h@2x.png in Resources */,
 				71E1AB091A534274004311E5 /* InfoPlist.strings in Resources */,
 			);
@@ -467,10 +507,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				71E1AAE21A53408D004311E5 /* VOKPersonDataSource.m in Sources */,
-				71E1AB041A534221004311E5 /* VOKViewController.m in Sources */,
+				3DBE7F931C2AD77A00FAFA05 /* VOKCollectionViewCell.m in Sources */,
+				3DBE7F8D1C2AD6EF00FAFA05 /* VOKCollectionViewController.m in Sources */,
+				3D4DD8BE1C1CCAE900986067 /* VOKPersonCollectionDataSource.m in Sources */,
+				3DBE7F8E1C2AD6EF00FAFA05 /* VOKTableViewController.m in Sources */,
 				71E1AAEC1A5340A1004311E5 /* VOKThing.m in Sources */,
 				71E1AAEA1A5340A1004311E5 /* VOKCoreDataModel.xcdatamodeld in Sources */,
 				71E1AB031A534221004311E5 /* VOKAppDelegate.m in Sources */,
+				3DBE7F8C1C2AD6EF00FAFA05 /* UIViewController+VOKConvenience.m in Sources */,
 				718462C21B9505D000015274 /* VOKMappablePerson.m in Sources */,
 				71E1AAF31A5340CE004311E5 /* main.m in Sources */,
 				71E1AAEB1A5340A1004311E5 /* VOKPerson.m in Sources */,
