@@ -22,8 +22,15 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-//    UIViewController *viewController = [[VOKTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    UIViewController *viewController = [[VOKCollectionViewController alloc] init];
+    // Switch between the table view controller or the collection view controller here
+    // if you're interested in working with one or the other.
+
+    //TABLE VIEW
+    //VOKTableViewController *viewController = [[VOKTableViewController alloc] initWithStyle:UITableViewStylePlain];
+
+    //COLLECTION VIEW
+    VOKCollectionViewController *viewController = [[VOKCollectionViewController alloc] init];
+
     self.navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
