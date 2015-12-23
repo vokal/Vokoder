@@ -119,12 +119,6 @@
 
 #pragma mark - UICollectionViewDataSource & UICollectionViewDelegate
 
-- (void)reloadData
-{
-    [super reloadData];
-    [self.collectionView reloadData];
-}
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     NSInteger sectionCount = self.fetchedResultsController.sections.count;
