@@ -47,8 +47,8 @@
 
 - (NSArray *)sortDescriptors {
     return @[
-             [NSSortDescriptor sortDescriptorWithKey:@"numberOfCats" ascending:NO],
-             [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES],
+             [NSSortDescriptor sortDescriptorWithKey:VOK_CDSELECTOR(numberOfCats) ascending:NO],
+             [NSSortDescriptor sortDescriptorWithKey:VOK_CDSELECTOR(lastName) ascending:YES],
              ];
 }
 

@@ -8,8 +8,6 @@
 #import "VOKCollectionViewCell.h"
 #import "VOKPerson.h"
 
-static NSString *CellIdentifier = @"CellIdentifier";
-
 @implementation VOKPersonCollectionDataSource
 
 - (id)initWithPredicate:(NSPredicate *)predicate
@@ -27,9 +25,9 @@ static NSString *CellIdentifier = @"CellIdentifier";
                 managedObjectClass:managedObjectClass
                          batchSize:20];
     if (self) {
-        CellIdentifier = NSStringFromClass(VOKCollectionViewCell.class);
-        [collectionView registerNib:[UINib nibWithNibName:CellIdentifier bundle:nil]
-           forCellWithReuseIdentifier:CellIdentifier];
+        NSString *cellIdentifier = NSStringFromClass([VOKCollectionViewCell class]);
+        [collectionView registerNib:[UINib nibWithNibName:cellIdentifier bundle:nil]
+           forCellWithReuseIdentifier:cellIdentifier];
     }
     return self;
 }
@@ -37,7 +35,7 @@ static NSString *CellIdentifier = @"CellIdentifier";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     VOKPerson *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    VOKCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier
+    VOKCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([VOKCollectionViewCell class])
                                                                             forIndexPath:indexPath];
     [cell layoutWithPerson:person];
     return cell;
