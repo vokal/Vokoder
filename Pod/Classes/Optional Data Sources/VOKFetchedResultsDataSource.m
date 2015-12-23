@@ -11,8 +11,8 @@
 
 @interface VOKFetchedResultsDataSource ()
 
-@property NSString *sectionNameKeyPath;
-@property NSString *cacheName;
+@property (nonatomic, copy) NSString *sectionNameKeyPath;
+@property (nonatomic, copy) NSString *cacheName;
 
 @end
 
