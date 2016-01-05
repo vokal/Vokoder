@@ -27,7 +27,7 @@
     if (self) {
         NSString *cellIdentifier = NSStringFromClass([VOKCollectionViewCell class]);
         [collectionView registerNib:[UINib nibWithNibName:cellIdentifier bundle:nil]
-           forCellWithReuseIdentifier:cellIdentifier];
+         forCellWithReuseIdentifier:cellIdentifier];
     }
     return self;
 }
