@@ -193,8 +193,8 @@ static VOKCoreDataManager *VOK_SharedObject;
                                                                      URL:storeURL
                                                                  options:nil
                                                                    error:&error]) {
-                VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                abort();
+                [NSException raise:@"Vokoder Persistant Store Creation Failure after migration"
+                            format:@"Unresolved error %@, %@", error, [error userInfo]];
             }
         }
     }

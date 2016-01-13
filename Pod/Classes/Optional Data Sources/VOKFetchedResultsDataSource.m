@@ -11,8 +11,8 @@
 
 @interface VOKFetchedResultsDataSource ()
 
-@property NSString *sectionNameKeyPath;
-@property NSString *cacheName;
+@property (nonatomic, copy) NSString *sectionNameKeyPath;
+@property (nonatomic, copy) NSString *cacheName;
 
 @end
 
@@ -31,7 +31,6 @@
     self = [super init];
 
     if (self) {
-        _managedObjectContext = [[VOKCoreDataManager sharedInstance] managedObjectContext];
         _predicate = predicate;
         _sortDescriptors = sortDescriptors;
         _managedObjectClass = managedObjectClass;
@@ -168,34 +167,20 @@
 
 #pragma mark - Instance Methods
 
-- (void)reloadFetchedResults:(NSNotification *)note
-{
-    VOK_CDLog(@"NSNotification: Underlying data changed ... refreshing!");
-    NSError *error = nil;
-    if (![self.fetchedResultsController performFetch:&error]) {
-        VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-}
-
 - (void)reloadData
 {
     NSError *error = nil;
-    if (![self.fetchedResultsController performFetch:&error]) {
-        VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+    if (![self reloadData:&error]) {
+        NSAssert(NO, @"Unresolved error %@, %@", error, [error userInfo]);
     }
-    //FOR TESTING ONLY, NOT NECESSARY
-    [self.tableView reloadData];
+}
+
+- (BOOL)reloadData:(NSError **)error {
+    return [self.fetchedResultsController performFetch:error];
 }
 
 - (NSArray *)fetchedObjects
 {
-//    NSError *error = nil;
-//    if (![self.fetchedResultsController performFetch:&error]) {
-//        VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//        abort();
-//    }
    return self.fetchedResultsController.fetchedObjects;
 }
 
@@ -266,9 +251,11 @@
 
 - (void)initFetchedResultsController
 {
+    NSManagedObjectContext *moc = [[VOKCoreDataManager sharedInstance] managedObjectContext];
+
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:[_managedObjectClass vok_entityName]
-                                              inManagedObjectContext:_managedObjectContext];
+                                              inManagedObjectContext:moc];
     fetchRequest.entity = entity;
     
     fetchRequest.fetchBatchSize = _batchSize;
@@ -282,7 +269,7 @@
     fetchRequest.includesSubentities = _includesSubentities;
 
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                                                managedObjectContext:_managedObjectContext
+                                                                                                managedObjectContext:moc
                                                                                                   sectionNameKeyPath:_sectionNameKeyPath
                                                                                                            cacheName:_cacheName];
     aFetchedResultsController.delegate = self;
@@ -290,7 +277,6 @@
     _fetchedResultsController = aFetchedResultsController;
     
     [self reloadData];
-
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
@@ -344,7 +330,7 @@
         case NSFetchedResultsChangeUpdate:
             if (fetchLimit == 0 || indexPath.row < fetchLimit) {
                 [self.tableView reloadRowsAtIndexPaths:@[indexPath]
-                                  withRowAnimation:UITableViewRowAnimationNone];
+                                      withRowAnimation:UITableViewRowAnimationNone];
             }
             break;
 

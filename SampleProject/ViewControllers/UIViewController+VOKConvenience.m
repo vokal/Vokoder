@@ -1,20 +1,17 @@
 //
-//  VOKViewController.m
-//  CoreData
+//  UIViewController+VOKConvenience.m
+//  Vokoder Sample Project
 //
 //  Copyright © 2015 Vokal.
 //
 
-#import "VOKViewController.h"
+#import "UIViewController+VOKConvenience.h"
 #import "VOKCoreDataManager.h"
 #import "VOKPerson.h"
 
-@implementation VOKViewController
+@implementation UIViewController (VOKConvenience)
 
-- (void)loadView
-{
-    [super loadView];
-
+- (void)layoutNavBarButtons {
     UIBarButtonItem *reloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                                                                   target:self
                                                                                   action:@selector(reloadData)];
@@ -26,22 +23,6 @@
                                                                                            action:@selector(deleteDataInBackground)];
 
     self.navigationItem.rightBarButtonItems = @[reloadButton, reloadInBackgroundButton, deleteSomeStuffButton];
-
-    [[VOKCoreDataManager sharedInstance] resetCoreData];
-    [self setupDataSource];
-    [self setupCustomMapper];
-}
-
-- (void)setupDataSource
-{
-    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"numberOfCats" ascending:NO],
-                                 [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES]];
-
-    self.dataSource = [[VOKPersonDataSource alloc] initWithPredicate:nil
-                                                          cacheName:nil
-                                                          tableView:self.tableView
-                                                 sectionNameKeyPath:nil sortDescriptors:sortDescriptors
-                                                 managedObjectClass:[VOKPerson class]];
 }
 
 - (void)setupCustomMapper
@@ -58,6 +39,17 @@
 
     VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOK_CDSELECTOR(lastName) andMaps:maps];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VOKPerson class]];
+}
+
+- (Class)demoClassToLoad {
+    return VOKPerson.class;
+}
+
+- (NSArray *)sortDescriptors {
+    return @[
+             [NSSortDescriptor sortDescriptorWithKey:VOK_CDSELECTOR(numberOfCats) ascending:NO],
+             [NSSortDescriptor sortDescriptorWithKey:VOK_CDSELECTOR(lastName) ascending:YES],
+             ];
 }
 
 - (void)reloadData
@@ -103,11 +95,13 @@
 
 - (NSDictionary *)dictForCustomMapper
 {
-    return @{@"first" :  [self randomString],
+    return @{
+             @"first" :  [self randomString],
              @"last" : [self randomString],
              @"date_of_birth" : @"24 Jul 83 14:16",
              @"cat_num" : [self randomNumber],
-             @"CR_PREF" : [self randomCoolRanchPreference]};
+             @"CR_PREF" : [self randomCoolRanchPreference],
+             };
 }
 
 - (NSNumber *)randomCoolRanchPreference

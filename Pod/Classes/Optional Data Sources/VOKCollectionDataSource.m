@@ -117,18 +117,7 @@
                           delegate:nil];
 }
 
-#pragma mark - UICollectionView
-
-- (void)reloadData
-{
-    NSError *error = nil;
-    if (![self.fetchedResultsController performFetch:&error]) {
-        VOK_CDLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    //FOR REVIEW controllerWillChangeContent is not being called in tests - this updates the table explicitly
-    [self.collectionView reloadData];
-}
+#pragma mark - UICollectionViewDataSource & UICollectionViewDelegate
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -161,7 +150,6 @@
     return resultCount;
 }
 
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"CellIdentifier";
@@ -206,8 +194,9 @@
         case NSFetchedResultsChangeDelete:
             change[@(type)] = @(sectionIndex);
             break;
-        default:
-            //Do nothing, shut up the compiler with a default case.
+        case NSFetchedResultsChangeMove:
+        case NSFetchedResultsChangeUpdate:
+            // nothing to do for these
             break;
     }
     
@@ -410,6 +399,19 @@
     }
     
     return shouldReload;
+}
+
+- (void)dealloc
+{
+    if (self.collectionView.delegate == self) {
+        self.collectionView.delegate = nil;
+    }
+
+    if (self.collectionView.dataSource == self) {
+        self.collectionView.dataSource = nil;
+    }
+
+    self.fetchedResultsController.delegate = nil;
 }
 
 @end

@@ -21,22 +21,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VOKFetchedResultsDataSource : NSObject <NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
-@property (readonly) Class managedObjectClass;
-@property (weak, readonly) UITableView *tableView;
-@property (weak, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, assign, readonly) Class managedObjectClass;
+@property (nonatomic, weak, readonly) UITableView *tableView;
 
-@property (weak) id<VOKFetchedResultsDataSourceDelegate> delegate;
+@property (nonatomic, weak) id<VOKFetchedResultsDataSourceDelegate> delegate;
 
-@property (strong, readonly) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong, readonly) NSFetchedResultsController *fetchedResultsController;
 
 //these are exposed to handle reconfiguration of the fetchedResultsController when they change
-@property (assign, nonatomic) NSInteger batchSize;
-@property (assign, nonatomic) NSInteger fetchLimit;
+@property (nonatomic, assign) NSInteger batchSize;
+@property (nonatomic, assign) NSInteger fetchLimit;
 
-@property (weak, nonatomic) NSPredicate *predicate;
-@property (weak, nonatomic) VOKArrayOfSortDescriptors *sortDescriptors;
+@property (nonatomic, strong) NSPredicate *predicate;
+@property (nonatomic, copy) VOKArrayOfSortDescriptors *sortDescriptors;
 
-@property (nonatomic) BOOL includesSubentities;
+@property (nonatomic, assign) BOOL includesSubentities;
 
 //whether to deselect the selected cell of the table view
 //after sending the selected object to the delegate
@@ -46,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable VOKArrayOfManagedObjects *)fetchedObjects;
 
 - (void)reloadData;
+- (BOOL)reloadData:(NSError **)error;
 
 - (id)initWithPredicate:(nullable NSPredicate *)predicate
               cacheName:(nullable NSString *)cacheName

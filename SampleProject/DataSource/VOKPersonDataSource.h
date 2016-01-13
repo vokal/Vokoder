@@ -1,8 +1,8 @@
 //
 //  VOKPersonDataSource.h
-//  CoreData
+//  Vokoder Sample Project
 //
-//  © 2015 Vokal.
+//  Copyright © 2015 Vokal.
 //
 
 #import <Foundation/Foundation.h>

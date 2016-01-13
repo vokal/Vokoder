@@ -1,9 +1,8 @@
 //
 //  VOKAppDelegate.h
-//  CoreData
+//  Vokoder Sample Project
 //
-//  Created by Anthony Alesia on 7/26/12.
-//  Copyright © 2012 Vokal.
+//  Copyright © 2015 Vokal.
 //
 
 #import <UIKit/UIKit.h>

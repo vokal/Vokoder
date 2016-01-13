@@ -1,6 +1,6 @@
 //
 //  VOKPersonDataSource.m
-//  CoreData
+//  Vokoder Sample Project
 //
 //  Copyright © 2015 Vokal.
 //
