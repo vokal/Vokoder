@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/Vokoder.svg?style=flat)](http://cocoadocs.org/docsets/Vokoder)
 [![Platform](https://img.shields.io/cocoapods/p/Vokoder.svg?style=flat)](http://cocoadocs.org/docsets/Vokoder)
 
-![](Vokoder1000.png)
+![](logo/Vokoder500.png)
 
 A lightweight core data stack with efficient importing and exporting on the side.
 
