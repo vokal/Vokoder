@@ -9,11 +9,13 @@
 import XCTest
 @testable import SwiftyVokoder
 
+let testIdentifier = 30096
+
 class SwiftyVokoderTests: XCTestCase {
     
     func exampleBlueLineStopDictionary() -> [String: AnyObject] {
         return [
-            "STOP_ID":30096,
+            "STOP_ID":testIdentifier,
             "DIRECTION_ID":"S",
             "STOP_NAME":"Grand/Milwaukee (Forest Pk-bound)",
             "STATION_NAME":"Grand",
@@ -33,23 +35,50 @@ class SwiftyVokoderTests: XCTestCase {
         ]
     }
     
+    func allStopDictionaries() -> [[String: AnyObject]] {
+        guard let
+            path = NSBundle.mainBundle().pathForResource("CTA_stations", ofType: "json"),
+            data = NSData(contentsOfFile: path)
+            else {
+                XCTFail("file not found")
+                return []
+        }
+        
+        do {
+            let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+            guard let jsonArray = jsonObject as? [[String: AnyObject]] else {
+                XCTFail("JSON in unexpected format")
+                return []
+            }
+            return jsonArray
+        } catch {
+            XCTFail("Could not read JSON file")
+            return []
+        }
+    }
+    
     func testCreateTrainLineFromIdentifier() {
         let redLine = TrainLine.trainLine(ctaIdentifier: .Red, forManagedObjectContext: nil)
         XCTAssertEqual(redLine.identifier, TrainLine.CTAIdentifier.Red.rawValue)
         XCTAssertEqual(redLine.name, TrainLine.CTAIdentifier.Red.name)
     }
  
-    func testImport() {
+    func testImportOneStop() {
         let inputDictionary = self.exampleBlueLineStopDictionary()
         guard let stop = Stop.vok_addWithDictionary(inputDictionary, forManagedObjectContext: nil) else {
             XCTFail("Could not load Stop from dictionary")
             return
         }
+        
+        self.verifyGrandMilwaukeeStop(stop)
+    }
+    
+    func verifyGrandMilwaukeeStop(stop: Stop) {
         XCTAssertEqual(stop.name, "Grand/Milwaukee (Forest Pk-bound)")
-        XCTAssertEqual(stop.identifier, 30096)
+        XCTAssertEqual(stop.identifier, testIdentifier)
         XCTAssertEqual(stop.directionString, "S")
         XCTAssertEqual(stop.direction, Stop.Direction.South)
-
+        
         guard let station = stop.station, trainLine = stop.trainLine else {
             XCTFail("Could not load station or train from dictionary")
             return
@@ -64,5 +93,22 @@ class SwiftyVokoderTests: XCTestCase {
         
         XCTAssertEqual(trainLine.name, "Blue Line")
         XCTAssertEqual(trainLine.identifier, "BLUE")
+    }
+    
+    func testImportAllStops() {
+        guard let stops = Stop.vok_addWithArray(self.allStopDictionaries(), forManagedObjectContext: nil) as? [Stop] else {
+            XCTFail("Could not load stops from data file")
+            return
+        }
+        
+        XCTAssertEqual(stops.count, 300)
+        guard let stop = stops.filter({ stop in
+            return stop.identifier == testIdentifier
+        }).first else {
+            XCTFail("Could not find stop \(testIdentifier)")
+            return
+        }
+        
+        self.verifyGrandMilwaukeeStop(stop)
     }
 }
