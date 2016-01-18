@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Vokoder
 @testable import SwiftyVokoder
 
 let grandMilwaukeeIdentifier = 30096
@@ -107,5 +108,29 @@ class SwiftyVokoderTests: XCTestCase {
         }
         
         self.verifyGrandMilwaukeeStop(grandMilwaukeeStop)
+    }
+    
+    func testSwiftExtensionEqualObjCImports() {
+        let stopDictionaries = self.allStopDictionaries()
+        var swiftStops: [Stop] = Stop.vok_import(stopDictionaries)
+        var objCStops: [NSManagedObject] = Stop.vok_addWithArray(stopDictionaries, forManagedObjectContext: nil)
+        
+        XCTAssertEqual(swiftStops, objCStops)
+        
+        let manager = VOKCoreDataManager.sharedInstance()
+        
+        swiftStops = manager.importArray(stopDictionaries, forClass: Stop.self)
+        objCStops = manager.importArray(stopDictionaries, forClass: Stop.self, withContext: nil)
+
+        XCTAssertEqual(swiftStops, objCStops)
+    }
+    
+    func testSwiftImportsWithEmptyOutput() {
+        var stops = Stop.vok_import([])
+        
+        XCTAssertEqual(stops.count, 0)
+        
+        stops = VOKCoreDataManager.sharedInstance().importArray([], forClass: Stop.self)
+        XCTAssertEqual(stops.count, 0)
     }
 }
