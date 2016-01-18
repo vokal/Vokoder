@@ -16,7 +16,10 @@ public protocol VokoderTypedManagedObject: class { }
 public extension VokoderTypedManagedObject where Self: NSManagedObject {
     
     /**
-     Deserializes an array of dictionaries full of strings and creates (or updates) instances of a managed object subclass in the given context.
+     Create or update many NSManagedObjects, respecting the mapper's overwriteObjectsWithServerChanges and ignoreNullValueOverwrites properties.
+     This should only be used to set all properties of an entity.
+     By default any mapped attributes not included in the input dictionaries will be set to nil.
+     This will overwrite ALL of an NSManagedObject's properties unless ignoreNullValueOverwrites is YES;
      
      - parameter inputArray: An array of dicionaries defining managed object subclasses
      - parameter context: The managed object context in which to create the objects or nil for the main context (defaults to nil)
@@ -29,6 +32,21 @@ public extension VokoderTypedManagedObject where Self: NSManagedObject {
                 withContext: context)
     }
     
+    /**
+     Create or update a single NSManagedObject, respecting the mapper's overwriteObjectsWithServerChanges and ignoreNullValueOverwrites properties.
+     This should only be used to set all properties of an entity.
+     By default any mapped attributes not included in the input dictionaries will be set to nil.
+     This will overwrite ALL of an NSManagedObject's properties unless ignoreNullValueOverwrites is YES;
+     
+     - parameter inputArray: An array of dicionaries defining managed object subclasses
+     - parameter context: The managed object context in which to create the objects or nil for the main context (defaults to nil)
+     - returns: An instance of this subclass of managed object or nil if the import failed
+     */
+    public static func vok_addWithDictionary(inputDict: [String : AnyObject],
+        forManagedObjectContext context: NSManagedObjectContext? = nil) -> Self? {
+            return self.vok_addWithDictionary(inputDict, forManagedObjectContext: context)
+    }
+
     /**
      Fetches every instance of this class that matches the predicate using the given managed object context. Includes subentities.
      NOT threadsafe! Always use a temp context if you are NOT on the main queue.
