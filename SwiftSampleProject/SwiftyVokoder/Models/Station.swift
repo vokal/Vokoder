@@ -71,4 +71,6 @@ extension Station: VOKMappableModel {
     }
 }
 
+//MARK: VokoderTypedManagedObject
+//the empty protocol implementation is used to mixin the functionality of VokoderTypedManagedObject
 extension Station: VokoderTypedManagedObject { }
