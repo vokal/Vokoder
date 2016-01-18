@@ -45,7 +45,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Swift' do |sw|
-    sw.dependency 'Vokoder/Core'
+    sw.dependency 'Vokoder/DataSources'
     sw.source_files = [
       'Pod/Classes/Swift/*.swift'
     ]

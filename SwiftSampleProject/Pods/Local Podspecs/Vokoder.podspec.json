@@ -79,7 +79,7 @@
     {
       "name": "Swift",
       "dependencies": {
-        "Vokoder/Core": [
+        "Vokoder/DataSources": [
 
         ]
       },
