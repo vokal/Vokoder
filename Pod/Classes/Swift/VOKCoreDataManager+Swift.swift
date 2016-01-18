@@ -29,7 +29,7 @@ public extension VOKCoreDataManager {
     /**
      Deserializes an array of dictionaries full of strings and creates (or updates) instances of a managed object subclass in the given context.
      
-     - parameter inputArray: An array of dicionaries defining managed object subclasses
+     - parameter inputArray: An array of dictionaries defining managed object subclasses
      - parameter objectClass: The class of objects to create
      - parameter context: The managed object context in which to create the objects or nil for the main context (defaults to nil)
      - returns: A typed Array of created or updated objects

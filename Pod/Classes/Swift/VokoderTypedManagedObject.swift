@@ -21,7 +21,7 @@ public extension VokoderTypedManagedObject where Self: NSManagedObject {
      By default any mapped attributes not included in the input dictionaries will be set to nil.
      This will overwrite ALL of an NSManagedObject's properties unless ignoreNullValueOverwrites is YES;
      
-     - parameter inputArray: An array of dicionaries defining managed object subclasses
+     - parameter inputArray: An array of dictionaries defining managed object subclasses
      - parameter context: The managed object context in which to create the objects or nil for the main context (defaults to nil)
      - returns: A typed Array of created or updated objects
      */
@@ -38,7 +38,7 @@ public extension VokoderTypedManagedObject where Self: NSManagedObject {
      By default any mapped attributes not included in the input dictionaries will be set to nil.
      This will overwrite ALL of an NSManagedObject's properties unless ignoreNullValueOverwrites is YES;
      
-     - parameter inputArray: An array of dicionaries defining managed object subclasses
+     - parameter inputDict: A dictionary defining a managed object subclass
      - parameter context: The managed object context in which to create the objects or nil for the main context (defaults to nil)
      - returns: An instance of this subclass of managed object or nil if the import failed
      */
