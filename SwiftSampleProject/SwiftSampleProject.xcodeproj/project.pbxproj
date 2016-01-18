@@ -16,7 +16,6 @@
 		DE8EA1051BF6797D002FDF6A /* TrainLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA0FF1BF6797D002FDF6A /* TrainLine.swift */; };
 		DE8EA1061BF6797D002FDF6A /* Station+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA1001BF6797D002FDF6A /* Station+CoreDataProperties.swift */; };
 		DE8EA1071BF6797D002FDF6A /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA1011BF6797D002FDF6A /* Station.swift */; };
-		DE8EA1091BF67D91002FDF6A /* VOKManagedObjectMap+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA1081BF67D91002FDF6A /* VOKManagedObjectMap+Swift.swift */; };
 		DEAD7AA91BEBCACD004FE281 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAD7AA81BEBCACD004FE281 /* AppDelegate.swift */; };
 		DEAD7AAB1BEBCACD004FE281 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAD7AAA1BEBCACD004FE281 /* ViewController.swift */; };
 		DEAD7AAE1BEBCACD004FE281 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAD7AAC1BEBCACD004FE281 /* Main.storyboard */; };
@@ -48,7 +47,6 @@
 		DE8EA0FF1BF6797D002FDF6A /* TrainLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainLine.swift; sourceTree = "<group>"; };
 		DE8EA1001BF6797D002FDF6A /* Station+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Station+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DE8EA1011BF6797D002FDF6A /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
-		DE8EA1081BF67D91002FDF6A /* VOKManagedObjectMap+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VOKManagedObjectMap+Swift.swift"; sourceTree = "<group>"; };
 		DEAD7AA51BEBCACD004FE281 /* SwiftyVokoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyVokoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEAD7AA81BEBCACD004FE281 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEAD7AAA1BEBCACD004FE281 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 				DE7ECC471C4C26460001FD41 /* CTA_stations.json */,
 				DEAD7AA81BEBCACD004FE281 /* AppDelegate.swift */,
 				DEAD7AAA1BEBCACD004FE281 /* ViewController.swift */,
-				DE8EA1081BF67D91002FDF6A /* VOKManagedObjectMap+Swift.swift */,
 				DEAD7AAC1BEBCACD004FE281 /* Main.storyboard */,
 				DEAD7AC81BEBDC05004FE281 /* Models */,
 				DEAD7AC71BEBDBA8004FE281 /* Resources */,
@@ -377,7 +374,6 @@
 				DE8EA1031BF6797D002FDF6A /* Stop.swift in Sources */,
 				DEAD7AAB1BEBCACD004FE281 /* ViewController.swift in Sources */,
 				DE8EA1071BF6797D002FDF6A /* Station.swift in Sources */,
-				DE8EA1091BF67D91002FDF6A /* VOKManagedObjectMap+Swift.swift in Sources */,
 				DEAD7AA91BEBCACD004FE281 /* AppDelegate.swift in Sources */,
 				DE8EA1061BF6797D002FDF6A /* Station+CoreDataProperties.swift in Sources */,
 				DEAD7ACB1BEBDC2A004FE281 /* CoreDataModel.xcdatamodeld in Sources */,
