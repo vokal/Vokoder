@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Vokoder"
-  s.version          = "2.0.1"
+  s.version          = "2.1.0"
   s.summary          = "Vokal's Core Data Manager"
   s.homepage         = "https://github.com/vokal/Vokoder"
   s.license          = { :type => "MIT", :file => "LICENSE"}
@@ -9,6 +9,8 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
+
+  s.default_subspecs = 'Core', 'DataSources'
 
   s.subspec 'Core' do |ss|
     ss.source_files = [
@@ -40,5 +42,12 @@ Pod::Spec.new do |s|
       sss.source_files = 'Pod/Classes/Optional Data Sources/VOKCollectionDataSource.{h,m}'
       sss.dependency 'Vokoder/DataSources/FetchedResults'
     end
+  end
+
+  s.subspec 'Swift' do |sw|
+    sw.dependency 'Vokoder/Core'
+    sw.source_files = [
+      'Pod/Classes/Swift/*.swift'
+    ]
   end
 end
