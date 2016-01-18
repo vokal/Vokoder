@@ -25,7 +25,7 @@ public extension VokoderTypedManagedObject where Self: NSManagedObject {
      - parameter context: The managed object context in which to create the objects or nil for the main context (defaults to nil)
      - returns: A typed Array of created or updated objects
      */
-    public static func vok_addWithArray(inputArray: [[String: AnyObject]],
+    public static func vok_import(inputArray: [[String: AnyObject]],
         forManagedObjectContext context: NSManagedObjectContext? = nil) -> [Self] {
             return VOKCoreDataManager.sharedInstance().importArray(inputArray,
                 forClass: self,
@@ -42,7 +42,7 @@ public extension VokoderTypedManagedObject where Self: NSManagedObject {
      - parameter context: The managed object context in which to create the objects or nil for the main context (defaults to nil)
      - returns: An instance of this subclass of managed object or nil if the import failed
      */
-    public static func vok_addWithDictionary(inputDict: [String : AnyObject],
+    public static func vok_import(inputDict: [String : AnyObject],
         forManagedObjectContext context: NSManagedObjectContext? = nil) -> Self? {
             return self.vok_addWithDictionary(inputDict, forManagedObjectContext: context)
     }
