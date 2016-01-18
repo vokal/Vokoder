@@ -98,3 +98,5 @@ extension Stop: VOKMappableModel {
         }
     }
 }
+
+extension Stop: VokoderTypedManagedObject { }

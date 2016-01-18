@@ -116,3 +116,5 @@ class TrainLine: NSManagedObject {
             }
     }
 }
+
+extension TrainLine: VokoderTypedManagedObject { }

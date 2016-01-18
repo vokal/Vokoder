@@ -70,3 +70,5 @@ extension Station: VOKMappableModel {
         }
     }
 }
+
+extension Station: VokoderTypedManagedObject { }

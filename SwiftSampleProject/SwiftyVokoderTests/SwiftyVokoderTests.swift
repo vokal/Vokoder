@@ -65,7 +65,7 @@ class SwiftyVokoderTests: XCTestCase {
  
     func testImportOneStop() {
         let inputDictionary = self.exampleBlueLineStopDictionary()
-        guard let stop = Stop.vok_addWithDictionary(inputDictionary, forManagedObjectContext: nil) else {
+        guard let stop = Stop.vok_addWithDictionary(inputDictionary) else {
             XCTFail("Could not load Stop from dictionary")
             return
         }
@@ -96,10 +96,7 @@ class SwiftyVokoderTests: XCTestCase {
     }
     
     func testImportAllStops() {
-        guard let stops = Stop.vok_addWithArray(self.allStopDictionaries(), forManagedObjectContext: nil) as? [Stop] else {
-            XCTFail("Could not load stops from data file")
-            return
-        }
+        let stops = Stop.vok_addWithArray(self.allStopDictionaries())
         
         XCTAssertEqual(stops.count, 300)
         guard let stop = stops.filter({ stop in
