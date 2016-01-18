@@ -9,13 +9,13 @@
 import XCTest
 @testable import SwiftyVokoder
 
-let testIdentifier = 30096
+let grandMilwaukeeIdentifier = 30096
 
 class SwiftyVokoderTests: XCTestCase {
     
     func exampleBlueLineStopDictionary() -> [String: AnyObject] {
         return [
-            "STOP_ID":testIdentifier,
+            "STOP_ID":grandMilwaukeeIdentifier,
             "DIRECTION_ID":"S",
             "STOP_NAME":"Grand/Milwaukee (Forest Pk-bound)",
             "STATION_NAME":"Grand",
@@ -65,17 +65,17 @@ class SwiftyVokoderTests: XCTestCase {
  
     func testImportOneStop() {
         let inputDictionary = self.exampleBlueLineStopDictionary()
-        guard let stop = Stop.vok_addWithDictionary(inputDictionary) else {
+        guard let grandMilwaukeeStop = Stop.vok_addWithDictionary(inputDictionary) else {
             XCTFail("Could not load Stop from dictionary")
             return
         }
         
-        self.verifyGrandMilwaukeeStop(stop)
+        self.verifyGrandMilwaukeeStop(grandMilwaukeeStop)
     }
     
     func verifyGrandMilwaukeeStop(stop: Stop) {
         XCTAssertEqual(stop.name, "Grand/Milwaukee (Forest Pk-bound)")
-        XCTAssertEqual(stop.identifier, testIdentifier)
+        XCTAssertEqual(stop.identifier, grandMilwaukeeIdentifier)
         XCTAssertEqual(stop.directionString, "S")
         XCTAssertEqual(stop.direction, Stop.Direction.South)
         
@@ -99,13 +99,13 @@ class SwiftyVokoderTests: XCTestCase {
         let stops = Stop.vok_addWithArray(self.allStopDictionaries())
         
         XCTAssertEqual(stops.count, 300)
-        guard let stop = stops.filter({ stop in
-            return stop.identifier == testIdentifier
+        guard let grandMilwaukeeStop = stops.filter({ stop in
+            return stop.identifier == grandMilwaukeeIdentifier
         }).first else {
-            XCTFail("Could not find stop \(testIdentifier)")
+            XCTFail("Could not find stop \(grandMilwaukeeIdentifier)")
             return
         }
         
-        self.verifyGrandMilwaukeeStop(stop)
+        self.verifyGrandMilwaukeeStop(grandMilwaukeeStop)
     }
 }
