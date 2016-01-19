@@ -7,6 +7,7 @@
 #import "VOKManagedObjectMapper.h"
 #import "VOKMappableModel.h"
 #import "VOKNullabilityFeatures.h"
+#import "Vokoder.h"
 #import "VOKCoreDataManagerInternalMacros.h"
 #import "VOKCollectionDataSource.h"
 #import "VOKFetchedResultsDataSource.h"

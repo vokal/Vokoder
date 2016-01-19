@@ -116,3 +116,7 @@ class TrainLine: NSManagedObject {
             }
     }
 }
+
+//MARK: VokoderTypedManagedObject
+//the empty protocol implementation is used to mixin the functionality of VokoderTypedManagedObject
+extension TrainLine: VokoderTypedManagedObject { }

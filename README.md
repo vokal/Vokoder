@@ -16,7 +16,11 @@ it, simply add the following line to your Podfile:
 
     pod "Vokoder"
 
-Vokoder requires Xcode 5.1 or higher.  The unit tests require features found in Xcode 6 and higher.
+If you intend to use Vokoder in Swift, use the `Swift` subspec instead:
+
+    pod "Vokoder/Swift"
+
+Vokoder requires Xcode 5.1 or higher.  The unit tests require features found in Xcode 6 and higher.  The Swift extensions require Swift 2 and Xcode 7.
 
 ## Subspecs
 
@@ -26,7 +30,8 @@ Data sources to facilitate backing various kinds of views with data from Core Da
 - `FetchedResults` contains a basic data source based on a fetched results controller, intended to be used with a `UITableView`.
 - `PagingFetchedResults` is based on `FetchedResults` but supports paged loading.
 - `Collection` is based on `FetchedResults`, but intended for use with a `UICollectionView`.
-- `Carousel` (not included by default) is based on `FetchedResults` but intended for use with [iCarousel](https://github.com/nicklockwood/iCarousel) (and hence includes it as a dependency).
+
+The optional `Swift` subspec includes some Swift extensions for strong typing and cleaner syntax.  It is recommended to use this subspec if you intend to use Vokoder in Swift.  This subspec includes all of the other subspecs.
 
 ##Usage
 
@@ -189,9 +194,9 @@ NSArray *results = [VOKPerson vok_fetchAllForPredicate:nil forManagedObjectConte
 ####Query with basic predicate and sorting
 ```objective-c
 NSArray *results = [VOKPerson vok_fetchAllForPredicate:nil
-                                          sortedByKey:@"numberOfCats"
-                                            ascending:YES
-                              forManagedObjectContext:nil];
+                                           sortedByKey:@"numberOfCats"
+                                             ascending:YES
+                               forManagedObjectContext:nil];
 ```
 
 ###Deleting records

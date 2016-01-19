@@ -3,9 +3,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'SwiftyVokoder', :exclusive => true do
-  pod "Vokoder", :path => "../"
+  pod "Vokoder/Swift", :path => "../"
 end
 
 target 'SwiftyVokoderTests', :exclusive => true do
-  pod "Vokoder", :path => "../"
+  pod "Vokoder/Swift", :path => "../"
 end
