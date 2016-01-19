@@ -45,6 +45,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Swift' do |sw|
+    sw.platform     = :ios, '8.0'
     sw.dependency 'Vokoder/DataSources'
     sw.source_files = [
       'Pod/Classes/Swift/*.swift'

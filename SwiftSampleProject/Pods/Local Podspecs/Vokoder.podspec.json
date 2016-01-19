@@ -78,6 +78,9 @@
     },
     {
       "name": "Swift",
+      "platforms": {
+        "ios": "8.0"
+      },
       "dependencies": {
         "Vokoder/DataSources": [
 
