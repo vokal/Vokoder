@@ -47,12 +47,21 @@
             
             // Since we don't have an entityName class method, look up the entity name in the managed object model.
             NSManagedObjectModel *model = [[VOKCoreDataManager sharedInstance] managedObjectModel];
-            for (NSEntityDescription *description in model.entities) {
-                if ([self isSubclassOfClass:NSClassFromString(description.managedObjectClassName)]) {
-                    vok_entityName = description.name;
-                    break;
+            
+            // Start with the class we are...
+            Class workingClass = self;
+            do {
+                // ... check for a matching entity in the model...
+                for (NSEntityDescription *description in model.entities) {
+                    if ([workingClass class] == [NSClassFromString(description.managedObjectClassName) class]) {
+                        vok_entityName = description.name;
+                        break;
+                    }
                 }
-            }
+                // ... and walk up the superclass chain...
+                workingClass = class_getSuperclass(workingClass);
+                // ... until we get Nil or find a matching entity (as long as we have a superclass to test and haven't found the entity name).
+            } while (workingClass && !vok_entityName);
         }
         NSAssert(vok_entityName, @"no entity found that uses %@ as its class", NSStringFromClass(self));
         // Save the determined entity name as an associated value.
