@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="13F1096" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 4.3">
+    <entity name="EntityA" representedClassName="VOKEntityA" isAbstract="YES" syncable="YES"/>
+    <entity name="EntityB" representedClassName="VOKEntityB" parentEntity="EntityA" syncable="YES"/>
+    <entity name="EntityC" representedClassName="VOKEntityC" parentEntity="EntityA" syncable="YES"/>
     <entity name="VIMappablePerson" representedClassName="VIMappablePerson" parentEntity="VIPerson" syncable="YES"/>
     <entity name="VIPerson" representedClassName="VIPerson" syncable="YES">
         <attribute name="birthDay" optional="YES" attributeType="Date" syncable="YES"/>
@@ -15,8 +18,11 @@
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VIPerson" inverseName="thing" inverseEntity="VIPerson" syncable="YES"/>
     </entity>
     <elements>
+        <element name="VIMappablePerson" positionX="180" positionY="225" width="128" height="45"/>
         <element name="VIPerson" positionX="160" positionY="192" width="128" height="133"/>
         <element name="VIThing" positionX="162" positionY="234" width="128" height="88"/>
-        <element name="VIMappablePerson" positionX="180" positionY="225" width="128" height="45"/>
+        <element name="EntityA" positionX="162" positionY="243" width="128" height="45"/>
+        <element name="EntityB" positionX="171" positionY="252" width="128" height="45"/>
+        <element name="EntityC" positionX="180" positionY="261" width="128" height="45"/>
     </elements>
 </model>
