@@ -19,7 +19,8 @@
 
 static NSString *resuseIdentifier;
 
-- (instancetype)init {
+- (instancetype)init
+{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(150.0, 50.0);
     return [self initWithCollectionViewLayout:layout];
