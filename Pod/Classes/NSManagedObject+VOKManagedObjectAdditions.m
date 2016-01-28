@@ -51,9 +51,10 @@
             // Start with the class we are...
             Class workingClass = self;
             do {
+                NSString *workingClassName = NSStringFromClass(workingClass);
                 // ... check for a matching entity in the model...
                 for (NSEntityDescription *description in model.entities) {
-                    if ([workingClass class] == [NSClassFromString(description.managedObjectClassName) class]) {
+                    if ([workingClassName isEqualToString:description.managedObjectClassName]) {
                         vok_entityName = description.name;
                         break;
                     }
