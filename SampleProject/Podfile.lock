@@ -1,21 +1,21 @@
 PODS:
   - ILGDynamicObjC/ILGClasses (0.1.1)
-  - Vokoder (1.4.0):
-    - Vokoder/Core (= 1.4.0)
-    - Vokoder/DataSources (= 1.4.0)
-  - Vokoder/Core (1.4.0):
+  - Vokoder (1.4.1):
+    - Vokoder/Core (= 1.4.1)
+    - Vokoder/DataSources (= 1.4.1)
+  - Vokoder/Core (1.4.1):
     - ILGDynamicObjC/ILGClasses (~> 0.1.1)
-  - Vokoder/DataSources (1.4.0):
+  - Vokoder/DataSources (1.4.1):
     - Vokoder/Core
-    - Vokoder/DataSources/Collection (= 1.4.0)
-    - Vokoder/DataSources/FetchedResults (= 1.4.0)
-    - Vokoder/DataSources/PagingFetchedResults (= 1.4.0)
-  - Vokoder/DataSources/Collection (1.4.0):
+    - Vokoder/DataSources/Collection (= 1.4.1)
+    - Vokoder/DataSources/FetchedResults (= 1.4.1)
+    - Vokoder/DataSources/PagingFetchedResults (= 1.4.1)
+  - Vokoder/DataSources/Collection (1.4.1):
     - Vokoder/Core
     - Vokoder/DataSources/FetchedResults
-  - Vokoder/DataSources/FetchedResults (1.4.0):
+  - Vokoder/DataSources/FetchedResults (1.4.1):
     - Vokoder/Core
-  - Vokoder/DataSources/PagingFetchedResults (1.4.0):
+  - Vokoder/DataSources/PagingFetchedResults (1.4.1):
     - Vokoder/Core
     - Vokoder/DataSources/FetchedResults
 
@@ -28,6 +28,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   ILGDynamicObjC: 63443567f8ce851067ea3070d3b8c7f93d37207c
-  Vokoder: 1762f4c5bf26c3b1f7e3f730dabc59147bb2f130
+  Vokoder: 6bb77e5a4417b6d7e75ef17eb231e7af01f35db1
 
 COCOAPODS: 0.39.0

@@ -1,6 +1,6 @@
 {
   "name": "Vokoder",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "summary": "Vokal's Core Data Manager",
   "homepage": "https://github.com/vokal/Vokoder",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/vokal/Vokoder.git",
-    "tag": "1.4.0"
+    "tag": "1.4.1"
   },
   "platforms": {
     "ios": "7.0"
