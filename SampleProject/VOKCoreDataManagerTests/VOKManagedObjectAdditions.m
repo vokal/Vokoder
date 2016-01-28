@@ -13,8 +13,16 @@
 #import <NSManagedObject+VOKManagedObjectAdditions.h>
 #import "VOKThing.h"
 
+#import "VOKEntityA.h"
+#import "VOKEntityB.h"
+#import "VOKEntityC.h"
+
 static const NSUInteger BasicTestDataStartPoint = 0;
 static const NSUInteger BasicTestDataSize = 5;
+
+@interface VOKManagedObjectForTestGettingEntityName : NSManagedObject @end
+
+@implementation VOKManagedObjectForTestGettingEntityName @end
 
 @interface VOKManagedObjectAdditionTests : XCTestCase
 
@@ -222,6 +230,19 @@ static const NSUInteger BasicTestDataSize = 5;
     
     XCTAssertEqual([results.firstObject numberOfHats].intValue, BasicTestDataStartPoint + BasicTestDataSize-1);
     XCTAssertEqual([results.lastObject numberOfHats].intValue, BasicTestDataStartPoint);
+}
+
+#pragma mark - Test getting entity name
+
+- (void)testGettingEntityName
+{
+    XCTAssertEqualObjects([VOKEntityA vok_entityName], @"EntityA");
+    XCTAssertEqualObjects([VOKEntityB vok_entityName], @"EntityB");
+    XCTAssertEqualObjects([VOKEntityC vok_entityName], @"EntityC");
+    XCTAssertEqualObjects([VOKThing vok_entityName], @"VOKThing");
+    XCTAssertThrows([NSManagedObject vok_entityName]);
+    XCTAssertThrows([VOKManagedObjectForTestGettingEntityName vok_entityName]);
+    XCTAssertThrows([[NSString class] vok_entityName]);
 }
 
 @end

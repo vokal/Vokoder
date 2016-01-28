@@ -24,6 +24,9 @@
 		71E1AAEA1A5340A1004311E5 /* VOKCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE41A5340A1004311E5 /* VOKCoreDataModel.xcdatamodeld */; };
 		71E1AAEB1A5340A1004311E5 /* VOKPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE71A5340A1004311E5 /* VOKPerson.m */; };
 		71E1AAEC1A5340A1004311E5 /* VOKThing.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAE91A5340A1004311E5 /* VOKThing.m */; };
+		71041E531C5A9328003B4809 /* VOKEntityB.m in Sources */ = {isa = PBXBuildFile; fileRef = 71041E491C5A9328003B4809 /* VOKEntityB.m */; };
+		71041E551C5A9328003B4809 /* VOKEntityC.m in Sources */ = {isa = PBXBuildFile; fileRef = 71041E4D1C5A9328003B4809 /* VOKEntityC.m */; };
+		71041E571C5A9328003B4809 /* VOKEntityA.m in Sources */ = {isa = PBXBuildFile; fileRef = 71041E511C5A9328003B4809 /* VOKEntityA.m */; };
 		71E1AAF21A5340CE004311E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E1AAEE1A5340CE004311E5 /* Default-568h@2x.png */; };
 		71E1AAF31A5340CE004311E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AAEF1A5340CE004311E5 /* main.m */; };
 		71E1AB031A534221004311E5 /* VOKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E1AB001A534221004311E5 /* VOKAppDelegate.m */; };
@@ -66,6 +69,12 @@
 		3DBE7F911C2AD77A00FAFA05 /* VOKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKCollectionViewCell.m; sourceTree = "<group>"; };
 		3DBE7F921C2AD77A00FAFA05 /* VOKCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VOKCollectionViewCell.xib; sourceTree = "<group>"; };
 		4F92780151AFBE02160324DF /* Pods-VOKCoreDataManager Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager Tests/Pods-VOKCoreDataManager Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		71041E481C5A9328003B4809 /* VOKEntityB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKEntityB.h; sourceTree = "<group>"; };
+		71041E491C5A9328003B4809 /* VOKEntityB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKEntityB.m; sourceTree = "<group>"; };
+		71041E4C1C5A9328003B4809 /* VOKEntityC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKEntityC.h; sourceTree = "<group>"; };
+		71041E4D1C5A9328003B4809 /* VOKEntityC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKEntityC.m; sourceTree = "<group>"; };
+		71041E501C5A9328003B4809 /* VOKEntityA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKEntityA.h; sourceTree = "<group>"; };
+		71041E511C5A9328003B4809 /* VOKEntityA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKEntityA.m; sourceTree = "<group>"; };
 		7172B5031B8E82D400589204 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		7172B5041B8E82D400589204 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7172B5051B8E82D400589204 /* Vokoder.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = Vokoder.podspec; path = ../Vokoder.podspec; sourceTree = "<group>"; };
@@ -206,6 +215,12 @@
 				71E1AAE71A5340A1004311E5 /* VOKPerson.m */,
 				71E1AAE81A5340A1004311E5 /* VOKThing.h */,
 				71E1AAE91A5340A1004311E5 /* VOKThing.m */,
+				71041E501C5A9328003B4809 /* VOKEntityA.h */,
+				71041E511C5A9328003B4809 /* VOKEntityA.m */,
+				71041E481C5A9328003B4809 /* VOKEntityB.h */,
+				71041E491C5A9328003B4809 /* VOKEntityB.m */,
+				71041E4C1C5A9328003B4809 /* VOKEntityC.h */,
+				71041E4D1C5A9328003B4809 /* VOKEntityC.m */,
 			);
 			path = Models;
 			sourceTree = SOURCE_ROOT;
@@ -516,8 +531,11 @@
 				71E1AB031A534221004311E5 /* VOKAppDelegate.m in Sources */,
 				3DBE7F8C1C2AD6EF00FAFA05 /* UIViewController+VOKConvenience.m in Sources */,
 				718462C21B9505D000015274 /* VOKMappablePerson.m in Sources */,
+				71041E531C5A9328003B4809 /* VOKEntityB.m in Sources */,
 				71E1AAF31A5340CE004311E5 /* main.m in Sources */,
 				71E1AAEB1A5340A1004311E5 /* VOKPerson.m in Sources */,
+				71041E571C5A9328003B4809 /* VOKEntityA.m in Sources */,
+				71041E551C5A9328003B4809 /* VOKEntityC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

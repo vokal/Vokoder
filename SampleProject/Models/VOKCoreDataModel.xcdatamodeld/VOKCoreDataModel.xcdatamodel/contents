@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F1021" minimumToolsVersion="Xcode 4.3">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 4.3">
+    <entity name="EntityA" representedClassName="VOKEntityA" isAbstract="YES" syncable="YES"/>
+    <entity name="EntityB" representedClassName="VOKEntityB" parentEntity="EntityA" syncable="YES"/>
+    <entity name="EntityC" representedClassName="VOKEntityC" parentEntity="EntityA" syncable="YES"/>
     <entity name="VOKMappablePerson" representedClassName="VOKMappablePerson" parentEntity="VOKPerson" syncable="YES"/>
     <entity name="VOKPerson" representedClassName="VOKPerson" syncable="YES">
         <attribute name="birthDay" optional="YES" attributeType="Date" syncable="YES"/>
@@ -18,5 +21,8 @@
         <element name="VOKMappablePerson" positionX="0" positionY="0" width="0" height="0"/>
         <element name="VOKPerson" positionX="0" positionY="0" width="0" height="0"/>
         <element name="VOKThing" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EntityA" positionX="162" positionY="243" width="128" height="45"/>
+        <element name="EntityB" positionX="171" positionY="252" width="128" height="45"/>
+        <element name="EntityC" positionX="180" positionY="261" width="128" height="45"/>
     </elements>
 </model>

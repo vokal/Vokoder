@@ -11,7 +11,8 @@
 
 @implementation UIViewController (VOKConvenience)
 
-- (void)layoutNavBarButtons {
+- (void)layoutNavBarButtons
+{
     UIBarButtonItem *reloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                                                                   target:self
                                                                                   action:@selector(reloadData)];
@@ -41,11 +42,13 @@
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VOKPerson class]];
 }
 
-- (Class)demoClassToLoad {
+- (Class)demoClassToLoad
+{
     return VOKPerson.class;
 }
 
-- (NSArray *)sortDescriptors {
+- (NSArray *)sortDescriptors
+{
     return @[
              [NSSortDescriptor sortDescriptorWithKey:VOK_CDSELECTOR(numberOfCats) ascending:NO],
              [NSSortDescriptor sortDescriptorWithKey:VOK_CDSELECTOR(lastName) ascending:YES],

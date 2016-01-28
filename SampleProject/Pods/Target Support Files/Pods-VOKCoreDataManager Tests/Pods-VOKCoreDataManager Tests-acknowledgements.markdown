@@ -26,7 +26,7 @@ THE SOFTWARE.
 
 ## Vokoder
 
-https://tldrlegal.com/license/mit-license
+The MIT License (MIT)
 
 Copyright (c) 2012-2015 Vokal
 
