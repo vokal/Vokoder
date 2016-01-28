@@ -59,7 +59,7 @@
                     }
                 }
                 // ... and walk up the superclass chain...
-                workingClass = class_getSuperclass(workingClass);
+                workingClass = [workingClass superclass];
                 // ... until we get Nil or find a matching entity (as long as we have a superclass to test and haven't found the entity name).
             } while (workingClass && !vok_entityName);
         }
