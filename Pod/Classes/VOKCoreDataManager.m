@@ -87,25 +87,12 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 #pragma mark - Getters
 
-- (NSManagedObjectContext *)tempManagedObjectContext
-{
-    NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
-    NSAssert(coordinator, @"PersistentStoreCoordinator does not exist. This is a big problem.");
-    if (!coordinator) {
-        return nil;
-    }
-
-    NSManagedObjectContext *tempManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
-    tempManagedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
-    tempManagedObjectContext.persistentStoreCoordinator = coordinator;
-    
-    return tempManagedObjectContext;
-}
-
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (!_managedObjectContext) {
-        [self initManagedObjectContext];
+        NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue],
+                 @"Must be on the main queue when initializing main context");
+        _managedObjectContext = [self managedObjectContextWithConcurrencyType:NSMainQueueConcurrencyType];
     }
     
     return _managedObjectContext;
@@ -223,18 +210,19 @@ static VOKCoreDataManager *VOK_SharedObject;
     }
 }
 
-- (void)initManagedObjectContext
+- (NSManagedObjectContext *)managedObjectContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType)concurrencyType
 {
-    NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue], @"Must be on the main queue when initializing main context");
     NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
     
     NSAssert(coordinator, @"PersistentStoreCoordinator does not exist. This is a big problem.");
     if (!coordinator) {
-        return;
+        return nil;
     }
-    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    _managedObjectContext.persistentStoreCoordinator = coordinator;
-    _managedObjectContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy;
+    NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType:concurrencyType];
+    context.persistentStoreCoordinator = coordinator;
+    context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy;
+    
+    return context;
 }
 
 #pragma mark - Create and configure
@@ -568,7 +556,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (NSManagedObjectContext *)temporaryContext
 {
-    return [self tempManagedObjectContext];
+    return [self managedObjectContextWithConcurrencyType:NSConfinementConcurrencyType];
 }
 
 - (void)saveAndMergeWithMainContext:(NSManagedObjectContext *)context
