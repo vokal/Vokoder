@@ -161,7 +161,6 @@ static VOKCoreDataManager *VOK_SharedObject;
                               NSInferMappingModelAutomaticallyOption: @YES,
                               };
     
-    NSError *error;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     
     NSURL *storeURL = [self persistentStoreFileURL];
@@ -171,31 +170,55 @@ static VOKCoreDataManager *VOK_SharedObject;
         storeType = NSSQLiteStoreType;
     }
     
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:storeType
-                                                   configuration:nil
-                                                             URL:storeURL
-                                                         options:options
-                                                           error:&error]) {
-        if (self.migrationFailureOptions == VOKMigrationFailureOptionWipeRecoveryAndAlert) {
-            [[[UIAlertView alloc] initWithTitle:@"Migration Failed"
-                                        message:@"Migration has failed, data will be erased to ensure application stability."
-                                       delegate:nil
-                              cancelButtonTitle:@""
-                              otherButtonTitles:nil] show];
-        }
-        
-        if (self.migrationFailureOptions == VOKMigrationFailureOptionWipeRecoveryAndAlert ||
-            self.migrationFailureOptions == VOKMigrationFailureOptionWipeRecovery) {
-            VOK_CDLog(@"Full database delete and rebuild");
-            [[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:nil];
-            if (![_persistentStoreCoordinator addPersistentStoreWithType:storeType
-                                                           configuration:nil
-                                                                     URL:storeURL
-                                                                 options:nil
-                                                                   error:&error]) {
-                [NSException raise:@"Vokoder Persistant Store Creation Failure after migration"
-                            format:@"Unresolved error %@, %@", error, [error userInfo]];
+    __block NSError *error;
+    BOOL (^createPersistantStore)() = ^BOOL() {
+        NSError *localError;
+        BOOL success =  [_persistentStoreCoordinator addPersistentStoreWithType:storeType
+                                                                  configuration:nil
+                                                                            URL:storeURL
+                                                                        options:options
+                                                                          error:&localError];
+        error = localError;
+        return success;
+    };
+    
+    if (!createPersistantStore()) {
+        switch (self.migrationFailureOptions) {
+            case VOKMigrationFailureOptionWipeRecoveryAndAlert:
+            {
+                NSString *title = @"Migration Failed";
+                NSString *message = @"Migration has failed, data will be erased to ensure application stability.";
+                if ([UIAlertController class]) {
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                                   message:message
+                                                                            preferredStyle:UIAlertControllerStyleAlert];
+                    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert
+                                                                                                 animated:YES
+                                                                                               completion:nil];
+                } else {
+                    //TODO: delete UIAlertView once support is dropped for iOS 7
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                    [[[UIAlertView alloc] initWithTitle:title
+                                                message:message
+                                               delegate:nil
+                                      cancelButtonTitle:@""
+                                      otherButtonTitles:nil] show];
+#pragma clang diagnostic pop
+                }
             }
+                //intentional fallthrough
+            case VOKMigrationFailureOptionWipeRecovery:
+                VOK_CDLog(@"Full database delete and rebuild");
+                [[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:nil];
+                if (!createPersistantStore()) {
+                    [NSException raise:@"Vokoder Persistant Store Creation Failure after migration"
+                                format:@"Unresolved error %@, %@", error, [error userInfo]];
+                }
+                break;
+            case VOKMigrationFailureOptionNone:
+                VOK_CDLog(@"Vokoder Persistant Store Creation Failure: %@", error);
+                break;
         }
     }
 }

@@ -23,9 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
     /// No handling of a failed migration, will likely cause app instability and crashing when a migration fails.
     VOKMigrationFailureOptionNone,
-    /// Silently delete and recreate the sqlite database file, data will be erased, but instability and crashing will be avoided
+    /// Silently delete and recreate the database file, data will be erased, but instability and crashing will be avoided
     VOKMigrationFailureOptionWipeRecovery,
-    /// Same as VOKMigrationFailureOptionWipeRecoveryAndAlert, but will also notify the user that data has been erased via UIAlertView.
+    /// Same as VOKMigrationFailureOptionWipeRecoveryAndAlert, but will also notify the user that data has been erased via an on screen alert.
     VOKMigrationFailureOptionWipeRecoveryAndAlert,
 };
 
