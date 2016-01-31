@@ -48,17 +48,11 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
  */
 + (VOKCoreDataManager *)sharedInstance;
 
-/**
- The primary managed object context. Only for use on the main queue.
- @return    The main managed object context.
- */
-- (NSManagedObjectContext *)managedObjectContext;
+///The primary managed object context. Only for use on the main queue.
+@property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
 
-/**
- The managed object model, based on the resource and database.
- @return    The managed object model
- */
-- (NSManagedObjectModel *)managedObjectModel;
+/// The managed object model, based on the resource and database.
+@property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
 
 /**
  Set the name of the managed object model and the name of the SQL lite store on disk. Call this first when you setup the core data stack.
