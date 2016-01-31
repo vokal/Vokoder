@@ -41,15 +41,12 @@
     [self sharedInstance];
 }
 
-static NSOperationQueue *VOK_WritingQueue;
 static VOKCoreDataManager *VOK_SharedObject;
 + (VOKCoreDataManager *)sharedInstance
 {
     static dispatch_once_t pred;
     dispatch_once(&pred, ^{
         VOK_SharedObject = [[self alloc] init];
-        VOK_WritingQueue = [[NSOperationQueue alloc] init];
-        VOK_WritingQueue.maxConcurrentOperationCount = 1;
         [VOK_SharedObject addMappableModelMappers];
     });
     return VOK_SharedObject;
@@ -556,7 +553,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (NSManagedObjectContext *)temporaryContext
 {
-    return [self managedObjectContextWithConcurrencyType:NSConfinementConcurrencyType];
+    return [self managedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType];
 }
 
 - (void)saveAndMergeWithMainContext:(NSManagedObjectContext *)context
@@ -571,10 +568,11 @@ static VOKCoreDataManager *VOK_SharedObject;
                      completion:(void (^)(void))completion
 {
     NSAssert(writeBlock, @"Write block must not be nil");
-    [VOK_WritingQueue addOperationWithBlock:^{
-        
-        NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+    
+    NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+    [tempContext performBlock:^{
         writeBlock(tempContext);
+        
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
         
         if (completion) {
@@ -587,9 +585,9 @@ static VOKCoreDataManager *VOK_SharedObject;
                        forClass:(Class)objectClass
                      completion:(VOKObjectIDsReturnBlock)completion
 {
-    [VOK_WritingQueue addOperationWithBlock:^{
+    NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+    [tempContext performBlock:^{
         
-        NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
         NSArray *managedObjectsArray = [[VOKCoreDataManager sharedInstance] importArray:inputArray
                                                                                forClass:objectClass
                                                                             withContext:tempContext];
