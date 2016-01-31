@@ -16,6 +16,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    if (NSClassFromString(@"XCTestCase")) {
+        //during unit testing, don't set up Vokoder in the example app
+        return YES;
+    }
     [[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:@"VOKCoreDataModel.sqlite"];
 
     [[VOKCoreDataManager sharedInstance] resetCoreData];
