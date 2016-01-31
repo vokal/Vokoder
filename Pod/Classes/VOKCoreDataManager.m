@@ -494,7 +494,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
         [self saveContext:self.managedObjectContext];
     } else {
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self.managedObjectContext performBlock:^{
             [self saveContext:self.managedObjectContext];
         }];
     }
@@ -505,7 +505,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
         [self saveContext:self.managedObjectContext];
     } else {
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self.managedObjectContext performBlockAndWait:^{
             [self saveContext:self.managedObjectContext];
         }];
     }
