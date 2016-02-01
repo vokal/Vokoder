@@ -159,7 +159,6 @@ static VOKCoreDataManager *VOK_SharedObject;
             {
                 NSString *title = @"Migration Failed";
                 NSString *message = @"Migration has failed, data will be erased to ensure application stability.";
-#undef __IPHONE_8_0
 #ifdef __IPHONE_8_0 //if compiling with an old version of Xcode that doesn't include the iOS 8 SDK, ignore UIAlertController
                 if ([UIAlertController class]) {
                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
