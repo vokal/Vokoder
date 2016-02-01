@@ -159,6 +159,8 @@ static VOKCoreDataManager *VOK_SharedObject;
             {
                 NSString *title = @"Migration Failed";
                 NSString *message = @"Migration has failed, data will be erased to ensure application stability.";
+#undef __IPHONE_8_0
+#ifdef __IPHONE_8_0 //if compiling with an old version of Xcode that doesn't include the iOS 8 SDK, ignore UIAlertController
                 if ([UIAlertController class]) {
                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                                    message:message
@@ -167,6 +169,7 @@ static VOKCoreDataManager *VOK_SharedObject;
                                                                                                  animated:YES
                                                                                                completion:nil];
                 } else {
+#endif
                     //TODO: delete UIAlertView once support is dropped for iOS 7
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -176,7 +179,9 @@ static VOKCoreDataManager *VOK_SharedObject;
                                       cancelButtonTitle:@""
                                       otherButtonTitles:nil] show];
 #pragma clang diagnostic pop
+#ifdef __IPHONE_8_0
                 }
+#endif
             }
                 //intentional fallthrough
             case VOKMigrationFailureOptionWipeRecovery:
