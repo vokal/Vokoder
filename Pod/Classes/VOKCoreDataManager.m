@@ -187,12 +187,12 @@ static VOKCoreDataManager *VOK_SharedObject;
                                                                         URL:storeURL
                                                                     options:options
                                                                       error:&error]) {
-                    [NSException raise:@"Vokoder Persistant Store Creation Failure after migration"
+                    [NSException raise:@"Vokoder Persistent Store Creation Failure after migration"
                                 format:@"Unresolved error %@, %@", error, [error userInfo]];
                 }
                 break;
             case VOKMigrationFailureOptionNone:
-                VOK_CDLog(@"Vokoder Persistant Store Creation Failure: %@", error);
+                VOK_CDLog(@"Vokoder Persistent Store Creation Failure: %@", error);
                 break;
         }
     }
