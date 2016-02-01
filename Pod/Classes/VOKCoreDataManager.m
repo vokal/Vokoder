@@ -89,7 +89,8 @@ static VOKCoreDataManager *VOK_SharedObject;
     if (!_managedObjectContext) {
         NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue],
                  @"Must be on the main queue when initializing main context");
-        _managedObjectContext = [self managedObjectContextWithConcurrencyType:NSMainQueueConcurrencyType];
+        _managedObjectContext = [self managedObjectContextWithConcurrencyType:NSMainQueueConcurrencyType
+                                                                parentContext:nil];
     }
     
     return _managedObjectContext;
@@ -208,15 +209,20 @@ static VOKCoreDataManager *VOK_SharedObject;
 }
 
 - (NSManagedObjectContext *)managedObjectContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType)concurrencyType
+                                                      parentContext:(nullable NSManagedObjectContext *)parentContext
 {
-    NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
-    
-    NSAssert(coordinator, @"PersistentStoreCoordinator does not exist. This is a big problem.");
-    if (!coordinator) {
-        return nil;
-    }
     NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType:concurrencyType];
-    context.persistentStoreCoordinator = coordinator;
+    if (parentContext) {
+        context.parentContext = parentContext;
+    } else {
+        NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
+        
+        NSAssert(coordinator, @"PersistentStoreCoordinator does not exist. This is a big problem.");
+        if (!coordinator) {
+            return nil;
+        }
+        context.persistentStoreCoordinator = coordinator;
+    }
     context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy;
     
     return context;
@@ -488,6 +494,10 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (void)saveMainContext
 {
+    if (!self.managedObjectContext.hasChanges) {
+        return;
+    }
+    
     if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
         [self saveContext:self.managedObjectContext];
     } else {
@@ -499,6 +509,10 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (void)saveMainContextAndWait
 {
+    if (!self.managedObjectContext.hasChanges) {
+        return;
+    }
+    
     if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
         [self saveContext:self.managedObjectContext];
     } else {
@@ -516,50 +530,20 @@ static VOKCoreDataManager *VOK_SharedObject;
     }
 }
 
-- (void)saveTempContext:(NSManagedObjectContext *)tempContext
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(tempContextSaved:)
-                                                 name:NSManagedObjectContextDidSaveNotification
-                                               object:tempContext];
-    
-    [self saveContext:tempContext];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:NSManagedObjectContextDidSaveNotification
-                                                  object:tempContext];
-}
-
-- (void)tempContextSaved:(NSNotification *)notification
-{
-    // Solved issue with NSFetchedResultsController ignoring changes
-    // merged from different managed object contexts by touching
-    // willAccessValueForKey: on the updated objects.
-    //http://stackoverflow.com/questions/3923826/nsfetchedresultscontroller-with-predicate-ignores-changes-merged-from-different
-    
-    for (NSManagedObject *object in [[notification userInfo] objectForKey:NSUpdatedObjectsKey]) {
-        [[self.managedObjectContext objectWithID:[object objectID]] willAccessValueForKey:nil];
-    }
-    
-    if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
-        [self.managedObjectContext mergeChangesFromContextDidSaveNotification:notification];
-    } else {
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.managedObjectContext mergeChangesFromContextDidSaveNotification:notification];
-        }];
-    }
-    [self saveMainContextAndWait];
-}
-
 - (NSManagedObjectContext *)temporaryContext
 {
-    return [self managedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    return [self managedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType
+                                           parentContext:self.managedObjectContext];
 }
 
 - (void)saveAndMergeWithMainContext:(NSManagedObjectContext *)context
 {
+    if (!context.hasChanges) {
+        return;
+    }
     NSAssert(context != self.managedObjectContext, @"This is NOT for saving the main context.");
-    [self saveTempContext:context];
+    [self saveContext:context];
+    [self saveMainContextAndWait];
 }
 
 #pragma mark - Background Importing
