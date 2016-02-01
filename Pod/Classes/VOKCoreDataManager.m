@@ -98,7 +98,12 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSManagedObjectModel *)managedObjectModel
 {
     if (!_managedObjectModel) {
-        [self initManagedObjectModel];
+        NSURL *modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"momd"];
+        if (!modelURL) {
+            modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"mom"];
+        }
+        NSAssert(modelURL, @"Managed object model not found.");
+        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     }
     
     return _managedObjectModel;
@@ -107,7 +112,10 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
     if (!_persistentStoreCoordinator) {
-        [self initPersistentStoreCoordinator];
+        NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue],
+                 @"Must be on the main queue when initializing persistent store coordinator");
+        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+        [self addPersistentStoreToCoordinator:_persistentStoreCoordinator];
     }
     
     return _persistentStoreCoordinator;
@@ -125,27 +133,12 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 #pragma mark - Initializers
 
-- (void)initManagedObjectModel
+- (void)addPersistentStoreToCoordinator:(NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-    NSURL *modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"momd"];
-    if (!modelURL) {
-        modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"mom"];
-    }
-    NSAssert(modelURL, @"Managed object model not found.");
-    if (modelURL) {
-        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    }
-}
-
-- (void)initPersistentStoreCoordinator
-{
-    NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue], @"Must be on the main queue when initializing persistant store coordinator");
     NSDictionary *options = @{
                               NSMigratePersistentStoresAutomaticallyOption: @YES,
                               NSInferMappingModelAutomaticallyOption: @YES,
                               };
-    
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
     
     NSURL *storeURL = [self persistentStoreFileURL];
     NSString *storeType = NSInMemoryStoreType;
@@ -154,19 +147,13 @@ static VOKCoreDataManager *VOK_SharedObject;
         storeType = NSSQLiteStoreType;
     }
     
-    __block NSError *error;
-    BOOL (^createPersistantStore)() = ^BOOL() {
-        NSError *localError;
-        BOOL success =  [_persistentStoreCoordinator addPersistentStoreWithType:storeType
-                                                                  configuration:nil
-                                                                            URL:storeURL
-                                                                        options:options
-                                                                          error:&localError];
-        error = localError;
-        return success;
-    };
+    NSError *error;
     
-    if (!createPersistantStore()) {
+    if (![persistentStoreCoordinator addPersistentStoreWithType:storeType
+                                                  configuration:nil
+                                                            URL:storeURL
+                                                        options:options
+                                                          error:&error]) {
         switch (self.migrationFailureOptions) {
             case VOKMigrationFailureOptionWipeRecoveryAndAlert:
             {
@@ -195,7 +182,11 @@ static VOKCoreDataManager *VOK_SharedObject;
             case VOKMigrationFailureOptionWipeRecovery:
                 VOK_CDLog(@"Full database delete and rebuild");
                 [[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:nil];
-                if (!createPersistantStore()) {
+                if (![persistentStoreCoordinator addPersistentStoreWithType:storeType
+                                                              configuration:nil
+                                                                        URL:storeURL
+                                                                    options:options
+                                                                      error:&error]) {
                     [NSException raise:@"Vokoder Persistant Store Creation Failure after migration"
                                 format:@"Unresolved error %@, %@", error, [error userInfo]];
                 }
