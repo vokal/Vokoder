@@ -12,11 +12,11 @@
 
 #import "VOKMappableModel.h"
 
-@interface VOKCoreDataManager () {
-    NSManagedObjectContext *_managedObjectContext;
-    NSManagedObjectModel *_managedObjectModel;
-    NSPersistentStoreCoordinator *_persistentStoreCoordinator;
-}
+@interface VOKCoreDataManager ()
+
+@property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @property (nonatomic, copy) NSString *resource;
 @property (nonatomic, copy) NSString *databaseFilename;
@@ -41,15 +41,12 @@
     [self sharedInstance];
 }
 
-static NSOperationQueue *VOK_WritingQueue;
 static VOKCoreDataManager *VOK_SharedObject;
 + (VOKCoreDataManager *)sharedInstance
 {
     static dispatch_once_t pred;
     dispatch_once(&pred, ^{
         VOK_SharedObject = [[self alloc] init];
-        VOK_WritingQueue = [[NSOperationQueue alloc] init];
-        VOK_WritingQueue.maxConcurrentOperationCount = 1;
         [VOK_SharedObject addMappableModelMappers];
     });
     return VOK_SharedObject;
@@ -87,25 +84,12 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 #pragma mark - Getters
 
-- (NSManagedObjectContext *)tempManagedObjectContext
-{
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    NSAssert(coordinator, @"PersistentStoreCoordinator does not exist. This is a big problem.");
-    if (!coordinator) {
-        return nil;
-    }
-
-    NSManagedObjectContext *tempManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
-    tempManagedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
-    tempManagedObjectContext.persistentStoreCoordinator = coordinator;
-    
-    return tempManagedObjectContext;
-}
-
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (!_managedObjectContext) {
-        [self initManagedObjectContext];
+        NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue],
+                 @"Must be on the main queue when initializing main context");
+        _managedObjectContext = [self managedObjectContextWithConcurrencyType:NSMainQueueConcurrencyType];
     }
     
     return _managedObjectContext;
@@ -114,7 +98,12 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSManagedObjectModel *)managedObjectModel
 {
     if (!_managedObjectModel) {
-        [self initManagedObjectModel];
+        NSURL *modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"momd"];
+        if (!modelURL) {
+            modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"mom"];
+        }
+        NSAssert(modelURL, @"Managed object model not found.");
+        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     }
     
     return _managedObjectModel;
@@ -123,7 +112,10 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
     if (!_persistentStoreCoordinator) {
-        [self initPersistentStoreCoordinator];
+        NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue],
+                 @"Must be on the main queue when initializing persistent store coordinator");
+        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+        [self addPersistentStoreToCoordinator:_persistentStoreCoordinator];
     }
     
     return _persistentStoreCoordinator;
@@ -141,28 +133,12 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 #pragma mark - Initializers
 
-- (void)initManagedObjectModel
+- (void)addPersistentStoreToCoordinator:(NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-    NSURL *modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"momd"];
-    if (!modelURL) {
-        modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"mom"];
-    }
-    NSAssert(modelURL, @"Managed object model not found.");
-    if (modelURL) {
-        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    }
-}
-
-- (void)initPersistentStoreCoordinator
-{
-    NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue], @"Must be on the main queue when initializing persistant store coordinator");
     NSDictionary *options = @{
                               NSMigratePersistentStoresAutomaticallyOption: @YES,
                               NSInferMappingModelAutomaticallyOption: @YES,
                               };
-    
-    NSError *error;
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     
     NSURL *storeURL = [self persistentStoreFileURL];
     NSString *storeType = NSInMemoryStoreType;
@@ -171,47 +147,74 @@ static VOKCoreDataManager *VOK_SharedObject;
         storeType = NSSQLiteStoreType;
     }
     
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:storeType
-                                                   configuration:nil
-                                                             URL:storeURL
-                                                         options:options
-                                                           error:&error]) {
-        if (self.migrationFailureOptions == VOKMigrationFailureOptionWipeRecoveryAndAlert) {
-            [[[UIAlertView alloc] initWithTitle:@"Migration Failed"
-                                        message:@"Migration has failed, data will be erased to ensure application stability."
-                                       delegate:nil
-                              cancelButtonTitle:@""
-                              otherButtonTitles:nil] show];
-        }
-        
-        if (self.migrationFailureOptions == VOKMigrationFailureOptionWipeRecoveryAndAlert ||
-            self.migrationFailureOptions == VOKMigrationFailureOptionWipeRecovery) {
-            VOK_CDLog(@"Full database delete and rebuild");
-            [[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:nil];
-            if (![_persistentStoreCoordinator addPersistentStoreWithType:storeType
-                                                           configuration:nil
-                                                                     URL:storeURL
-                                                                 options:nil
-                                                                   error:&error]) {
-                [NSException raise:@"Vokoder Persistant Store Creation Failure after migration"
-                            format:@"Unresolved error %@, %@", error, [error userInfo]];
+    NSError *error;
+    
+    if (![persistentStoreCoordinator addPersistentStoreWithType:storeType
+                                                  configuration:nil
+                                                            URL:storeURL
+                                                        options:options
+                                                          error:&error]) {
+        switch (self.migrationFailureOptions) {
+            case VOKMigrationFailureOptionWipeRecoveryAndAlert:
+            {
+                NSString *title = @"Migration Failed";
+                NSString *message = @"Migration has failed, data will be erased to ensure application stability.";
+#ifdef __IPHONE_8_0 //if compiling with an old version of Xcode that doesn't include the iOS 8 SDK, ignore UIAlertController
+                if ([UIAlertController class]) {
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                                   message:message
+                                                                            preferredStyle:UIAlertControllerStyleAlert];
+                    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert
+                                                                                                 animated:YES
+                                                                                               completion:nil];
+                } else {
+#endif
+                    //TODO: delete UIAlertView once support is dropped for iOS 7
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                    [[[UIAlertView alloc] initWithTitle:title
+                                                message:message
+                                               delegate:nil
+                                      cancelButtonTitle:@""
+                                      otherButtonTitles:nil] show];
+#pragma clang diagnostic pop
+#ifdef __IPHONE_8_0
+                }
+#endif
             }
+                //intentional fallthrough
+            case VOKMigrationFailureOptionWipeRecovery:
+                VOK_CDLog(@"Full database delete and rebuild");
+                [[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:nil];
+                if (![persistentStoreCoordinator addPersistentStoreWithType:storeType
+                                                              configuration:nil
+                                                                        URL:storeURL
+                                                                    options:options
+                                                                      error:&error]) {
+                    [NSException raise:@"Vokoder Persistent Store Creation Failure after migration"
+                                format:@"Unresolved error %@, %@", error, [error userInfo]];
+                }
+                break;
+            case VOKMigrationFailureOptionNone:
+                VOK_CDLog(@"Vokoder Persistent Store Creation Failure: %@", error);
+                break;
         }
     }
 }
 
-- (void)initManagedObjectContext
+- (NSManagedObjectContext *)managedObjectContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType)concurrencyType
 {
-    NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue], @"Must be on the main queue when initializing main context");
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
     
     NSAssert(coordinator, @"PersistentStoreCoordinator does not exist. This is a big problem.");
     if (!coordinator) {
-        return;
+        return nil;
     }
-    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    _managedObjectContext.persistentStoreCoordinator = coordinator;
-    _managedObjectContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy;
+    NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType:concurrencyType];
+    context.persistentStoreCoordinator = coordinator;
+    context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy;
+    
+    return context;
 }
 
 #pragma mark - Create and configure
@@ -466,10 +469,10 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSManagedObjectContext *)safeContext:(NSManagedObjectContext *)context
 {
     if (!context) {
-        context = [self managedObjectContext];
+        context = self.managedObjectContext;
     }
     
-    if (context == [self managedObjectContext]) {
+    if (context == self.managedObjectContext) {
         NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue], @"XXX ALERT ALERT XXXX\nNOT ON MAIN QUEUE!");
     }
     
@@ -481,10 +484,10 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (void)saveMainContext
 {
     if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
-        [self saveContext:[self managedObjectContext]];
+        [self saveContext:self.managedObjectContext];
     } else {
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self saveContext:[self managedObjectContext]];
+        [self.managedObjectContext performBlock:^{
+            [self saveContext:self.managedObjectContext];
         }];
     }
 }
@@ -492,10 +495,10 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (void)saveMainContextAndWait
 {
     if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
-        [self saveContext:[self managedObjectContext]];
+        [self saveContext:self.managedObjectContext];
     } else {
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self saveContext:[self managedObjectContext]];
+        [self.managedObjectContext performBlockAndWait:^{
+            [self saveContext:self.managedObjectContext];
         }];
     }
 }
@@ -530,14 +533,14 @@ static VOKCoreDataManager *VOK_SharedObject;
     //http://stackoverflow.com/questions/3923826/nsfetchedresultscontroller-with-predicate-ignores-changes-merged-from-different
     
     for (NSManagedObject *object in [[notification userInfo] objectForKey:NSUpdatedObjectsKey]) {
-        [[[self managedObjectContext] objectWithID:[object objectID]] willAccessValueForKey:nil];
+        [[self.managedObjectContext objectWithID:[object objectID]] willAccessValueForKey:nil];
     }
     
     if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
-        [[self managedObjectContext] mergeChangesFromContextDidSaveNotification:notification];
+        [self.managedObjectContext mergeChangesFromContextDidSaveNotification:notification];
     } else {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [[self managedObjectContext] mergeChangesFromContextDidSaveNotification:notification];
+            [self.managedObjectContext mergeChangesFromContextDidSaveNotification:notification];
         }];
     }
     [self saveMainContextAndWait];
@@ -545,12 +548,12 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (NSManagedObjectContext *)temporaryContext
 {
-    return [self tempManagedObjectContext];
+    return [self managedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType];
 }
 
 - (void)saveAndMergeWithMainContext:(NSManagedObjectContext *)context
 {
-    NSAssert(context != [self managedObjectContext], @"This is NOT for saving the main context.");
+    NSAssert(context != self.managedObjectContext, @"This is NOT for saving the main context.");
     [self saveTempContext:context];
 }
 
@@ -560,10 +563,11 @@ static VOKCoreDataManager *VOK_SharedObject;
                      completion:(void (^)(void))completion
 {
     NSAssert(writeBlock, @"Write block must not be nil");
-    [VOK_WritingQueue addOperationWithBlock:^{
-        
-        NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+    
+    NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+    [tempContext performBlock:^{
         writeBlock(tempContext);
+        
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
         
         if (completion) {
@@ -576,9 +580,9 @@ static VOKCoreDataManager *VOK_SharedObject;
                        forClass:(Class)objectClass
                      completion:(VOKObjectIDsReturnBlock)completion
 {
-    [VOK_WritingQueue addOperationWithBlock:^{
+    NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+    [tempContext performBlock:^{
         
-        NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
         NSArray *managedObjectsArray = [[VOKCoreDataManager sharedInstance] importArray:inputArray
                                                                                forClass:objectClass
                                                                             withContext:tempContext];
@@ -648,7 +652,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     NSArray *stores = [_persistentStoreCoordinator persistentStores];
     
     for (NSPersistentStore *store in stores) {
-        [[self persistentStoreCoordinator] removePersistentStore:store error:nil];
+        [self.persistentStoreCoordinator removePersistentStore:store error:nil];
         if (self.databaseFilename) {
             [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
         }

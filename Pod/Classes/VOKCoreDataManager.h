@@ -23,9 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
     /// No handling of a failed migration, will likely cause app instability and crashing when a migration fails.
     VOKMigrationFailureOptionNone,
-    /// Silently delete and recreate the sqlite database file, data will be erased, but instability and crashing will be avoided
+    /// Silently delete and recreate the database file, data will be erased, but instability and crashing will be avoided
     VOKMigrationFailureOptionWipeRecovery,
-    /// Same as VOKMigrationFailureOptionWipeRecoveryAndAlert, but will also notify the user that data has been erased via UIAlertView.
+    /// Same as VOKMigrationFailureOptionWipeRecoveryAndAlert, but will also notify the user that data has been erased via an on screen alert.
     VOKMigrationFailureOptionWipeRecoveryAndAlert,
 };
 
@@ -48,17 +48,11 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
  */
 + (VOKCoreDataManager *)sharedInstance;
 
-/**
- The primary managed object context. Only for use on the main queue.
- @return    The main managed object context.
- */
-- (NSManagedObjectContext *)managedObjectContext;
+///The primary managed object context. Only for use on the main queue.
+@property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
 
-/**
- The managed object model, based on the resource and database.
- @return    The managed object model
- */
-- (NSManagedObjectModel *)managedObjectModel;
+/// The managed object model, based on the resource and database.
+@property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
 
 /**
  Set the name of the managed object model and the name of the SQL lite store on disk. Call this first when you setup the core data stack.
