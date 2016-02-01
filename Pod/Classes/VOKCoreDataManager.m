@@ -99,7 +99,12 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSManagedObjectModel *)managedObjectModel
 {
     if (!_managedObjectModel) {
-        [self initManagedObjectModel];
+        NSURL *modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"momd"];
+        if (!modelURL) {
+            modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"mom"];
+        }
+        NSAssert(modelURL, @"Managed object model not found.");
+        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     }
     
     return _managedObjectModel;
@@ -108,7 +113,10 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
     if (!_persistentStoreCoordinator) {
-        [self initPersistentStoreCoordinator];
+        NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue],
+                 @"Must be on the main queue when initializing persistent store coordinator");
+        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+        [self addPersistentStoreToCoordinator:_persistentStoreCoordinator];
     }
     
     return _persistentStoreCoordinator;
@@ -126,27 +134,12 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 #pragma mark - Initializers
 
-- (void)initManagedObjectModel
+- (void)addPersistentStoreToCoordinator:(NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-    NSURL *modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"momd"];
-    if (!modelURL) {
-        modelURL = [self.bundleForModel URLForResource:self.resource withExtension:@"mom"];
-    }
-    NSAssert(modelURL, @"Managed object model not found.");
-    if (modelURL) {
-        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    }
-}
-
-- (void)initPersistentStoreCoordinator
-{
-    NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue], @"Must be on the main queue when initializing persistant store coordinator");
     NSDictionary *options = @{
                               NSMigratePersistentStoresAutomaticallyOption: @YES,
                               NSInferMappingModelAutomaticallyOption: @YES,
                               };
-    
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
     
     NSURL *storeURL = [self persistentStoreFileURL];
     NSString *storeType = NSInMemoryStoreType;
@@ -155,24 +148,19 @@ static VOKCoreDataManager *VOK_SharedObject;
         storeType = NSSQLiteStoreType;
     }
     
-    __block NSError *error;
-    BOOL (^createPersistantStore)() = ^BOOL() {
-        NSError *localError;
-        BOOL success =  [_persistentStoreCoordinator addPersistentStoreWithType:storeType
-                                                                  configuration:nil
-                                                                            URL:storeURL
-                                                                        options:options
-                                                                          error:&localError];
-        error = localError;
-        return success;
-    };
+    NSError *error;
     
-    if (!createPersistantStore()) {
+    if (![persistentStoreCoordinator addPersistentStoreWithType:storeType
+                                                  configuration:nil
+                                                            URL:storeURL
+                                                        options:options
+                                                          error:&error]) {
         switch (self.migrationFailureOptions) {
             case VOKMigrationFailureOptionWipeRecoveryAndAlert:
             {
                 NSString *title = @"Migration Failed";
                 NSString *message = @"Migration has failed, data will be erased to ensure application stability.";
+#ifdef __IPHONE_8_0 //if compiling with an old version of Xcode that doesn't include the iOS 8 SDK, ignore UIAlertController
                 if ([UIAlertController class]) {
                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                                    message:message
@@ -181,6 +169,7 @@ static VOKCoreDataManager *VOK_SharedObject;
                                                                                                  animated:YES
                                                                                                completion:nil];
                 } else {
+#endif
                     //TODO: delete UIAlertView once support is dropped for iOS 7
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -190,19 +179,25 @@ static VOKCoreDataManager *VOK_SharedObject;
                                       cancelButtonTitle:@""
                                       otherButtonTitles:nil] show];
 #pragma clang diagnostic pop
+#ifdef __IPHONE_8_0
                 }
+#endif
             }
                 //intentional fallthrough
             case VOKMigrationFailureOptionWipeRecovery:
                 VOK_CDLog(@"Full database delete and rebuild");
                 [[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:nil];
-                if (!createPersistantStore()) {
-                    [NSException raise:@"Vokoder Persistant Store Creation Failure after migration"
+                if (![persistentStoreCoordinator addPersistentStoreWithType:storeType
+                                                              configuration:nil
+                                                                        URL:storeURL
+                                                                    options:options
+                                                                      error:&error]) {
+                    [NSException raise:@"Vokoder Persistent Store Creation Failure after migration"
                                 format:@"Unresolved error %@, %@", error, [error userInfo]];
                 }
                 break;
             case VOKMigrationFailureOptionNone:
-                VOK_CDLog(@"Vokoder Persistant Store Creation Failure: %@", error);
+                VOK_CDLog(@"Vokoder Persistent Store Creation Failure: %@", error);
                 break;
         }
     }
