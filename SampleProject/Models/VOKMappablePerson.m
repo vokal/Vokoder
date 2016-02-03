@@ -24,13 +24,13 @@
     [df setDateFormat:@"dd' 'LLL' 'yy' 'HH:mm"];
     [df setTimeZone:[NSTimeZone localTimeZone]];
     return @[
-             VOK_MAP_FOREIGN_TO_LOCAL(@"first", firstName),
-             VOK_MAP_FOREIGN_TO_LOCAL(@"last", lastName),
+             VOKMapForeignToLocalForSelf(@"first", firstName),
+             VOKMapForeignToLocalForSelf(@"last", lastName),
              [VOKManagedObjectMap mapWithForeignKeyPath:@"date_of_birth"
-                                            coreDataKey:VOK_CDSELECTOR(birthDay)
+                                            coreDataKey:VOKKeyForSelf(birthDay)
                                           dateFormatter:df],
-             VOK_MAP_FOREIGN_TO_LOCAL(@"cat_num", numberOfCats),
-             VOK_MAP_FOREIGN_TO_LOCAL(@"CR_PREF", lovesCoolRanch),
+             VOKMapForeignToLocalForSelf(@"cat_num", numberOfCats),
+             VOKMapForeignToLocalForSelf(@"CR_PREF", lovesCoolRanch),
              ];
 }
 

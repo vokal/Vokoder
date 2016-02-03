@@ -86,7 +86,7 @@
     XCTAssertEqual([manager countForClass:[VOKThing class]], numObjects);
     
     //this predicate shouldn't match any existing objects
-    NSPredicate *tooManyHats = [NSPredicate predicateWithFormat:@"%K > %@", VOK_CDSELECTOR(numberOfHats), @(100)];
+    NSPredicate *tooManyHats = [NSPredicate predicateWithFormat:@"%K > %@", VOKKeyForInstanceOf(VOKThing, numberOfHats), @(100)];
     
     [manager deleteAllObjectsOfClass:[VOKThing class]
                    matchingPredicate:tooManyHats
@@ -107,7 +107,7 @@
     
     XCTAssertEqual([manager countForClass:[VOKThing class]], numObjects);
     
-    NSPredicate *hasFiveHats = [NSPredicate predicateWithFormat:@"%K == %@", VOK_CDSELECTOR(numberOfHats), @(5)];
+    NSPredicate *hasFiveHats = [NSPredicate predicateWithFormat:@"%K == %@", VOKKeyForInstanceOf(VOKThing, numberOfHats), @(5)];
     [manager deleteAllObjectsOfClass:[VOKThing class]
                    matchingPredicate:hasFiveHats
                              context:nil];
@@ -128,7 +128,7 @@
     XCTAssertEqual([manager countForClass:[VOKThing class]], numObjects);
     
     NSPredicate *hasAtLeastFiveHats = [NSPredicate predicateWithFormat:@"%K >= %@",
-                                       VOK_CDSELECTOR(numberOfHats), @(5)];
+                                       VOKKeyForInstanceOf(VOKThing, numberOfHats), @(5)];
     [manager deleteAllObjectsOfClass:[VOKThing class]
                    matchingPredicate:hasAtLeastFiveHats
                              context:nil];
@@ -149,7 +149,7 @@
     XCTAssertEqual([manager countForClass:[VOKThing class]], numObjects);
     
     NSPredicate *lessThanFiftyHats = [NSPredicate predicateWithFormat:@"%K < %@",
-                                      VOK_CDSELECTOR(numberOfHats), @(50)];
+                                      VOKKeyForInstanceOf(VOKThing, numberOfHats), @(50)];
     [manager deleteAllObjectsOfClass:[VOKThing class]
                    matchingPredicate:lessThanFiftyHats
                              context:nil];

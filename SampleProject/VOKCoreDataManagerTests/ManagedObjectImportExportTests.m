@@ -555,7 +555,7 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper defaultMapper];
     mapper.importCompletionBlock = ^(NSDictionary *inputDict, NSManagedObject *outputObject) {
         //ALWAYS LOVE COOL RANCH
-        [outputObject setValue:@YES forKey:VOK_CDSELECTOR(lovesCoolRanch)];
+        [outputObject setValue:@YES forKey:VOKKeyForInstanceOf(VOKPerson, lovesCoolRanch)];
     };
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VOKPerson class]];
 
@@ -568,8 +568,8 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 - (void)testPostImportBlockWithRelationship
 {
     NSArray *thingMaps = @[
-                           VOK_MAP_FOREIGN_TO_LOCAL(THING_NAME_KEY, name),
-                           VOK_MAP_FOREIGN_TO_LOCAL(THING_HAT_COUNT_KEY, numberOfHats),
+                           VOKMapForeignToLocalForClass(THING_NAME_KEY, name, VOKThing),
+                           VOKMapForeignToLocalForClass(THING_HAT_COUNT_KEY, numberOfHats, VOKThing),
                            ];
     VOKManagedObjectMapper *thingMapper = [VOKManagedObjectMapper mapperWithUniqueKey:@"thing_name" andMaps:thingMaps];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:thingMapper forClass:[VOKThing class]];
@@ -577,7 +577,7 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     mapper.importCompletionBlock = ^(NSDictionary *inputDict, NSManagedObject *outputObject){
         NSDictionary *thingDict = inputDict[@"nested_thing"];
         VOKThing *thing = [VOKThing vok_addWithDictionary:thingDict forManagedObjectContext:outputObject.managedObjectContext];
-        [outputObject setValue:thing forKey:VOK_CDSELECTOR(thing)];
+        [outputObject setValue:thing forKey:VOKKeyForInstanceOf(VOKPerson, thing)];
     };
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VOKPerson class]];
 

@@ -32,13 +32,13 @@
     [df setDateFormat:@"dd' 'LLL' 'yy' 'HH:mm"];
     [df setTimeZone:[NSTimeZone localTimeZone]];
 
-    NSArray *maps = @[VOK_MAP_FOREIGN_TO_LOCAL(@"first", firstName),
-                      VOK_MAP_FOREIGN_TO_LOCAL(@"last", lastName),
-                      [VOKManagedObjectMap mapWithForeignKeyPath:@"date_of_birth" coreDataKey:VOK_CDSELECTOR(birthDay) dateFormatter:df],
-                      VOK_MAP_FOREIGN_TO_LOCAL(@"cat_num", numberOfCats),
-                      VOK_MAP_FOREIGN_TO_LOCAL(@"CR_PREF", lovesCoolRanch)];
+    NSArray *maps = @[VOKMapForeignToLocalForClass(@"first", firstName, VOKPerson),
+                      VOKMapForeignToLocalForClass(@"last", lastName, VOKPerson),
+                      [VOKManagedObjectMap mapWithForeignKeyPath:@"date_of_birth" coreDataKey:VOKKeyForInstanceOf(VOKPerson, birthDay) dateFormatter:df],
+                      VOKMapForeignToLocalForClass(@"cat_num", numberOfCats, VOKPerson),
+                      VOKMapForeignToLocalForClass(@"CR_PREF", lovesCoolRanch, VOKPerson)];
 
-    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOK_CDSELECTOR(lastName) andMaps:maps];
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOKKeyForInstanceOf(VOKPerson, lastName) andMaps:maps];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VOKPerson class]];
 }
 
@@ -50,8 +50,8 @@
 - (NSArray *)sortDescriptors
 {
     return @[
-             [NSSortDescriptor sortDescriptorWithKey:VOK_CDSELECTOR(numberOfCats) ascending:NO],
-             [NSSortDescriptor sortDescriptorWithKey:VOK_CDSELECTOR(lastName) ascending:YES],
+             [NSSortDescriptor sortDescriptorWithKey:VOKKeyForInstanceOf(VOKPerson, numberOfCats) ascending:NO],
+             [NSSortDescriptor sortDescriptorWithKey:VOKKeyForInstanceOf(VOKPerson, lastName) ascending:YES],
              ];
 }
 
