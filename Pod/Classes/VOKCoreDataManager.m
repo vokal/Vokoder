@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+///A private parent context for writing to the persistent store
+@property (nonatomic, strong) NSManagedObjectContext *rootContext;
 
 @property (nonatomic, copy) NSString *resource;
 @property (nonatomic, copy) NSString *databaseFilename;
@@ -89,8 +91,11 @@ static VOKCoreDataManager *VOK_SharedObject;
     if (!_managedObjectContext) {
         NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue],
                  @"Must be on the main queue when initializing main context");
+        self.rootContext = [self managedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType
+                                                           parentContext:nil];
+        //main context is a main queue child of the root
         _managedObjectContext = [self managedObjectContextWithConcurrencyType:NSMainQueueConcurrencyType
-                                                                parentContext:nil];
+                                                                parentContext:self.rootContext];
     }
     
     return _managedObjectContext;
@@ -489,39 +494,78 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (void)saveMainContext
 {
-    if (!self.managedObjectContext.hasChanges) {
-        return;
-    }
-    
-    if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
-        [self saveContext:self.managedObjectContext];
-    } else {
-        [self.managedObjectContext performBlock:^{
-            [self saveContext:self.managedObjectContext];
-        }];
-    }
+    [self saveContext:self.managedObjectContext andWait:NO];
 }
 
 - (void)saveMainContextAndWait
 {
-    if (!self.managedObjectContext.hasChanges) {
+    [self saveContext:self.managedObjectContext andWait:YES];
+}
+
+- (void)obtainPermanentIDsForInsertionsInContext:(NSManagedObjectContext *)context
+{
+    [context performBlockAndWait:^{
+        NSError *error;
+        if (![context obtainPermanentIDsForObjects:context.insertedObjects.allObjects
+                                             error:&error]) {
+            VOK_CDLog(@"Error obtaining permanent ID for insertions: %@", error);
+        }
+    }];
+}
+
+/**
+ Save any changes to a managed object context to the persistent store.
+ If a context has no changes, no saves will be performed.
+ 
+ @param context The context to save
+ @param wait Whether to save synchronously (YES) or asynchronously (NO)
+ */
+- (void)saveContext:(NSManagedObjectContext *)context
+            andWait:(BOOL)wait
+{
+    __block BOOL hasChanges;
+    [context performBlockAndWait:^{
+        hasChanges = context.hasChanges;
+    }];
+    
+    if (!hasChanges) {
         return;
     }
     
-    if ([NSOperationQueue mainQueue] == [NSOperationQueue currentQueue]) {
-        [self saveContext:self.managedObjectContext];
-    } else {
-        [self.managedObjectContext performBlockAndWait:^{
-            [self saveContext:self.managedObjectContext];
-        }];
-    }
+    [self obtainPermanentIDsForInsertionsInContext:context];
+    [self saveContextToRoot:context andWait:YES];
 }
 
-- (void)saveContext:(NSManagedObjectContext *)context
+/**
+ Save a managed object context and all of its parent contexts.  
+ This method is called recursively on the context's parentContext.
+ 
+ @param context The context to save
+ @param wait Whether to save synchronously (YES) or asynchronously (NO)
+ */
+- (void)saveContextToRoot:(NSManagedObjectContext *)context
+                  andWait:(BOOL)wait
 {
-    NSError *error;
-    if (![context save:&error]) {
-        VOK_CDLog(@"Unresolved error %@, %@", error, [error localizedDescription]);
+    void (^saveBlock)() = ^{
+        NSError *error;
+        if ([context save:&error]) {
+            if (context.parentContext) {
+                [self saveContextToRoot:context.parentContext andWait:wait];
+            }
+        } else {
+            VOK_CDLog(@"Unresolved error %@, %@", error, [error localizedDescription]);
+        }
+    };
+    
+    //the root context can be saved asynchronously
+    if (context == self.rootContext) {
+        wait = NO;
+    }
+    
+    if (wait) {
+        [context performBlockAndWait:saveBlock];
+    } else {
+        [context performBlock:saveBlock];
     }
 }
 
@@ -533,12 +577,12 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (void)saveAndMergeWithMainContext:(NSManagedObjectContext *)context
 {
-    if (!context.hasChanges) {
-        return;
-    }
-    NSAssert(context != self.managedObjectContext, @"This is NOT for saving the main context.");
-    [self saveContext:context];
-    [self saveMainContextAndWait];
+    [self saveContext:context andWait:NO];
+}
+
+- (void)saveAndMergeWithMainContextAndWait:(NSManagedObjectContext *)context;
+{
+    [self saveContext:context andWait:YES];
 }
 
 #pragma mark - Background Importing
@@ -552,7 +596,8 @@ static VOKCoreDataManager *VOK_SharedObject;
     [tempContext performBlock:^{
         writeBlock(tempContext);
         
-        [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
+        BOOL wait = (completion != nil);
+        [[VOKCoreDataManager sharedInstance] saveContext:tempContext andWait:wait];
         
         if (completion) {
             [[NSOperationQueue mainQueue] addOperationWithBlock:completion];
@@ -570,16 +615,10 @@ static VOKCoreDataManager *VOK_SharedObject;
         NSArray *managedObjectsArray = [[VOKCoreDataManager sharedInstance] importArray:inputArray
                                                                                forClass:objectClass
                                                                             withContext:tempContext];
-        [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
+        BOOL wait = (completion != nil);
+        [[VOKCoreDataManager sharedInstance] saveContext:tempContext andWait:wait];
         
         if (completion) {
-            // only obtain permanent IDs if they're needed for the completion block
-            NSError *error;
-            BOOL gotPermanentID = [tempContext obtainPermanentIDsForObjects:managedObjectsArray error:&error];
-            if (!gotPermanentID) {
-                VOK_CDLog(@"Unable to obtain permanent object IDs %@, %@", error, [error userInfo]);
-            }
-            
             NSArray *arrayOfManagedObjectIDs = [managedObjectsArray valueForKeyPath:VOK_CDSELECTOR(objectID)];
             
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -644,6 +683,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     
     _persistentStoreCoordinator = nil;
     _managedObjectContext = nil;
+    _rootContext = nil;
     _managedObjectModel = nil;
     _bundleForModel = nil;
     [_mapperCollection removeAllObjects];

@@ -243,12 +243,12 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
                         context:(nullable NSManagedObjectContext *)contextOrNil;
 
 /**
- Saves the main context asynchronously on the main queue. If already on the main queue it will block and save synchronously.
+ Saves the main context asynchronously.
  */
 - (void)saveMainContext;
 
 /**
- Saves the main context synchronously on the main queue. If already on the main queue it performs the same as saveMainContext.
+ Saves the main context synchronously. This method will not return until the main context is saved.
  */
 - (void)saveMainContextAndWait;
 
@@ -285,11 +285,18 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
                      completion:(nullable VOKObjectIDsReturnBlock)completion;
 
 /**
- Saves any temporary managed object context and merges those changes with the main managed object context in a thread-safe way.
+ Saves any temporary managed object context and merges those changes with the main managed object context asynchronously.
  This method is safe to call from any queue.
- @param context     The temporary context to save. Do not use this method to save the main context.
+ @param context     The temporary context to save.
  */
 - (void)saveAndMergeWithMainContext:(NSManagedObjectContext *)context;
+
+/**
+ Saves any temporary managed object context and merges those changes with the main managed object context synchronously.
+ This method is safe to call from any queue.  This method will not return until the main context is saved.
+ @param context     The temporary context to save.
+ */
+- (void)saveAndMergeWithMainContextAndWait:(NSManagedObjectContext *)context;
 
 /**
  Deletes the persistent stores and resets the main context and model to nil
