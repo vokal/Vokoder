@@ -568,8 +568,9 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 - (void)testPostImportBlockWithRelationship
 {
     NSArray *thingMaps = @[
-                           VOKMapForeignToLocalForClass(THING_NAME_KEY, name, VOKThing),
-                           VOKMapForeignToLocalForClass(THING_HAT_COUNT_KEY, numberOfHats, VOKThing),
+                           VOKMapForeignToLocalClassProperty(THING_NAME_KEY, VOKThing, name),
+                           VOKMapForeignToLocalClassProperty(THING_HAT_COUNT_KEY, VOKThing, numberOfHats),
+//                           VOKMapForeignToLocalForClass(@"", nam),
                            ];
     VOKManagedObjectMapper *thingMapper = [VOKManagedObjectMapper mapperWithUniqueKey:@"thing_name" andMaps:thingMaps];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:thingMapper forClass:[VOKThing class]];

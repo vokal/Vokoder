@@ -50,8 +50,8 @@
  *
  *  @return A VOKManagedObjectMap
  */
-#ifndef VOKMapForeignToLocalForClass
-#   define VOKMapForeignToLocalForClass(inputKeyPath, coreDataSelectorSymbol, klass) \
+#ifndef VOKMapForeignToLocalClassProperty
+#   define VOKMapForeignToLocalClassProperty(inputKeyPath, klass, coreDataSelectorSymbol) \
         [VOKManagedObjectMap mapWithForeignKeyPath:inputKeyPath coreDataKey:VOKKeyForInstanceOf(klass, coreDataSelectorSymbol)]
 #endif
 
