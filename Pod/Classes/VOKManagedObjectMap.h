@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import <VOKUtilities/VOKKeyPathHelper.h>
+
 #import "VOKCoreDataCollectionTypes.h"
 #import "VOKNullabilityFeatures.h"
 
@@ -19,9 +21,9 @@
  */
 #ifndef VOK_CDSELECTOR
 #   ifdef DEBUG
-#       define VOK_CDSELECTOR(selectorSymbol) NSStringFromSelector(@selector(selectorSymbol))
+#       define VOK_CDSELECTOR(selectorSymbol) _Pragma ("GCC warning \"'VOK_CDSELECTOR' macro is deprecated. Use the appropriate macro from VOKUtilities/VOKKeyPathHelper instead.\"") NSStringFromSelector(@selector(selectorSymbol))
 #   else
-#       define VOK_CDSELECTOR(selectorSymbol) @#selectorSymbol //in release builds @#selectorSymbol becomes @"{selectorSymbol}"
+#       define VOK_CDSELECTOR(selectorSymbol) _Pragma ("GCC warning \"'VOK_CDSELECTOR' macro is deprecated. Use the appropriate macro from VOKUtilities/VOKKeyPathHelper instead.\"") @#selectorSymbol //in release builds @#selectorSymbol becomes @"{selectorSymbol}"
 #   endif
 #endif
 
@@ -34,7 +36,36 @@
  *  @return A VOKManagedObjectMap
  */
 #ifndef VOK_MAP_FOREIGN_TO_LOCAL
-#   define VOK_MAP_FOREIGN_TO_LOCAL(inputKeyPath, coreDataSelectorSymbol) [VOKManagedObjectMap mapWithForeignKeyPath:inputKeyPath coreDataKey:VOK_CDSELECTOR(coreDataSelectorSymbol)]
+#   define VOK_MAP_FOREIGN_TO_LOCAL(inputKeyPath, coreDataSelectorSymbol) \
+        _Pragma ("GCC warning \"'VOK_MAP_FOREIGN_TO_LOCAL' macro is deprecated. Use VOKMapForeignToLocalForClass or VOKMapForeignToLocalForSelf instead.\"") \
+        [VOKManagedObjectMap mapWithForeignKeyPath:inputKeyPath coreDataKey:VOK_CDSELECTOR(coreDataSelectorSymbol)]
+#endif
+
+/**
+ *  Creates a map with the default date mapper.
+ *
+ *  @param inputKeyPath           The foreign key to match with the local key.
+ *  @param coreDataSelectorSymbol The local selector symbol.
+ *  @param klass                  The class on which the local selector symbol is defined.
+ *
+ *  @return A VOKManagedObjectMap
+ */
+#ifndef VOKMapForeignToLocalForClass
+#   define VOKMapForeignToLocalForClass(inputKeyPath, coreDataSelectorSymbol, klass) \
+        [VOKManagedObjectMap mapWithForeignKeyPath:inputKeyPath coreDataKey:VOKKeyForInstanceOf(klass, coreDataSelectorSymbol)]
+#endif
+
+/**
+ *  Creates a map with the default date mapper.
+ *
+ *  @param inputKeyPath           The foreign key to match with the local key.
+ *  @param coreDataSelectorSymbol The local selector symbol on the class of self.
+ *
+ *  @return A VOKManagedObjectMap
+ */
+#ifndef VOKMapForeignToLocalForSelf
+#   define VOKMapForeignToLocalForSelf(inputKeyPath, coreDataSelectorSymbol) \
+        [VOKManagedObjectMap mapWithForeignKeyPath:inputKeyPath coreDataKey:VOKKeyForSelf(coreDataSelectorSymbol)]
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
