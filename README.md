@@ -50,7 +50,7 @@ or
 
 Vokoder offers a lightweight mapper for importing Foundation objects into Core Data. Arrays of dictionaries can be imported with ease once maps are set up. If no maps are provided Vokoder will use its default maps. The default maps assume that foreign keys have the same names as your core data attributes. It will make its best effort to identify dates and numbers.
 
-Setting up your own maps is recommended. Macros are provided to make it fun and easy. Below is an example of setting up a mapper for an arbitrary managed object subclass. Mappers are not persisted between app launches, so be sure to setup your maps every time your application starts.
+Setting up your own maps is recommended. Macros are provided to make it fun and easy. Below is an example of setting up a mapper for a managed object subclass `VOKPerson`. Mappers are not persisted between app launches, so be sure to setup your maps every time your application starts.
 
 ```objective-c
 // A date formatter will enable Vokoder to turn strings into NSDates
@@ -58,29 +58,29 @@ NSDateFormatter *dateFormatter = [NSDateFormatter someCustomDateFormatter];
 // A number formatter will do the same, turning strings into NSNumbers
 NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
 NSArray *maps = @[
-                  VOK_MAP_FOREIGN_TO_LOCAL(@"first_name", firstName),   //the first argument is the foreign key
-                  VOK_MAP_FOREIGN_TO_LOCAL(@"last_name", lastName),     //the second argument is the local attribute
-                  VOK_MAP_FOREIGN_TO_LOCAL(@"ss_num", socialSecurityNumber),
+                  VOKMapForeignToLocalClassProperty(@"first_name", VOKPerson, firstName), //the first argument is the foreign key,
+                  VOKMapForeignToLocalClassProperty(@"last_name", VOKPerson, lastName),   //second argument is the class, and then local property
+                  VOKMapForeignToLocalClassProperty(@"ss_num", VOKPerson, socialSecurityNumber),
                   [VOKManagedObjectMap mapWithForeignKeyPath:@"salary"
-                                                 coreDataKey:VOK_CDSELECTOR(salary)
+                                                 coreDataKey:VOKKeyForInstanceOf(VOKPerson, salary)
                                              numberFormatter:numberFormatter],
                   [VOKManagedObjectMap mapWithForeignKeyPath:@"dob"
-                                                 coreDataKey:VOK_CDSELECTOR(dateOfBirth)
+                                                 coreDataKey:VOKKeyForInstanceOf(VOKPerson, dateOfBirth)
                                                dateFormatter:dateFormatter],
                   ];
-// VOK_CDSELECTOR will prevent you from specifying a nonexistent attribute
-// The unique key is an NSString to uniquely identify local entities. If nil each import can create duplicate objects.
-VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOK_CDSELECTOR(ticketNumber)
+// VOKKeyForInstanceOf(...) will prevent you from specifying a property that does not exist on a specific class
+// The unique key is an NSString to uniquely identify local entities. If nil, each import can create duplicate objects.
+VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOKKeyForInstanceOf(VOKPerson, ticketNumber)
                                                                      andMaps:maps];
-// By default missing parameters and null parameters in the import data will nil out an attribute's value
-// With ignoreNullValueOverwrites set to YES the maps will leave set attributes alone unless new data is provided.
+// By default, missing parameters and null parameters in the import data will nil out an attribute's value
+// With ignoreNullValueOverwrites set to YES, the maps will leave existing attributes alone unless new data is provided.
 mapper.ignoreNullValueOverwrites = YES;
-// By default Vokoder will complain about every single parameter that can't be set
-// With ignoreOptionalNullValues set to YES Vokoder will not warn about mismatched classes or null/nil values
+// By default, Vokoder will complain about every single parameter that can't be set.
+// With ignoreOptionalNullValues set to YES, Vokoder will not warn about mismatched classes or null/nil values.
 mapper.ignoreOptionalNullValues = YES;
 // Set the mapper and Vokoder will handle the rest.
 [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper
-                                            forClass:[SomeManagedObjectSubclass class]];
+                                            forClass:[VOKPerson class]];
 ```
 
 Once the mapper is set Vokoder can turn Foundation objects in to managed objects and then back again to Foundation objects.
@@ -108,23 +108,23 @@ The mapper constructed in the example in the section above could be included in 
     // A number formatter will do the same, turning strings into NSNumbers
     NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
     return = @[
-               VOK_MAP_FOREIGN_TO_LOCAL(@"first_name", firstName),   //the first argument is the foreign key
-               VOK_MAP_FOREIGN_TO_LOCAL(@"last_name", lastName),     //the second argument is the local attribute
-               VOK_MAP_FOREIGN_TO_LOCAL(@"ss_num", socialSecurityNumber),
+               VOKMapForeignToLocalClassProperty(@"first_name", SomeManagedObjectSubclass, firstName),
+               VOKMapForeignToLocalClassProperty(@"last_name", SomeManagedObjectSubclass, lastName),
+               VOKMapForeignToLocalClassProperty(@"ss_num", SomeManagedObjectSubclass, socialSecurityNumber),
                [VOKManagedObjectMap mapWithForeignKeyPath:@"salary"
-                                              coreDataKey:VOK_CDSELECTOR(salary)
+                                              coreDataKey:VOKKeyForInstanceOf(SomeManagedObjectSubclass, salary)
                                           numberFormatter:numberFormatter],
                [VOKManagedObjectMap mapWithForeignKeyPath:@"dob"
-                                              coreDataKey:VOK_CDSELECTOR(dateOfBirth)
+                                              coreDataKey:VOKKeyForInstanceOf(SomeManagedObjectSubclass, dateOfBirth)
                                             dateFormatter:dateFormatter],
                ];
 }
 
 + (NSString *)uniqueKey
 {
-	// VOK_CDSELECTOR will prevent you from specifying a nonexistent attribute
+    // VOKKeyForInstanceOf(...) will prevent you from specifying a property that does not exist on a specific class
 	// The unique key is an NSString to uniquely identify local entities. If nil each import can create duplicate objects.
-	return VOK_CDSELECTOR(ticketNumber);
+	return VOKKeyForInstanceOf(SomeManagedObjectSubclass, ticketNumber);
 }
 
 + (BOOL)ignoreNullValueOverwrites
