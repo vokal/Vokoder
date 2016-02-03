@@ -67,7 +67,7 @@ static const NSUInteger BasicTestDataSize = 5;
     VOKThing *thing = [VOKThing vok_newInstance];
     [thing setName:@"test-1"];
     [thing setNumberOfHats:@1];
-    [[VOKCoreDataManager sharedInstance] saveMainContext];
+    [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
     
     XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
                              forManagedObjectContext:nil].count, 1);    

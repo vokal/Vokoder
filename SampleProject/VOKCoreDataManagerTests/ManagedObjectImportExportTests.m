@@ -488,14 +488,14 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 - (void)testFetchWithURI
 {
     VOKPerson *person = [VOKPerson vok_addWithDictionary:[self makePersonDictForDefaultMapperWithAnEmptyInputValues] forManagedObjectContext:nil];
-    [[VOKCoreDataManager sharedInstance] saveMainContext];
+    [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
     NSManagedObjectID *objectID = person.objectID;
     NSURL *uri = objectID.URIRepresentation;
     person = nil;
     [[[VOKCoreDataManager sharedInstance] managedObjectContext] reset];
 
     VOKPerson *personFromURI = (VOKPerson *)[[VOKCoreDataManager sharedInstance] existingObjectAtURI:uri
-                                                                           forManagedObjectContext:nil];
+                                                                             forManagedObjectContext:nil];
     XCTAssertNotNil(personFromURI, @"failed to get existing person object from URI");
     XCTAssertTrue([personFromURI isKindOfClass:[VOKPerson class]], @"existing person object was not correct class");
 }
