@@ -287,7 +287,7 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
 /**
  Saves any temporary managed object context and merges those changes with the main managed object context in a thread-safe way.
  This method is safe to call from any queue.
- @param context     The termporary context to save. Do not use this method to save the main context.
+ @param context     The temporary context to save. Do not use this method to save the main context.
  */
 - (void)saveAndMergeWithMainContext:(NSManagedObjectContext *)context;
 
