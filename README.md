@@ -33,7 +33,7 @@ Data sources to facilitate backing various kinds of views with data from Core Da
 
 The optional `Swift` subspec includes some Swift extensions for strong typing and cleaner syntax.  It is recommended to use this subspec if you intend to use Vokoder in Swift.  This subspec includes all of the other subspecs.
 
-Macros to help create managed object property maps for importing and exporting are included in the `MapperMacros` subspec.  This subspec is included by default, but excluded from the `Swfit` subspec, since the macros are only usable from Objective-C code.
+Macros to help create managed object property maps for importing and exporting are included in the `MapperMacros` subspec.  This subspec is included by default, but excluded from the `Swift` subspec since the macros are only usable from Objective-C code.
 
 ##Usage
 
