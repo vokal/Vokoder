@@ -9,6 +9,7 @@
 #import "VOKCoreDataManagerInternalMacros.h"
 
 #import <ILGDynamicObjC/ILGClasses.h>
+#import <VOKUtilities/VOKKeyPathHelper.h>
 
 #import "VOKMappableModel.h"
 

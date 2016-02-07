@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.default_subspecs = 'Core', 'DataSources'
+  s.default_subspecs = 'Core', 'MapperMacros', 'DataSources'
 
   s.subspec 'Core' do |ss|
     ss.source_files = [
@@ -20,6 +20,12 @@ Pod::Spec.new do |s|
     ss.framework    = "CoreData"
     ss.dependency 'ILGDynamicObjC/ILGClasses', '~> 0.1.1'
     ss.dependency 'VOKUtilities/VOKKeyPathHelper', '~> 0.8.0'
+  end
+
+  s.subspec 'MapperMacros' do |mm|
+    mm.dependency 'Vokoder/Core'
+    mm.source_files = 'Pod/Classes/MapperMacros/*.{h,m}'
+    mm.module_map = 'Pod/Classes/MapperMacros/module.modulemap'
   end
 
   s.subspec 'DataSources' do |ss|

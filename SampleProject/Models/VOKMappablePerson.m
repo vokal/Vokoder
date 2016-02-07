@@ -9,6 +9,7 @@
 #import "VOKMappablePerson.h"
 
 #import <VOKMappableModel.h>
+#import <VOKManagedObjectMapperMacros.h>
 
 @interface VOKMappablePerson () <VOKMappableModel>
 
