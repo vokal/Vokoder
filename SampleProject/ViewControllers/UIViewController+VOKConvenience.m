@@ -6,7 +6,10 @@
 //
 
 #import "UIViewController+VOKConvenience.h"
-#import "VOKCoreDataManager.h"
+
+#import <VOKCoreDataManager.h>
+#import <VOKManagedObjectMapperMacros.h>
+
 #import "VOKPerson.h"
 
 @implementation UIViewController (VOKConvenience)

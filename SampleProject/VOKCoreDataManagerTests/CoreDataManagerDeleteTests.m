@@ -8,7 +8,9 @@
 
 #import <XCTest/XCTest.h>
 
-#import "VOKCoreDataManager.h"
+#import <VOKCoreDataManager.h>
+#import <VOKKeyPathHelper.h>
+
 #import "VOKThing.h"
 
 @interface CoreDataManagerDeleteTests : XCTestCase

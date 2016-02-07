@@ -7,7 +7,9 @@
 
 #import <XCTest/XCTest.h>
 
-#import "VOKCoreDataManager.h"
+#import <VOKCoreDataManager.h>
+#import <VOKManagedObjectMapperMacros.h>
+
 #import "VOKMappablePerson.h"
 #import "VOKPerson.h"
 #import "VOKThing.h"
