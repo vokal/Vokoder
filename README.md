@@ -125,22 +125,22 @@ The mapper constructed in the example in the section above could be included in 
 + (NSString *)uniqueKey
 {
   // The VOKKeyForInstanceOf(...) macro will prevent you from specifying a property that does not exist on a specific class.
-	// The unique key is an NSString to uniquely identify local entities. If nil each import can create duplicate objects.
-	return VOKKeyForInstanceOf(SomeManagedObjectSubclass, ticketNumber);
+  // The unique key is an NSString to uniquely identify local entities. If nil each import can create duplicate objects.
+  return VOKKeyForInstanceOf(SomeManagedObjectSubclass, ticketNumber);
 }
 
 + (BOOL)ignoreNullValueOverwrites
 {
-	// By default, missing parameters and null parameters in the import data will nil out an attribute's value
-	// With ignoreNullValueOverwrites set to YES, the maps will leave set attributes alone unless new data is provided.
-	return YES;
+  // By default, missing parameters and null parameters in the import data will nil out an attribute's value
+  // With ignoreNullValueOverwrites set to YES, the maps will leave set attributes alone unless new data is provided.
+  return YES;
 }
 
 + (BOOL)ignoreOptionalNullValues
 {
-	// By default Vokoder will complain about every single parameter that can't be set
-	// With ignoreOptionalNullValues set to YES Vokoder will not warn about mismatched classes or null/nil values
-	return YES;
+  // By default Vokoder will complain about every single parameter that can't be set
+  // With ignoreOptionalNullValues set to YES Vokoder will not warn about mismatched classes or null/nil values
+  return YES;
 }
 …
 @end
