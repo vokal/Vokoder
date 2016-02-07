@@ -67,7 +67,7 @@
  */
 #ifndef VOK_MAP_FOREIGN_TO_LOCAL
 #   define VOK_MAP_FOREIGN_TO_LOCAL(inputKeyPath, coreDataSelectorSymbol) \
-_Pragma ("GCC warning \"'VOK_MAP_FOREIGN_TO_LOCAL' macro is deprecated and will be removed in version 3.0. Use VOKMapForeignToLocalForClass or VOKMapForeignToLocalForSelf instead.\"") \
+_Pragma ("GCC warning \"'VOK_MAP_FOREIGN_TO_LOCAL' macro is deprecated and will be removed in version 3.0. Use VOKMapForeignToLocalClassProperty or VOKMapForeignToLocalForSelf instead.\"") \
 [VOKManagedObjectMap mapWithForeignKeyPath:inputKeyPath coreDataKey:VOK_CDSELECTOR(coreDataSelectorSymbol)]
 #endif
 
