@@ -3,6 +3,7 @@ PODS:
   - Vokoder (2.3.0):
     - Vokoder/Core (= 2.3.0)
     - Vokoder/DataSources (= 2.3.0)
+    - Vokoder/MapperMacros (= 2.3.0)
   - Vokoder/Core (2.3.0):
     - ILGDynamicObjC/ILGClasses (~> 0.1.1)
     - VOKUtilities/VOKKeyPathHelper (~> 0.8.0)
@@ -19,6 +20,8 @@ PODS:
   - Vokoder/DataSources/PagingFetchedResults (2.3.0):
     - Vokoder/Core
     - Vokoder/DataSources/FetchedResults
+  - Vokoder/MapperMacros (2.3.0):
+    - Vokoder/Core
   - VOKUtilities/VOKKeyPathHelper (0.8.0)
 
 DEPENDENCIES:
@@ -30,7 +33,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   ILGDynamicObjC: 63443567f8ce851067ea3070d3b8c7f93d37207c
-  Vokoder: 2de95e402b32517164cf3b9d89336b4438bb3ef4
+  Vokoder: 60241b87c4e69de33c77ef0218a96177d0345757
   VOKUtilities: 7d579a7fa5304c2eec17c49d293b2554d6059eaa
 
 COCOAPODS: 0.39.0
