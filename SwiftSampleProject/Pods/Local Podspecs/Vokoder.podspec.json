@@ -20,6 +20,7 @@
   "requires_arc": true,
   "default_subspecs": [
     "Core",
+    "MapperMacros",
     "DataSources"
   ],
   "subspecs": [
@@ -38,6 +39,16 @@
           "~> 0.8.0"
         ]
       }
+    },
+    {
+      "name": "MapperMacros",
+      "dependencies": {
+        "Vokoder/Core": [
+
+        ]
+      },
+      "source_files": "Pod/Classes/MapperMacros/*.{h,m}",
+      "module_map": "Pod/Classes/MapperMacros/module.modulemap"
     },
     {
       "name": "DataSources",
