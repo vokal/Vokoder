@@ -33,6 +33,8 @@ Data sources to facilitate backing various kinds of views with data from Core Da
 
 The optional `Swift` subspec includes some Swift extensions for strong typing and cleaner syntax.  It is recommended to use this subspec if you intend to use Vokoder in Swift.  This subspec includes all of the other subspecs.
 
+Macros to help create managed object property maps for importing and exporting are included in the `MapperMacros` subspec.  This subspec is included by default, but excluded from the `Swfit` subspec, since the macros are only usable from Objective-C code.
+
 ##Usage
 
 ###Setting up the data model
@@ -68,7 +70,7 @@ NSArray *maps = @[
                                                  coreDataKey:VOKKeyForInstanceOf(VOKPerson, dateOfBirth)
                                                dateFormatter:dateFormatter],
                   ];
-// VOKKeyForInstanceOf(...) will prevent you from specifying a property that does not exist on a specific class
+// The VOKKeyForInstanceOf(...) macro will prevent you from specifying a property that does not exist on a specific class.
 // The unique key is an NSString to uniquely identify local entities. If nil, each import can create duplicate objects.
 VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOKKeyForInstanceOf(VOKPerson, ticketNumber)
                                                                      andMaps:maps];
@@ -122,15 +124,15 @@ The mapper constructed in the example in the section above could be included in 
 
 + (NSString *)uniqueKey
 {
-    // VOKKeyForInstanceOf(...) will prevent you from specifying a property that does not exist on a specific class
+  // The VOKKeyForInstanceOf(...) macro will prevent you from specifying a property that does not exist on a specific class.
 	// The unique key is an NSString to uniquely identify local entities. If nil each import can create duplicate objects.
 	return VOKKeyForInstanceOf(SomeManagedObjectSubclass, ticketNumber);
 }
 
 + (BOOL)ignoreNullValueOverwrites
 {
-	// By default missing parameters and null parameters in the import data will nil out an attribute's value
-	// With ignoreNullValueOverwrites set to YES the maps will leave set attributes alone unless new data is provided.
+	// By default, missing parameters and null parameters in the import data will nil out an attribute's value
+	// With ignoreNullValueOverwrites set to YES, the maps will leave set attributes alone unless new data is provided.
 	return YES;
 }
 
