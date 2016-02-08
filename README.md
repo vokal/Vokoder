@@ -172,7 +172,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
     NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
         
     SomeManagedObjectSubclass *thing = [SomeManagedObjectSubclass vok_newInstanceWithContext:backgroundContext];
-  	thing.someArbitrayAttribute = @"hello";
+    thing.someArbitrayAttribute = @"hello";
     [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
 });
 ```
