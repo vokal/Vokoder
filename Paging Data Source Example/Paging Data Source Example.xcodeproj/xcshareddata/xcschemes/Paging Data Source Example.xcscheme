@@ -15,7 +15,7 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "EA5F199F15C196500089AA44"
+                     BlueprintIdentifier = "408232601F6454132847C2DCAE154679"
                      BuildableName = "Paging Data Source Example.app"
                      BlueprintName = "Paging Data Source Example"
                      ReferencedContainer = "container:Paging Data Source Example.xcodeproj">
@@ -33,7 +33,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EA5F199F15C196500089AA44"
+               BlueprintIdentifier = "408232601F6454132847C2DCAE154679"
                BuildableName = "Paging Data Source Example.app"
                BlueprintName = "Paging Data Source Example"
                ReferencedContainer = "container:Paging Data Source Example.xcodeproj">
@@ -51,7 +51,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EA5F199F15C196500089AA44"
+            BlueprintIdentifier = "408232601F6454132847C2DCAE154679"
             BuildableName = "Paging Data Source Example.app"
             BlueprintName = "Paging Data Source Example"
             ReferencedContainer = "container:Paging Data Source Example.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EA5F199F15C196500089AA44"
+            BlueprintIdentifier = "408232601F6454132847C2DCAE154679"
             BuildableName = "Paging Data Source Example.app"
             BlueprintName = "Paging Data Source Example"
             ReferencedContainer = "container:Paging Data Source Example.xcodeproj">
@@ -93,7 +93,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EA5F199F15C196500089AA44"
+            BlueprintIdentifier = "408232601F6454132847C2DCAE154679"
             BuildableName = "Paging Data Source Example.app"
             BlueprintName = "Paging Data Source Example"
             ReferencedContainer = "container:Paging Data Source Example.xcodeproj">

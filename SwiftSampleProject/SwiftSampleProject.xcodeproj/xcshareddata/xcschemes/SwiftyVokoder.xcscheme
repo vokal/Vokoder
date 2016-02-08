@@ -14,7 +14,7 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "DEAD7AA41BEBCACD004FE281"
+                     BlueprintIdentifier = "5D926D8CF832E22C37EDE3AFD3F85BAB"
                      BuildableName = "SwiftyVokoder.app"
                      BlueprintName = "SwiftyVokoder"
                      ReferencedContainer = "container:SwiftSampleProject.xcodeproj">
@@ -32,7 +32,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DEAD7AA41BEBCACD004FE281"
+               BlueprintIdentifier = "5D926D8CF832E22C37EDE3AFD3F85BAB"
                BuildableName = "SwiftyVokoder.app"
                BlueprintName = "SwiftyVokoder"
                ReferencedContainer = "container:SwiftSampleProject.xcodeproj">
@@ -46,7 +46,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DEAD7AB81BEBCACE004FE281"
+               BlueprintIdentifier = "7C6878CAA87B40EAF6ACAC010FD2CB4B"
                BuildableName = "SwiftyVokoderTests.xctest"
                BlueprintName = "SwiftyVokoderTests"
                ReferencedContainer = "container:SwiftSampleProject.xcodeproj">
@@ -64,7 +64,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DEAD7AB81BEBCACE004FE281"
+               BlueprintIdentifier = "7C6878CAA87B40EAF6ACAC010FD2CB4B"
                BuildableName = "SwiftyVokoderTests.xctest"
                BlueprintName = "SwiftyVokoderTests"
                ReferencedContainer = "container:SwiftSampleProject.xcodeproj">
@@ -74,7 +74,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DEAD7AA41BEBCACD004FE281"
+            BlueprintIdentifier = "5D926D8CF832E22C37EDE3AFD3F85BAB"
             BuildableName = "SwiftyVokoder.app"
             BlueprintName = "SwiftyVokoder"
             ReferencedContainer = "container:SwiftSampleProject.xcodeproj">
@@ -97,7 +97,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DEAD7AA41BEBCACD004FE281"
+            BlueprintIdentifier = "5D926D8CF832E22C37EDE3AFD3F85BAB"
             BuildableName = "SwiftyVokoder.app"
             BlueprintName = "SwiftyVokoder"
             ReferencedContainer = "container:SwiftSampleProject.xcodeproj">
@@ -116,7 +116,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DEAD7AA41BEBCACD004FE281"
+            BlueprintIdentifier = "5D926D8CF832E22C37EDE3AFD3F85BAB"
             BuildableName = "SwiftyVokoder.app"
             BlueprintName = "SwiftyVokoder"
             ReferencedContainer = "container:SwiftSampleProject.xcodeproj">
