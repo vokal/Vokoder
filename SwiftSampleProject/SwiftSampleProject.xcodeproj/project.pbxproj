@@ -7,163 +7,163 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD933D600CBF86542442FDE0 /* Pods_SwiftyVokoderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F035F26C14E954FD3C335BA8 /* Pods_SwiftyVokoderTests.framework */; };
-		CA56478011E7DB3E3CB84257 /* Pods_SwiftyVokoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF07AC8DBE4283D739347E6 /* Pods_SwiftyVokoder.framework */; };
-		DE7ECC481C4C26460001FD41 /* CTA_stations.json in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECC471C4C26460001FD41 /* CTA_stations.json */; };
-		DE8EA1021BF6797D002FDF6A /* Stop+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA0FC1BF6797D002FDF6A /* Stop+CoreDataProperties.swift */; };
-		DE8EA1031BF6797D002FDF6A /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA0FD1BF6797D002FDF6A /* Stop.swift */; };
-		DE8EA1041BF6797D002FDF6A /* TrainLine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA0FE1BF6797D002FDF6A /* TrainLine+CoreDataProperties.swift */; };
-		DE8EA1051BF6797D002FDF6A /* TrainLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA0FF1BF6797D002FDF6A /* TrainLine.swift */; };
-		DE8EA1061BF6797D002FDF6A /* Station+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA1001BF6797D002FDF6A /* Station+CoreDataProperties.swift */; };
-		DE8EA1071BF6797D002FDF6A /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EA1011BF6797D002FDF6A /* Station.swift */; };
-		DEAD7AA91BEBCACD004FE281 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAD7AA81BEBCACD004FE281 /* AppDelegate.swift */; };
-		DEAD7AAB1BEBCACD004FE281 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAD7AAA1BEBCACD004FE281 /* ViewController.swift */; };
-		DEAD7AAE1BEBCACD004FE281 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAD7AAC1BEBCACD004FE281 /* Main.storyboard */; };
-		DEAD7AB01BEBCACD004FE281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEAD7AAF1BEBCACD004FE281 /* Assets.xcassets */; };
-		DEAD7AB31BEBCACD004FE281 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAD7AB11BEBCACD004FE281 /* LaunchScreen.storyboard */; };
-		DEAD7ABE1BEBCACE004FE281 /* SwiftyVokoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAD7ABD1BEBCACE004FE281 /* SwiftyVokoderTests.swift */; };
-		DEAD7ACB1BEBDC2A004FE281 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DEAD7AC91BEBDC2A004FE281 /* CoreDataModel.xcdatamodeld */; };
+		05AEF155DEB8A6E6DC49E89D3ED732BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B2DD52511553AFED52F1C7FAB302509 /* LaunchScreen.storyboard */; };
+		13B756DADF3E72A025410066B380633C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E550F3709068140E62267CEFF2D2E70 /* ViewController.swift */; };
+		1A38635A3DF2A77DD9D6C58E5A98F161 /* TrainLine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BE0A7B4938209A8FA4BCFBA005F28 /* TrainLine+CoreDataProperties.swift */; };
+		2275CF87FB77F590CCFD1F98D36E8211 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD521B2E02D266CC465B9D095F79005A /* AppDelegate.swift */; };
+		2F732F61EBE713D61615BF2CE3B79386 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B504EB2B1B5DEBBBFACACABA841CAF /* Main.storyboard */; };
+		3E8A3A9E018ACEAE364B8CB2A4FE8D44 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69134836DAFD53D209ABD3D1B583F664 /* Station.swift */; };
+		4353D5BAC3ACDA8E9B315BFF47E381E2 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064ED86BE3E12AC2E321CF46D6941FEF /* Stop.swift */; };
+		496FE4EECF1A203189D7C936164B7D69 /* Pods_SwiftyVokoderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22632A657947AB536AFCFB47700AADAE /* Pods_SwiftyVokoderTests.framework */; };
+		4E73857604AFC8D188ECAE06D311C066 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDEF745271231C97477CC6E3E66C37A1 /* CoreDataModel.xcdatamodeld */; };
+		5D5C37D24BB4AD73BB8F0F51CE624531 /* Pods_SwiftyVokoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0464301A1EAC0D1A513E70C586DFF49 /* Pods_SwiftyVokoder.framework */; };
+		85136C2EE244A4D628C1B219DCE952CD /* TrainLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC380682838049E79A3F13B6B368D /* TrainLine.swift */; };
+		8C0BD6C6C1284211A81D9F1AC851B516 /* CTA_stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FD1F513534063F43E10B745ACD2CB3E /* CTA_stations.json */; };
+		A2644A90E994FC887E98EEEDD942980C /* SwiftyVokoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EF860A982C324A0586B44784744EF1 /* SwiftyVokoderTests.swift */; };
+		BB543BF6616187ECDAD2239D1E3435EA /* Station+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F29BF2A8F6BD2110273BBF74D8E3C /* Station+CoreDataProperties.swift */; };
+		C3F8DAFB0F51A137A37F74C16339207F /* Stop+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF742AE7FB79EB57E65DAFCBB83F20CC /* Stop+CoreDataProperties.swift */; };
+		DC6FB2B37C6E36F1634131C3A766ABD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0198668024FB3A5A69C5C2CFA97BB544 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DEAD7ABA1BEBCACE004FE281 /* PBXContainerItemProxy */ = {
+		AA4DD2B4BBDAB8030CD15897BB484FBA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DEAD7A9B1BEBCA7D004FE281 /* Project object */;
+			containerPortal = 40AFB6C428DACFEC5FFA585114FD85D7 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DEAD7AA41BEBCACD004FE281;
+			remoteGlobalIDString = 5D926D8CF832E22C37EDE3AFD3F85BAB;
 			remoteInfo = SwiftyVokoder;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5062BBE1760DBF70B7A5D4B1 /* Pods-SwiftyVokoder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder.debug.xcconfig"; sourceTree = "<group>"; };
-		52DD5325250D7C4A94E1C893 /* Pods-SwiftyVokoder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder.release.xcconfig"; sourceTree = "<group>"; };
-		81F2BDA431493805F246D4DD /* Pods-SwiftyVokoderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8CF07AC8DBE4283D739347E6 /* Pods_SwiftyVokoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyVokoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE7ECC471C4C26460001FD41 /* CTA_stations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CTA_stations.json; sourceTree = "<group>"; };
-		DE8EA0FC1BF6797D002FDF6A /* Stop+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stop+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DE8EA0FD1BF6797D002FDF6A /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
-		DE8EA0FE1BF6797D002FDF6A /* TrainLine+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrainLine+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DE8EA0FF1BF6797D002FDF6A /* TrainLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainLine.swift; sourceTree = "<group>"; };
-		DE8EA1001BF6797D002FDF6A /* Station+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Station+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DE8EA1011BF6797D002FDF6A /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
-		DEAD7AA51BEBCACD004FE281 /* SwiftyVokoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyVokoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEAD7AA81BEBCACD004FE281 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DEAD7AAA1BEBCACD004FE281 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DEAD7AAD1BEBCACD004FE281 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DEAD7AAF1BEBCACD004FE281 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DEAD7AB21BEBCACD004FE281 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DEAD7AB41BEBCACD004FE281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DEAD7AB91BEBCACE004FE281 /* SwiftyVokoderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyVokoderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEAD7ABD1BEBCACE004FE281 /* SwiftyVokoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyVokoderTests.swift; sourceTree = "<group>"; };
-		DEAD7ABF1BEBCACE004FE281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DEAD7ACA1BEBDC2A004FE281 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
-		E28B7B252364A9E1F69945D4 /* Pods-SwiftyVokoderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests.release.xcconfig"; sourceTree = "<group>"; };
-		F035F26C14E954FD3C335BA8 /* Pods_SwiftyVokoderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyVokoderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0198668024FB3A5A69C5C2CFA97BB544 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		064ED86BE3E12AC2E321CF46D6941FEF /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
+		0F6F29BF2A8F6BD2110273BBF74D8E3C /* Station+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Station+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		145BE0A7B4938209A8FA4BCFBA005F28 /* TrainLine+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrainLine+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		162BBBB03315A043E205487441426E6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1979BF0EDA24E62A8C8838488893679B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22632A657947AB536AFCFB47700AADAE /* Pods_SwiftyVokoderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyVokoderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E550F3709068140E62267CEFF2D2E70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3E67AEB71835CB471BA7FD7569490152 /* SwiftyVokoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyVokoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FDD7CD2BDCA0ED0290560C17F1AF1C1 /* Pods-SwiftyVokoderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		505231E19471EF3E916FB3EC890D27C7 /* Pods-SwiftyVokoder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder.release.xcconfig"; sourceTree = "<group>"; };
+		545EC380682838049E79A3F13B6B368D /* TrainLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainLine.swift; sourceTree = "<group>"; };
+		56EF860A982C324A0586B44784744EF1 /* SwiftyVokoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyVokoderTests.swift; sourceTree = "<group>"; };
+		69134836DAFD53D209ABD3D1B583F664 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		7C980B1FEC7B20C03453003E6FF50A18 /* Pods-SwiftyVokoder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder.debug.xcconfig"; sourceTree = "<group>"; };
+		7FD1F513534063F43E10B745ACD2CB3E /* CTA_stations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CTA_stations.json; sourceTree = "<group>"; };
+		8054B5A503F03451515C2DCC405F93FA /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		94DFACA4A1B4DE8DE1FB19FB0D426E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A34D0C1EBBEE49A7CF082BB47B4AC1BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF742AE7FB79EB57E65DAFCBB83F20CC /* Stop+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stop+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BD521B2E02D266CC465B9D095F79005A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CB47540EFD728E29A9E14F6377FE996C /* Pods-SwiftyVokoderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests.release.xcconfig"; sourceTree = "<group>"; };
+		E5381E0DD2E2C4541EFD17CADD95C862 /* SwiftyVokoderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyVokoderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0464301A1EAC0D1A513E70C586DFF49 /* Pods_SwiftyVokoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyVokoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DEAD7AA21BEBCACD004FE281 /* Frameworks */ = {
+		D400D43D0126779ACC0294DC166126B0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA56478011E7DB3E3CB84257 /* Pods_SwiftyVokoder.framework in Frameworks */,
+				5D5C37D24BB4AD73BB8F0F51CE624531 /* Pods_SwiftyVokoder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DEAD7AB61BEBCACE004FE281 /* Frameworks */ = {
+		9528F4B0ECC74A6CAB4BE916C820F89C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD933D600CBF86542442FDE0 /* Pods_SwiftyVokoderTests.framework in Frameworks */,
+				496FE4EECF1A203189D7C936164B7D69 /* Pods_SwiftyVokoderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		34FF10928BA1F98DCB88D40B /* Pods */ = {
+		4DF8BC90267D2E7C40C4D33AEA0E4CE4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5062BBE1760DBF70B7A5D4B1 /* Pods-SwiftyVokoder.debug.xcconfig */,
-				52DD5325250D7C4A94E1C893 /* Pods-SwiftyVokoder.release.xcconfig */,
-				81F2BDA431493805F246D4DD /* Pods-SwiftyVokoderTests.debug.xcconfig */,
-				E28B7B252364A9E1F69945D4 /* Pods-SwiftyVokoderTests.release.xcconfig */,
+				7C980B1FEC7B20C03453003E6FF50A18 /* Pods-SwiftyVokoder.debug.xcconfig */,
+				505231E19471EF3E916FB3EC890D27C7 /* Pods-SwiftyVokoder.release.xcconfig */,
+				4FDD7CD2BDCA0ED0290560C17F1AF1C1 /* Pods-SwiftyVokoderTests.debug.xcconfig */,
+				CB47540EFD728E29A9E14F6377FE996C /* Pods-SwiftyVokoderTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		85C5AA5EE4CB1D3ADCEE18F7 /* Frameworks */ = {
+		1623073249393FEBAB0C03C329DE138B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8CF07AC8DBE4283D739347E6 /* Pods_SwiftyVokoder.framework */,
-				F035F26C14E954FD3C335BA8 /* Pods_SwiftyVokoderTests.framework */,
+				F0464301A1EAC0D1A513E70C586DFF49 /* Pods_SwiftyVokoder.framework */,
+				22632A657947AB536AFCFB47700AADAE /* Pods_SwiftyVokoderTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DEAD7A9A1BEBCA7D004FE281 = {
+		E20F30F0F75FFD1471F237A7904E191E = {
 			isa = PBXGroup;
 			children = (
-				DEAD7AA71BEBCACD004FE281 /* SwiftyVokoder */,
-				DEAD7ABC1BEBCACE004FE281 /* SwiftyVokoderTests */,
-				DEAD7AA61BEBCACD004FE281 /* Products */,
-				34FF10928BA1F98DCB88D40B /* Pods */,
-				85C5AA5EE4CB1D3ADCEE18F7 /* Frameworks */,
+				1623073249393FEBAB0C03C329DE138B /* Frameworks */,
+				4DF8BC90267D2E7C40C4D33AEA0E4CE4 /* Pods */,
+				5EBEE6BC27660BC1F48ECE3F40DE201C /* Products */,
+				B003EC81BC244444D1EDBE0A85983EF8 /* SwiftyVokoder */,
+				B26A57E5DB5EA746870E273A0685807F /* SwiftyVokoderTests */,
 			);
 			sourceTree = "<group>";
 		};
-		DEAD7AA61BEBCACD004FE281 /* Products */ = {
+		5EBEE6BC27660BC1F48ECE3F40DE201C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DEAD7AA51BEBCACD004FE281 /* SwiftyVokoder.app */,
-				DEAD7AB91BEBCACE004FE281 /* SwiftyVokoderTests.xctest */,
+				3E67AEB71835CB471BA7FD7569490152 /* SwiftyVokoder.app */,
+				E5381E0DD2E2C4541EFD17CADD95C862 /* SwiftyVokoderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DEAD7AA71BEBCACD004FE281 /* SwiftyVokoder */ = {
+		B003EC81BC244444D1EDBE0A85983EF8 /* SwiftyVokoder */ = {
 			isa = PBXGroup;
 			children = (
-				DE7ECC471C4C26460001FD41 /* CTA_stations.json */,
-				DEAD7AA81BEBCACD004FE281 /* AppDelegate.swift */,
-				DEAD7AAA1BEBCACD004FE281 /* ViewController.swift */,
-				DEAD7AAC1BEBCACD004FE281 /* Main.storyboard */,
-				DEAD7AC81BEBDC05004FE281 /* Models */,
-				DEAD7AC71BEBDBA8004FE281 /* Resources */,
+				0677B930C57DE145433AC8A17F6B17E9 /* Models */,
+				0B4B3611D9A82D0E03A7EAB500EABB79 /* Resources */,
+				BD521B2E02D266CC465B9D095F79005A /* AppDelegate.swift */,
+				7FD1F513534063F43E10B745ACD2CB3E /* CTA_stations.json */,
+				D3B504EB2B1B5DEBBBFACACABA841CAF /* Main.storyboard */,
+				2E550F3709068140E62267CEFF2D2E70 /* ViewController.swift */,
 			);
 			path = SwiftyVokoder;
 			sourceTree = "<group>";
 		};
-		DEAD7ABC1BEBCACE004FE281 /* SwiftyVokoderTests */ = {
+		B26A57E5DB5EA746870E273A0685807F /* SwiftyVokoderTests */ = {
 			isa = PBXGroup;
 			children = (
-				DEAD7ABD1BEBCACE004FE281 /* SwiftyVokoderTests.swift */,
-				DEAD7ABF1BEBCACE004FE281 /* Info.plist */,
+				A34D0C1EBBEE49A7CF082BB47B4AC1BD /* Info.plist */,
+				56EF860A982C324A0586B44784744EF1 /* SwiftyVokoderTests.swift */,
 			);
 			path = SwiftyVokoderTests;
 			sourceTree = "<group>";
 		};
-		DEAD7AC71BEBDBA8004FE281 /* Resources */ = {
+		0B4B3611D9A82D0E03A7EAB500EABB79 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DEAD7AAF1BEBCACD004FE281 /* Assets.xcassets */,
-				DEAD7AB41BEBCACD004FE281 /* Info.plist */,
-				DEAD7AB11BEBCACD004FE281 /* LaunchScreen.storyboard */,
+				0198668024FB3A5A69C5C2CFA97BB544 /* Assets.xcassets */,
+				1979BF0EDA24E62A8C8838488893679B /* Info.plist */,
+				7B2DD52511553AFED52F1C7FAB302509 /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		DEAD7AC81BEBDC05004FE281 /* Models */ = {
+		0677B930C57DE145433AC8A17F6B17E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DE8EA1011BF6797D002FDF6A /* Station.swift */,
-				DE8EA0FD1BF6797D002FDF6A /* Stop.swift */,
-				DE8EA0FF1BF6797D002FDF6A /* TrainLine.swift */,
-				DE8EA1001BF6797D002FDF6A /* Station+CoreDataProperties.swift */,
-				DE8EA0FC1BF6797D002FDF6A /* Stop+CoreDataProperties.swift */,
-				DE8EA0FE1BF6797D002FDF6A /* TrainLine+CoreDataProperties.swift */,
-				DEAD7AC91BEBDC2A004FE281 /* CoreDataModel.xcdatamodeld */,
+				BDEF745271231C97477CC6E3E66C37A1 /* CoreDataModel.xcdatamodeld */,
+				0F6F29BF2A8F6BD2110273BBF74D8E3C /* Station+CoreDataProperties.swift */,
+				69134836DAFD53D209ABD3D1B583F664 /* Station.swift */,
+				AF742AE7FB79EB57E65DAFCBB83F20CC /* Stop+CoreDataProperties.swift */,
+				064ED86BE3E12AC2E321CF46D6941FEF /* Stop.swift */,
+				145BE0A7B4938209A8FA4BCFBA005F28 /* TrainLine+CoreDataProperties.swift */,
+				545EC380682838049E79A3F13B6B368D /* TrainLine.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,16 +171,16 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DEAD7AA41BEBCACD004FE281 /* SwiftyVokoder */ = {
+		5D926D8CF832E22C37EDE3AFD3F85BAB /* SwiftyVokoder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DEAD7AC01BEBCACE004FE281 /* Build configuration list for PBXNativeTarget "SwiftyVokoder" */;
+			buildConfigurationList = BE767AE88BA3A5EB62327B4AC8429047 /* Build configuration list for PBXNativeTarget "SwiftyVokoder" */;
 			buildPhases = (
-				24F4622A5220DC6C7A13E389 /* Check Pods Manifest.lock */,
-				DEAD7AA11BEBCACD004FE281 /* Sources */,
-				DEAD7AA21BEBCACD004FE281 /* Frameworks */,
-				DEAD7AA31BEBCACD004FE281 /* Resources */,
-				31BFAA272EB8A9CFD3DF073A /* Embed Pods Frameworks */,
-				3E6479745DE62EA169219148 /* Copy Pods Resources */,
+				F923BD3F8896EE1DCBB6F2AA3A25C76C /* Check Pods Manifest.lock */,
+				FB97DDC14CD1A825CE27D5888F091842 /* Sources */,
+				D400D43D0126779ACC0294DC166126B0 /* Frameworks */,
+				2C72744B727B4C5CF6AF5D0F752AC135 /* Resources */,
+				49E0215509643D28489667EC20E733E9 /* Embed Pods Frameworks */,
+				480F05CCB3BB8D21C55EBE17978EB1D5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -188,50 +188,50 @@
 			);
 			name = SwiftyVokoder;
 			productName = SwiftyVokoder;
-			productReference = DEAD7AA51BEBCACD004FE281 /* SwiftyVokoder.app */;
+			productReference = 3E67AEB71835CB471BA7FD7569490152 /* SwiftyVokoder.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DEAD7AB81BEBCACE004FE281 /* SwiftyVokoderTests */ = {
+		7C6878CAA87B40EAF6ACAC010FD2CB4B /* SwiftyVokoderTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DEAD7AC31BEBCACE004FE281 /* Build configuration list for PBXNativeTarget "SwiftyVokoderTests" */;
+			buildConfigurationList = F2492752AAD402EDD7D99590163D75A1 /* Build configuration list for PBXNativeTarget "SwiftyVokoderTests" */;
 			buildPhases = (
-				D102A64632AC7E1278CC5B34 /* Check Pods Manifest.lock */,
-				DEAD7AB51BEBCACE004FE281 /* Sources */,
-				DEAD7AB61BEBCACE004FE281 /* Frameworks */,
-				DEAD7AB71BEBCACE004FE281 /* Resources */,
-				CC456A35AFEC29B2102EA960 /* Embed Pods Frameworks */,
-				4E284560187116C858A66F4A /* Copy Pods Resources */,
+				11600FEDE6C8D81BC8C8A8B0B13193B4 /* Check Pods Manifest.lock */,
+				74971D7261AEAEA3DCA94E01F6CC8B6C /* Sources */,
+				9528F4B0ECC74A6CAB4BE916C820F89C /* Frameworks */,
+				08E3D793695DE69640979C3396362A1A /* Resources */,
+				C3E4BE9BFD583053DCB3E35D43C711A2 /* Embed Pods Frameworks */,
+				2BD9C620BC2AC7AA5161220B21757DF6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DEAD7ABB1BEBCACE004FE281 /* PBXTargetDependency */,
+				02EF45590A724EB77CEB6016BEDF7E1B /* PBXTargetDependency */,
 			);
 			name = SwiftyVokoderTests;
 			productName = SwiftyVokoderTests;
-			productReference = DEAD7AB91BEBCACE004FE281 /* SwiftyVokoderTests.xctest */;
+			productReference = E5381E0DD2E2C4541EFD17CADD95C862 /* SwiftyVokoderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		DEAD7A9B1BEBCA7D004FE281 /* Project object */ = {
+		40AFB6C428DACFEC5FFA585114FD85D7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Vokal;
 				TargetAttributes = {
-					DEAD7AA41BEBCACD004FE281 = {
+					5D926D8CF832E22C37EDE3AFD3F85BAB = {
 						CreatedOnToolsVersion = 7.1;
 					};
-					DEAD7AB81BEBCACE004FE281 = {
+					7C6878CAA87B40EAF6ACAC010FD2CB4B = {
 						CreatedOnToolsVersion = 7.1;
-						TestTargetID = DEAD7AA41BEBCACD004FE281;
+						TestTargetID = 5D926D8CF832E22C37EDE3AFD3F85BAB;
 					};
 				};
 			};
-			buildConfigurationList = DEAD7A9E1BEBCA7D004FE281 /* Build configuration list for PBXProject "SwiftSampleProject" */;
+			buildConfigurationList = 0493C47936C8F19552B598BD68DFABB1 /* Build configuration list for PBXProject "SwiftSampleProject" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -239,30 +239,30 @@
 				en,
 				Base,
 			);
-			mainGroup = DEAD7A9A1BEBCA7D004FE281;
-			productRefGroup = DEAD7AA61BEBCACD004FE281 /* Products */;
+			mainGroup = E20F30F0F75FFD1471F237A7904E191E;
+			productRefGroup = 5EBEE6BC27660BC1F48ECE3F40DE201C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DEAD7AA41BEBCACD004FE281 /* SwiftyVokoder */,
-				DEAD7AB81BEBCACE004FE281 /* SwiftyVokoderTests */,
+				5D926D8CF832E22C37EDE3AFD3F85BAB /* SwiftyVokoder */,
+				7C6878CAA87B40EAF6ACAC010FD2CB4B /* SwiftyVokoderTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DEAD7AA31BEBCACD004FE281 /* Resources */ = {
+		2C72744B727B4C5CF6AF5D0F752AC135 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEAD7AB31BEBCACD004FE281 /* LaunchScreen.storyboard in Resources */,
-				DE7ECC481C4C26460001FD41 /* CTA_stations.json in Resources */,
-				DEAD7AB01BEBCACD004FE281 /* Assets.xcassets in Resources */,
-				DEAD7AAE1BEBCACD004FE281 /* Main.storyboard in Resources */,
+				DC6FB2B37C6E36F1634131C3A766ABD7 /* Assets.xcassets in Resources */,
+				8C0BD6C6C1284211A81D9F1AC851B516 /* CTA_stations.json in Resources */,
+				05AEF155DEB8A6E6DC49E89D3ED732BE /* LaunchScreen.storyboard in Resources */,
+				2F732F61EBE713D61615BF2CE3B79386 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DEAD7AB71BEBCACE004FE281 /* Resources */ = {
+		08E3D793695DE69640979C3396362A1A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,7 +272,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		24F4622A5220DC6C7A13E389 /* Check Pods Manifest.lock */ = {
+		F923BD3F8896EE1DCBB6F2AA3A25C76C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -287,7 +287,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		31BFAA272EB8A9CFD3DF073A /* Embed Pods Frameworks */ = {
+		49E0215509643D28489667EC20E733E9 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -302,7 +302,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3E6479745DE62EA169219148 /* Copy Pods Resources */ = {
+		480F05CCB3BB8D21C55EBE17978EB1D5 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -317,7 +317,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4E284560187116C858A66F4A /* Copy Pods Resources */ = {
+		2BD9C620BC2AC7AA5161220B21757DF6 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -332,7 +332,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CC456A35AFEC29B2102EA960 /* Embed Pods Frameworks */ = {
+		C3E4BE9BFD583053DCB3E35D43C711A2 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -347,7 +347,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D102A64632AC7E1278CC5B34 /* Check Pods Manifest.lock */ = {
+		11600FEDE6C8D81BC8C8A8B0B13193B4 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -365,53 +365,53 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DEAD7AA11BEBCACD004FE281 /* Sources */ = {
+		FB97DDC14CD1A825CE27D5888F091842 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE8EA1041BF6797D002FDF6A /* TrainLine+CoreDataProperties.swift in Sources */,
-				DE8EA1021BF6797D002FDF6A /* Stop+CoreDataProperties.swift in Sources */,
-				DE8EA1031BF6797D002FDF6A /* Stop.swift in Sources */,
-				DEAD7AAB1BEBCACD004FE281 /* ViewController.swift in Sources */,
-				DE8EA1071BF6797D002FDF6A /* Station.swift in Sources */,
-				DEAD7AA91BEBCACD004FE281 /* AppDelegate.swift in Sources */,
-				DE8EA1061BF6797D002FDF6A /* Station+CoreDataProperties.swift in Sources */,
-				DEAD7ACB1BEBDC2A004FE281 /* CoreDataModel.xcdatamodeld in Sources */,
-				DE8EA1051BF6797D002FDF6A /* TrainLine.swift in Sources */,
+				2275CF87FB77F590CCFD1F98D36E8211 /* AppDelegate.swift in Sources */,
+				4E73857604AFC8D188ECAE06D311C066 /* CoreDataModel.xcdatamodeld in Sources */,
+				BB543BF6616187ECDAD2239D1E3435EA /* Station+CoreDataProperties.swift in Sources */,
+				3E8A3A9E018ACEAE364B8CB2A4FE8D44 /* Station.swift in Sources */,
+				C3F8DAFB0F51A137A37F74C16339207F /* Stop+CoreDataProperties.swift in Sources */,
+				4353D5BAC3ACDA8E9B315BFF47E381E2 /* Stop.swift in Sources */,
+				1A38635A3DF2A77DD9D6C58E5A98F161 /* TrainLine+CoreDataProperties.swift in Sources */,
+				85136C2EE244A4D628C1B219DCE952CD /* TrainLine.swift in Sources */,
+				13B756DADF3E72A025410066B380633C /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DEAD7AB51BEBCACE004FE281 /* Sources */ = {
+		74971D7261AEAEA3DCA94E01F6CC8B6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEAD7ABE1BEBCACE004FE281 /* SwiftyVokoderTests.swift in Sources */,
+				A2644A90E994FC887E98EEEDD942980C /* SwiftyVokoderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DEAD7ABB1BEBCACE004FE281 /* PBXTargetDependency */ = {
+		02EF45590A724EB77CEB6016BEDF7E1B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DEAD7AA41BEBCACD004FE281 /* SwiftyVokoder */;
-			targetProxy = DEAD7ABA1BEBCACE004FE281 /* PBXContainerItemProxy */;
+			target = 5D926D8CF832E22C37EDE3AFD3F85BAB /* SwiftyVokoder */;
+			targetProxy = AA4DD2B4BBDAB8030CD15897BB484FBA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DEAD7AAC1BEBCACD004FE281 /* Main.storyboard */ = {
+		D3B504EB2B1B5DEBBBFACACABA841CAF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DEAD7AAD1BEBCACD004FE281 /* Base */,
+				94DFACA4A1B4DE8DE1FB19FB0D426E1D /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		DEAD7AB11BEBCACD004FE281 /* LaunchScreen.storyboard */ = {
+		7B2DD52511553AFED52F1C7FAB302509 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DEAD7AB21BEBCACD004FE281 /* Base */,
+				162BBBB03315A043E205487441426E6D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -419,7 +419,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		DEAD7A9F1BEBCA7D004FE281 /* Debug */ = {
+		C28C1E2544389057C0FFDFAEF1D797AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -427,15 +427,15 @@
 			};
 			name = Debug;
 		};
-		DEAD7AA01BEBCA7D004FE281 /* Release */ = {
+		578EBCE5B9C3CA5E94555EDE3192C6D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Release;
 		};
-		DEAD7AC11BEBCACE004FE281 /* Debug */ = {
+		ED3484A15FFF4C3CA0C070F4CA937A13 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5062BBE1760DBF70B7A5D4B1 /* Pods-SwiftyVokoder.debug.xcconfig */;
+			baseConfigurationReference = 7C980B1FEC7B20C03453003E6FF50A18 /* Pods-SwiftyVokoder.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -483,9 +483,9 @@
 			};
 			name = Debug;
 		};
-		DEAD7AC21BEBCACE004FE281 /* Release */ = {
+		333A3F21E658EC16C21AC7E8DA3AF069 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 52DD5325250D7C4A94E1C893 /* Pods-SwiftyVokoder.release.xcconfig */;
+			baseConfigurationReference = 505231E19471EF3E916FB3EC890D27C7 /* Pods-SwiftyVokoder.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -526,9 +526,9 @@
 			};
 			name = Release;
 		};
-		DEAD7AC41BEBCACE004FE281 /* Debug */ = {
+		0D92F8157CEA79C92C3282135374778B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 81F2BDA431493805F246D4DD /* Pods-SwiftyVokoderTests.debug.xcconfig */;
+			baseConfigurationReference = 4FDD7CD2BDCA0ED0290560C17F1AF1C1 /* Pods-SwiftyVokoderTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -576,9 +576,9 @@
 			};
 			name = Debug;
 		};
-		DEAD7AC51BEBCACE004FE281 /* Release */ = {
+		FF91FD05088C043C6B486B0DA5D4A1D1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E28B7B252364A9E1F69945D4 /* Pods-SwiftyVokoderTests.release.xcconfig */;
+			baseConfigurationReference = CB47540EFD728E29A9E14F6377FE996C /* Pods-SwiftyVokoderTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -623,29 +623,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DEAD7A9E1BEBCA7D004FE281 /* Build configuration list for PBXProject "SwiftSampleProject" */ = {
+		0493C47936C8F19552B598BD68DFABB1 /* Build configuration list for PBXProject "SwiftSampleProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DEAD7A9F1BEBCA7D004FE281 /* Debug */,
-				DEAD7AA01BEBCA7D004FE281 /* Release */,
+				C28C1E2544389057C0FFDFAEF1D797AF /* Debug */,
+				578EBCE5B9C3CA5E94555EDE3192C6D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DEAD7AC01BEBCACE004FE281 /* Build configuration list for PBXNativeTarget "SwiftyVokoder" */ = {
+		BE767AE88BA3A5EB62327B4AC8429047 /* Build configuration list for PBXNativeTarget "SwiftyVokoder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DEAD7AC11BEBCACE004FE281 /* Debug */,
-				DEAD7AC21BEBCACE004FE281 /* Release */,
+				ED3484A15FFF4C3CA0C070F4CA937A13 /* Debug */,
+				333A3F21E658EC16C21AC7E8DA3AF069 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DEAD7AC31BEBCACE004FE281 /* Build configuration list for PBXNativeTarget "SwiftyVokoderTests" */ = {
+		F2492752AAD402EDD7D99590163D75A1 /* Build configuration list for PBXNativeTarget "SwiftyVokoderTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DEAD7AC41BEBCACE004FE281 /* Debug */,
-				DEAD7AC51BEBCACE004FE281 /* Release */,
+				0D92F8157CEA79C92C3282135374778B /* Debug */,
+				FF91FD05088C043C6B486B0DA5D4A1D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -653,17 +653,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DEAD7AC91BEBDC2A004FE281 /* CoreDataModel.xcdatamodeld */ = {
+		BDEF745271231C97477CC6E3E66C37A1 /* CoreDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DEAD7ACA1BEBDC2A004FE281 /* CoreDataModel.xcdatamodel */,
+				8054B5A503F03451515C2DCC405F93FA /* CoreDataModel.xcdatamodel */,
 			);
-			currentVersion = DEAD7ACA1BEBDC2A004FE281 /* CoreDataModel.xcdatamodel */;
+			currentVersion = 8054B5A503F03451515C2DCC405F93FA /* CoreDataModel.xcdatamodel */;
 			path = CoreDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = DEAD7A9B1BEBCA7D004FE281 /* Project object */;
+	rootObject = 40AFB6C428DACFEC5FFA585114FD85D7 /* Project object */;
 }
