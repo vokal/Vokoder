@@ -1,6 +1,6 @@
 {
   "name": "Vokoder",
-  "version": "2.1.2",
+  "version": "2.3.0",
   "summary": "Vokal's Core Data Manager",
   "homepage": "https://github.com/vokal/Vokoder",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/vokal/Vokoder.git",
-    "tag": "2.1.2"
+    "tag": "2.3.0"
   },
   "platforms": {
     "ios": "7.0"
@@ -20,6 +20,7 @@
   "requires_arc": true,
   "default_subspecs": [
     "Core",
+    "MapperMacros",
     "DataSources"
   ],
   "subspecs": [
@@ -33,8 +34,21 @@
       "dependencies": {
         "ILGDynamicObjC/ILGClasses": [
           "~> 0.1.1"
+        ],
+        "VOKUtilities/VOKKeyPathHelper": [
+          "~> 0.8.0"
         ]
       }
+    },
+    {
+      "name": "MapperMacros",
+      "dependencies": {
+        "Vokoder/Core": [
+
+        ]
+      },
+      "source_files": "Pod/Classes/MapperMacros/*.{h,m}",
+      "module_map": "Pod/Classes/MapperMacros/module.modulemap"
     },
     {
       "name": "DataSources",

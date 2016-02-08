@@ -1,0 +1,6 @@
+framework module Vokoder {
+  header "../../../VOKUtilities/VOKKeyPathHelper.h"
+
+  export *
+  module * { export * }
+}

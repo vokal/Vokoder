@@ -6,7 +6,10 @@
 //
 
 #import "UIViewController+VOKConvenience.h"
-#import "VOKCoreDataManager.h"
+
+#import <VOKCoreDataManager.h>
+#import <VOKManagedObjectMapperMacros.h>
+
 #import "VOKPerson.h"
 
 @implementation UIViewController (VOKConvenience)
@@ -32,13 +35,13 @@
     [df setDateFormat:@"dd' 'LLL' 'yy' 'HH:mm"];
     [df setTimeZone:[NSTimeZone localTimeZone]];
 
-    NSArray *maps = @[VOK_MAP_FOREIGN_TO_LOCAL(@"first", firstName),
-                      VOK_MAP_FOREIGN_TO_LOCAL(@"last", lastName),
-                      [VOKManagedObjectMap mapWithForeignKeyPath:@"date_of_birth" coreDataKey:VOK_CDSELECTOR(birthDay) dateFormatter:df],
-                      VOK_MAP_FOREIGN_TO_LOCAL(@"cat_num", numberOfCats),
-                      VOK_MAP_FOREIGN_TO_LOCAL(@"CR_PREF", lovesCoolRanch)];
+    NSArray *maps = @[VOKMapForeignToLocalClassProperty(@"first", VOKPerson, firstName),
+                      VOKMapForeignToLocalClassProperty(@"last", VOKPerson, lastName),
+                      [VOKManagedObjectMap mapWithForeignKeyPath:@"date_of_birth" coreDataKey:VOKKeyForInstanceOf(VOKPerson, birthDay) dateFormatter:df],
+                      VOKMapForeignToLocalClassProperty(@"cat_num", VOKPerson, numberOfCats),
+                      VOKMapForeignToLocalClassProperty(@"CR_PREF", VOKPerson, lovesCoolRanch)];
 
-    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOK_CDSELECTOR(lastName) andMaps:maps];
+    VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOKKeyForInstanceOf(VOKPerson, lastName) andMaps:maps];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VOKPerson class]];
 }
 
@@ -50,8 +53,8 @@
 - (NSArray *)sortDescriptors
 {
     return @[
-             [NSSortDescriptor sortDescriptorWithKey:VOK_CDSELECTOR(numberOfCats) ascending:NO],
-             [NSSortDescriptor sortDescriptorWithKey:VOK_CDSELECTOR(lastName) ascending:YES],
+             [NSSortDescriptor sortDescriptorWithKey:VOKKeyForInstanceOf(VOKPerson, numberOfCats) ascending:NO],
+             [NSSortDescriptor sortDescriptorWithKey:VOKKeyForInstanceOf(VOKPerson, lastName) ascending:YES],
              ];
 }
 

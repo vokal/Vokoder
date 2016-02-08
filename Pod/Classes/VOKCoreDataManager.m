@@ -9,6 +9,7 @@
 #import "VOKCoreDataManagerInternalMacros.h"
 
 #import <ILGDynamicObjC/ILGClasses.h>
+#import <VOKUtilities/VOKKeyPathHelper.h>
 
 #import "VOKMappableModel.h"
 
@@ -596,7 +597,7 @@ static VOKCoreDataManager *VOK_SharedObject;
                 VOK_CDLog(@"Unable to obtain permanent object IDs %@, %@", error, [error userInfo]);
             }
             
-            NSArray *arrayOfManagedObjectIDs = [managedObjectsArray valueForKeyPath:VOK_CDSELECTOR(objectID)];
+            NSArray *arrayOfManagedObjectIDs = [managedObjectsArray valueForKeyPath:VOKKeyForInstanceOf(VOKManagedObjectSubclass, objectID)];
             
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 completion(arrayOfManagedObjectIDs);
