@@ -1,9 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'VOKCoreDataManager', :exclusive => true do
-  pod "Vokoder", :path => "../"
+  pod 'Vokoder', :path => '../'
+  pod 'xUnique', :git => 'https://github.com/vokal/xUnique.git', :commit => '26adc7d50b'
 end
 
 target 'VOKCoreDataManager Tests', :exclusive => true do
-  pod "Vokoder", :path => "../"
+  pod 'Vokoder', :path => '../'
 end
