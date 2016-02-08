@@ -74,7 +74,7 @@ NSArray *maps = @[
 // The unique key is an NSString to uniquely identify local entities. If nil, each import can create duplicate objects.
 VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:VOKKeyForInstanceOf(VOKPerson, ticketNumber)
                                                                      andMaps:maps];
-// By default, missing parameters and null parameters in the import data will nil out an attribute's value
+// By default, missing parameters and null parameters in the import data will nil out an attribute's value.
 // With ignoreNullValueOverwrites set to YES, the maps will leave existing attributes alone unless new data is provided.
 mapper.ignoreNullValueOverwrites = YES;
 // By default, Vokoder will complain about every single parameter that can't be set.
@@ -110,37 +110,37 @@ The mapper constructed in the example in the section above could be included in 
     // A number formatter will do the same, turning strings into NSNumbers
     NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
     return = @[
-               VOKMapForeignToLocalClassProperty(@"first_name", SomeManagedObjectSubclass, firstName),
-               VOKMapForeignToLocalClassProperty(@"last_name", SomeManagedObjectSubclass, lastName),
-               VOKMapForeignToLocalClassProperty(@"ss_num", SomeManagedObjectSubclass, socialSecurityNumber),
+               VOKMapForeignToLocalForSelf(@"first_name", firstName),
+               VOKMapForeignToLocalForSelf(@"last_name", lastName),
+               VOKMapForeignToLocalForSelf(@"ss_num", socialSecurityNumber),
                [VOKManagedObjectMap mapWithForeignKeyPath:@"salary"
-                                              coreDataKey:VOKKeyForInstanceOf(SomeManagedObjectSubclass, salary)
+                                              coreDataKey:VOKKeyForSelf(salary)
                                           numberFormatter:numberFormatter],
                [VOKManagedObjectMap mapWithForeignKeyPath:@"dob"
-                                              coreDataKey:VOKKeyForInstanceOf(SomeManagedObjectSubclass, dateOfBirth)
+                                              coreDataKey:VOKKeyForSelf(dateOfBirth)
                                             dateFormatter:dateFormatter],
                ];
 }
 
 + (NSString *)uniqueKey
 {
-  // The VOKKeyForInstanceOf(...) macro will prevent you from specifying a property that does not exist on a specific class.
-  // The unique key is an NSString to uniquely identify local entities. If nil each import can create duplicate objects.
-  return VOKKeyForInstanceOf(SomeManagedObjectSubclass, ticketNumber);
+    // The VOKKeyForSelf(...) macro will prevent you from specifying a property that does not exist on the current class.
+    // The unique key is an NSString to uniquely identify local entities. If nil each import can create duplicate objects.
+    return VOKKeyForSelf(ticketNumber);
 }
 
 + (BOOL)ignoreNullValueOverwrites
 {
-  // By default, missing parameters and null parameters in the import data will nil out an attribute's value
-  // With ignoreNullValueOverwrites set to YES, the maps will leave set attributes alone unless new data is provided.
-  return YES;
+    // By default, missing parameters and null parameters in the import data will nil out an attribute's value.
+    // With ignoreNullValueOverwrites set to YES, the maps will leave set attributes alone unless new data is provided.
+    return YES;
 }
 
 + (BOOL)ignoreOptionalNullValues
 {
-  // By default Vokoder will complain about every single parameter that can't be set
-  // With ignoreOptionalNullValues set to YES Vokoder will not warn about mismatched classes or null/nil values
-  return YES;
+    // By default Vokoder will complain about every single parameter that can't be set
+    // With ignoreOptionalNullValues set to YES Vokoder will not warn about mismatched classes or null/nil values
+    return YES;
 }
 …
 @end
@@ -172,7 +172,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
     NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
         
     SomeManagedObjectSubclass *thing = [SomeManagedObjectSubclass vok_newInstanceWithContext:backgroundContext];
-	thing.someArbitrayAttribute = @"hello";
+  	thing.someArbitrayAttribute = @"hello";
     [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
 });
 ```
