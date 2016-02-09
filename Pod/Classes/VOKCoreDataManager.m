@@ -9,6 +9,7 @@
 #import "VOKCoreDataManagerInternalMacros.h"
 
 #import <ILGDynamicObjC/ILGClasses.h>
+#import <VOKUtilities/VOKKeyPathHelper.h>
 
 #import "VOKMappableModel.h"
 
@@ -619,7 +620,7 @@ static VOKCoreDataManager *VOK_SharedObject;
         [[VOKCoreDataManager sharedInstance] saveContext:tempContext andWait:wait];
         
         if (completion) {
-            NSArray *arrayOfManagedObjectIDs = [managedObjectsArray valueForKeyPath:VOK_CDSELECTOR(objectID)];
+            NSArray *arrayOfManagedObjectIDs = [managedObjectsArray valueForKeyPath:VOKKeyForInstanceOf(VOKManagedObjectSubclass, objectID)];
             
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 completion(arrayOfManagedObjectIDs);

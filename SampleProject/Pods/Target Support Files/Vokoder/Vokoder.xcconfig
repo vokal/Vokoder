@@ -1,5 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Vokoder" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" "${PODS_ROOT}/Headers/Public/Vokoder"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Vokoder" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" "${PODS_ROOT}/Headers/Public/VOKUtilities" "${PODS_ROOT}/Headers/Public/Vokoder" "${PODS_ROOT}/Headers/Public/xUnique"
 OTHER_LDFLAGS = -framework "CoreData"
 PODS_ROOT = ${SRCROOT}
 SKIP_INSTALL = YES

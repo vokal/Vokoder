@@ -1,33 +1,50 @@
 PODS:
   - ILGDynamicObjC/ILGClasses (0.1.1)
-  - Vokoder (2.1.2):
-    - Vokoder/Core (= 2.1.2)
-    - Vokoder/DataSources (= 2.1.2)
-  - Vokoder/Core (2.1.2):
+  - Vokoder (2.3.1):
+    - Vokoder/Core (= 2.3.1)
+    - Vokoder/DataSources (= 2.3.1)
+    - Vokoder/MapperMacros (= 2.3.1)
+  - Vokoder/Core (2.3.1):
     - ILGDynamicObjC/ILGClasses (~> 0.1.1)
-  - Vokoder/DataSources (2.1.2):
+    - VOKUtilities/VOKKeyPathHelper (~> 0.8.0)
+  - Vokoder/DataSources (2.3.1):
     - Vokoder/Core
-    - Vokoder/DataSources/Collection (= 2.1.2)
-    - Vokoder/DataSources/FetchedResults (= 2.1.2)
-    - Vokoder/DataSources/PagingFetchedResults (= 2.1.2)
-  - Vokoder/DataSources/Collection (2.1.2):
-    - Vokoder/Core
-    - Vokoder/DataSources/FetchedResults
-  - Vokoder/DataSources/FetchedResults (2.1.2):
-    - Vokoder/Core
-  - Vokoder/DataSources/PagingFetchedResults (2.1.2):
+    - Vokoder/DataSources/Collection (= 2.3.1)
+    - Vokoder/DataSources/FetchedResults (= 2.3.1)
+    - Vokoder/DataSources/PagingFetchedResults (= 2.3.1)
+  - Vokoder/DataSources/Collection (2.3.1):
     - Vokoder/Core
     - Vokoder/DataSources/FetchedResults
+  - Vokoder/DataSources/FetchedResults (2.3.1):
+    - Vokoder/Core
+  - Vokoder/DataSources/PagingFetchedResults (2.3.1):
+    - Vokoder/Core
+    - Vokoder/DataSources/FetchedResults
+  - Vokoder/MapperMacros (2.3.1):
+    - Vokoder/Core
+  - VOKUtilities/VOKKeyPathHelper (0.8.0)
+  - xUnique (4.1.2)
 
 DEPENDENCIES:
   - Vokoder (from `../`)
+  - xUnique (from `https://github.com/vokal/xUnique.git`, commit `26adc7d50b`)
 
 EXTERNAL SOURCES:
   Vokoder:
-    :path: "../"
+    :path: ../
+  xUnique:
+    :commit: 26adc7d50b
+    :git: https://github.com/vokal/xUnique.git
+
+CHECKOUT OPTIONS:
+  xUnique:
+    :commit: 26adc7d50b
+    :git: https://github.com/vokal/xUnique.git
 
 SPEC CHECKSUMS:
   ILGDynamicObjC: 63443567f8ce851067ea3070d3b8c7f93d37207c
-  Vokoder: 3a78a4bdf2a224502e2d83f07bbf2361257d07aa
+  Vokoder: fc60909b0d3410d3abdc1af7ba01f7e9b6f1198e
+  VOKUtilities: 7d579a7fa5304c2eec17c49d293b2554d6059eaa
+  xUnique: 7f74d3f52c7769f648aa7be8fe614fc27dba2405
 
 COCOAPODS: 0.39.0
