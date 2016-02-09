@@ -1,6 +1,6 @@
 {
   "name": "Vokoder",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "summary": "Vokal's Core Data Manager",
   "homepage": "https://github.com/vokal/Vokoder",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/vokal/Vokoder.git",
-    "tag": "2.3.0"
+    "tag": "2.3.1"
   },
   "platforms": {
     "ios": "7.0"
@@ -47,8 +47,7 @@
 
         ]
       },
-      "source_files": "Pod/Classes/MapperMacros/*.{h,m}",
-      "module_map": "Pod/Classes/MapperMacros/module.modulemap"
+      "source_files": "Pod/Classes/MapperMacros/*.{h,m}"
     },
     {
       "name": "DataSources",
