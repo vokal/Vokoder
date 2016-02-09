@@ -1,6 +1,6 @@
 {
   "name": "Vokoder",
-  "version": "2.3.1",
+  "version": "3.0.0",
   "summary": "Vokal's Core Data Manager",
   "homepage": "https://github.com/vokal/Vokoder",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/vokal/Vokoder.git",
-    "tag": "2.3.1"
+    "tag": "3.0.0"
   },
   "platforms": {
     "ios": "7.0"
@@ -99,9 +99,7 @@
 
         ]
       },
-      "source_files": [
-        "Pod/Classes/Swift/*.swift"
-      ]
+      "source_files": "Pod/Classes/Swift/*.swift"
     }
   ]
 }
