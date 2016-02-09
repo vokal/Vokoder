@@ -39,36 +39,4 @@
 [VOKManagedObjectMap mapWithForeignKeyPath:inputKeyPath coreDataKey:VOKKeyForSelf(coreDataSelectorSymbol)]
 #endif
 
-
-////////////////////////// DEPRECATED MACROS //////////////////////////
-
-/**
- *  Generate a string from a selector symbol.
- *
- *  @param selectorSymbol The selector symbol.
- *
- *  @return An NSString
- */
-#ifndef VOK_CDSELECTOR
-#   ifdef DEBUG
-#       define VOK_CDSELECTOR(selectorSymbol) _Pragma ("GCC warning \"'VOK_CDSELECTOR' macro is deprecated and will be removed in version 3.0. Use the appropriate macro from VOKUtilities/VOKKeyPathHelper instead.\"") NSStringFromSelector(@selector(selectorSymbol))
-#   else
-#       define VOK_CDSELECTOR(selectorSymbol) _Pragma ("GCC warning \"'VOK_CDSELECTOR' macro is deprecated and will be removed in version 3.0. Use the appropriate macro from VOKUtilities/VOKKeyPathHelper instead.\"") @#selectorSymbol //in release builds @#selectorSymbol becomes @"{selectorSymbol}"
-#   endif
-#endif
-
-/**
- *  Creates a map with the default date mapper.
- *
- *  @param inputKeyPath           The foreign key to match with the local key.
- *  @param coreDataSelectorSymbol The local selector symbol.
- *
- *  @return A VOKManagedObjectMap
- */
-#ifndef VOK_MAP_FOREIGN_TO_LOCAL
-#   define VOK_MAP_FOREIGN_TO_LOCAL(inputKeyPath, coreDataSelectorSymbol) \
-_Pragma ("GCC warning \"'VOK_MAP_FOREIGN_TO_LOCAL' macro is deprecated and will be removed in version 3.0. Use VOKMapForeignToLocalClassProperty or VOKMapForeignToLocalForSelf instead.\"") \
-[VOKManagedObjectMap mapWithForeignKeyPath:inputKeyPath coreDataKey:VOK_CDSELECTOR(coreDataSelectorSymbol)]
-#endif
-
 #endif /* VOKManagedObjectMapperMacros_h */
