@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Vokoder"
-  s.version          = "2.3.0"
+  s.version          = "2.3.1"
   s.summary          = "Vokal's Core Data Manager"
   s.homepage         = "https://github.com/vokal/Vokoder"
   s.license          = { :type => "MIT", :file => "LICENSE"}
@@ -25,7 +25,6 @@ Pod::Spec.new do |s|
   s.subspec 'MapperMacros' do |mm|
     mm.dependency 'Vokoder/Core'
     mm.source_files = 'Pod/Classes/MapperMacros/*.{h,m}'
-    mm.module_map = 'Pod/Classes/MapperMacros/module.modulemap'
   end
 
   s.subspec 'DataSources' do |ss|

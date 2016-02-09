@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '73DBB81B628D40691EC45DD5'
+               BlueprintIdentifier = '6570FD080F181393FFBC505B'
                BlueprintName = 'Vokoder'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libVokoder.a'>
