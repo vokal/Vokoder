@@ -124,4 +124,38 @@ class ManagedObjectContextTests: XCTestCase {
         XCTAssertEqual(newCountOfStations, 0)
         XCTAssertNotEqual(countOfStations, newCountOfStations)
     }
+    
+    func testUnsavedMainContextChangesGetPassedToTempContexts() {
+        let manager = VOKCoreDataManager.sharedInstance()
+
+        let countOfStations = manager.countForClass(Station.self)
+        XCTAssert(countOfStations > 0)
+
+        let childContextBeforeChanges = manager.temporaryContext()
+        manager.deleteAllObjectsOfClass(Station.self, context: nil)
+        let childContextAfterChanges = manager.temporaryContext()
+
+        let childCountOfStations = manager.countForClass(Station.self, forContext: childContextBeforeChanges)
+        XCTAssertNotEqual(countOfStations, childCountOfStations)
+        XCTAssertEqual(childCountOfStations, 0)
+        
+        let newChildCountOfStations = manager.countForClass(Station.self, forContext: childContextAfterChanges)
+        XCTAssertNotEqual(countOfStations, newChildCountOfStations)
+        XCTAssertEqual(newChildCountOfStations, childCountOfStations)
+        XCTAssertEqual(newChildCountOfStations, 0)
+    }
+    
+    func testUnsavedTempContextChangesDoNotGetPassedToMainContext() {
+        let manager = VOKCoreDataManager.sharedInstance()
+        
+        let countOfStations = manager.countForClass(Station.self)
+        XCTAssert(countOfStations > 0)
+
+        let childContext = manager.temporaryContext()
+        manager.deleteAllObjectsOfClass(Station.self, context: childContext)
+        
+        let childCountOfStations = manager.countForClass(Station.self, forContext: childContext)
+        XCTAssertNotEqual(countOfStations, childCountOfStations)
+        XCTAssertEqual(childCountOfStations, 0)
+    }
 }
