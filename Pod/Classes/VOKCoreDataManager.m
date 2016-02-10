@@ -373,7 +373,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     NSError *error;
     NSUInteger count = [contextOrNil countForFetchRequest:fetchRequest error:&error];
     if (count == NSNotFound) {
-        VOK_CDLog(@"Fetch Request Error\n%@", [error localizedDescription]);
+        VOK_CDLog(@"Fetch Request Error\n%@", error.localizedDescription);
     }
     
     return count;
@@ -415,7 +415,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     NSError *error;
     NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
     if (!results) {
-        VOK_CDLog(@"Fetch Request Error\n%@", [error localizedDescription]);
+        VOK_CDLog(@"Fetch Request Error\n%@", error.localizedDescription);
     }
     
     return results;
@@ -465,7 +465,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     NSError *error;
     NSArray *results = [contextOrNil executeFetchRequest:fetchRequest error:&error];
     if (!results) {
-        VOK_CDLog(@"Fetch Request Error\n%@", [error localizedDescription]);
+        VOK_CDLog(@"Fetch Request Error\n%@", error.localizedDescription);
         return NO;
     }
     
@@ -554,7 +554,7 @@ static VOKCoreDataManager *VOK_SharedObject;
                 [self saveContextToRoot:context.parentContext andWait:wait];
             }
         } else {
-            VOK_CDLog(@"Unresolved error %@, %@", error, [error localizedDescription]);
+            VOK_CDLog(@"Unresolved error %@, %@", error, error.localizedDescription);
         }
     };
     
