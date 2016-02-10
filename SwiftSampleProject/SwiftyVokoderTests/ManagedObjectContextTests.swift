@@ -147,5 +147,8 @@ class ManagedObjectContextTests: XCTestCase {
         let childCountOfStations = self.manager.countForClass(Station.self, forContext: childContext)
         XCTAssertNotEqual(countOfStations, childCountOfStations)
         XCTAssertEqual(childCountOfStations, 0)
+        
+        let newCountOfStations = self.manager.countForClass(Station.self)
+        XCTAssertEqual(countOfStations, newCountOfStations)
     }
 }
