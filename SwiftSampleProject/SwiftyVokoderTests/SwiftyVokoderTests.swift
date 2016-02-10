@@ -17,8 +17,7 @@ struct CTAData {
     static func allStopDictionaries() -> [[String: AnyObject]] {
         guard let
             path = NSBundle.mainBundle().pathForResource("CTA_stations", ofType: "json"),
-            data = NSData(contentsOfFile: path)
-            else {
+            data = NSData(contentsOfFile: path) else {
                 XCTFail("file not found")
                 return []
         }
