@@ -42,7 +42,7 @@ class SwiftyVokoderTests: XCTestCase {
     override func setUp() {
         super.setUp()
         VOKCoreDataManager.sharedInstance().resetCoreData()
-        VOKCoreDataManager.sharedInstance().setResource("CoreDataModel", database: "CoreDataModel")
+        VOKCoreDataManager.sharedInstance().setResource("CoreDataModel", database: nil)
     }
 
     func exampleBlueLineStopDictionary() -> [String: AnyObject] {
