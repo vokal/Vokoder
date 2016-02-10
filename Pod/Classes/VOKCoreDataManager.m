@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 ///A private parent context for writing to the persistent store
-@property (nonatomic, strong) NSManagedObjectContext *rootContext;
+@property (nonatomic, strong) NSManagedObjectContext *privateRootContext;
 
 @property (nonatomic, copy) NSString *resource;
 @property (nonatomic, copy) NSString *databaseFilename;
@@ -92,11 +92,11 @@ static VOKCoreDataManager *VOK_SharedObject;
     if (!_managedObjectContext) {
         NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue],
                  @"Must be on the main queue when initializing main context");
-        self.rootContext = [self managedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType
+        self.privateRootContext = [self managedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType
                                                            parentContext:nil];
         //main context is a main queue child of the root
         _managedObjectContext = [self managedObjectContextWithConcurrencyType:NSMainQueueConcurrencyType
-                                                                parentContext:self.rootContext];
+                                                                parentContext:self.privateRootContext];
     }
     
     return _managedObjectContext;
@@ -559,7 +559,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     };
     
     //the root context can be saved asynchronously
-    if (context == self.rootContext) {
+    if (context == self.privateRootContext) {
         wait = NO;
     }
     
@@ -684,7 +684,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     
     _persistentStoreCoordinator = nil;
     _managedObjectContext = nil;
-    _rootContext = nil;
+    _privateRootContext = nil;
     _managedObjectModel = nil;
     _bundleForModel = nil;
     [_mapperCollection removeAllObjects];
