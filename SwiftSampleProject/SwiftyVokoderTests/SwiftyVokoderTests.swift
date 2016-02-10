@@ -12,9 +12,11 @@ import Vokoder
 
 let grandMilwaukeeIdentifier = 30096
 
+typealias JSONObject = [String: AnyObject]
+
 struct CTAData {
 
-    static func allStopDictionaries() -> [[String: AnyObject]] {
+    static func allStopDictionaries() -> [JSONObject] {
         guard let
             path = NSBundle.mainBundle().pathForResource("CTA_stations", ofType: "json"),
             data = NSData(contentsOfFile: path) else {
@@ -24,7 +26,7 @@ struct CTAData {
         
         do {
             let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
-            guard let jsonArray = jsonObject as? [[String: AnyObject]] else {
+            guard let jsonArray = jsonObject as? [JSONObject] else {
                 XCTFail("JSON in unexpected format")
                 return []
             }
@@ -44,7 +46,7 @@ class SwiftyVokoderTests: XCTestCase {
         VOKCoreDataManager.sharedInstance().setResource("CoreDataModel", database: nil)
     }
 
-    func exampleBlueLineStopDictionary() -> [String: AnyObject] {
+    func exampleBlueLineStopDictionary() -> JSONObject {
         return [
             "STOP_ID":grandMilwaukeeIdentifier,
             "DIRECTION_ID":"S",
