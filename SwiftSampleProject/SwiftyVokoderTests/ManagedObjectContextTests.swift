@@ -83,18 +83,20 @@ class ManagedObjectContextTests: XCTestCase {
                 return true
         }
         
-        if let rootContext = self.manager.managedObjectContext.parentContext {
-            self.expectationForNotification(NSManagedObjectContextDidSaveNotification,
-                object: rootContext) { _ in
-                    
-                    let newCountOfStations = self.manager.countForClass(Station.self, forContext: rootContext)
-                    XCTAssertEqual(newCountOfStations, 0)
-                    XCTAssertNotEqual(countOfStations, newCountOfStations)
-                    
-                    return true
-            }
+        guard let rootContext = self.manager.managedObjectContext.parentContext else {
+            XCTFail("Expecting the main context to have a parent context")
+            return
         }
-        
+        self.expectationForNotification(NSManagedObjectContextDidSaveNotification,
+            object: rootContext) { _ in
+                
+                let newCountOfStations = self.manager.countForClass(Station.self, forContext: rootContext)
+                XCTAssertEqual(newCountOfStations, 0)
+                XCTAssertNotEqual(countOfStations, newCountOfStations)
+                
+                return true
+        }
+    
         self.manager.saveMainContext()
         
         self.waitForExpectationsWithTimeout(10, handler: nil)
