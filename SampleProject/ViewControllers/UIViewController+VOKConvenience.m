@@ -66,25 +66,24 @@
 
 - (void)reloadDataInBackground
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+    NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+    [backgroundContext performBlock:^{
         [self loadDataWithContext:backgroundContext];
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
-    });
+    }];
 }
 
 - (void)deleteDataInBackground
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
-
+    NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+    [backgroundContext performBlock:^{
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"lovesCoolRanch == YES"];
         NSArray *personArray = [VOKPerson vok_fetchAllForPredicate:pred forManagedObjectContext:backgroundContext];
         [personArray enumerateObjectsUsingBlock:^(VOKPerson *obj, NSUInteger idx, BOOL *stop) {
             [backgroundContext deleteObject:obj];
         }];
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
-    });
+    }];
 }
 
 - (void)loadDataWithContext:(NSManagedObjectContext *)context
