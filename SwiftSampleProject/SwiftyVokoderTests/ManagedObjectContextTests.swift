@@ -41,8 +41,8 @@ class ManagedObjectContextTests: XCTestCase {
         
         tempContext.performBlockAndWait {
             self.manager.deleteAllObjectsOfClass(Station.self, context: tempContext)
-            self.manager.saveAndMergeWithMainContextAndWait(tempContext)
         }
+        self.manager.saveAndMergeWithMainContextAndWait(tempContext)
         
         let updatedCountOfStations = self.manager.countForClass(Station.self)
         XCTAssertEqual(updatedCountOfStations, 0)
@@ -60,8 +60,8 @@ class ManagedObjectContextTests: XCTestCase {
             let silverLine = TrainLine.vok_newInstanceWithContext(tempContext)
             silverLine.identifier = "SLV"
             silverLine.name = "Silver Line"
-            self.manager.saveAndMergeWithMainContextAndWait(tempContext)
         }
+        self.manager.saveAndMergeWithMainContextAndWait(tempContext)
      
         let updatedCount = self.manager.countForClass(TrainLine.self)
         XCTAssertEqual(updatedCount, countOfTrainLines + 1)
