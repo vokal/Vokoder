@@ -12,86 +12,82 @@ import Vokoder
 
 class ManagedObjectContextTests: XCTestCase {
 
+    let manager = VOKCoreDataManager.sharedInstance()
+    
     override func setUp() {
         super.setUp()
-        VOKCoreDataManager.sharedInstance().resetCoreData()
-        VOKCoreDataManager.sharedInstance().setResource("CoreDataModel", database: "CoreDataModel.sqlite")
+        self.manager.resetCoreData()
+        self.manager.setResource("CoreDataModel", database: "CoreDataModel.sqlite")
         
         Stop.vok_import(CTAData.allStopDictionaries())
-        VOKCoreDataManager.sharedInstance().saveMainContextAndWait()
+        self.manager.saveMainContextAndWait()
     }
     
     func testContextChain() {
-        let manager = VOKCoreDataManager.sharedInstance()
-
-        let tempContext = manager.temporaryContext()
+        let tempContext = self.manager.temporaryContext()
         //temp context is a child of the main context
-        XCTAssertEqual(tempContext.parentContext, manager.managedObjectContext)
+        XCTAssertEqual(tempContext.parentContext, self.manager.managedObjectContext)
         //main context has a private parent context
-        XCTAssertNotNil(manager.managedObjectContext.parentContext)
+        XCTAssertNotNil(self.manager.managedObjectContext.parentContext)
     }
     
     func testDeletingObjectsOnTempContextGetsSavedToMainContext() {
         //get a temp context, delete from temp, save to main, verify deleted on main
-        let manager = VOKCoreDataManager.sharedInstance()
         
-        let tempContext = manager.temporaryContext()
+        let tempContext = self.manager.temporaryContext()
         
-        let countOfStations = manager.countForClass(Station.self)
+        let countOfStations = self.manager.countForClass(Station.self)
         XCTAssert(countOfStations > 0)
         
         tempContext.performBlockAndWait {
-            manager.deleteAllObjectsOfClass(Station.self, context: tempContext)
+            self.manager.deleteAllObjectsOfClass(Station.self, context: tempContext)
         }
         
-        manager.saveAndMergeWithMainContextAndWait(tempContext)
-        let newCountOfStations = manager.countForClass(Station.self)
+        self.manager.saveAndMergeWithMainContextAndWait(tempContext)
+        let newCountOfStations = self.manager.countForClass(Station.self)
         XCTAssertEqual(newCountOfStations, 0)
         XCTAssertNotEqual(countOfStations, newCountOfStations)
     }
     
     func testAddingObjectsOnTempContextGetsSavedToMainContext() {
         //get a temp context, add to temp, save to main, verify added to main
-        let manager = VOKCoreDataManager.sharedInstance()
         
-        let tempContext = manager.temporaryContext()
+        let tempContext = self.manager.temporaryContext()
 
-        let countOfTrainLines = manager.countForClass(TrainLine.self)
+        let countOfTrainLines = self.manager.countForClass(TrainLine.self)
         
         tempContext.performBlockAndWait {
             let silverLine = TrainLine.vok_newInstanceWithContext(tempContext)
             silverLine.identifier = "SLV"
             silverLine.name = "Silver Line"
         }
-        manager.saveAndMergeWithMainContextAndWait(tempContext)
+        self.manager.saveAndMergeWithMainContextAndWait(tempContext)
      
-        let newCount = manager.countForClass(TrainLine.self)
+        let newCount = self.manager.countForClass(TrainLine.self)
         XCTAssertEqual(newCount, countOfTrainLines + 1)
     }
     
     func testSaveWithoutWaitingEventuallySaves() {
-        let manager = VOKCoreDataManager.sharedInstance()
-        
-        let countOfStations = manager.countForClass(Station.self)
+        let countOfStations = self.manager.countForClass(Station.self)
         XCTAssert(countOfStations > 0)
 
-        manager.deleteAllObjectsOfClass(Station.self, context: nil)
+        self.manager.deleteAllObjectsOfClass(Station.self, context: nil)
         
         self.expectationForNotification(NSManagedObjectContextDidSaveNotification,
-            object: manager.managedObjectContext) { _ in
+            object: self.manager.managedObjectContext) { _ in
                 
-                let newCountOfStations = manager.countForClass(Station.self)
+                let newCountOfStations = self.manager.countForClass(Station.self)
                 XCTAssertEqual(newCountOfStations, 0)
                 XCTAssertNotEqual(countOfStations, newCountOfStations)
                 
                 return true
         }
         
-        if let rootContext = manager.managedObjectContext.parentContext {
+        if let rootContext = self.manager.managedObjectContext.parentContext {
             self.expectationForNotification(NSManagedObjectContextDidSaveNotification,
                 object: rootContext) { _ in
                     
-                    let newCountOfStations = manager.countForClass(Station.self, forContext: rootContext)
+                    let newCountOfStations = self.manager.countForClass(Station.self, forContext: rootContext)
                     XCTAssertEqual(newCountOfStations, 0)
                     XCTAssertNotEqual(countOfStations, newCountOfStations)
                     
@@ -99,62 +95,56 @@ class ManagedObjectContextTests: XCTestCase {
             }
         }
         
-        manager.saveMainContext()
+        self.manager.saveMainContext()
         
         self.waitForExpectationsWithTimeout(10, handler: nil)
     }
     
     func testSaveAndMergeWithMainContextSavesGrandChildren() {
-        let manager = VOKCoreDataManager.sharedInstance()
-        
-        let childContext = manager.temporaryContext()
+        let childContext = self.manager.temporaryContext()
         let grandChildContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         grandChildContext.parentContext = childContext
         
-        let countOfStations = manager.countForClass(Station.self)
+        let countOfStations = self.manager.countForClass(Station.self)
         XCTAssert(countOfStations > 0)
         
         grandChildContext.performBlockAndWait {
-            manager.deleteAllObjectsOfClass(Station.self, context: grandChildContext)
+            self.manager.deleteAllObjectsOfClass(Station.self, context: grandChildContext)
         }
         
-        manager.saveAndMergeWithMainContextAndWait(grandChildContext)
+        self.manager.saveAndMergeWithMainContextAndWait(grandChildContext)
         
-        let newCountOfStations = manager.countForClass(Station.self)
+        let newCountOfStations = self.manager.countForClass(Station.self)
         XCTAssertEqual(newCountOfStations, 0)
         XCTAssertNotEqual(countOfStations, newCountOfStations)
     }
     
     func testUnsavedMainContextChangesGetPassedToTempContexts() {
-        let manager = VOKCoreDataManager.sharedInstance()
-
-        let countOfStations = manager.countForClass(Station.self)
+        let countOfStations = self.manager.countForClass(Station.self)
         XCTAssert(countOfStations > 0)
 
-        let childContextBeforeChanges = manager.temporaryContext()
-        manager.deleteAllObjectsOfClass(Station.self, context: nil)
-        let childContextAfterChanges = manager.temporaryContext()
+        let childContextBeforeChanges = self.manager.temporaryContext()
+        self.manager.deleteAllObjectsOfClass(Station.self, context: nil)
+        let childContextAfterChanges = self.manager.temporaryContext()
 
-        let childCountOfStations = manager.countForClass(Station.self, forContext: childContextBeforeChanges)
+        let childCountOfStations = self.manager.countForClass(Station.self, forContext: childContextBeforeChanges)
         XCTAssertNotEqual(countOfStations, childCountOfStations)
         XCTAssertEqual(childCountOfStations, 0)
         
-        let newChildCountOfStations = manager.countForClass(Station.self, forContext: childContextAfterChanges)
+        let newChildCountOfStations = self.manager.countForClass(Station.self, forContext: childContextAfterChanges)
         XCTAssertNotEqual(countOfStations, newChildCountOfStations)
         XCTAssertEqual(newChildCountOfStations, childCountOfStations)
         XCTAssertEqual(newChildCountOfStations, 0)
     }
     
     func testUnsavedTempContextChangesDoNotGetPassedToMainContext() {
-        let manager = VOKCoreDataManager.sharedInstance()
-        
-        let countOfStations = manager.countForClass(Station.self)
+        let countOfStations = self.manager.countForClass(Station.self)
         XCTAssert(countOfStations > 0)
 
-        let childContext = manager.temporaryContext()
-        manager.deleteAllObjectsOfClass(Station.self, context: childContext)
+        let childContext = self.manager.temporaryContext()
+        self.manager.deleteAllObjectsOfClass(Station.self, context: childContext)
         
-        let childCountOfStations = manager.countForClass(Station.self, forContext: childContext)
+        let childCountOfStations = self.manager.countForClass(Station.self, forContext: childContext)
         XCTAssertNotEqual(countOfStations, childCountOfStations)
         XCTAssertEqual(childCountOfStations, 0)
     }
