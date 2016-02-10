@@ -125,8 +125,12 @@ class ManagedObjectContextTests: XCTestCase {
         let countOfStations = self.manager.countForClass(Station.self)
         XCTAssert(countOfStations > 0)
 
+        //temp contexts should reflect any changes to their parent context (the main context)
+        //regardless of if they were created before...
         let childContextBeforeChanges = self.manager.temporaryContext()
+        //...changes are made to the parent context...
         self.manager.deleteAllObjectsOfClass(Station.self, context: nil)
+        //...or after the changes are made
         let childContextAfterChanges = self.manager.temporaryContext()
 
         let childCountOfStations = self.manager.countForClass(Station.self, forContext: childContextBeforeChanges)
