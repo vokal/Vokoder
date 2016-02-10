@@ -524,6 +524,9 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (void)saveContext:(NSManagedObjectContext *)context
             andWait:(BOOL)wait
 {
+    //The documentation indicates that this method is not thread safe.
+    //We can't guarantee that the current method is called on the appropriate thread for this context,
+    //so use performBlockAndWait to query the context for changes.
     __block BOOL hasChanges;
     [context performBlockAndWait:^{
         hasChanges = context.hasChanges;
