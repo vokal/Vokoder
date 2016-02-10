@@ -537,7 +537,7 @@ static VOKCoreDataManager *VOK_SharedObject;
     }
     
     [self obtainPermanentIDsForInsertionsInContext:context];
-    [self saveContextToRoot:context andWait:YES];
+    [self saveContextToRoot:context andWait:wait];
 }
 
 /**
