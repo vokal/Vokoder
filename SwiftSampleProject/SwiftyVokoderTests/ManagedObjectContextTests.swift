@@ -15,7 +15,7 @@ class ManagedObjectContextTests: XCTestCase {
     override func setUp() {
         super.setUp()
         VOKCoreDataManager.sharedInstance().resetCoreData()
-        VOKCoreDataManager.sharedInstance().setResource("CoreDataModel", database: "CoreDataModel")
+        VOKCoreDataManager.sharedInstance().setResource("CoreDataModel", database: "CoreDataModel.sqlite")
         
         Stop.vok_import(CTAData.allStopDictionaries())
         VOKCoreDataManager.sharedInstance().saveMainContextAndWait()
