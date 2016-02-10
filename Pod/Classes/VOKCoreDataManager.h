@@ -48,7 +48,9 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
  */
 + (VOKCoreDataManager *)sharedInstance;
 
-///The primary managed object context. Only for use on the main queue.
+/**The primary managed object context. Only for use on the main queue.  
+ All access to managed objects should happen through this context or a temporary context.
+ */
 @property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
 
 /// The managed object model, based on the resource and database.
@@ -258,7 +260,9 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
  Here is an example background import:
  @code
  NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
- [self loadDataWithContext:backgroundContext]; //do some data loading
+ [backgroundContext performBlockAndWait:^{
+    [self loadDataWithContext:backgroundContext]; //do some data loading
+ }];
  [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
  @endcode
  @return        A managed object context with the main context as its parent.

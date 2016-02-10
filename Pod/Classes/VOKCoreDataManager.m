@@ -561,7 +561,9 @@ static VOKCoreDataManager *VOK_SharedObject;
         }
     };
     
-    //the root context can be saved asynchronously
+    //At this point, the main context is already saved.
+    //The root context can be saved asynchronously
+    //since all access to Core Data should be going through the main context or a child temp context.
     if (context == self.privateRootContext) {
         wait = NO;
     }

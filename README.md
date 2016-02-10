@@ -148,7 +148,7 @@ The mapper constructed in the example in the section above could be included in 
 
 ###Importing Safely
 
-Vokoder offers many ways to get data into Core Data. The simplest and most approachable interface is offered through the VOKManagedObjectAdditions category. Given an array of dictionaries Vokoder will create or edit managed objects on a background queue and then safely return managed objects to the main queue through the completion block.
+Vokoder offers many ways to get data into Core Data. The simplest and most approachable interface is offered through the VOKManagedObjectAdditions category. Given an array of dictionaries, Vokoder will create or update managed objects on a temporary context and then safely return managed objects from the main context through a completion block on the main queue.
 
 ```objective-c
 [SomeManagedObjectSubclass vok_addWithArrayInBackground:importArray
@@ -159,23 +159,25 @@ Vokoder offers many ways to get data into Core Data. The simplest and most appro
 
 ```
 
-For more control over background operations the VOKCoreDataManager class offers more generic methods. Vokoder can handle queues and provide a temporary context without automatically importing or returning anything. 
+For more control over background operations, the VOKCoreDataManager class offers more generic methods. Vokoder will handle queues and provide a temporary context without automatically importing or returning anything. 
 
 ```objective-c
 + (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock completion:(void (^)(void))completion;
 ```
 
-Finally, for those that want full control, feel free to make your own temporary contexts on your own background queue. As long as you use a temporary context for background operations Vokoder will let you go your own way.
+Finally, for those that want full control, you can make your own temporary contexts that each have their own serial background queue. As long as you use a temporary context for background operations, Vokoder will let you go your own way.
 
 ```objective-c
-dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-    NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
-        
+NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+
+[backgroundContext performBlock:^{
     SomeManagedObjectSubclass *thing = [SomeManagedObjectSubclass vok_newInstanceWithContext:backgroundContext];
     thing.someArbitrayAttribute = @"hello";
-    [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
-});
+    [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];  
+}];
 ```
+
+**NOTE**: Temporary contexts created manually or vended through the convenience background methods are child contexts of the main context.
 
 ###Inserting records
 
@@ -211,8 +213,20 @@ VOKCoreDataManager *manager = [VOKCoreDataManager sharedInstance];
 ###Saving 
 
 ```objective-c
-[[VOKCoreDataManager sharedInstance] saveMainContextAndWait]; //Saves synchronously
+//Saves the main context synchronously
+[[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
+...
+//Saves the main context asynchronously
+[[VOKCoreDataManager sharedInstance] saveMainContext];
+...
+//Save a temp context and merge changes to the main context asynchronously
+[[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
+...
+//Save a temp context and merge changes to the main context synchronously
+[[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContextAndWait:tempContext];
 ```
+
+**NOTE**: There is a private context that asynchronously saves changes to the persistent store when any of these methods are called. The main context is a child of this "root" context. This should not pose a problem if you are using the main context and temporary contexts.  If you have created a context that is **not** a descendent of the main context, be aware of this.
 
 ## License
 
