@@ -41,12 +41,12 @@ class ManagedObjectContextTests: XCTestCase {
         
         tempContext.performBlockAndWait {
             self.manager.deleteAllObjectsOfClass(Station.self, context: tempContext)
+            self.manager.saveAndMergeWithMainContextAndWait(tempContext)
         }
         
-        self.manager.saveAndMergeWithMainContextAndWait(tempContext)
-        let newCountOfStations = self.manager.countForClass(Station.self)
-        XCTAssertEqual(newCountOfStations, 0)
-        XCTAssertNotEqual(countOfStations, newCountOfStations)
+        let updatedCountOfStations = self.manager.countForClass(Station.self)
+        XCTAssertEqual(updatedCountOfStations, 0)
+        XCTAssertNotEqual(countOfStations, updatedCountOfStations)
     }
     
     func testAddingObjectsOnTempContextGetsSavedToMainContext() {
@@ -60,11 +60,11 @@ class ManagedObjectContextTests: XCTestCase {
             let silverLine = TrainLine.vok_newInstanceWithContext(tempContext)
             silverLine.identifier = "SLV"
             silverLine.name = "Silver Line"
+            self.manager.saveAndMergeWithMainContextAndWait(tempContext)
         }
-        self.manager.saveAndMergeWithMainContextAndWait(tempContext)
      
-        let newCount = self.manager.countForClass(TrainLine.self)
-        XCTAssertEqual(newCount, countOfTrainLines + 1)
+        let updatedCount = self.manager.countForClass(TrainLine.self)
+        XCTAssertEqual(updatedCount, countOfTrainLines + 1)
     }
     
     func testSaveWithoutWaitingEventuallySaves() {
@@ -76,9 +76,9 @@ class ManagedObjectContextTests: XCTestCase {
         self.expectationForNotification(NSManagedObjectContextDidSaveNotification,
             object: self.manager.managedObjectContext) { _ in
                 
-                let newCountOfStations = self.manager.countForClass(Station.self)
-                XCTAssertEqual(newCountOfStations, 0)
-                XCTAssertNotEqual(countOfStations, newCountOfStations)
+                let updatedCountOfStations = self.manager.countForClass(Station.self)
+                XCTAssertEqual(updatedCountOfStations, 0)
+                XCTAssertNotEqual(countOfStations, updatedCountOfStations)
                 
                 return true
         }
@@ -90,9 +90,9 @@ class ManagedObjectContextTests: XCTestCase {
         self.expectationForNotification(NSManagedObjectContextDidSaveNotification,
             object: rootContext) { _ in
                 
-                let newCountOfStations = self.manager.countForClass(Station.self, forContext: rootContext)
-                XCTAssertEqual(newCountOfStations, 0)
-                XCTAssertNotEqual(countOfStations, newCountOfStations)
+                let updatedCountOfStations = self.manager.countForClass(Station.self, forContext: rootContext)
+                XCTAssertEqual(updatedCountOfStations, 0)
+                XCTAssertNotEqual(countOfStations, updatedCountOfStations)
                 
                 return true
         }
@@ -116,9 +116,9 @@ class ManagedObjectContextTests: XCTestCase {
         
         self.manager.saveAndMergeWithMainContextAndWait(grandChildContext)
         
-        let newCountOfStations = self.manager.countForClass(Station.self)
-        XCTAssertEqual(newCountOfStations, 0)
-        XCTAssertNotEqual(countOfStations, newCountOfStations)
+        let updatedCountOfStations = self.manager.countForClass(Station.self)
+        XCTAssertEqual(updatedCountOfStations, 0)
+        XCTAssertNotEqual(countOfStations, updatedCountOfStations)
     }
     
     func testUnsavedMainContextChangesGetPassedToTempContexts() {
@@ -137,10 +137,10 @@ class ManagedObjectContextTests: XCTestCase {
         XCTAssertNotEqual(countOfStations, childCountOfStations)
         XCTAssertEqual(childCountOfStations, 0)
         
-        let newChildCountOfStations = self.manager.countForClass(Station.self, forContext: childContextAfterChanges)
-        XCTAssertNotEqual(countOfStations, newChildCountOfStations)
-        XCTAssertEqual(newChildCountOfStations, childCountOfStations)
-        XCTAssertEqual(newChildCountOfStations, 0)
+        let otherChildCountOfStations = self.manager.countForClass(Station.self, forContext: childContextAfterChanges)
+        XCTAssertNotEqual(countOfStations, otherChildCountOfStations)
+        XCTAssertEqual(otherChildCountOfStations, childCountOfStations)
+        XCTAssertEqual(otherChildCountOfStations, 0)
     }
     
     func testUnsavedTempContextChangesDoNotGetPassedToMainContext() {
@@ -154,7 +154,7 @@ class ManagedObjectContextTests: XCTestCase {
         XCTAssertNotEqual(countOfStations, childCountOfStations)
         XCTAssertEqual(childCountOfStations, 0)
         
-        let newCountOfStations = self.manager.countForClass(Station.self)
-        XCTAssertEqual(countOfStations, newCountOfStations)
+        let updatedCountOfStations = self.manager.countForClass(Station.self)
+        XCTAssertEqual(countOfStations, updatedCountOfStations)
     }
 }
