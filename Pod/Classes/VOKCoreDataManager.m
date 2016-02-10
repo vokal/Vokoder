@@ -93,7 +93,7 @@ static VOKCoreDataManager *VOK_SharedObject;
         NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue],
                  @"Must be on the main queue when initializing main context");
         self.privateRootContext = [self managedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType
-                                                           parentContext:nil];
+                                                                  parentContext:nil];
         //main context is a main queue child of the root
         _managedObjectContext = [self managedObjectContextWithConcurrencyType:NSMainQueueConcurrencyType
                                                                 parentContext:self.privateRootContext];
