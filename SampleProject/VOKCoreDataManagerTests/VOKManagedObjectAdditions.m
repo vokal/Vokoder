@@ -80,17 +80,15 @@ static const NSUInteger BasicTestDataSize = 5;
     XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
                              forManagedObjectContext:nil].count, 0);
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        
-        NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
-        
+    NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+    [backgroundContext performBlock:^{
         VOKThing *thing = [VOKThing vok_newInstanceWithContext:backgroundContext];
-        [thing setName:@"test-2"];
-        [thing setNumberOfHats:@2];
-        [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
+        thing.name = @"test-2";
+        thing.numberOfHats = @2;
+        [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContextAndWait:backgroundContext];
         
         [completionExpectation fulfill];
-    });
+    }];
     
     [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
         XCTAssertNil(error, @"Error waiting for response:%@", error.description);
