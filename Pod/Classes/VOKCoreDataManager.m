@@ -90,8 +90,6 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (!_managedObjectContext) {
-        NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue],
-                 @"Must be on the main queue when initializing main context");
         self.privateRootContext = [self managedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType
                                                                   parentContext:nil];
         //main context is a main queue child of the root
@@ -119,8 +117,6 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
     if (!_persistentStoreCoordinator) {
-        NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue],
-                 @"Must be on the main queue when initializing persistent store coordinator");
         _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
         [self addPersistentStoreToCoordinator:_persistentStoreCoordinator];
     }
