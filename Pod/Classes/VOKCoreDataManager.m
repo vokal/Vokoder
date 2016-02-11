@@ -579,11 +579,17 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (void)saveAndMergeWithMainContext:(NSManagedObjectContext *)context
 {
+    NSAssert(context.parentContext != nil,
+             @"%@ is for saving temp contexts that are descendents of the main context!",
+             NSStringFromSelector(_cmd));
     [self saveContext:context andWait:NO];
 }
 
 - (void)saveAndMergeWithMainContextAndWait:(NSManagedObjectContext *)context;
 {
+    NSAssert(context.parentContext != nil,
+             @"%@ is for saving temp contexts that are descendents of the main context!",
+             NSStringFromSelector(_cmd));
     [self saveContext:context andWait:YES];
 }
 
