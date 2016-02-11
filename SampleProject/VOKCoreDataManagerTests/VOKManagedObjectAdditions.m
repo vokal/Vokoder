@@ -159,8 +159,8 @@ static const NSUInteger BasicTestDataSize = 5;
                                 completion:^(NSArray *arrayOfManagedObjects) {
                                     XCTAssertEqual(arrayOfManagedObjects.count, importArray.count);
                                     for (NSInteger i = 0; i < importArray.count; i++) {
-                                        XCTAssertEqualObjects([arrayOfManagedObjects[i] name], [importArray[i] valueForKey:@"name"]);
-                                        XCTAssertEqualObjects([arrayOfManagedObjects[i] numberOfHats], [importArray[i] valueForKey:@"numberOfHats"]);
+                                        XCTAssertEqualObjects([arrayOfManagedObjects[i] name], importArray[i][@"name"]);
+                                        XCTAssertEqualObjects([arrayOfManagedObjects[i] numberOfHats], importArray[i][@"numberOfHats"]);
                                     }
                                     [completionHandlerExpectation fulfill];
                                 }];
