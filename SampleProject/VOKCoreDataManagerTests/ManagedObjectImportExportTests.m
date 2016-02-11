@@ -676,6 +676,28 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     }
 }
 
+- (void)testTempContextMustBeDescendentOfMainContextToMerge
+{
+    NSManagedObjectContext *mainContext = [VOKCoreDataManager sharedInstance].managedObjectContext;
+    
+    NSManagedObjectContext *orphanContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    orphanContext.persistentStoreCoordinator = mainContext.persistentStoreCoordinator;
+    
+    [VOKPerson vok_addWithDictionary:[self makePersonDictForDefaultMapperWithAnEmptyInputValues]
+             forManagedObjectContext:orphanContext];
+    
+    //orphaned context trips an assert
+    XCTAssertThrows([[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:orphanContext]);
+    
+    //child of orphan also trips assert
+    NSManagedObjectContext *orphanChildContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    orphanChildContext.parentContext = orphanContext;
+
+    [VOKPerson vok_addWithDictionary:[self makePersonDictForDefaultMapperWithAnEmptyInputValues]
+             forManagedObjectContext:orphanChildContext];
+    XCTAssertThrows([[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:orphanChildContext]);
+}
+
 #pragma mark - Convenience stuff
 
 - (void)checkMappingForPerson:(VOKPerson *)person andDictionary:(NSDictionary *)dict

@@ -577,9 +577,20 @@ static VOKCoreDataManager *VOK_SharedObject;
                                            parentContext:self.managedObjectContext];
 }
 
+- (BOOL)contextIsDescendantOfMainContext:(NSManagedObjectContext *)context
+{
+    while (context.parentContext != nil) {
+        if (context.parentContext == self.managedObjectContext) {
+            return YES;
+        }
+        context = context.parentContext;
+    }
+    return NO;
+}
+
 - (void)saveAndMergeWithMainContext:(NSManagedObjectContext *)context
 {
-    NSAssert(context.parentContext != nil,
+    NSAssert([self contextIsDescendantOfMainContext:context],
              @"%@ is for saving temp contexts that are descendents of the main context!",
              NSStringFromSelector(_cmd));
     [self saveContext:context andWait:NO];
@@ -587,7 +598,7 @@ static VOKCoreDataManager *VOK_SharedObject;
 
 - (void)saveAndMergeWithMainContextAndWait:(NSManagedObjectContext *)context;
 {
-    NSAssert(context.parentContext != nil,
+    NSAssert([self contextIsDescendantOfMainContext:context],
              @"%@ is for saving temp contexts that are descendents of the main context!",
              NSStringFromSelector(_cmd));
     [self saveContext:context andWait:YES];
