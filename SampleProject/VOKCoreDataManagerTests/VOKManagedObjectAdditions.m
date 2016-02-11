@@ -38,13 +38,6 @@ static const NSUInteger BasicTestDataSize = 5;
                                             database:nil];
 }
 
-- (void)tearDown
-{
-    [super tearDown];
-    [[VOKCoreDataManager sharedInstance] deleteAllObjectsOfClass:[VOKThing class] context:nil];
-    [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
-}
-
 #pragma mark - Test Data Helper Methods
 
 - (void)loadWithBasicTestData
