@@ -37,7 +37,7 @@ class ManagedObjectContextTests: XCTestCase {
         let tempContext = self.manager.temporaryContext()
         
         let countOfStations = self.manager.countForClass(Station.self)
-        XCTAssert(countOfStations > 0)
+        XCTAssertGreaterThan(countOfStations, 0)
         
         tempContext.performBlockAndWait {
             self.manager.deleteAllObjectsOfClass(Station.self, context: tempContext)
@@ -69,7 +69,7 @@ class ManagedObjectContextTests: XCTestCase {
     
     func testSaveWithoutWaitingEventuallySaves() {
         let countOfStations = self.manager.countForClass(Station.self)
-        XCTAssert(countOfStations > 0)
+        XCTAssertGreaterThan(countOfStations, 0)
 
         self.manager.deleteAllObjectsOfClass(Station.self, context: nil)
         
@@ -108,7 +108,7 @@ class ManagedObjectContextTests: XCTestCase {
         grandChildContext.parentContext = childContext
         
         let countOfStations = self.manager.countForClass(Station.self)
-        XCTAssert(countOfStations > 0)
+        XCTAssertGreaterThan(countOfStations, 0)
         
         grandChildContext.performBlockAndWait {
             self.manager.deleteAllObjectsOfClass(Station.self, context: grandChildContext)
@@ -145,7 +145,7 @@ class ManagedObjectContextTests: XCTestCase {
     
     func testUnsavedTempContextChangesDoNotGetPassedToMainContext() {
         let countOfStations = self.manager.countForClass(Station.self)
-        XCTAssert(countOfStations > 0)
+        XCTAssertGreaterThan(countOfStations, 0)
 
         let childContext = self.manager.temporaryContext()
         self.manager.deleteAllObjectsOfClass(Station.self, context: childContext)
