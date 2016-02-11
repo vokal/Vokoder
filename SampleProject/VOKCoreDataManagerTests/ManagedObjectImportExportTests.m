@@ -572,7 +572,6 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     NSArray *thingMaps = @[
                            VOKMapForeignToLocalClassProperty(THING_NAME_KEY, VOKThing, name),
                            VOKMapForeignToLocalClassProperty(THING_HAT_COUNT_KEY, VOKThing, numberOfHats),
-//                           VOKMapForeignToLocalForClass(@"", nam),
                            ];
     VOKManagedObjectMapper *thingMapper = [VOKManagedObjectMapper mapperWithUniqueKey:@"thing_name" andMaps:thingMaps];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:thingMapper forClass:[VOKThing class]];
