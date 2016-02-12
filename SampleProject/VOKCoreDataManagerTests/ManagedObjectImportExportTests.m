@@ -490,14 +490,14 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
 - (void)testFetchWithURI
 {
     VOKPerson *person = [VOKPerson vok_addWithDictionary:[self makePersonDictForDefaultMapperWithAnEmptyInputValues] forManagedObjectContext:nil];
-    [[VOKCoreDataManager sharedInstance] saveMainContext];
+    [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
     NSManagedObjectID *objectID = person.objectID;
     NSURL *uri = objectID.URIRepresentation;
     person = nil;
     [[[VOKCoreDataManager sharedInstance] managedObjectContext] reset];
 
     VOKPerson *personFromURI = (VOKPerson *)[[VOKCoreDataManager sharedInstance] existingObjectAtURI:uri
-                                                                           forManagedObjectContext:nil];
+                                                                             forManagedObjectContext:nil];
     XCTAssertNotNil(personFromURI, @"failed to get existing person object from URI");
     XCTAssertTrue([personFromURI isKindOfClass:[VOKPerson class]], @"existing person object was not correct class");
 }
@@ -572,7 +572,6 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     NSArray *thingMaps = @[
                            VOKMapForeignToLocalClassProperty(THING_NAME_KEY, VOKThing, name),
                            VOKMapForeignToLocalClassProperty(THING_HAT_COUNT_KEY, VOKThing, numberOfHats),
-//                           VOKMapForeignToLocalForClass(@"", nam),
                            ];
     VOKManagedObjectMapper *thingMapper = [VOKManagedObjectMapper mapperWithUniqueKey:@"thing_name" andMaps:thingMaps];
     [[VOKCoreDataManager sharedInstance] setObjectMapper:thingMapper forClass:[VOKThing class]];
@@ -675,6 +674,28 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
         [self checkCustomMappingForPerson:arrayOfPeople[0] andDictionary:person2];
         [self checkCustomMappingForPerson:arrayOfPeople[1] andDictionary:person3];
     }
+}
+
+- (void)testTempContextMustBeDescendentOfMainContextToMerge
+{
+    NSManagedObjectContext *mainContext = [VOKCoreDataManager sharedInstance].managedObjectContext;
+    
+    NSManagedObjectContext *orphanContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    orphanContext.persistentStoreCoordinator = mainContext.persistentStoreCoordinator;
+    
+    [VOKPerson vok_addWithDictionary:[self makePersonDictForDefaultMapperWithAnEmptyInputValues]
+             forManagedObjectContext:orphanContext];
+    
+    //orphaned context trips an assert
+    XCTAssertThrows([[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:orphanContext]);
+    
+    //child of orphan also trips assert
+    NSManagedObjectContext *orphanChildContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    orphanChildContext.parentContext = orphanContext;
+
+    [VOKPerson vok_addWithDictionary:[self makePersonDictForDefaultMapperWithAnEmptyInputValues]
+             forManagedObjectContext:orphanChildContext];
+    XCTAssertThrows([[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:orphanChildContext]);
 }
 
 #pragma mark - Convenience stuff

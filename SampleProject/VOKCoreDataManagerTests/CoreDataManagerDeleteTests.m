@@ -32,7 +32,7 @@
     thing.name = name;
     thing.numberOfHats = @(numberOfHats);
     
-    [[VOKCoreDataManager sharedInstance] saveMainContext];
+    [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
     
     return thing;
 }

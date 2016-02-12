@@ -38,13 +38,6 @@ static const NSUInteger BasicTestDataSize = 5;
                                             database:nil];
 }
 
-- (void)tearDown
-{
-    [super tearDown];
-    [[VOKCoreDataManager sharedInstance] deleteAllObjectsOfClass:[VOKThing class] context:nil];
-    [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
-}
-
 #pragma mark - Test Data Helper Methods
 
 - (void)loadWithBasicTestData
@@ -62,15 +55,15 @@ static const NSUInteger BasicTestDataSize = 5;
 - (void)testRecordInsertion
 {
     XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
-                             forManagedObjectContext:nil].count, 0);
+                              forManagedObjectContext:nil].count, 0);
     
     VOKThing *thing = [VOKThing vok_newInstance];
     [thing setName:@"test-1"];
     [thing setNumberOfHats:@1];
-    [[VOKCoreDataManager sharedInstance] saveMainContext];
+    [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
     
     XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
-                             forManagedObjectContext:nil].count, 1);    
+                              forManagedObjectContext:nil].count, 1);
 }
 
 - (void)testRecordInsertionBackgroundThreadManual
@@ -78,47 +71,45 @@ static const NSUInteger BasicTestDataSize = 5;
     XCTestExpectation *completionExpectation = [self expectationWithDescription:@"completion"];
     
     XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
-                             forManagedObjectContext:nil].count, 0);
+                              forManagedObjectContext:nil].count, 0);
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        
-        NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
-        
+    NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+    [backgroundContext performBlock:^{
         VOKThing *thing = [VOKThing vok_newInstanceWithContext:backgroundContext];
-        [thing setName:@"test-2"];
-        [thing setNumberOfHats:@2];
-        [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
+        thing.name = @"test-2";
+        thing.numberOfHats = @2;
+        [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContextAndWait:backgroundContext];
         
         [completionExpectation fulfill];
-    });
+    }];
     
     [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
         XCTAssertNil(error, @"Error waiting for response:%@", error.description);
         XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
-                                 forManagedObjectContext:nil].count, 1);
+                                  forManagedObjectContext:nil].count, 1);
     }];
 }
 
 - (void)testRecordInsertionBackgroundThreadConvenience
 {
     XCTestExpectation *completionHandlerExpectation = [self expectationWithDescription:@"completion"];
-
+    
     XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
-                             forManagedObjectContext:nil].count, 0);
-
+                              forManagedObjectContext:nil].count, 0);
+    
     [VOKCoreDataManager writeToTemporaryContext:^(NSManagedObjectContext *tempContext) {
-
+        
         VOKThing *thing = [VOKThing vok_newInstanceWithContext:tempContext];
         [thing setName:@"test-2"];
         [thing setNumberOfHats:@2];
-
+        
     } completion:^{
         XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
-                                 forManagedObjectContext:nil].count, 1);
-
+                                  forManagedObjectContext:nil].count, 1);
+        
         [completionHandlerExpectation fulfill];
     }];
-
+    
     [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
         XCTAssertNil(error, @"Error waiting for response:%@", error.description);
     }];
@@ -127,9 +118,9 @@ static const NSUInteger BasicTestDataSize = 5;
 - (void)testRecordInsertionBackgroundThreadConvenienceReturningManagedObjectsArray
 {
     XCTestExpectation *completionHandlerExpectation = [self expectationWithDescription:@"completion"];
-
+    
     XCTAssertEqual([VOKThing vok_fetchAllForPredicate:nil
-                             forManagedObjectContext:nil].count, 0);
+                              forManagedObjectContext:nil].count, 0);
     NSArray *importArray = @[
                              @{
                                  @"name" : @"bobbbb",
@@ -156,17 +147,17 @@ static const NSUInteger BasicTestDataSize = 5;
                                  @"numberOfHats" : @1,
                                  },
                              ];
-
+    
     [VOKThing vok_addWithArrayInBackground:importArray
-                               completion:^(NSArray *arrayOfManagedObjects) {
-                                   XCTAssertEqual(arrayOfManagedObjects.count, importArray.count);
-                                   for (NSInteger i = 0; i < importArray.count; i++) {
-                                       XCTAssertEqualObjects([arrayOfManagedObjects[i] name], [importArray[i] valueForKey:@"name"]);
-                                       XCTAssertEqualObjects([arrayOfManagedObjects[i] numberOfHats], [importArray[i] valueForKey:@"numberOfHats"]);
-                                   }
-                                   [completionHandlerExpectation fulfill];
-    }];
-
+                                completion:^(NSArray *arrayOfManagedObjects) {
+                                    XCTAssertEqual(arrayOfManagedObjects.count, importArray.count);
+                                    for (NSInteger i = 0; i < importArray.count; i++) {
+                                        XCTAssertEqualObjects([arrayOfManagedObjects[i] name], importArray[i][@"name"]);
+                                        XCTAssertEqualObjects([arrayOfManagedObjects[i] numberOfHats], importArray[i][@"numberOfHats"]);
+                                    }
+                                    [completionHandlerExpectation fulfill];
+                                }];
+    
     [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
         XCTAssertNil(error, @"Error waiting for response:%@", error.description);
     }];
@@ -179,7 +170,7 @@ static const NSUInteger BasicTestDataSize = 5;
     [self loadWithBasicTestData];
     
     NSArray *results = [VOKThing vok_fetchAllForPredicate:nil
-                                 forManagedObjectContext:nil];
+                                  forManagedObjectContext:nil];
     XCTAssertNotNil(results);
     XCTAssertGreaterThan(results.count, 0);
     XCTAssertEqual(results.count, BasicTestDataSize);
@@ -189,9 +180,9 @@ static const NSUInteger BasicTestDataSize = 5;
 {
     [self loadWithBasicTestData];
     NSArray *results = [VOKThing vok_fetchAllForPredicate:nil
-                                             sortedByKey:@"numberOfHats"
-                                               ascending:YES
-                                 forManagedObjectContext:nil];
+                                              sortedByKey:@"numberOfHats"
+                                                ascending:YES
+                                  forManagedObjectContext:nil];
     XCTAssertNotNil(results);
     XCTAssertGreaterThan(results.count, 0);
     XCTAssertEqual(results.count, BasicTestDataSize);
@@ -205,8 +196,8 @@ static const NSUInteger BasicTestDataSize = 5;
     [self loadWithBasicTestData];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"numberOfHats" ascending:YES];
     NSArray *results = [VOKThing vok_fetchAllForPredicate:nil
-                                                sortedBy:@[sortDescriptor]
-                                 forManagedObjectContext:nil];
+                                                 sortedBy:@[sortDescriptor]
+                                  forManagedObjectContext:nil];
     
     XCTAssertNotNil(results);
     XCTAssertGreaterThan(results.count, 0);
@@ -221,8 +212,8 @@ static const NSUInteger BasicTestDataSize = 5;
     [self loadWithBasicTestData];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"numberOfHats" ascending:NO];
     NSArray *results = [VOKThing vok_fetchAllForPredicate:nil
-                                                sortedBy:@[sortDescriptor]
-                                 forManagedObjectContext:nil];
+                                                 sortedBy:@[sortDescriptor]
+                                  forManagedObjectContext:nil];
     
     XCTAssertNotNil(results);
     XCTAssertGreaterThan(results.count, 0);

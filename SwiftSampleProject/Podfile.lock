@@ -1,22 +1,22 @@
 PODS:
   - ILGDynamicObjC/ILGClasses (0.1.1)
-  - Vokoder/Core (2.3.1):
+  - Vokoder/Core (3.0.0):
     - ILGDynamicObjC/ILGClasses (~> 0.1.1)
     - VOKUtilities/VOKKeyPathHelper (~> 0.8.0)
-  - Vokoder/DataSources (2.3.1):
+  - Vokoder/DataSources (3.0.0):
     - Vokoder/Core
-    - Vokoder/DataSources/Collection (= 2.3.1)
-    - Vokoder/DataSources/FetchedResults (= 2.3.1)
-    - Vokoder/DataSources/PagingFetchedResults (= 2.3.1)
-  - Vokoder/DataSources/Collection (2.3.1):
-    - Vokoder/Core
-    - Vokoder/DataSources/FetchedResults
-  - Vokoder/DataSources/FetchedResults (2.3.1):
-    - Vokoder/Core
-  - Vokoder/DataSources/PagingFetchedResults (2.3.1):
+    - Vokoder/DataSources/Collection (= 3.0.0)
+    - Vokoder/DataSources/FetchedResults (= 3.0.0)
+    - Vokoder/DataSources/PagingFetchedResults (= 3.0.0)
+  - Vokoder/DataSources/Collection (3.0.0):
     - Vokoder/Core
     - Vokoder/DataSources/FetchedResults
-  - Vokoder/Swift (2.3.1):
+  - Vokoder/DataSources/FetchedResults (3.0.0):
+    - Vokoder/Core
+  - Vokoder/DataSources/PagingFetchedResults (3.0.0):
+    - Vokoder/Core
+    - Vokoder/DataSources/FetchedResults
+  - Vokoder/Swift (3.0.0):
     - Vokoder/DataSources
   - VOKUtilities/VOKKeyPathHelper (0.8.0)
   - xUnique (4.1.2)
@@ -39,7 +39,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ILGDynamicObjC: 63443567f8ce851067ea3070d3b8c7f93d37207c
-  Vokoder: fc60909b0d3410d3abdc1af7ba01f7e9b6f1198e
+  Vokoder: 2f0a9f0a1e76768edf30f1ddbfb07f2ba6b9a84c
   VOKUtilities: 7d579a7fa5304c2eec17c49d293b2554d6059eaa
   xUnique: 7f74d3f52c7769f648aa7be8fe614fc27dba2405
 

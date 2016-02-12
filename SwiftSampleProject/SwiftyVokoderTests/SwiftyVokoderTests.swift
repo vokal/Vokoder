@@ -1,6 +1,6 @@
 //
 //  SwiftyVokoderTests.swift
-//  SwiftyVokoderTests
+//  SwiftSampleProject
 //
 //  Created by Carl Hill-Popper on 11/5/15.
 //  Copyright © 2015 Vokal.
@@ -12,9 +12,41 @@ import Vokoder
 
 let grandMilwaukeeIdentifier = 30096
 
+typealias JSONObject = [String: AnyObject]
+
+struct CTAData {
+
+    static func allStopDictionaries() -> [JSONObject] {
+        guard let
+            path = NSBundle.mainBundle().pathForResource("CTA_stations", ofType: "json"),
+            data = NSData(contentsOfFile: path) else {
+                XCTFail("file not found")
+                return []
+        }
+        
+        do {
+            let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+            guard let jsonArray = jsonObject as? [JSONObject] else {
+                XCTFail("JSON in unexpected format")
+                return []
+            }
+            return jsonArray
+        } catch {
+            XCTFail("Could not read JSON file")
+            return []
+        }
+    }
+}
+
 class SwiftyVokoderTests: XCTestCase {
     
-    func exampleBlueLineStopDictionary() -> [String: AnyObject] {
+    override func setUp() {
+        super.setUp()
+        VOKCoreDataManager.sharedInstance().resetCoreData()
+        VOKCoreDataManager.sharedInstance().setResource("CoreDataModel", database: nil)
+    }
+
+    func exampleBlueLineStopDictionary() -> JSONObject {
         return [
             "STOP_ID":grandMilwaukeeIdentifier,
             "DIRECTION_ID":"S",
@@ -34,28 +66,6 @@ class SwiftyVokoderTests: XCTestCase {
             "O":false,
             "Location":"(41.891189, -87.647578)"
         ]
-    }
-    
-    func allStopDictionaries() -> [[String: AnyObject]] {
-        guard let
-            path = NSBundle.mainBundle().pathForResource("CTA_stations", ofType: "json"),
-            data = NSData(contentsOfFile: path)
-            else {
-                XCTFail("file not found")
-                return []
-        }
-        
-        do {
-            let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
-            guard let jsonArray = jsonObject as? [[String: AnyObject]] else {
-                XCTFail("JSON in unexpected format")
-                return []
-            }
-            return jsonArray
-        } catch {
-            XCTFail("Could not read JSON file")
-            return []
-        }
     }
     
     func testCreateTrainLineFromIdentifier() {
@@ -97,7 +107,7 @@ class SwiftyVokoderTests: XCTestCase {
     }
     
     func testImportAllStops() {
-        let stops = Stop.vok_import(self.allStopDictionaries())
+        let stops = Stop.vok_import(CTAData.allStopDictionaries())
         
         XCTAssertEqual(stops.count, 300)
         guard let grandMilwaukeeStop = stops.filter({ stop in
@@ -111,7 +121,7 @@ class SwiftyVokoderTests: XCTestCase {
     }
     
     func testSwiftExtensionEqualObjCImports() {
-        let stopDictionaries = self.allStopDictionaries()
+        let stopDictionaries = CTAData.allStopDictionaries()
         var swiftStops: [Stop] = Stop.vok_import(stopDictionaries)
         var objCStops: [NSManagedObject] = Stop.vok_addWithArray(stopDictionaries, forManagedObjectContext: nil)
         

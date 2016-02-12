@@ -48,7 +48,9 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
  */
 + (VOKCoreDataManager *)sharedInstance;
 
-///The primary managed object context. Only for use on the main queue.
+/**The primary managed object context. Only for use on the main queue.  
+ All access to managed objects should happen through this context or a temporary context.
+ */
 @property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
 
 /// The managed object model, based on the resource and database.
@@ -243,31 +245,33 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
                         context:(nullable NSManagedObjectContext *)contextOrNil;
 
 /**
- Saves the main context asynchronously on the main queue. If already on the main queue it will block and save synchronously.
+ Saves the main context asynchronously.
  */
 - (void)saveMainContext;
 
 /**
- Saves the main context synchronously on the main queue. If already on the main queue it performs the same as saveMainContext.
+ Saves the main context synchronously. This method will not return until the main context is saved.
  */
 - (void)saveMainContextAndWait;
 
 /**
- Provides a managed object context for scratch work or background processing using the same persistent store coordinator as the main context. As with all managed object contexts, it is not thread-safe.
- Create the context and do work on the same queue. You are responsible for retaining temporary contexts yourself.
+ Provides a managed object context for scratch work or background processing as a child of the main context. As with all managed object contexts, it is thread-safe as long as you use it with its 'performBlock...' methods.
+ Create the context and do work using performBlock: or performBlockAndWait:. You are responsible for retaining temporary contexts yourself.
  Here is an example background import:
  @code
  NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
- [self loadDataWithContext:backgroundContext]; //do some data loading
+ [backgroundContext performBlockAndWait:^{
+    [self loadDataWithContext:backgroundContext]; //do some data loading
+ }];
  [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
  @endcode
- @return        A managed object context with the same persistent store coordinator as the main context, but otherwise no relationship.
+ @return        A managed object context with the main context as its parent.
  */
 - (NSManagedObjectContext *)temporaryContext;
 
 /**
  This provides a way for an application with heavy amounts of Core Data threading and writing to maintain object graph integrety by assuring that only one context is being written to at once.
- @param writeBlock      Do not save or merge this context, it will be done for you.  Do not use GCD or thread jumping inside this block. 
+ @param writeBlock      Do not save or merge this context, it will be done for you.
                         Handle all fetches, creates and writes using the tempContext variable passed to this block.
  @prarm completion      Fired on the main queue once the changes have been merged.
  */
@@ -275,7 +279,7 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
                      completion:(nullable void (^)(void))completion;
 
 /**
- Deserializes an NSArray full of NSDictionaries in the background and creates/updates instances in the given context.
+ Deserializes an NSArray full of NSDictionaries in the background and creates/updates instances in a temporary context.
  @param inputArray      An NSArray of NSDictionaries with data to be deserialized, imported, and merged into the main managed object context.
  @param objectClass     Specifies the class to instantiate or fetch when importing data.
  @param completion      Fired on the main queue once the changes have been merged. It brings an NSArray of permanent NSManagedObjectIDs matching the objects deserialized from the import array.
@@ -285,11 +289,18 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
                      completion:(nullable VOKObjectIDsReturnBlock)completion;
 
 /**
- Saves any temporary managed object context and merges those changes with the main managed object context in a thread-safe way.
+ Saves any temporary managed object context and merges those changes with the main managed object context asynchronously.
  This method is safe to call from any queue.
- @param context     The termporary context to save. Do not use this method to save the main context.
+ @param context     The temporary context to save.
  */
 - (void)saveAndMergeWithMainContext:(NSManagedObjectContext *)context;
+
+/**
+ Saves any temporary managed object context and merges those changes with the main managed object context synchronously.
+ This method is safe to call from any queue.  This method will not return until the main context is saved.
+ @param context     The temporary context to save.
+ */
+- (void)saveAndMergeWithMainContextAndWait:(NSManagedObjectContext *)context;
 
 /**
  Deletes the persistent stores and resets the main context and model to nil
