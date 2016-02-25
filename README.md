@@ -40,12 +40,13 @@ Macros to help create managed object property maps for importing and exporting a
 ###Setting up the data model
 
 ```objective-c
-[[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:@"VOKCoreDataModel.sqlite"]; //Saved to Disk
-```
-or
+// Save to disk
+[[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" 
+                                        database:@"VOKCoreDataModel.sqlite"];
 
-```objective-c
-[[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:nil]; //In memory data store
+// Or, create an in-memory store:
+[[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" 
+                                        database:nil];
 ```
 
 ###Using Vokoder's Mapper
@@ -93,7 +94,7 @@ Vokoder includes the `VOKMappableModel` protocol, which gives a structure for a 
 
 The `VOKMappableModel` protocol requires implementing `+ (NSString *)uniqueKey` and `+ (NSArray *)coreDataMaps`, which should return the two parameters passed to `[VOKManagedObjectMapper mapperWithUniqueKey:andMaps:]` in the example in the section above.  Optionally, `+ (BOOL)ignoreNullValueOverwrites`, `+ (BOOL)ignoreOptionalNullValues`, and `+ (VOKPostImportBlock)importCompletionBlock` can each be implemented to set the ignore values on the mapper or to set a post-import block.
 
-The mapper constructed in the example in the section above could be included in `SomeManagedObjectSubclass` by making it conform to `VOKMappableModel`:
+The mapper constructed in the example in the section above could be included in `SomeManagedObjectSubclass` by making it conform to `VOKMappableModel`.
 
 ```objective-c
 @interface SomeManagedObjectSubclass : NSManagedObject <VOKMappableModel>
@@ -150,7 +151,7 @@ The mapper constructed in the example in the section above could be included in 
 
 ###Importing Safely
 
-Vokoder offers many ways to get data into Core Data. The simplest and most approachable interface is offered through the VOKManagedObjectAdditions category. Given an array of dictionaries, Vokoder will create or update managed objects on a temporary context and then safely return managed objects from the main context through a completion block on the main queue.
+Vokoder offers many ways to get data into Core Data. The simplest and most approachable interface is offered through the `VOKManagedObjectAdditions` category. Given an array of dictionaries, Vokoder will create or update managed objects on a temporary context and then safely return managed objects from the main context through a completion block on the main queue.
 
 ```objective-c
 [SomeManagedObjectSubclass vok_addWithArrayInBackground:importArray
@@ -194,21 +195,27 @@ VOKPerson *person = [VOKPerson vok_newInstance];
 
 ####Query with basic predicate
 ```objective-c
-NSArray *results = [VOKPerson vok_fetchAllForPredicate:nil forManagedObjectContext:nil]; //Basic Fetch
+NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@" arguments:VOKKeyForSelf(lastName), @"Smith"];
+// Passing `nil` for any managed object context parameter uses the main context
+NSArray *allSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate forManagedObjectContext:nil];
 ```
 
 ####Query with basic predicate and sorting
 ```objective-c
-NSArray *results = [VOKPerson vok_fetchAllForPredicate:nil
-                                           sortedByKey:@"numberOfCats"
-                                             ascending:YES
-                               forManagedObjectContext:nil];
+NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@" arguments:VOKKeyForSelf(lastName), @"Smith"];
+NSArray *allSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate
+                                             sortedByKey:VOKKeyForSelf(numberOfCats)
+                                               ascending:YES
+                                 forManagedObjectContext:nil];
 ```
 
 ###Deleting records
 ```objective-c
-VOKCoreDataManager *manager = [VOKCoreDataManager sharedInstance];
-[manager deleteObject:person];
+NSPredicate *personPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
+                                                      arguments:VOKKeyForSelf(ticketNumber), @"A14"];
+VOKPerson *person = [VOKPerson vok_fetchForPredicate:personPredicate
+                             forManagedObjectContext:nil];
+[[VOKCoreDataManager sharedInstance] deleteObject:person];
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 ```	
 
@@ -217,13 +224,13 @@ VOKCoreDataManager *manager = [VOKCoreDataManager sharedInstance];
 ```objective-c
 //Saves the main context synchronously
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
-...
+
 //Saves the main context asynchronously
 [[VOKCoreDataManager sharedInstance] saveMainContext];
-...
+
 //Save a temp context and merge changes to the main context asynchronously
 [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
-...
+
 //Save a temp context and merge changes to the main context synchronously
 [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContextAndWait:tempContext];
 ```
