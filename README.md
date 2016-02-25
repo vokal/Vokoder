@@ -40,6 +40,7 @@ Macros to help create managed object property maps for importing and exporting a
 ###Setting up the data model
 
 ```objective-c
+// Omit the .xcdatamodeld extension on the model file name
 // Save to disk
 [[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" 
                                         database:@"VOKCoreDataModel.sqlite"];
@@ -98,11 +99,12 @@ The mapper constructed in the example in the section above could be included in 
 
 ```objective-c
 @interface SomeManagedObjectSubclass : NSManagedObject <VOKMappableModel>
-…
+// …properties and such
 @end
 
 @implementation SomeManagedObjectSubclass
-…
+// …other methods and such
+
 #pragma mark - VOKMappableModel
 
 + (NSArray *)coreDataMaps
@@ -157,7 +159,7 @@ Vokoder offers many ways to get data into Core Data. The simplest and most appro
 [SomeManagedObjectSubclass vok_addWithArrayInBackground:importArray
                                              completion:^(NSArray *arrayOfManagedObjects) {
                                                 // This completion block runs on the main queue
-                                                SomeManagedObjectSubclass *obj = arrayOfManagedObjects[0];
+                                                SomeManagedObjectSubclass *obj = arrayOfManagedObjects.firstObject;
                                              }];
 
 ```
@@ -183,44 +185,43 @@ NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance]
 **NOTE**: Temporary contexts created manually or vended through the convenience background methods are child contexts of the main context.
 
 ###Inserting records
-
 ```objective-c
 VOKPerson *person = [VOKPerson vok_newInstance];
-[person setFirstName:@"Rohan"];
-[person setLastName:@"Panchal"];
+person.firstName = @"Rohan";
+person.lastName = @"Panchal";
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 ```
 
-###Querying Records	
-
+###Querying Records
 ####Query with basic predicate
 ```objective-c
-NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@" arguments:VOKKeyForSelf(lastName), @"Smith"];
+NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
+                                                  argumentArray:@[VOKKeyForInstanceOf(VOKPerson, lastName), @"Smith"]];
 // Passing `nil` for any managed object context parameter uses the main context
 NSArray *allSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate forManagedObjectContext:nil];
 ```
 
 ####Query with basic predicate and sorting
 ```objective-c
-NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@" arguments:VOKKeyForSelf(lastName), @"Smith"];
-NSArray *allSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate
-                                             sortedByKey:VOKKeyForSelf(numberOfCats)
-                                               ascending:YES
-                                 forManagedObjectContext:nil];
+NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
+                                                  argumentArray:@[VOKKeyForInstanceOf(VOKPerson, lastName), @"Smith"]];
+NSArray *sortedSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate
+                                                sortedByKey:VOKKeyForInstanceOf(VOKPerson, firstName)
+                                                  ascending:YES
+                                    forManagedObjectContext:nil];
 ```
 
 ###Deleting records
 ```objective-c
 NSPredicate *personPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
-                                                      arguments:VOKKeyForSelf(ticketNumber), @"A14"];
+                                                  argumentArray:@[VOKKeyForInstanceOf(VOKPerson, ticketNumber), @"A14"]];
 VOKPerson *person = [VOKPerson vok_fetchForPredicate:personPredicate
                              forManagedObjectContext:nil];
 [[VOKCoreDataManager sharedInstance] deleteObject:person];
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
-```	
+``` 
 
 ###Saving 
-
 ```objective-c
 //Saves the main context synchronously
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
