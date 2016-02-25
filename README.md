@@ -193,10 +193,12 @@ person.lastName = @"Panchal";
 ```
 
 ###Querying Records
+Note that the key macros from the `MapperMacros` subspec (such as `VOKKeyForInstanceOf`) can be used for the keys in these calls to ensure that typos like `@"lsatName"` don't occur.
+
 ####Query with basic predicate
 ```objective-c
 NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
-                                                  argumentArray:@[VOKKeyForInstanceOf(VOKPerson, lastName), @"Smith"]];
+                                                  argumentArray:@[@"lastName", @"Smith"]];
 // Passing `nil` for any managed object context parameter uses the main context
 NSArray *allSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate forManagedObjectContext:nil];
 ```
@@ -204,9 +206,9 @@ NSArray *allSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate forMana
 ####Query with basic predicate and sorting
 ```objective-c
 NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
-                                                  argumentArray:@[VOKKeyForInstanceOf(VOKPerson, lastName), @"Smith"]];
+                                                  argumentArray:@[@"lastName", @"Smith"]];
 NSArray *sortedSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate
-                                                sortedByKey:VOKKeyForInstanceOf(VOKPerson, firstName)
+                                                sortedByKey:@"firstName"
                                                   ascending:YES
                                     forManagedObjectContext:nil];
 ```
@@ -214,7 +216,7 @@ NSArray *sortedSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate
 ###Deleting records
 ```objective-c
 NSPredicate *personPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
-                                                  argumentArray:@[VOKKeyForInstanceOf(VOKPerson, ticketNumber), @"A14"]];
+                                                  argumentArray:@[@"ticketNumber", @"A14"]];
 VOKPerson *person = [VOKPerson vok_fetchForPredicate:personPredicate
                              forManagedObjectContext:nil];
 [[VOKCoreDataManager sharedInstance] deleteObject:person];
