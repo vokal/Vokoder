@@ -60,8 +60,9 @@ NSDateFormatter *dateFormatter = [NSDateFormatter someCustomDateFormatter];
 // A number formatter will do the same, turning strings into NSNumbers
 NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
 NSArray *maps = @[
-                  VOKMapForeignToLocalClassProperty(@"first_name", VOKPerson, firstName), //the first argument is the foreign key,
-                  VOKMapForeignToLocalClassProperty(@"last_name", VOKPerson, lastName),   //second argument is the class, and then local property
+                  VOKMapForeignToLocalClassProperty(@"ticket_number", VOKPerson, ticketNumber), //the first argument is the foreign key,
+                  VOKMapForeignToLocalClassProperty(@"first_name", VOKPerson, firstName),       //second argument is the class, and then local property
+                  VOKMapForeignToLocalClassProperty(@"last_name", VOKPerson, lastName),
                   VOKMapForeignToLocalClassProperty(@"ss_num", VOKPerson, socialSecurityNumber),
                   [VOKManagedObjectMap mapWithForeignKeyPath:@"salary"
                                                  coreDataKey:VOKKeyForInstanceOf(VOKPerson, salary)
@@ -110,6 +111,7 @@ The mapper constructed in the example in the section above could be included in 
     // A number formatter will do the same, turning strings into NSNumbers
     NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
     return = @[
+               VOKMapForeignToLocalForSelf(@"ticket_number", ticketNumber),
                VOKMapForeignToLocalForSelf(@"first_name", firstName),
                VOKMapForeignToLocalForSelf(@"last_name", lastName),
                VOKMapForeignToLocalForSelf(@"ss_num", socialSecurityNumber),
