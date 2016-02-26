@@ -43,7 +43,7 @@ typedef void(^VOKPostExportBlock)(VOKStringToObjectMutableDictionary *outputDict
 /**
  Creates a new mapper.
  @param comparisonKey   An NSString to uniquely identify local entities. Can be nil to enable duplicates.
- @param mapsArray       An NSArray of VOKManagedObjectMaps to corrdinate input data and the core data model.
+ @param mapsArray       An NSArray of VOKManagedObjectMaps to corrdinate input data and the Core Data model.
  @return                A new mapper with the given unique key and maps.
  */
 + (instancetype)mapperWithUniqueKey:(nullable NSString *)comparisonKey
@@ -55,8 +55,8 @@ typedef void(^VOKPostExportBlock)(VOKStringToObjectMutableDictionary *outputDict
 + (instancetype)defaultMapper;
 
 /**
- This override of objectForKeyedSubscript returns the foreign key for a local core data key.
- @param key The core data key.
+ This override of objectForKeyedSubscript returns the foreign key for a local Core Data key.
+ @param key The Core Data key.
  @return The foreign keypath as a string.
  */
 - (id)objectForKeyedSubscript:(id)key;

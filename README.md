@@ -7,7 +7,7 @@
 
 ![](logo/Vokoder500.png)
 
-A lightweight core data stack with efficient importing and exporting on the side.
+A lightweight Core Data stack with efficient importing and exporting on the side.
 
 ## Installation
 
@@ -52,7 +52,7 @@ Macros to help create managed object property maps for importing and exporting a
 
 ###Using Vokoder's Mapper
 
-Vokoder offers a lightweight mapper for importing Foundation objects into Core Data. Arrays of dictionaries can be imported with ease once maps are set up. If no maps are provided Vokoder will use its default maps. The default maps assume that foreign keys have the same names as your core data attributes. It will make its best effort to identify dates and numbers.
+Vokoder offers a lightweight mapper for importing Foundation objects into Core Data. Arrays of dictionaries can be imported with ease once maps are set up. If no maps are provided Vokoder will use its default maps. The default maps assume that foreign keys have the same names as your Core Data attributes. It will make its best effort to identify dates and numbers.
 
 Setting up your own maps is recommended. Macros are provided to make it fun and easy. Below is an example of setting up a mapper for a managed object subclass `VOKPerson`. Mappers are not persisted between app launches, so be sure to setup your maps every time your application starts.
 

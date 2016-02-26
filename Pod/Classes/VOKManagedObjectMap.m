@@ -42,7 +42,7 @@
     NSMutableArray *mapArray = [NSMutableArray array];
 
     [mapDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        //key = input key, obj = core data key
+        //key = input key, obj = Core Data key
         [mapArray addObject:[self mapWithForeignKeyPath:key coreDataKey:obj]];
     }];
 

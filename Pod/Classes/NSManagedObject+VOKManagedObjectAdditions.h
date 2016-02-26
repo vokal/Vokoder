@@ -25,14 +25,14 @@ typedef void(^VOKManagedObjectsReturnBlock)(VOKArrayOfManagedObjects *managedObj
 - (void)vok_safeSetValue:(nullable id)value forKey:(NSString *)key;
 
 /**
- Creates a dictionary based on the set mapping. This should round-trip data from dictionaries to core data and back.
+ Creates a dictionary based on the set mapping. This should round-trip data from dictionaries to Core Data and back.
  This method does not respect keyPaths. The dictionary is flat.
  @return    An NSDictionary matching the original input dictionary.
  */
 - (VOKStringToObjectDictionary *)vok_dictionaryRepresentation;
 
 /**
- Creates a dictionary based on the set mapping. This should round-trip data from dictionaries to core data and back.
+ Creates a dictionary based on the set mapping. This should round-trip data from dictionaries to Core Data and back.
  This method respects keyPaths.
  @return    An NSDictionary matching the original input dictionary.
  */
