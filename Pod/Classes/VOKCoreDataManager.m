@@ -81,7 +81,8 @@ static VOKCoreDataManager *VOK_SharedObject;
     if (bundle) {
         self.bundleForModel = bundle;
     }
-    
+
+    // Touch the managed object context to ensure it's been created
     [[VOKCoreDataManager sharedInstance] managedObjectContext];
 }
 
@@ -90,6 +91,8 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (!_managedObjectContext) {
+        NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue], @"Main MOC needs to be setup on the main queue");
+
         self.privateRootContext = [self managedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType
                                                                   parentContext:nil];
         //main context is a main queue child of the root

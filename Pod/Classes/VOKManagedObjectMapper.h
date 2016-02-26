@@ -1,5 +1,5 @@
 //
-//  VOKManagedObjectMap.h
+//  VOKManagedObjectMapper.h
 //  VOKCoreData
 //
 //  Copyright © 2015 Vokal.
