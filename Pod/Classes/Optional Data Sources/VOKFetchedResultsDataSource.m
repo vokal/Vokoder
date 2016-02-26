@@ -1,6 +1,6 @@
 //
 //  VOKFetchedResultsDataSource.m
-//  CoreData
+//  Vokoder
 //
 //  Copyright © 2015 Vokal.
 //

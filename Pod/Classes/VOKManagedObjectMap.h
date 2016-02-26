@@ -1,6 +1,6 @@
 //
 //  VOKManagedObjectMap.h
-//  VOKCoreData
+//  Vokoder
 //
 //  Copyright © 2015 Vokal.
 //
@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
                       numberFormatter:(NSNumberFormatter *)numberFormatter;
 
 /**
- Make a dictionary of keys and values and get an array of maps in return.
+ Takes a dictionary of keys and values and returns an array of maps.
  @param mapDict     Each key is the expected input keyPath and each value is Core Data key.
  @return            An array of VOKManagedObjectMaps.
  */

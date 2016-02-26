@@ -1,6 +1,6 @@
 //
 //  VOKManagedObjectMap.m
-//  VOKCoreData
+//  Vokoder
 //
 //  Copyright © 2015 Vokal.
 //

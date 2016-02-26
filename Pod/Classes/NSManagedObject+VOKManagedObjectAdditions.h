@@ -1,6 +1,6 @@
 //
 //  NSManagedObject+VOKManagedObjectAdditions.h
-//  VOKCoreData
+//  Vokoder
 //
 //  Copyright © 2015 Vokal.
 //

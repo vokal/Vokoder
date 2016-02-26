@@ -1,6 +1,6 @@
 //
 //  VOKCoreDataManager.h
-//  VOKCoreData
+//  Vokoder
 //
 //  Copyright © 2015 Vokal.
 //

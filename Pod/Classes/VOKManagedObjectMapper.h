@@ -1,6 +1,6 @@
 //
 //  VOKManagedObjectMapper.h
-//  VOKCoreData
+//  Vokoder
 //
 //  Copyright © 2015 Vokal.
 //
@@ -25,18 +25,25 @@ typedef void(^VOKPostExportBlock)(VOKStringToObjectMutableDictionary *outputDict
 
 /// Used to identify and update NSManagedObjects. Like a "primary key" in databases.
 @property (nonatomic, copy) NSString * __nullable uniqueComparisonKey;
+
 /// Used internally to filter input data. Updates automatically to match the uniqueComparisonKey.
 @property (nonatomic, copy) NSString * __nullable foreignUniqueComparisonKey;
+
 /// If set to NO changes are discarded if a local object exists with the same unique comparison key. Defaults to YES.
 @property (nonatomic, assign) BOOL overwriteObjectsWithServerChanges;
+
 /// If set to YES remote null/nil values are ignored when updating. Defaults to NO.
 @property (nonatomic, assign) BOOL ignoreNullValueOverwrites;
-/** If set to YES, will not warn about incorrect class types when receiving null/nil values for optional properties.
+
+/**
+ If set to YES, will not warn about incorrect class types when receiving null/nil values for optional properties.
  Defaults to NO. Note: regardless of the setting of this property, log messages are only output in DEBUG situations.
  */
 @property (nonatomic, assign) BOOL ignoreOptionalNullValues;
+
 /// An optional completion block to run after importing each foreign dictionary. Defaults to nil.
 @property (nonatomic, copy) VOKPostImportBlock __nullable importCompletionBlock;
+
 /// An optional completion block to run after exporting a managed object to a dictionary. Defaults to nil.
 @property (nonatomic, copy) VOKPostExportBlock __nullable exportCompletionBlock;
 

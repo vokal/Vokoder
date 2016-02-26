@@ -1,6 +1,6 @@
 //
 //  VOKFetchedResultsDataSource.h
-//  CoreData
+//  Vokoder
 //
 //  Copyright © 2015 Vokal.
 //
@@ -37,9 +37,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL includesSubentities;
 
-//whether to deselect the selected cell of the table view
-//after sending the selected object to the delegate
-//defaults to YES
+/**
+ Whether to deselect the selected cell of the table view after sending the selected object to the
+ delegate. Defaults to YES.
+ */
 @property BOOL clearsTableViewCellSelection;
 
 - (nullable VOKArrayOfManagedObjects *)fetchedObjects;

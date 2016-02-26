@@ -1,6 +1,6 @@
 //
 //  VOKCoreDataCollectionTypes.h
-//  Pods
+//  Vokoder
 //
 //  Created by Carl Hill-Popper on 10/23/15.
 //
