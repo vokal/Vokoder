@@ -20,6 +20,7 @@
 		79C85DB9C49CEE0DEF56B6DA4EC442D2 /* VOKEntityC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D375AD41A0ED432613256AD6853ADBB /* VOKEntityC.m */; };
 		7B5B5DA9E27089E055D251C77DD741E5 /* VOKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB959A88FB27577E6F58F22732F2005 /* VOKTableViewController.m */; };
 		83B03089266E5E3848D3DBDD2B7B70CC /* VOKPersonCollectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 366F985567141C4DDC1817D896A49CB2 /* VOKPersonCollectionDataSource.m */; };
+		872605700B8F8D7406EF61CA3D090709 /* VOKThreadingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D253F8AA846880C3840AB76553DEB9 /* VOKThreadingTests.m */; };
 		883AC0ABAA25D49D98E71211CCF314F7 /* VOKCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665CAC230C9404A8F8B7A515E653B5EA /* VOKCollectionViewCell.xib */; };
 		8F53982CDAFFFA4E1483BFDD8C114742 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22A9C3E9C207075DFDCD69096AE5A404 /* InfoPlist.strings */; };
 		8F7C2CCA5A98819B95085C02B41BF91C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5AFB41A45B6AB07B4CAAF4933AAE026 /* Foundation.framework */; };
@@ -93,6 +94,7 @@
 		8B06703BC71A3E0FD817C46EF2B7C568 /* VOKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKCollectionViewCell.m; sourceTree = "<group>"; };
 		8D139D802F464DC1E547E94E86EE2A2F /* VOKCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKCollectionViewController.m; sourceTree = "<group>"; };
 		9B16F6D2C144CCC5BE17B24F38B1101E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A3D253F8AA846880C3840AB76553DEB9 /* VOKThreadingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKThreadingTests.m; sourceTree = "<group>"; };
 		B1425F20B905F374BD7E1E2EBD3D1B82 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C0D4DD2AAEC0B3DD755783E7F21A464A /* BundleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BundleTests.m; sourceTree = "<group>"; };
 		C32B4B1DB4BE1CACECB4BAEA384F1737 /* VOKEntityC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKEntityC.h; sourceTree = "<group>"; };
@@ -146,19 +148,51 @@
 				7381A2721C74D316B999FB71F93FF56C /* CoreDataManagerDeleteTests.m */,
 				094901C44573889FE3BC6CA970BF0F8D /* ManagedObjectImportExportTests.m */,
 				670959E41C09F12BE8B77B7E7B89A730 /* VOKManagedObjectAdditions.m */,
+				A3D253F8AA846880C3840AB76553DEB9 /* VOKThreadingTests.m */,
 			);
 			path = VOKCoreDataManagerTests;
 			sourceTree = "<group>";
 		};
-		FA2F297D068BFFFCE1021725A5B5CD01 /* Supporting Files */ = {
+		193D2EF69DF351D0712E81E757867DA1 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				B962F846282BDADB7A62F954D6D3A9B4 /* InfoPlist.strings */,
-				332F1D580B04F2595919772E40FCB32E /* VOKCoreDataManager Tests-Bridging-Header.h */,
-				24471CD58F33E4ABD0946D7AC7B48F29 /* VOKCoreDataManager Tests-Info.plist */,
-				F343387C4D5C9D0C3AC8D7EEA96C8E7C /* VOKCoreDataManager Tests-Prefix.pch */,
+				179731D68159DE80C44CAA1CC0D537A4 /* VOKPersonCollectionDataSource.h */,
+				366F985567141C4DDC1817D896A49CB2 /* VOKPersonCollectionDataSource.m */,
+				514BC5999212C5738572E093E24C0BCE /* VOKPersonDataSource.h */,
+				3CEB35CF932F49DA8C55F322EEBE38DD /* VOKPersonDataSource.m */,
 			);
-			name = "Supporting Files";
+			path = DataSource;
+			sourceTree = SOURCE_ROOT;
+		};
+		4BFE38831D0477F03D2AB2A57CDF804C /* Vokoder Pod Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				2C442DB661DE3D79B68E51E079C08BA7 /* LICENSE */,
+				B1425F20B905F374BD7E1E2EBD3D1B82 /* README.md */,
+				C425D29AF68EA7882FD9F32D27A985DA /* Vokoder.podspec */,
+			);
+			name = "Vokoder Pod Metadata";
+			sourceTree = "<group>";
+		};
+		61A1B324566DD0CBB9E26C401C65C258 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F3DA8FAD008AC4C8B64CCE498D43966D /* VOKCoreDataManager Tests.xctest */,
+				F6E6FEA453EB87D0751C4148851DF04C /* VOKCoreDataManager.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6BFF20AC2D074A4BB67A82B151B8B72B = {
+			isa = PBXGroup;
+			children = (
+				E98FB51F095F91890761224D63062B31 /* Frameworks */,
+				DAADD07E3568B13E96E8776997F47198 /* Pods */,
+				61A1B324566DD0CBB9E26C401C65C258 /* Products */,
+				C34FCD634F48FB6C987F868D3559BB72 /* Sample Project */,
+				05EBB427072D1CF8B126BD4AE7965884 /* VOKCoreDataManagerTests */,
+				4BFE38831D0477F03D2AB2A57CDF804C /* Vokoder Pod Metadata */,
+			);
 			sourceTree = "<group>";
 		};
 		98457856912EA3BD0CB63A5EFD4E258B /* ViewControllers */ = {
@@ -172,37 +206,6 @@
 				3BB959A88FB27577E6F58F22732F2005 /* VOKTableViewController.m */,
 			);
 			path = ViewControllers;
-			sourceTree = SOURCE_ROOT;
-		};
-		F7D59F7F5A90074AEC01EFDB5BEEED79 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				2DCAA553CBD3CF73E101774117C70503 /* VOKCollectionViewCell.h */,
-				8B06703BC71A3E0FD817C46EF2B7C568 /* VOKCollectionViewCell.m */,
-				665CAC230C9404A8F8B7A515E653B5EA /* VOKCollectionViewCell.xib */,
-			);
-			path = Views;
-			sourceTree = SOURCE_ROOT;
-		};
-		4BFE38831D0477F03D2AB2A57CDF804C /* Vokoder Pod Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				2C442DB661DE3D79B68E51E079C08BA7 /* LICENSE */,
-				B1425F20B905F374BD7E1E2EBD3D1B82 /* README.md */,
-				C425D29AF68EA7882FD9F32D27A985DA /* Vokoder.podspec */,
-			);
-			name = "Vokoder Pod Metadata";
-			sourceTree = "<group>";
-		};
-		193D2EF69DF351D0712E81E757867DA1 /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				179731D68159DE80C44CAA1CC0D537A4 /* VOKPersonCollectionDataSource.h */,
-				366F985567141C4DDC1817D896A49CB2 /* VOKPersonCollectionDataSource.m */,
-				514BC5999212C5738572E093E24C0BCE /* VOKPersonDataSource.h */,
-				3CEB35CF932F49DA8C55F322EEBE38DD /* VOKPersonDataSource.m */,
-			);
-			path = DataSource;
 			sourceTree = SOURCE_ROOT;
 		};
 		B38398044839B80F2CD82EEE85B1E459 /* Models */ = {
@@ -225,64 +228,6 @@
 			path = Models;
 			sourceTree = SOURCE_ROOT;
 		};
-		DE54BFE0D687D05B6C06C1A1C317B7D2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9B16F6D2C144CCC5BE17B24F38B1101E /* Default-568h@2x.png */,
-				22A9C3E9C207075DFDCD69096AE5A404 /* InfoPlist.strings */,
-				C52A1129B810D609E6CDDF7E1E5BA4AB /* VOKCoreDataManager-Info.plist */,
-				591693090ABD314F88A1C7122CD7CE37 /* VOKCoreDataManager-Prefix.pch */,
-				7608E2CDD311959D2A218E63B737E586 /* main.m */,
-			);
-			path = "Supporting Files";
-			sourceTree = SOURCE_ROOT;
-		};
-		DAADD07E3568B13E96E8776997F47198 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F65C1652486692E448D9A97AAD74576A /* Pods-VOKCoreDataManager Tests.debug.xcconfig */,
-				0CC15FD1BD511956799D5432CE92BC9F /* Pods-VOKCoreDataManager Tests.release.xcconfig */,
-				37CD8532FDFC382777E4E28428919C45 /* Pods-VOKCoreDataManager.debug.xcconfig */,
-				84C28B3364E341155A2C6C70A23D24EB /* Pods-VOKCoreDataManager.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		6BFF20AC2D074A4BB67A82B151B8B72B = {
-			isa = PBXGroup;
-			children = (
-				E98FB51F095F91890761224D63062B31 /* Frameworks */,
-				DAADD07E3568B13E96E8776997F47198 /* Pods */,
-				61A1B324566DD0CBB9E26C401C65C258 /* Products */,
-				C34FCD634F48FB6C987F868D3559BB72 /* Sample Project */,
-				05EBB427072D1CF8B126BD4AE7965884 /* VOKCoreDataManagerTests */,
-				4BFE38831D0477F03D2AB2A57CDF804C /* Vokoder Pod Metadata */,
-			);
-			sourceTree = "<group>";
-		};
-		61A1B324566DD0CBB9E26C401C65C258 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F3DA8FAD008AC4C8B64CCE498D43966D /* VOKCoreDataManager Tests.xctest */,
-				F6E6FEA453EB87D0751C4148851DF04C /* VOKCoreDataManager.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E98FB51F095F91890761224D63062B31 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4BCF5F314951F3C0C40D9658DC90CE34 /* CoreData.framework */,
-				1996FA3A41B3DE40F041E0E44450C3CC /* CoreGraphics.framework */,
-				D5AFB41A45B6AB07B4CAAF4933AAE026 /* Foundation.framework */,
-				DD6B321DB495E4C30A493B2DB9A41656 /* UIKit.framework */,
-				C454789BCB5571F7D03F6F71460C2F82 /* XCTest.framework */,
-				560A1CEABCB61685D7A069D263AD39AF /* libPods-VOKCoreDataManager Tests.a */,
-				EF0B6294EC9E3096ABA8EE7B3866B4F6 /* libPods-VOKCoreDataManager.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		C34FCD634F48FB6C987F868D3559BB72 /* Sample Project */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,30 +243,67 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		DAADD07E3568B13E96E8776997F47198 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F65C1652486692E448D9A97AAD74576A /* Pods-VOKCoreDataManager Tests.debug.xcconfig */,
+				0CC15FD1BD511956799D5432CE92BC9F /* Pods-VOKCoreDataManager Tests.release.xcconfig */,
+				37CD8532FDFC382777E4E28428919C45 /* Pods-VOKCoreDataManager.debug.xcconfig */,
+				84C28B3364E341155A2C6C70A23D24EB /* Pods-VOKCoreDataManager.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DE54BFE0D687D05B6C06C1A1C317B7D2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B16F6D2C144CCC5BE17B24F38B1101E /* Default-568h@2x.png */,
+				22A9C3E9C207075DFDCD69096AE5A404 /* InfoPlist.strings */,
+				C52A1129B810D609E6CDDF7E1E5BA4AB /* VOKCoreDataManager-Info.plist */,
+				591693090ABD314F88A1C7122CD7CE37 /* VOKCoreDataManager-Prefix.pch */,
+				7608E2CDD311959D2A218E63B737E586 /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = SOURCE_ROOT;
+		};
+		E98FB51F095F91890761224D63062B31 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BCF5F314951F3C0C40D9658DC90CE34 /* CoreData.framework */,
+				1996FA3A41B3DE40F041E0E44450C3CC /* CoreGraphics.framework */,
+				D5AFB41A45B6AB07B4CAAF4933AAE026 /* Foundation.framework */,
+				DD6B321DB495E4C30A493B2DB9A41656 /* UIKit.framework */,
+				C454789BCB5571F7D03F6F71460C2F82 /* XCTest.framework */,
+				560A1CEABCB61685D7A069D263AD39AF /* libPods-VOKCoreDataManager Tests.a */,
+				EF0B6294EC9E3096ABA8EE7B3866B4F6 /* libPods-VOKCoreDataManager.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7D59F7F5A90074AEC01EFDB5BEEED79 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2DCAA553CBD3CF73E101774117C70503 /* VOKCollectionViewCell.h */,
+				8B06703BC71A3E0FD817C46EF2B7C568 /* VOKCollectionViewCell.m */,
+				665CAC230C9404A8F8B7A515E653B5EA /* VOKCollectionViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = SOURCE_ROOT;
+		};
+		FA2F297D068BFFFCE1021725A5B5CD01 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B962F846282BDADB7A62F954D6D3A9B4 /* InfoPlist.strings */,
+				332F1D580B04F2595919772E40FCB32E /* VOKCoreDataManager Tests-Bridging-Header.h */,
+				24471CD58F33E4ABD0946D7AC7B48F29 /* VOKCoreDataManager Tests-Info.plist */,
+				F343387C4D5C9D0C3AC8D7EEA96C8E7C /* VOKCoreDataManager Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		908E3FB44E672809CABEF8AB34A86549 /* VOKCoreDataManager Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2DCFA23CFD4B506D47B68B023BD0BF91 /* Build configuration list for PBXNativeTarget "VOKCoreDataManager Tests" */;
-			buildPhases = (
-				2D4684F2D97C602AD8026C5EBB42394F /* Check Pods Manifest.lock */,
-				969E74A905279143F0556E962DE96C14 /* Sources */,
-				8737E0DE84D03E48F1EEA81E35E2A374 /* Frameworks */,
-				C71E4A72A942B79725B50519B030BD8A /* Resources */,
-				A824F885E998B1B80531BC2E43BAE4E0 /* Copy Pods Resources */,
-				34E92E99DAE0FC53C1B9420C3B1D83CB /* Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				47BA8678D9808D409E46DB37BEC83718 /* PBXTargetDependency */,
-			);
-			name = "VOKCoreDataManager Tests";
-			productName = "CoreData Tests";
-			productReference = F3DA8FAD008AC4C8B64CCE498D43966D /* VOKCoreDataManager Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		5956D26151175B19837FC0234C370AFD /* VOKCoreDataManager */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D575C0B2DB5B2D0C7B0F6561A8C98866 /* Build configuration list for PBXNativeTarget "VOKCoreDataManager" */;
@@ -342,6 +324,27 @@
 			productName = CoreData;
 			productReference = F6E6FEA453EB87D0751C4148851DF04C /* VOKCoreDataManager.app */;
 			productType = "com.apple.product-type.application";
+		};
+		908E3FB44E672809CABEF8AB34A86549 /* VOKCoreDataManager Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DCFA23CFD4B506D47B68B023BD0BF91 /* Build configuration list for PBXNativeTarget "VOKCoreDataManager Tests" */;
+			buildPhases = (
+				2D4684F2D97C602AD8026C5EBB42394F /* Check Pods Manifest.lock */,
+				969E74A905279143F0556E962DE96C14 /* Sources */,
+				8737E0DE84D03E48F1EEA81E35E2A374 /* Frameworks */,
+				C71E4A72A942B79725B50519B030BD8A /* Resources */,
+				A824F885E998B1B80531BC2E43BAE4E0 /* Copy Pods Resources */,
+				34E92E99DAE0FC53C1B9420C3B1D83CB /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				47BA8678D9808D409E46DB37BEC83718 /* PBXTargetDependency */,
+			);
+			name = "VOKCoreDataManager Tests";
+			productName = "CoreData Tests";
+			productReference = F3DA8FAD008AC4C8B64CCE498D43966D /* VOKCoreDataManager Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -378,14 +381,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C71E4A72A942B79725B50519B030BD8A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B3AB5E01919BBCC5FC8DA143804D82A4 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		65299D937013D1438F13EDDB27D8F4AB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -396,55 +391,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C71E4A72A942B79725B50519B030BD8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3AB5E01919BBCC5FC8DA143804D82A4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A824F885E998B1B80531BC2E43BAE4E0 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager Tests/Pods-VOKCoreDataManager Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E6A504CC045AB83B9CB3EA390EFE4518 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2D4684F2D97C602AD8026C5EBB42394F /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9AB3E3CF3707C9BC048973EDF174FC70 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -474,6 +432,50 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager Tests/Pods-VOKCoreDataManager Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3D35CB3B49D8A38F19EE9D5E0AE1D03B /* Objective-Clean Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Objective-Clean Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then \n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\" \nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\" \nfi\nfi";
+		};
+		9AB3E3CF3707C9BC048973EDF174FC70 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A824F885E998B1B80531BC2E43BAE4E0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager Tests/Pods-VOKCoreDataManager Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D2C2C45F70B733C76E4E76808FB6ACB6 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -489,19 +491,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3D35CB3B49D8A38F19EE9D5E0AE1D03B /* Objective-Clean Run Script */ = {
+		E6A504CC045AB83B9CB3EA390EFE4518 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Objective-Clean Run Script";
+			name = "Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then \n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\" \nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\" \nfi\nfi";
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -514,6 +517,7 @@
 				F96FAAEFD622780D5452DFA1B9DA28F8 /* CoreDataManagerDeleteTests.m in Sources */,
 				304D554A9C6D156D01C97D5673AD6AFA /* ManagedObjectImportExportTests.m in Sources */,
 				B7ABA254FB023FF0B797CD7475965BE3 /* VOKManagedObjectAdditions.m in Sources */,
+				872605700B8F8D7406EF61CA3D090709 /* VOKThreadingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,44 +573,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C3746D6FDA6560F307D40A14BD111D72 /* Debug */ = {
+		0F6468F731A2CE9561C02E9070D1CCEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F65C1652486692E448D9A97AAD74576A /* Pods-VOKCoreDataManager Tests.debug.xcconfig */;
+			baseConfigurationReference = 84C28B3364E341155A2C6C70A23D24EB /* Pods-VOKCoreDataManager.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/VOKCoreDataManager.app/VOKCoreDataManager";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "VOKCoreDataManagerTests/VOKCoreDataManager Tests-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "VOKCoreDataManagerTests/VOKCoreDataManager Tests-Info.plist";
+				GCC_PREFIX_HEADER = "Supporting Files/VOKCoreDataManager-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/VOKCoreDataManager-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vokal.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "VOKCoreDataManager Tests";
-				SWIFT_OBJC_BRIDGING_HEADER = "VOKCoreDataManagerTests/VOKCoreDataManager Tests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vokal.VOKCoreDataManager;
+				PRODUCT_NAME = VOKCoreDataManager;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5FCC49F2E06344B4FAC4E70BDAF82AE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37CD8532FDFC382777E4E28428919C45 /* Pods-VOKCoreDataManager.debug.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Supporting Files/VOKCoreDataManager-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/VOKCoreDataManager-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vokal.VOKCoreDataManager;
+				PRODUCT_NAME = VOKCoreDataManager;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
@@ -685,6 +679,47 @@
 			};
 			name = Debug;
 		};
+		C3746D6FDA6560F307D40A14BD111D72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F65C1652486692E448D9A97AAD74576A /* Pods-VOKCoreDataManager Tests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/VOKCoreDataManager.app/VOKCoreDataManager";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VOKCoreDataManagerTests/VOKCoreDataManager Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "VOKCoreDataManagerTests/VOKCoreDataManager Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vokal.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "VOKCoreDataManager Tests";
+				SWIFT_OBJC_BRIDGING_HEADER = "VOKCoreDataManagerTests/VOKCoreDataManager Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
 		C44D2EA74B3CD11657C570F297A7C655 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -717,37 +752,6 @@
 			};
 			name = Release;
 		};
-		5FCC49F2E06344B4FAC4E70BDAF82AE9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37CD8532FDFC382777E4E28428919C45 /* Pods-VOKCoreDataManager.debug.xcconfig */;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Supporting Files/VOKCoreDataManager-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/VOKCoreDataManager-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Vokal.VOKCoreDataManager;
-				PRODUCT_NAME = VOKCoreDataManager;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		0F6468F731A2CE9561C02E9070D1CCEB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84C28B3364E341155A2C6C70A23D24EB /* Pods-VOKCoreDataManager.release.xcconfig */;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Supporting Files/VOKCoreDataManager-Prefix.pch";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/VOKCoreDataManager-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Vokal.VOKCoreDataManager;
-				PRODUCT_NAME = VOKCoreDataManager;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -760,20 +764,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F867312A439BED7E34A9CB410EA1B8FE /* Build configuration list for PBXProject "SampleProject" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A9D603DABF8F46954065B1A94538F563 /* Debug */,
-				C44D2EA74B3CD11657C570F297A7C655 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		D575C0B2DB5B2D0C7B0F6561A8C98866 /* Build configuration list for PBXNativeTarget "VOKCoreDataManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5FCC49F2E06344B4FAC4E70BDAF82AE9 /* Debug */,
 				0F6468F731A2CE9561C02E9070D1CCEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F867312A439BED7E34A9CB410EA1B8FE /* Build configuration list for PBXProject "SampleProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9D603DABF8F46954065B1A94538F563 /* Debug */,
+				C44D2EA74B3CD11657C570F297A7C655 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
