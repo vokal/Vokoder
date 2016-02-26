@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Vokoder"
-  s.version          = "3.0.0"
+  s.version          = "3.0.1"
   s.summary          = "Vokal's Core Data Manager"
   s.homepage         = "https://github.com/vokal/Vokoder"
   s.license          = { :type => "MIT", :file => "LICENSE"}
