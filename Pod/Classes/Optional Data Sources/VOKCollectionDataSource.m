@@ -20,15 +20,15 @@
 
 @implementation VOKCollectionDataSource
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-         collectionView:(UICollectionView *)collectionView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
-     managedObjectClass:(Class)managedObjectClass
-              batchSize:(NSInteger)batchSize
-             fetchLimit:(NSInteger)fetchLimit
-               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
+- (instancetype)initWithPredicate:(NSPredicate *)predicate
+                        cacheName:(NSString *)cacheName
+                   collectionView:(UICollectionView *)collectionView
+               sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                  sortDescriptors:(NSArray *)sortDescriptors
+               managedObjectClass:(Class)managedObjectClass
+                        batchSize:(NSInteger)batchSize
+                       fetchLimit:(NSInteger)fetchLimit
+                         delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
 {
     _collectionView = collectionView;
     _collectionView.delegate = self;
@@ -47,14 +47,14 @@
                           delegate:delegate];
 }
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-         collectionView:(UICollectionView *)collectionView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
-     managedObjectClass:(Class)managedObjectClass
-              batchSize:(NSInteger)batchSize
-               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
+- (instancetype)initWithPredicate:(NSPredicate *)predicate
+                        cacheName:(NSString *)cacheName
+                   collectionView:(UICollectionView *)collectionView
+               sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                  sortDescriptors:(NSArray *)sortDescriptors
+               managedObjectClass:(Class)managedObjectClass
+                        batchSize:(NSInteger)batchSize
+                         delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
 {
     return [self initWithPredicate:predicate
                          cacheName:cacheName
@@ -67,13 +67,13 @@
                           delegate:delegate];
 }
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-         collectionView:(UICollectionView *)collectionView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
-     managedObjectClass:(Class)managedObjectClass
-               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
+- (instancetype)initWithPredicate:(NSPredicate *)predicate
+                        cacheName:(NSString *)cacheName
+                   collectionView:(UICollectionView *)collectionView
+               sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                  sortDescriptors:(NSArray *)sortDescriptors
+               managedObjectClass:(Class)managedObjectClass
+                         delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
 {
     return [self initWithPredicate:predicate
                          cacheName:cacheName
@@ -85,12 +85,12 @@
                           delegate:delegate];
 }
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-         collectionView:(UICollectionView *)collectionView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
-     managedObjectClass:(Class)managedObjectClass
+- (instancetype)initWithPredicate:(NSPredicate *)predicate
+                        cacheName:(NSString *)cacheName
+                   collectionView:(UICollectionView *)collectionView
+               sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                  sortDescriptors:(NSArray *)sortDescriptors
+               managedObjectClass:(Class)managedObjectClass
 {
     return [self initWithPredicate:predicate
                          cacheName:cacheName
@@ -101,13 +101,13 @@
                          batchSize:20];
 }
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-         collectionView:(UICollectionView *)collectionView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
-     managedObjectClass:(Class)managedObjectClass
-              batchSize:(NSInteger)batchSize
+- (instancetype)initWithPredicate:(NSPredicate *)predicate
+                        cacheName:(NSString *)cacheName
+                   collectionView:(UICollectionView *)collectionView
+               sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                  sortDescriptors:(NSArray *)sortDescriptors
+               managedObjectClass:(Class)managedObjectClass
+                        batchSize:(NSInteger)batchSize
 {
     return [self initWithPredicate:predicate
                          cacheName:cacheName

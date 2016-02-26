@@ -18,15 +18,15 @@
 
 @implementation VOKFetchedResultsDataSource
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-              tableView:(UITableView *)tableView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
-     managedObjectClass:(Class)managedObjectClass
-              batchSize:(NSInteger)batchSize
-             fetchLimit:(NSInteger)fetchLimit
-               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
+- (instancetype)initWithPredicate:(NSPredicate *)predicate
+                        cacheName:(NSString *)cacheName
+                        tableView:(UITableView *)tableView
+               sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                  sortDescriptors:(NSArray *)sortDescriptors
+               managedObjectClass:(Class)managedObjectClass
+                        batchSize:(NSInteger)batchSize
+                       fetchLimit:(NSInteger)fetchLimit
+                         delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
 {
     self = [super init];
 
@@ -43,25 +43,25 @@
         _fetchLimit = fetchLimit;
         _includesSubentities = YES;
         _delegate = delegate;
-        
+
         _clearsTableViewCellSelection = YES;
-        
+
         [self initFetchedResultsController];
     }
 
     return self;
 }
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-              tableView:(UITableView *)tableView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
-     managedObjectClass:(Class)managedObjectClass
-              batchSize:(NSInteger)batchSize
-               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
+- (instancetype)initWithPredicate:(NSPredicate *)predicate
+                        cacheName:(NSString *)cacheName
+                        tableView:(UITableView *)tableView
+               sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                  sortDescriptors:(NSArray *)sortDescriptors
+               managedObjectClass:(Class)managedObjectClass
+                        batchSize:(NSInteger)batchSize
+                         delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
 {
-    
+
     return [self initWithPredicate:predicate
                          cacheName:cacheName
                          tableView:tableView
@@ -73,13 +73,13 @@
                           delegate:delegate];
 }
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-              tableView:(UITableView *)tableView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
-     managedObjectClass:(Class)managedObjectClass
-              batchSize:(NSInteger)batchSize
+- (instancetype)initWithPredicate:(NSPredicate *)predicate
+                        cacheName:(NSString *)cacheName
+                        tableView:(UITableView *)tableView
+               sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                  sortDescriptors:(NSArray *)sortDescriptors
+               managedObjectClass:(Class)managedObjectClass
+                        batchSize:(NSInteger)batchSize
 {
     return [self initWithPredicate:predicate
                          cacheName:cacheName
@@ -91,13 +91,13 @@
                           delegate:nil];
 }
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-              tableView:(UITableView *)tableView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
-     managedObjectClass:(Class)managedObjectClass
-               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
+- (instancetype)initWithPredicate:(NSPredicate *)predicate
+                        cacheName:(NSString *)cacheName
+                        tableView:(UITableView *)tableView
+               sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                  sortDescriptors:(NSArray *)sortDescriptors
+               managedObjectClass:(Class)managedObjectClass
+                         delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
 {
     return [self initWithPredicate:predicate
                          cacheName:cacheName
@@ -149,12 +149,12 @@
     }
 }
 
-- (id)initWithPredicate:(NSPredicate *)predicate
-              cacheName:(NSString *)cacheName
-              tableView:(UITableView *)tableView
-     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-        sortDescriptors:(NSArray *)sortDescriptors
-     managedObjectClass:(Class)managedObjectClass
+- (instancetype)initWithPredicate:(NSPredicate *)predicate
+                        cacheName:(NSString *)cacheName
+                        tableView:(UITableView *)tableView
+               sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                  sortDescriptors:(NSArray *)sortDescriptors
+               managedObjectClass:(Class)managedObjectClass
 {
     return [self initWithPredicate:predicate
                          cacheName:cacheName
