@@ -31,7 +31,7 @@
         XCTAssertThrows([[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:nil]);
         [willFinish fulfill];
     }];
-    [self waitForExpectationsWithTimeout:3.0 handler:nil];
+    [self waitForExpectationsWithTimeout:1 handler:nil];
 }
 
 @end
