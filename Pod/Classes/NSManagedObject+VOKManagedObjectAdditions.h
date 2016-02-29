@@ -82,10 +82,11 @@ typedef void(^VOKManagedObjectsReturnBlock)(VOKArrayOfManagedObjects *managedObj
                        forManagedObjectContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /*
- Create or update many NSManagedObjects in a background managed object context, respecting the mapper's overwriteObjectsWithServerChanges and ignoreNullValueOverwrites properties.
+ Create or update many NSManagedObjects in a background operation queue, respecting the mapper's
+ overwriteObjectsWithServerChanges and ignoreNullValueOverwrites properties.
  This should only be used to set all properties of an entity.
  By default any mapped attributes not included in the input dictionaries will be set to nil.
- This will overwrite ALL of an NSManagedObject's properties unless ignoreNullValueOverwrites is YES on the mapper for this class,
+ This will overwrite ALL of an NSManagedObject's properties unless ignoreNullValueOverwrites is YES on the mapper for this class.
  @param inputArray      An array of dictionaries with foreign data to input on a background queue in a temporary context.
  @param completion      Executed after the background operation. The array contains the objects imported/updated. It will be executed on the main queue.
  **/
@@ -139,7 +140,7 @@ typedef void(^VOKManagedObjectsReturnBlock)(VOKArrayOfManagedObjects *managedObj
  @param predicate       Predicate to use to fetch.
  @param sortKey         Key to use to sort the results.
  @param ascending       Whether or not to sort in ascending or descending.
- @param contextOrNil    The managed object context to fetch in.  If nil, the main context will be used.
+ @param contextOrNil    The managed object context in which to fetch. If nil, the main context will be used.
  @return                NSArray full of the instances of the current class.
  */
 + (VOKArrayOfManagedObjects *)vok_fetchAllForPredicate:(nullable NSPredicate *)predicate
@@ -148,9 +149,11 @@ typedef void(^VOKManagedObjectsReturnBlock)(VOKArrayOfManagedObjects *managedObj
                                forManagedObjectContext:(nullable NSManagedObjectContext *)contextOrNil;
 
 /*
- Returns one entity matching the predicate. Asserts the count is exactly 1. If more objects are returned, the last one returned by Core Data will be returned.
+ Returns one entity matching the predicate. Asserts the count of objects matching the predicate is
+ exactly 1. If more objects are returned when assertions are turned off (such as release builds),
+ the last one returned by Core Data will be returned.
  @param predicate       Predicate to use to fetch.
- @param contextOrNil    The managed object context to fetch in.  If nil, the main context will be used.
+ @param contextOrNil    The managed object context in which to fetch. If nil, the main context will be used.
  @return                An instance of the current class, if one is found for the given predicate.
  */
 + (nullable instancetype)vok_fetchForPredicate:(nullable NSPredicate *)predicate

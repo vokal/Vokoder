@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- A generic data source and delegate for table views, backed by a NSFetchedResultsController.
+ A generic data source and delegate for table views, backed by an NSFetchedResultsController.
  This should be subclassed to override the cellAtIndexPath: method and potentially add convenience initializers.
  */
 @interface VOKFetchedResultsDataSource : NSObject <NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -142,7 +142,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param sectionNameKeyPath Keypath to use to group results in sections
  @param sortDescriptors    Sort descriptors to sort the objects
  @param managedObjectClass NSManagedObject subclass to fetch
- @param batchSize          Batch size to use for the fetch request fetchBatchSize. Defaults to 20.
+ @param batchSize          Batch size to use for the fetch request fetchBatchSize.
 
  @return New data source
  */
@@ -163,7 +163,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param sectionNameKeyPath Keypath to use to group results in sections
  @param sortDescriptors    Sort descriptors to sort the objects
  @param managedObjectClass NSManagedObject subclass to fetch
- @param delegate           Delegate to notify of cell selection/deselection and whether the fetch has results
+ @param delegate           Delegate to notify of object selection/deselection and whether the fetch has results
 
  @return New data source
  */
@@ -184,8 +184,8 @@ NS_ASSUME_NONNULL_BEGIN
  @param sectionNameKeyPath Keypath to use to group results in sections
  @param sortDescriptors    Sort descriptors to sort the objects
  @param managedObjectClass NSManagedObject subclass to fetch
- @param batchSize          Batch size to use for the fetch request fetchBatchSize. Defaults to 20.
- @param delegate           Delegate to notify of cell selection/deselection and whether the fetch has results
+ @param batchSize          Batch size to use for the fetch request fetchBatchSize.
+ @param delegate           Delegate to notify of object selection/deselection and whether the fetch has results
 
  @return New data source
  */
@@ -207,9 +207,9 @@ NS_ASSUME_NONNULL_BEGIN
  @param sectionNameKeyPath Keypath to use to group results in sections
  @param sortDescriptors    Sort descriptors to sort the objects
  @param managedObjectClass NSManagedObject subclass to fetch
- @param batchSize          Batch size to use for the fetch request fetchBatchSize. Defaults to 20.
- @param fetchLimit         Fetch limit to use for the fetch request fetchLimit. Defaults to 0.
- @param delegate           Delegate to notify of cell selection/deselection and whether the fetch has results
+ @param batchSize          Batch size to use for the fetch request fetchBatchSize.
+ @param fetchLimit         Fetch limit to use for the fetch request fetchLimit.
+ @param delegate           Delegate to notify of object selection/deselection and whether the fetch has results
 
  @return New data source
  */
