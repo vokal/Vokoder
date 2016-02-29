@@ -197,26 +197,23 @@ Like the example above, this one makes use of the `VOKKeyForInstanceOf` macro fr
 
 ####Query with basic predicate
 ```objective-c
-    NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
-                                                      argumentArray:@[VOKKeyForInstanceOf([VOKPerson class], lastName), @"Smith"]];
+NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@", VOKKeyForInstanceOf(VOKPerson, lastName), @"Smith"];
 // Passing `nil` for any managed object context parameter uses the main context
 NSArray *allSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate forManagedObjectContext:nil];
 ```
 
 ####Query with basic predicate and sorting
 ```objective-c
-NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
-                                                  argumentArray:@[VOKKeyForInstanceOf([VOKPerson class], lastName), @"Smith"]];
+NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@", VOKKeyForInstanceOf(VOKPerson, lastName), @"Smith"];
 NSArray *sortedSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate
-                                                sortedByKey:VOKKeyForInstanceOf([VOKPerson class], firstName)
+                                                sortedByKey:VOKKeyForInstanceOf(VOKPerson, firstName)
                                                   ascending:YES
                                     forManagedObjectContext:nil];
 ```
 
 ###Deleting records
 ```objective-c
-NSPredicate *personPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
-                                                  argumentArray:@[VOKKeyForInstanceOf([VOKPerson class], ticketNumber), @"A14"]];
+NSPredicate *personPredicate = [NSPredicate predicateWithFormat:@"%K == %@", VOKKeyForInstanceOf(VOKPerson, ticketNumber), @"A14"];
 VOKPerson *person = [VOKPerson vok_fetchForPredicate:personPredicate
                              forManagedObjectContext:nil];
 [[VOKCoreDataManager sharedInstance] deleteObject:person];
