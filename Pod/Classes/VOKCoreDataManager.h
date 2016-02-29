@@ -79,9 +79,9 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
              bundle:(nullable NSBundle *)bundle;
 
 /**
- In case of a migration failure, these options allow possible recovery and notification
+ In case of a migration failure, these options allow possible recovery and notification.
+ Defaults to VOKMigrationFailureOptionNone/
  */
-// TODO: what's the default value?
 @property VOKMigrationFailureOption migrationFailureOptions;
 
 /**
@@ -102,11 +102,11 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
                forClass:(Class)objectClass;
 
 /**
- The VOKManagedObjectMapper for the particular class.
+ The VOKManagedObjectMapper for the particular class. If none has been defined, a
+ VOKManagedObjectDefaultMapper is returned.
  @param objectClass     The NSManagedObject subclass that has a mapping associated with it.
  @return                The VOKManagedObjectMapper associated with the class.
  */
-// TODO: return value can be nil, right?
 - (VOKManagedObjectMapper *)mapperForClass:(Class)objectClass;
 
 /**
