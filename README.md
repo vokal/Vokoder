@@ -54,7 +54,7 @@ Macros to help create managed object property maps for importing and exporting a
 
 Vokoder offers a lightweight mapper for importing Foundation objects into Core Data. Arrays of dictionaries can be imported with ease once maps are set up. If no maps are provided Vokoder will use its default maps. The default maps assume that foreign keys have the same names as your Core Data attributes. It will make its best effort to identify dates and numbers.
 
-Setting up your own maps is recommended. Macros are provided to make it fun and easy. Below is an example of setting up a mapper for a managed object subclass `VOKPerson`. Mappers are not persisted between app launches, so be sure to setup your maps every time your application starts.
+Setting up your own maps is recommended. Macros are provided to make it fun and easy. Below is an example of setting up a mapper for a managed object subclass `VOKPerson`. Mappers are not persisted between app launches, so be sure to setup your maps every time your application starts. Note that this example makes use of the `VOKKeyForInstanceOf` macro from [VOKUtilities/VOKKeyPathHelper](https://github.com/vokal/VOKUtilities#vokkeypathhelper), which is a dependency for Vokoder.
 
 ```objective-c
 // A date formatter will enable Vokoder to turn strings into NSDates
@@ -178,7 +178,7 @@ NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance]
 [backgroundContext performBlock:^{
     SomeManagedObjectSubclass *thing = [SomeManagedObjectSubclass vok_newInstanceWithContext:backgroundContext];
     thing.someArbitrayAttribute = @"hello";
-    [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];  
+    [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
 }];
 ```
 
@@ -193,12 +193,12 @@ person.lastName = @"Panchal";
 ```
 
 ###Querying Records
-Note that the key macros from the `MapperMacros` subspec (such as `VOKKeyForInstanceOf`) can be used for the keys in these calls to ensure that typos like `@"lsatName"` don't occur.
+Like the example above, this one makes use of the `VOKKeyForInstanceOf` macro from [VOKUtilities/VOKKeyPathHelper](https://github.com/vokal/VOKUtilities#vokkeypathhelper) for the keys in these calls to ensure that typos like `@"lsatName"` don't occur.
 
 ####Query with basic predicate
 ```objective-c
-NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
-                                                  argumentArray:@[@"lastName", @"Smith"]];
+    NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
+                                                      argumentArray:@[VOKKeyForInstanceOf([VOKPerson class], lastName), @"Smith"]];
 // Passing `nil` for any managed object context parameter uses the main context
 NSArray *allSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate forManagedObjectContext:nil];
 ```
@@ -206,9 +206,9 @@ NSArray *allSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate forMana
 ####Query with basic predicate and sorting
 ```objective-c
 NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
-                                                  argumentArray:@[@"lastName", @"Smith"]];
+                                                  argumentArray:@[VOKKeyForInstanceOf([VOKPerson class], lastName), @"Smith"]];
 NSArray *sortedSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate
-                                                sortedByKey:@"firstName"
+                                                sortedByKey:VOKKeyForInstanceOf([VOKPerson class], firstName)
                                                   ascending:YES
                                     forManagedObjectContext:nil];
 ```
@@ -216,7 +216,7 @@ NSArray *sortedSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate
 ###Deleting records
 ```objective-c
 NSPredicate *personPredicate = [NSPredicate predicateWithFormat:@"%K == %@"
-                                                  argumentArray:@[@"ticketNumber", @"A14"]];
+                                                  argumentArray:@[VOKKeyForInstanceOf([VOKPerson class], ticketNumber), @"A14"]];
 VOKPerson *person = [VOKPerson vok_fetchForPredicate:personPredicate
                              forManagedObjectContext:nil];
 [[VOKCoreDataManager sharedInstance] deleteObject:person];
