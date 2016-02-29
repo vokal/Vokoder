@@ -47,6 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// NSManagedObject subclass for which objects should be displayed.
 @property (nonatomic, assign, readonly) Class managedObjectClass;
 
+/// Table view in which results are shown
 @property (nonatomic, weak, readonly) UITableView *tableView;
 
 /// Delegate to notify of cell selections and whether or not the NSFRC has any results
@@ -198,7 +199,7 @@ NS_ASSUME_NONNULL_BEGIN
                          delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
 
 /**
- Setup this data source. Designated initializer. // TODO: make that official
+ Setup this data source.
 
  @param predicate          Predicate used to filter the objects displayed
  @param cacheName          Name for the fetched results controller cache
