@@ -91,8 +91,6 @@ static VOKCoreDataManager *VOK_SharedObject;
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (!_managedObjectContext) {
-        NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue], @"Main MOC needs to be setup on the main queue");
-
         self.privateRootContext = [self managedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType
                                                                   parentContext:nil];
         //main context is a main queue child of the root
@@ -266,7 +264,9 @@ static VOKCoreDataManager *VOK_SharedObject;
     }
 }
 
-- (NSArray *)importArray:(NSArray *)inputArray forClass:(Class)objectClass withContext:(NSManagedObjectContext *)contextOrNil
+- (NSArray *)importArray:(NSArray *)inputArray
+                forClass:(Class)objectClass
+             withContext:(NSManagedObjectContext *)contextOrNil
 {
     VOKManagedObjectMapper *mapper = [self mapperForClass:objectClass];
     
@@ -364,7 +364,9 @@ static VOKCoreDataManager *VOK_SharedObject;
     return [self countForClass:managedObjectClass withPredicate:nil forContext:contextOrNil];
 }
 
-- (NSUInteger)countForClass:(Class)managedObjectClass withPredicate:(NSPredicate *)predicate forContext:(NSManagedObjectContext *)contextOrNil
+- (NSUInteger)countForClass:(Class)managedObjectClass
+              withPredicate:(NSPredicate *)predicate
+                 forContext:(NSManagedObjectContext *)contextOrNil
 {
     contextOrNil = [self safeContext:contextOrNil];
     NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass predicate:predicate];
@@ -388,7 +390,9 @@ static VOKCoreDataManager *VOK_SharedObject;
     return [self arrayForClass:managedObjectClass withPredicate:nil forContext:contextOrNil];
 }
 
-- (NSArray *)arrayForClass:(Class)managedObjectClass withPredicate:(NSPredicate *)predicate forContext:(NSManagedObjectContext *)contextOrNil
+- (NSArray *)arrayForClass:(Class)managedObjectClass
+             withPredicate:(NSPredicate *)predicate
+                forContext:(NSManagedObjectContext *)contextOrNil
 {
     contextOrNil = [self safeContext:contextOrNil];
     NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass predicate:predicate];

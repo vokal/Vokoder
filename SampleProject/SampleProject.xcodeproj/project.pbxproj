@@ -20,7 +20,6 @@
 		79C85DB9C49CEE0DEF56B6DA4EC442D2 /* VOKEntityC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D375AD41A0ED432613256AD6853ADBB /* VOKEntityC.m */; };
 		7B5B5DA9E27089E055D251C77DD741E5 /* VOKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB959A88FB27577E6F58F22732F2005 /* VOKTableViewController.m */; };
 		83B03089266E5E3848D3DBDD2B7B70CC /* VOKPersonCollectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 366F985567141C4DDC1817D896A49CB2 /* VOKPersonCollectionDataSource.m */; };
-		872605700B8F8D7406EF61CA3D090709 /* VOKThreadingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D253F8AA846880C3840AB76553DEB9 /* VOKThreadingTests.m */; };
 		883AC0ABAA25D49D98E71211CCF314F7 /* VOKCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665CAC230C9404A8F8B7A515E653B5EA /* VOKCollectionViewCell.xib */; };
 		8F53982CDAFFFA4E1483BFDD8C114742 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22A9C3E9C207075DFDCD69096AE5A404 /* InfoPlist.strings */; };
 		8F7C2CCA5A98819B95085C02B41BF91C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5AFB41A45B6AB07B4CAAF4933AAE026 /* Foundation.framework */; };
@@ -94,7 +93,6 @@
 		8B06703BC71A3E0FD817C46EF2B7C568 /* VOKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKCollectionViewCell.m; sourceTree = "<group>"; };
 		8D139D802F464DC1E547E94E86EE2A2F /* VOKCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKCollectionViewController.m; sourceTree = "<group>"; };
 		9B16F6D2C144CCC5BE17B24F38B1101E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		A3D253F8AA846880C3840AB76553DEB9 /* VOKThreadingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKThreadingTests.m; sourceTree = "<group>"; };
 		B1425F20B905F374BD7E1E2EBD3D1B82 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C0D4DD2AAEC0B3DD755783E7F21A464A /* BundleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BundleTests.m; sourceTree = "<group>"; };
 		C32B4B1DB4BE1CACECB4BAEA384F1737 /* VOKEntityC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKEntityC.h; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				7381A2721C74D316B999FB71F93FF56C /* CoreDataManagerDeleteTests.m */,
 				094901C44573889FE3BC6CA970BF0F8D /* ManagedObjectImportExportTests.m */,
 				670959E41C09F12BE8B77B7E7B89A730 /* VOKManagedObjectAdditions.m */,
-				A3D253F8AA846880C3840AB76553DEB9 /* VOKThreadingTests.m */,
 			);
 			path = VOKCoreDataManagerTests;
 			sourceTree = "<group>";
@@ -517,7 +514,6 @@
 				F96FAAEFD622780D5452DFA1B9DA28F8 /* CoreDataManagerDeleteTests.m in Sources */,
 				304D554A9C6D156D01C97D5673AD6AFA /* ManagedObjectImportExportTests.m in Sources */,
 				B7ABA254FB023FF0B797CD7475965BE3 /* VOKManagedObjectAdditions.m in Sources */,
-				872605700B8F8D7406EF61CA3D090709 /* VOKThreadingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
