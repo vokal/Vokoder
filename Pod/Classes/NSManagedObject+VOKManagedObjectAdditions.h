@@ -18,7 +18,7 @@ typedef void(^VOKManagedObjectsReturnBlock)(VOKArrayOfManagedObjects *managedObj
 @interface NSManagedObject (VOKManagedObjectAdditions)
 
 /**
- Checks for NSNull before seting a value on this object.
+ Checks for NSNull before setting a value on this object.
  @param value   The new value, nil, or NSNull.
  @param key     The key to set.
  */

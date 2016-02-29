@@ -100,12 +100,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable VOKArrayOfManagedObjects *)fetchedObjects;
 
 /**
- Reload the fetcehd data in the fetched results controller, which will cause a table view reload.
+ Reload the fetched data in the fetched results controller, which will cause a table view reload.
  */
 - (void)reloadData;
 
 /**
- Reload the fetcehd data in the fetched results controller, which will cause a table view reload.
+ Reload the fetched data in the fetched results controller, which will cause a table view reload.
  Optionally passes back the in-out NSError from performFetch:
 
  @param error Optional pointer to an NSError
