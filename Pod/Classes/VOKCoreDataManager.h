@@ -1,6 +1,6 @@
 //
 //  VOKCoreDataManager.h
-//  VOKCoreData
+//  Vokoder
 //
 //  Copyright © 2015 Vokal.
 //
@@ -39,16 +39,17 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
 @interface VOKCoreDataManager : NSObject
 
 /**
- Returns the singleton core data manager. VOKCoreDataManager is not expected to be subclassed.
+ Returns the singleton Core Data manager. VOKCoreDataManager is not expected to be subclassed.
  On launch you should also set the resource and database names. Example:
  @code
  [[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:@"VOKCoreDataModel.sqlite"];
  @endcode
- @return    The shared core data manager.
+ @return    The shared Core Data manager.
  */
 + (VOKCoreDataManager *)sharedInstance;
 
-/**The primary managed object context. Only for use on the main queue.  
+/**
+ The primary managed object context. Only for use on the main queue.
  All access to managed objects should happen through this context or a temporary context.
  */
 @property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
@@ -57,8 +58,8 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
 @property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
 
 /**
- Set the name of the managed object model and the name of the SQL lite store on disk. Call this first when you setup the core data stack.
- The main context will be initialized immediately. This method should only be called from the main queue.
+ Set the name of the managed object model and the name of the SQLite store on disk. Call this first when you setup the Core Data stack.
+ The main context will be initialized immediately.
  NOTE: This assumes your managed object file is in the main bundle. If it isn't, use setResource:database:bundle: instead.
  @param resource    The filename of the mom or momd file in your project. If nil the first model found in this class's bundle will be used.
  @param database    The filename of the SQLite store in your application. A nil database name will create an in-memory store.
@@ -67,18 +68,19 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
            database:(nullable NSString *)database;
 
 /**
- Set the name of the managed object model and the name of the SQL lite store on disk, in the provided bundle. Call this first when you setup the core data stack.
- The main context will be initialized immediately. This method should only be called from the main queue.
+ Set the name of the managed object model and the name of the SQLite store on disk, in the provided bundle. Call this first when you setup the Core Data stack.
+ The main context will be initialized immediately.
  @param resource    The filename of the mom or momd file in your project. If nil the first model found in the provided bundle will be used.
  @param database    The filename of the SQLite store in your application. A nil database name will create an in-memory store.
- @param bundle      The bundle where the Managed Object Model can be found. If nil, the main bundle will be used. 
+ @param bundle      The bundle where the Managed Object Model can be found. If nil, the main bundle will be used.
  */
 - (void)setResource:(nullable NSString *)resource
            database:(nullable NSString *)database
              bundle:(nullable NSBundle *)bundle;
 
 /**
- In case of a migration failure, these options allow possible recovery and notification
+ In case of a migration failure, these options allow possible recovery and notification.
+ Defaults to VOKMigrationFailureOptionNone.
  */
 @property VOKMigrationFailureOption migrationFailureOptions;
 
@@ -100,7 +102,8 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
                forClass:(Class)objectClass;
 
 /**
- The VOKManagedObjectMapper for the particular class.
+ The VOKManagedObjectMapper for the particular class. If none has been defined, a
+ VOKManagedObjectDefaultMapper is returned.
  @param objectClass     The NSManagedObject subclass that has a mapping associated with it.
  @return                The VOKManagedObjectMapper associated with the class.
  */
@@ -271,8 +274,8 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
 
 /**
  This provides a way for an application with heavy amounts of Core Data threading and writing to maintain object graph integrety by assuring that only one context is being written to at once.
- @param writeBlock      Do not save or merge this context, it will be done for you.
-                        Handle all fetches, creates and writes using the tempContext variable passed to this block.
+ @param writeBlock      Handle all fetches, creates and writes using the tempContext variable passed to this block.
+                        Do not save or merge the context, it will be done for you.
  @prarm completion      Fired on the main queue once the changes have been merged.
  */
 + (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock
