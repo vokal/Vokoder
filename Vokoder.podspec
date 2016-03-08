@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Vokoder"
-  s.version          = "3.0.0"
+  s.version          = "3.1.0"
   s.summary          = "Vokal's Core Data Manager"
   s.homepage         = "https://github.com/vokal/Vokoder"
   s.license          = { :type => "MIT", :file => "LICENSE"}
@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '7.0'
   s.tvos.deployment_target = '9.0'
+  s.osx.deployment_target = '10.9'
   s.requires_arc = true
 
   s.default_subspecs = 'Core', 'MapperMacros', 'DataSources'
@@ -30,6 +31,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'DataSources' do |ss|
     ss.dependency 'Vokoder/Core'
+    ss.ios.deployment_target = '7.0'
+    ss.tvos.deployment_target = '9.0'
 
     ss.default_subspecs = 'FetchedResults', 'PagingFetchedResults', 'Collection'
 

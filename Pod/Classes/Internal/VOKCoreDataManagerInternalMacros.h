@@ -18,5 +18,8 @@
 #   endif
 #endif
 
+#ifndef VOK_TARGET_USES_UIKIT
+    #define VOK_TARGET_USES_UIKIT (TARGET_OS_IOS | TARGET_OS_TV)
+#endif
 
 #endif

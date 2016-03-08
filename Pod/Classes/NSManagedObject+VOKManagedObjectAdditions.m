@@ -45,9 +45,13 @@
         // (Note that we have to cast self (a Class) to id to use NSObject's dynamic-selector methods, even though they work.)
         if ([(id)self respondsToSelector:@selector(entityName)]) {
             vok_entityName = [(id)self performSelector:@selector(entityName)];
-        } else {
+        }
+        if (!vok_entityName) {
+            // On OS X, NSObject has a private class method called entityName but it may return nil.
+            // https://github.com/rentzsch/mogenerator/issues/196
             
-            // Since we don't have an entityName class method, look up the entity name in the managed object model.
+            // Since we don't have an entityName class method (or it didn't return a result),
+            // look up the entity name in the managed object model.
             NSManagedObjectModel *model = [[VOKCoreDataManager sharedInstance] managedObjectModel];
             
             // Start with the class we are...
