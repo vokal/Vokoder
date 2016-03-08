@@ -7,7 +7,8 @@ Pod::Spec.new do |s|
   s.author           = { "Vokal" => "hello@vokal.io" }
   s.source           = { :git => "https://github.com/vokal/Vokoder.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '7.0'
+  s.ios.deployment_target = '7.0'
+  s.tvos.deployment_target = '9.0'
   s.requires_arc = true
 
   s.default_subspecs = 'Core', 'MapperMacros', 'DataSources'
@@ -19,7 +20,7 @@ Pod::Spec.new do |s|
     ]
     ss.framework    = "CoreData"
     ss.dependency 'ILGDynamicObjC/ILGClasses', '~> 0.1.1'
-    ss.dependency 'VOKUtilities/VOKKeyPathHelper', '~> 0.8.0'
+    ss.dependency 'VOKUtilities/VOKKeyPathHelper', '~> 0.9.0'
   end
 
   s.subspec 'MapperMacros' do |mm|
@@ -51,7 +52,8 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Swift' do |sw|
-    sw.platform     = :ios, '8.0'
+    sw.ios.deployment_target = '8.0'
+    sw.tvos.deployment_target = '9.0'
     sw.dependency 'Vokoder/DataSources'
     sw.source_files = 'Pod/Classes/Swift/*.swift'
   end

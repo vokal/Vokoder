@@ -173,6 +173,7 @@ static VOKCoreDataManager *VOK_SharedObject;
                 } else {
 #endif
                     //TODO: delete UIAlertView once support is dropped for iOS 7
+#if TARGET_OS_IOS //UIAlertView is only available for iOS < 8
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
                     [[[UIAlertView alloc] initWithTitle:title
@@ -181,6 +182,7 @@ static VOKCoreDataManager *VOK_SharedObject;
                                       cancelButtonTitle:@""
                                       otherButtonTitles:nil] show];
 #pragma clang diagnostic pop
+#endif
 #ifdef __IPHONE_8_0
                 }
 #endif
