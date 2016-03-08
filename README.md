@@ -7,7 +7,7 @@
 
 ![](logo/Vokoder500.png)
 
-A lightweight core data stack with efficient importing and exporting on the side.
+A lightweight Core Data stack with efficient importing and exporting on the side.
 
 ## Installation
 
@@ -40,19 +40,21 @@ Macros to help create managed object property maps for importing and exporting a
 ###Setting up the data model
 
 ```objective-c
-[[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:@"VOKCoreDataModel.sqlite"]; //Saved to Disk
-```
-or
+// Omit the .xcdatamodeld extension on the model file name
+// Save to disk
+[[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" 
+                                        database:@"VOKCoreDataModel.sqlite"];
 
-```objective-c
-[[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:nil]; //In memory data store
+// Or, create an in-memory store:
+[[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" 
+                                        database:nil];
 ```
 
 ###Using Vokoder's Mapper
 
-Vokoder offers a lightweight mapper for importing Foundation objects into Core Data. Arrays of dictionaries can be imported with ease once maps are set up. If no maps are provided Vokoder will use its default maps. The default maps assume that foreign keys have the same names as your core data attributes. It will make its best effort to identify dates and numbers.
+Vokoder offers a lightweight mapper for importing Foundation objects into Core Data. Arrays of dictionaries can be imported with ease once maps are set up. If no maps are provided Vokoder will use its default maps. The default maps assume that foreign keys have the same names as your Core Data attributes. It will make its best effort to identify dates and numbers.
 
-Setting up your own maps is recommended. Macros are provided to make it fun and easy. Below is an example of setting up a mapper for a managed object subclass `VOKPerson`. Mappers are not persisted between app launches, so be sure to setup your maps every time your application starts.
+Setting up your own maps is recommended. Macros are provided to make it fun and easy. Below is an example of setting up a mapper for a managed object subclass `VOKPerson`. Mappers are not persisted between app launches, so be sure to setup your maps every time your application starts. Note that this example makes use of the `VOKKeyForInstanceOf` macro from [VOKUtilities/VOKKeyPathHelper](https://github.com/vokal/VOKUtilities#vokkeypathhelper), which is a dependency for Vokoder.
 
 ```objective-c
 // A date formatter will enable Vokoder to turn strings into NSDates
@@ -60,8 +62,9 @@ NSDateFormatter *dateFormatter = [NSDateFormatter someCustomDateFormatter];
 // A number formatter will do the same, turning strings into NSNumbers
 NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
 NSArray *maps = @[
-                  VOKMapForeignToLocalClassProperty(@"first_name", VOKPerson, firstName), //the first argument is the foreign key,
-                  VOKMapForeignToLocalClassProperty(@"last_name", VOKPerson, lastName),   //second argument is the class, and then local property
+                  VOKMapForeignToLocalClassProperty(@"ticket_number", VOKPerson, ticketNumber), //the first argument is the foreign key,
+                  VOKMapForeignToLocalClassProperty(@"first_name", VOKPerson, firstName),       //second argument is the class, and then local property
+                  VOKMapForeignToLocalClassProperty(@"last_name", VOKPerson, lastName),
                   VOKMapForeignToLocalClassProperty(@"ss_num", VOKPerson, socialSecurityNumber),
                   [VOKManagedObjectMap mapWithForeignKeyPath:@"salary"
                                                  coreDataKey:VOKKeyForInstanceOf(VOKPerson, salary)
@@ -92,15 +95,16 @@ Vokoder includes the `VOKMappableModel` protocol, which gives a structure for a 
 
 The `VOKMappableModel` protocol requires implementing `+ (NSString *)uniqueKey` and `+ (NSArray *)coreDataMaps`, which should return the two parameters passed to `[VOKManagedObjectMapper mapperWithUniqueKey:andMaps:]` in the example in the section above.  Optionally, `+ (BOOL)ignoreNullValueOverwrites`, `+ (BOOL)ignoreOptionalNullValues`, and `+ (VOKPostImportBlock)importCompletionBlock` can each be implemented to set the ignore values on the mapper or to set a post-import block.
 
-The mapper constructed in the example in the section above could be included in `SomeManagedObjectSubclass` by making it conform to `VOKMappableModel`:
+The mapper constructed in the example in the section above could be included in `SomeManagedObjectSubclass` by making it conform to `VOKMappableModel`.
 
 ```objective-c
 @interface SomeManagedObjectSubclass : NSManagedObject <VOKMappableModel>
-…
+// …properties and such
 @end
 
 @implementation SomeManagedObjectSubclass
-…
+// …other methods and such
+
 #pragma mark - VOKMappableModel
 
 + (NSArray *)coreDataMaps
@@ -110,6 +114,7 @@ The mapper constructed in the example in the section above could be included in 
     // A number formatter will do the same, turning strings into NSNumbers
     NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
     return = @[
+               VOKMapForeignToLocalForSelf(@"ticket_number", ticketNumber),
                VOKMapForeignToLocalForSelf(@"first_name", firstName),
                VOKMapForeignToLocalForSelf(@"last_name", lastName),
                VOKMapForeignToLocalForSelf(@"ss_num", socialSecurityNumber),
@@ -148,13 +153,13 @@ The mapper constructed in the example in the section above could be included in 
 
 ###Importing Safely
 
-Vokoder offers many ways to get data into Core Data. The simplest and most approachable interface is offered through the VOKManagedObjectAdditions category. Given an array of dictionaries, Vokoder will create or update managed objects on a temporary context and then safely return managed objects from the main context through a completion block on the main queue.
+Vokoder offers many ways to get data into Core Data. The simplest and most approachable interface is offered through the `VOKManagedObjectAdditions` category. Given an array of dictionaries, Vokoder will create or update managed objects on a temporary context and then safely return managed objects from the main context through a completion block on the main queue.
 
 ```objective-c
 [SomeManagedObjectSubclass vok_addWithArrayInBackground:importArray
                                              completion:^(NSArray *arrayOfManagedObjects) {
                                                 // This completion block runs on the main queue
-                                                SomeManagedObjectSubclass *obj = arrayOfManagedObjects[0];
+                                                SomeManagedObjectSubclass *obj = arrayOfManagedObjects.firstObject;
                                              }];
 
 ```
@@ -173,55 +178,59 @@ NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance]
 [backgroundContext performBlock:^{
     SomeManagedObjectSubclass *thing = [SomeManagedObjectSubclass vok_newInstanceWithContext:backgroundContext];
     thing.someArbitrayAttribute = @"hello";
-    [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];  
+    [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:backgroundContext];
 }];
 ```
 
 **NOTE**: Temporary contexts created manually or vended through the convenience background methods are child contexts of the main context.
 
 ###Inserting records
-
 ```objective-c
 VOKPerson *person = [VOKPerson vok_newInstance];
-[person setFirstName:@"Rohan"];
-[person setLastName:@"Panchal"];
+person.firstName = @"Rohan";
+person.lastName = @"Panchal";
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 ```
 
-###Querying Records	
+###Querying Records
+Like the example above, this one makes use of the `VOKKeyForInstanceOf` macro from [VOKUtilities/VOKKeyPathHelper](https://github.com/vokal/VOKUtilities#vokkeypathhelper) for the keys in these calls to ensure that typos like `@"lsatName"` don't occur.
 
 ####Query with basic predicate
 ```objective-c
-NSArray *results = [VOKPerson vok_fetchAllForPredicate:nil forManagedObjectContext:nil]; //Basic Fetch
+NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@", VOKKeyForInstanceOf(VOKPerson, lastName), @"Smith"];
+// Passing `nil` for any managed object context parameter uses the main context
+NSArray *allSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate forManagedObjectContext:nil];
 ```
 
 ####Query with basic predicate and sorting
 ```objective-c
-NSArray *results = [VOKPerson vok_fetchAllForPredicate:nil
-                                           sortedByKey:@"numberOfCats"
-                                             ascending:YES
-                               forManagedObjectContext:nil];
+NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@", VOKKeyForInstanceOf(VOKPerson, lastName), @"Smith"];
+NSArray *sortedSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate
+                                                sortedByKey:VOKKeyForInstanceOf(VOKPerson, firstName)
+                                                  ascending:YES
+                                    forManagedObjectContext:nil];
 ```
 
 ###Deleting records
 ```objective-c
-VOKCoreDataManager *manager = [VOKCoreDataManager sharedInstance];
-[manager deleteObject:person];
+NSPredicate *personPredicate = [NSPredicate predicateWithFormat:@"%K == %@", VOKKeyForInstanceOf(VOKPerson, ticketNumber), @"A14"];
+VOKPerson *person = [VOKPerson vok_fetchForPredicate:personPredicate
+                             forManagedObjectContext:nil];
+[[VOKCoreDataManager sharedInstance] deleteObject:person];
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
-```	
+``` 
 
 ###Saving 
-
 ```objective-c
 //Saves the main context synchronously
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
-...
+
 //Saves the main context asynchronously
 [[VOKCoreDataManager sharedInstance] saveMainContext];
-...
+
 //Save a temp context and merge changes to the main context asynchronously
 [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
-...
+
 //Save a temp context and merge changes to the main context synchronously
 [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContextAndWait:tempContext];
 ```

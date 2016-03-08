@@ -1,6 +1,6 @@
 //
 //  VOKCoreDataManager.m
-//  VOKCoreData
+//  Vokoder
 //
 //  Copyright © 2015 Vokal.
 //
@@ -81,7 +81,8 @@ static VOKCoreDataManager *VOK_SharedObject;
     if (bundle) {
         self.bundleForModel = bundle;
     }
-    
+
+    // Touch the managed object context to ensure it's been created
     [[VOKCoreDataManager sharedInstance] managedObjectContext];
 }
 
@@ -267,7 +268,9 @@ static VOKCoreDataManager *VOK_SharedObject;
     }
 }
 
-- (NSArray *)importArray:(NSArray *)inputArray forClass:(Class)objectClass withContext:(NSManagedObjectContext *)contextOrNil
+- (NSArray *)importArray:(NSArray *)inputArray
+                forClass:(Class)objectClass
+             withContext:(NSManagedObjectContext *)contextOrNil
 {
     VOKManagedObjectMapper *mapper = [self mapperForClass:objectClass];
     
@@ -365,7 +368,9 @@ static VOKCoreDataManager *VOK_SharedObject;
     return [self countForClass:managedObjectClass withPredicate:nil forContext:contextOrNil];
 }
 
-- (NSUInteger)countForClass:(Class)managedObjectClass withPredicate:(NSPredicate *)predicate forContext:(NSManagedObjectContext *)contextOrNil
+- (NSUInteger)countForClass:(Class)managedObjectClass
+              withPredicate:(NSPredicate *)predicate
+                 forContext:(NSManagedObjectContext *)contextOrNil
 {
     contextOrNil = [self safeContext:contextOrNil];
     NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass predicate:predicate];
@@ -389,7 +394,9 @@ static VOKCoreDataManager *VOK_SharedObject;
     return [self arrayForClass:managedObjectClass withPredicate:nil forContext:contextOrNil];
 }
 
-- (NSArray *)arrayForClass:(Class)managedObjectClass withPredicate:(NSPredicate *)predicate forContext:(NSManagedObjectContext *)contextOrNil
+- (NSArray *)arrayForClass:(Class)managedObjectClass
+             withPredicate:(NSPredicate *)predicate
+                forContext:(NSManagedObjectContext *)contextOrNil
 {
     contextOrNil = [self safeContext:contextOrNil];
     NSFetchRequest *fetchRequest = [self fetchRequestWithClass:managedObjectClass predicate:predicate];
