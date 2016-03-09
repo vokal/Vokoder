@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0720"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "451DBCE15C0FA22A1DFB7998"
+               BlueprintIdentifier = "DD7E768F7704B3AB5217084287986F08"
                BuildableName = "libPods-VOKCoreDataManager Tests-Vokoder.a"
                BlueprintName = "Pods-VOKCoreDataManager Tests-Vokoder"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "451DBCE15C0FA22A1DFB7998"
+            BlueprintIdentifier = "DD7E768F7704B3AB5217084287986F08"
             BuildableName = "libPods-VOKCoreDataManager Tests-Vokoder.a"
             BlueprintName = "Pods-VOKCoreDataManager Tests-Vokoder"
             ReferencedContainer = "container:Pods.xcodeproj">

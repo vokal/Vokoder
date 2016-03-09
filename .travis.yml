@@ -7,9 +7,17 @@ matrix:
         - xcode_workspace: SampleProject/SampleProject.xcworkspace
           xcode_scheme: VOKCoreDataManager
           xcode_sdk: iphonesimulator
+        - xcode_workspace: SampleProject/SampleProject.xcworkspace
+          xcode_scheme: VOKCoreDataManager-tvOS
+          xcode_sdk: appletvsimulator
+        - xcode_workspace: SampleProject/SampleProject.xcworkspace
+          xcode_scheme: VOKCoreDataManager-OSX
+          xcode_sdk: macosx
         - xcode_workspace: Paging Data Source Example/Paging Data Source Example.xcworkspace
           xcode_scheme: Paging Data Source Example
           xcode_sdk: iphonesimulator
         - xcode_workspace: SwiftSampleProject/SwiftSampleProject.xcworkspace
           xcode_scheme: SwiftyVokoder
           xcode_sdk: iphonesimulator
+after_script:
+    - pod lib lint
