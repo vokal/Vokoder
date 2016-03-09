@@ -7,6 +7,10 @@
 
 Assorted category and utility classes for iDevelopment.  [MIT License](LICENSE)
 
+VOKUtilities requires Xcode 7 or higher.
+
+All parts of this are available for iOS. Some subspecs are available on OS X and tvOS platforms.  See the [Podspec](VOKUtilities.podspec) for specifics.
+
 ## NSCalendar+VOKAL
 This category on `NSCalendar` adds a convenience method to get the most recent weekday before a given `NSDate`.
 
