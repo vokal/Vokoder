@@ -9,6 +9,10 @@
 #ifndef VOKKeyPathHelper_h
 #define VOKKeyPathHelper_h
 
+#import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN
+    
 /**
  *  Helper category to define both class and instance methods that return \c instancetype so that whether \c self is an
  *  instance or a class, we can readily get an instance against which to check existence of a key.
@@ -30,6 +34,8 @@
 - (instancetype)vok_keyHelperMethodForCompilerWarning;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 /**
  *  Get a string for a key on the given object with compile-time checking that the key exists on that object.
