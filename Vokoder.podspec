@@ -1,13 +1,15 @@
 Pod::Spec.new do |s|
   s.name             = "Vokoder"
-  s.version          = "3.0.1"
+  s.version          = "3.1.0"
   s.summary          = "Vokal's Core Data Manager"
   s.homepage         = "https://github.com/vokal/Vokoder"
   s.license          = { :type => "MIT", :file => "LICENSE"}
   s.author           = { "Vokal" => "hello@vokal.io" }
   s.source           = { :git => "https://github.com/vokal/Vokoder.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '7.0'
+  s.ios.deployment_target = '7.0'
+  s.tvos.deployment_target = '9.0'
+  s.osx.deployment_target = '10.9'
   s.requires_arc = true
 
   s.default_subspecs = 'Core', 'MapperMacros', 'DataSources'
@@ -19,7 +21,7 @@ Pod::Spec.new do |s|
     ]
     ss.framework    = "CoreData"
     ss.dependency 'ILGDynamicObjC/ILGClasses', '~> 0.1.1'
-    ss.dependency 'VOKUtilities/VOKKeyPathHelper', '~> 0.8.0'
+    ss.dependency 'VOKUtilities/VOKKeyPathHelper', '~> 0.9.0'
   end
 
   s.subspec 'MapperMacros' do |mm|
@@ -29,6 +31,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'DataSources' do |ss|
     ss.dependency 'Vokoder/Core'
+    ss.ios.deployment_target = '7.0'
+    ss.tvos.deployment_target = '9.0'
 
     ss.default_subspecs = 'FetchedResults', 'PagingFetchedResults', 'Collection'
 
@@ -51,7 +55,8 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Swift' do |sw|
-    sw.platform     = :ios, '8.0'
+    sw.ios.deployment_target = '8.0'
+    sw.tvos.deployment_target = '9.0'
     sw.dependency 'Vokoder/DataSources'
     sw.source_files = 'Pod/Classes/Swift/*.swift'
   end

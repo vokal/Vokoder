@@ -30,7 +30,14 @@
         [label sizeToFit];
         [label setCenter:CGPointMake(self.frame.size.width/2, self.frame.size.height/2)];
         
-        self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        UIActivityIndicatorViewStyle indicatorStyle;
+#if TARGET_OS_IOS
+        indicatorStyle = UIActivityIndicatorViewStyleGray;
+#elif TARGET_OS_TV
+        //gray isn't available on tvOS
+        indicatorStyle = UIActivityIndicatorViewStyleWhiteLarge;
+#endif
+        self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:indicatorStyle];
         [self.indicator setTintColor:[UIColor blackColor]];
         [self.indicator setHidesWhenStopped:NO];
         

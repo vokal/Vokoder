@@ -6,7 +6,6 @@
 //  Copyright © 2015 Vokal.
 //
 
-#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
 #import <VOKCoreDataManager.h>
