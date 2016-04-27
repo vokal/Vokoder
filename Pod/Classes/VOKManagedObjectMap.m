@@ -57,6 +57,7 @@
         DefaultDateFormatter = [NSDateFormatter new];
         DefaultDateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'";
         DefaultDateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+        DefaultDateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
     });
 
     return DefaultDateFormatter;
@@ -70,6 +71,7 @@
         DateFormatterWithoutMicroseconds = [NSDateFormatter new];
         DateFormatterWithoutMicroseconds.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
         DateFormatterWithoutMicroseconds.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+        DateFormatterWithoutMicroseconds.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
     });
 
     return DateFormatterWithoutMicroseconds;
