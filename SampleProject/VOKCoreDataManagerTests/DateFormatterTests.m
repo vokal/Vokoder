@@ -18,12 +18,10 @@
 
 - (void)testDateFormattersLocaleIsPOSIX
 {
-    NSString *posixIdentifier = @"en_US_POSIX";
-    
     XCTAssertEqualObjects([VOKManagedObjectMap vok_defaultDateFormatter].locale.localeIdentifier,
-                          posixIdentifier);
+                          VOKDefaultDateFormatterLocaleIdentifier);
     XCTAssertEqualObjects([VOKManagedObjectMap vok_dateFormatterWithoutMicroseconds].locale.localeIdentifier,
-                          posixIdentifier);
+                          VOKDefaultDateFormatterLocaleIdentifier);
 }
 
 @end

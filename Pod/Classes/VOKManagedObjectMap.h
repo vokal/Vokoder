@@ -26,6 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// Number formatter for input/output
 @property (nonatomic, strong) NSNumberFormatter * __nullable numberFormatter;
 
+
+/**
+ * We need to specify a locale for the date formatter when using date-time strings from the server.
+ * See https://developer.apple.com/library/ios/qa/qa1480/_index.html
+ */
+FOUNDATION_EXPORT NSString *const VOKDefaultDateFormatterLocaleIdentifier;
+
 /**
  Creates a map with the default date mapper.
  @param inputKeyPath    The foreign key to match with the local key.
