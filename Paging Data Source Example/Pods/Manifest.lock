@@ -1,26 +1,26 @@
 PODS:
   - ILGDynamicObjC/ILGClasses (0.1.1)
-  - Vokoder (3.1.0):
-    - Vokoder/Core (= 3.1.0)
-    - Vokoder/DataSources (= 3.1.0)
-    - Vokoder/MapperMacros (= 3.1.0)
-  - Vokoder/Core (3.1.0):
+  - Vokoder (3.1.1):
+    - Vokoder/Core (= 3.1.1)
+    - Vokoder/DataSources (= 3.1.1)
+    - Vokoder/MapperMacros (= 3.1.1)
+  - Vokoder/Core (3.1.1):
     - ILGDynamicObjC/ILGClasses (~> 0.1.1)
     - VOKUtilities/VOKKeyPathHelper (~> 0.9.0)
-  - Vokoder/DataSources (3.1.0):
+  - Vokoder/DataSources (3.1.1):
     - Vokoder/Core
-    - Vokoder/DataSources/Collection (= 3.1.0)
-    - Vokoder/DataSources/FetchedResults (= 3.1.0)
-    - Vokoder/DataSources/PagingFetchedResults (= 3.1.0)
-  - Vokoder/DataSources/Collection (3.1.0):
-    - Vokoder/Core
-    - Vokoder/DataSources/FetchedResults
-  - Vokoder/DataSources/FetchedResults (3.1.0):
-    - Vokoder/Core
-  - Vokoder/DataSources/PagingFetchedResults (3.1.0):
+    - Vokoder/DataSources/Collection (= 3.1.1)
+    - Vokoder/DataSources/FetchedResults (= 3.1.1)
+    - Vokoder/DataSources/PagingFetchedResults (= 3.1.1)
+  - Vokoder/DataSources/Collection (3.1.1):
     - Vokoder/Core
     - Vokoder/DataSources/FetchedResults
-  - Vokoder/MapperMacros (3.1.0):
+  - Vokoder/DataSources/FetchedResults (3.1.1):
+    - Vokoder/Core
+  - Vokoder/DataSources/PagingFetchedResults (3.1.1):
+    - Vokoder/Core
+    - Vokoder/DataSources/FetchedResults
+  - Vokoder/MapperMacros (3.1.1):
     - Vokoder/Core
   - VOKUtilities/VOKKeyPathHelper (0.9.0)
   - xUnique (4.1.2)
@@ -31,7 +31,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   Vokoder:
-    :path: ../
+    :path: "../"
   xUnique:
     :commit: 26adc7d50b
     :git: https://github.com/vokal/xUnique.git
@@ -43,7 +43,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ILGDynamicObjC: 63443567f8ce851067ea3070d3b8c7f93d37207c
-  Vokoder: b6e3c73ea0d618aa2d517d7e47c17fd0b4a283b0
+  Vokoder: 85a7a1b2691270f7a4d2480dd6327c24a0cdc225
   VOKUtilities: 460869a30db1beed7ec9954895dff24705db6e06
   xUnique: 7f74d3f52c7769f648aa7be8fe614fc27dba2405
 
