@@ -8,6 +8,8 @@
 #import "VOKManagedObjectMap.h"
 #import "VOKCoreDataManager.h"
 
+NSString *const VOKDefaultDateFormatterLocaleIdentifier = @"en_US_POSIX";
+
 @implementation VOKManagedObjectMap
 
 + (instancetype)mapWithForeignKeyPath:(NSString *)inputKeyPath coreDataKey:(NSString *)coreDataKey
@@ -57,6 +59,7 @@
         DefaultDateFormatter = [NSDateFormatter new];
         DefaultDateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'";
         DefaultDateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+        DefaultDateFormatter.locale = [NSLocale localeWithLocaleIdentifier:VOKDefaultDateFormatterLocaleIdentifier];
     });
 
     return DefaultDateFormatter;
@@ -70,6 +73,7 @@
         DateFormatterWithoutMicroseconds = [NSDateFormatter new];
         DateFormatterWithoutMicroseconds.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
         DateFormatterWithoutMicroseconds.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+        DateFormatterWithoutMicroseconds.locale = [NSLocale localeWithLocaleIdentifier:VOKDefaultDateFormatterLocaleIdentifier];
     });
 
     return DateFormatterWithoutMicroseconds;

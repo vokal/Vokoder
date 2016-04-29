@@ -32,11 +32,13 @@
 		6AB1558FB6A74AFAE6E5B0107A7297FC /* ManagedObjectImportExportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 094901C44573889FE3BC6CA970BF0F8D /* ManagedObjectImportExportTests.m */; };
 		70079332B7FECD3072A3F4ABDA3ADB34 /* VOKEntityB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5843558F2814496F70951C7E8E76BE13 /* VOKEntityB.m */; };
 		7715D106A9834A1CF1FE9DBA094E0FEA /* VOKMappablePerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 898F9437D2CAF202DBD97BC5AEAD47C2 /* VOKMappablePerson.m */; };
+		77DBA3E05CD108B5B3493BCE438E25F5 /* DateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D110748613B01C46558315B637A9834 /* DateFormatterTests.m */; };
 		79C85DB9C49CEE0DEF56B6DA4EC442D2 /* VOKEntityC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D375AD41A0ED432613256AD6853ADBB /* VOKEntityC.m */; };
 		7B5B5DA9E27089E055D251C77DD741E5 /* VOKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB959A88FB27577E6F58F22732F2005 /* VOKTableViewController.m */; };
 		83B03089266E5E3848D3DBDD2B7B70CC /* VOKPersonCollectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 366F985567141C4DDC1817D896A49CB2 /* VOKPersonCollectionDataSource.m */; };
 		883AC0ABAA25D49D98E71211CCF314F7 /* VOKCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665CAC230C9404A8F8B7A515E653B5EA /* VOKCollectionViewCell.xib */; };
 		88D23F9947689467C68ACA12035F7359 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D0F99B4E37B8F809468E84A3A2F932 /* MainMenu.xib */; };
+		8C3E8B19C2A5AC1DF1F422A68E9D93B3 /* DateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D110748613B01C46558315B637A9834 /* DateFormatterTests.m */; };
 		8CC050D0E1EEDD34BF277E75A8184585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4CE3151C5985B66C75FCAC836E4899D /* Assets.xcassets */; };
 		8F53982CDAFFFA4E1483BFDD8C114742 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22A9C3E9C207075DFDCD69096AE5A404 /* InfoPlist.strings */; };
 		8F7C2CCA5A98819B95085C02B41BF91C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5AFB41A45B6AB07B4CAAF4933AAE026 /* Foundation.framework */; };
@@ -58,6 +60,7 @@
 		CED576CBF3FA1E1EADA09398FB3D52D1 /* libPods-VOKCoreDataManager-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 413980B907452FB1B1A07AE2FA8D9914 /* libPods-VOKCoreDataManager-tvOS.a */; };
 		CFE3DAB46823E8C985C289CC9D41DE5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B938FCCC95B9F66FFB976555EEB27471 /* AppDelegate.m */; };
 		D0C5771FC63581EB2B5B258026157083 /* VOKEntityB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5843558F2814496F70951C7E8E76BE13 /* VOKEntityB.m */; };
+		D192CBF4DBE04D80BFE8B37B9F3E44B3 /* DateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D110748613B01C46558315B637A9834 /* DateFormatterTests.m */; };
 		D24A7B038B19A311A22E29A5B0331E50 /* libPods-VOKCoreDataManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0B6294EC9E3096ABA8EE7B3866B4F6 /* libPods-VOKCoreDataManager.a */; };
 		D7471EECFFA694CA8FC7CE8291A9C235 /* VOKEntityC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D375AD41A0ED432613256AD6853ADBB /* VOKEntityC.m */; };
 		D7888AC34E214A9029E9ACC8700BFE62 /* VOKEntityB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5843558F2814496F70951C7E8E76BE13 /* VOKEntityB.m */; };
@@ -106,6 +109,7 @@
 		094901C44573889FE3BC6CA970BF0F8D /* ManagedObjectImportExportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedObjectImportExportTests.m; sourceTree = "<group>"; };
 		0AC65EA5FD3D74B481EF60063C94B1AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CC15FD1BD511956799D5432CE92BC9F /* Pods-VOKCoreDataManager Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager Tests/Pods-VOKCoreDataManager Tests.release.xcconfig"; sourceTree = "<group>"; };
+		0D110748613B01C46558315B637A9834 /* DateFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateFormatterTests.m; sourceTree = "<group>"; };
 		0FA0048E0B064E81BA3BA90C3C2EE178 /* libPods-VOKCoreDataManager-OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager-OSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		175C11E8F280F25D16DBC7BBE1F97056 /* VOKMappablePerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKMappablePerson.h; sourceTree = "<group>"; };
 		179731D68159DE80C44CAA1CC0D537A4 /* VOKPersonCollectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPersonCollectionDataSource.h; sourceTree = "<group>"; };
@@ -131,7 +135,6 @@
 		413980B907452FB1B1A07AE2FA8D9914 /* libPods-VOKCoreDataManager-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C55E092D0EC4DB5DBCF76B4617AE2D /* UIViewController+VOKConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VOKConvenience.h"; sourceTree = "<group>"; };
 		439D7AC3F9926A79585FB4FFBFDB6F1F /* UIViewController+VOKConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VOKConvenience.m"; sourceTree = "<group>"; };
-		4BCF5F314951F3C0C40D9658DC90CE34 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4BCF5F314951F3C0C40D9658DC90CE34 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		514BC5999212C5738572E093E24C0BCE /* VOKPersonDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPersonDataSource.h; sourceTree = "<group>"; };
 		560A1CEABCB61685D7A069D263AD39AF /* libPods-VOKCoreDataManager Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,6 +253,7 @@
 				FA2F297D068BFFFCE1021725A5B5CD01 /* Supporting Files */,
 				C0D4DD2AAEC0B3DD755783E7F21A464A /* BundleTests.m */,
 				7381A2721C74D316B999FB71F93FF56C /* CoreDataManagerDeleteTests.m */,
+				0D110748613B01C46558315B637A9834 /* DateFormatterTests.m */,
 				094901C44573889FE3BC6CA970BF0F8D /* ManagedObjectImportExportTests.m */,
 				670959E41C09F12BE8B77B7E7B89A730 /* VOKManagedObjectAdditions.m */,
 			);
@@ -974,6 +978,7 @@
 			files = (
 				F2C00F72A8ED293B4E6324C2952234CB /* BundleTests.m in Sources */,
 				F96FAAEFD622780D5452DFA1B9DA28F8 /* CoreDataManagerDeleteTests.m in Sources */,
+				77DBA3E05CD108B5B3493BCE438E25F5 /* DateFormatterTests.m in Sources */,
 				304D554A9C6D156D01C97D5673AD6AFA /* ManagedObjectImportExportTests.m in Sources */,
 				B7ABA254FB023FF0B797CD7475965BE3 /* VOKManagedObjectAdditions.m in Sources */,
 			);
@@ -1001,6 +1006,7 @@
 			files = (
 				0B50D7395219C3B53E39EFFED1594752 /* BundleTests.m in Sources */,
 				167CAA333B6C7C733C7807D096502B33 /* CoreDataManagerDeleteTests.m in Sources */,
+				8C3E8B19C2A5AC1DF1F422A68E9D93B3 /* DateFormatterTests.m in Sources */,
 				6AB1558FB6A74AFAE6E5B0107A7297FC /* ManagedObjectImportExportTests.m in Sources */,
 				F4A7BC2F0A5A29E91C0F97EC38907630 /* VOKManagedObjectAdditions.m in Sources */,
 			);
@@ -1034,6 +1040,7 @@
 			files = (
 				C60F5A3B07B37C9CF9EFDBBBF0E6B1A5 /* BundleTests.m in Sources */,
 				BE5624032EB8CAC025BED19DBADEA15E /* CoreDataManagerDeleteTests.m in Sources */,
+				D192CBF4DBE04D80BFE8B37B9F3E44B3 /* DateFormatterTests.m in Sources */,
 				EBCAE2DEB41BB0F5E98C2B6B366EB78B /* ManagedObjectImportExportTests.m in Sources */,
 				B010017AB8E4BB93E51539899960ECC9 /* VOKManagedObjectAdditions.m in Sources */,
 			);
