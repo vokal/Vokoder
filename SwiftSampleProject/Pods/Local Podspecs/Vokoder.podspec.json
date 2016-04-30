@@ -1,6 +1,6 @@
 {
   "name": "Vokoder",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "summary": "Vokal's Core Data Manager",
   "homepage": "https://github.com/vokal/Vokoder",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/vokal/Vokoder.git",
-    "tag": "3.1.1"
+    "tag": "3.1.2"
   },
   "platforms": {
     "ios": "7.0",
@@ -62,11 +62,6 @@
         "ios": "7.0",
         "tvos": "9.0"
       },
-      "default_subspecs": [
-        "FetchedResults",
-        "PagingFetchedResults",
-        "Collection"
-      ],
       "subspecs": [
         {
           "name": "FetchedResults",
