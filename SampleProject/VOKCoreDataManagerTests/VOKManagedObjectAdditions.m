@@ -44,8 +44,14 @@ static const NSUInteger BasicTestDataSize = 5;
     for (int i = BasicTestDataStartPoint; i < BasicTestDataSize; i++) {
         VOKThing *thing = [VOKThing vok_newInstance];
         [thing setName:[NSString stringWithFormat:@"test-%i", i]];
-        [thing setNumberOfHats:[NSNumber numberWithInt:i]];
+        [thing setNumberOfHats:@(i)];
     }
+    [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
+}
+
+- (void)deleteAllThings
+{
+    [[VOKCoreDataManager sharedInstance] deleteAllObjectsOfClass:[VOKThing class] context:nil];
     [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 }
 
@@ -220,6 +226,41 @@ static const NSUInteger BasicTestDataSize = 5;
     
     XCTAssertEqual([results.firstObject numberOfHats].intValue, BasicTestDataStartPoint + BasicTestDataSize-1);
     XCTAssertEqual([results.lastObject numberOfHats].intValue, BasicTestDataStartPoint);
+}
+
+- (void)testFetchingSingleItem
+{
+    // Make sure we have no objects to start with
+    [self deleteAllThings];
+
+    // Create one object
+    NSString *testName = @"Some New Thing";
+    NSNumber *testNumberOfHats = @1407;
+
+    VOKThing *thing = [VOKThing vok_newInstance];
+    [thing setName:testName];
+    [thing setNumberOfHats:testNumberOfHats];
+    [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
+
+    // Fetch that object
+    VOKThing *reloadedThing = [VOKThing vok_fetchForPredicate:[NSPredicate predicateWithFormat:@"%K == %@", @"numberOfHats", testNumberOfHats]
+                                      forManagedObjectContext:nil];
+    XCTAssertNotNil(reloadedThing);
+    XCTAssertEqualObjects(reloadedThing.name, testName);
+    XCTAssertEqualObjects(reloadedThing.numberOfHats, testNumberOfHats);
+}
+
+- (void)testFetchingNoItems
+{
+    // Make sure we have no objects to start with
+    [self deleteAllThings];
+
+    [self loadWithBasicTestData];
+
+    // Fetch an object that doesn't exist
+    VOKThing *reloadedThing = [VOKThing vok_fetchForPredicate:[NSPredicate predicateWithFormat:@"%K == %@", @"name", @"this name doesn't exist"]
+                                      forManagedObjectContext:nil];
+    XCTAssertNil(reloadedThing);
 }
 
 #pragma mark - Test getting entity name
