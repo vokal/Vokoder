@@ -184,7 +184,7 @@
 {
     NSArray *results = [self vok_fetchAllForPredicate:predicate forManagedObjectContext:contextOrNil];
 
-    NSAssert(results.count == 1, @"Your predicate is returning more than 1 object, but the coredatamanager returns only one.");
+    NSAssert(results.count <= 1, @"Your predicate is returning more than 1 object, but the coredatamanager returns only one.");
     return results.lastObject;
 }
 
