@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary          = "Vokal's Core Data Manager"
   s.homepage         = "https://github.com/vokal/Vokoder"
   s.license          = { :type => "MIT", :file => "LICENSE"}
-  s.author           = { "Vokal" => "hello@vokal.io" }
+  s.author           = { "Vokal" => "ios@vokal.io" }
   s.source           = { :git => "https://github.com/vokal/Vokoder.git", :tag => s.version.to_s }
 
   s.ios.deployment_target = '7.0'
