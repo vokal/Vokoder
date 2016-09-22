@@ -10,22 +10,22 @@ import XCTest
 import Vokoder
 @testable import SwiftyVokoder
 
-let grandMilwaukeeIdentifier = 30096
+let grandMilwaukeeIdentifier = NSNumber(value: 30096)
 
-typealias JSONObject = [String: AnyObject]
+typealias JSONObject = [String: Any]
 
 struct CTAData {
 
     static func allStopDictionaries() -> [JSONObject] {
-        guard let
-            path = NSBundle.mainBundle().pathForResource("CTA_stations", ofType: "json"),
-            data = NSData(contentsOfFile: path) else {
+        guard
+            let path = Bundle.main.path(forResource: "CTA_stations", ofType: "json"),
+            let data = NSData(contentsOfFile: path) else {
                 XCTFail("file not found")
                 return []
         }
         
         do {
-            let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+            let jsonObject = try JSONSerialization.jsonObject(with: data as Data, options: [])
             guard let jsonArray = jsonObject as? [JSONObject] else {
                 XCTFail("JSON in unexpected format")
                 return []
@@ -81,7 +81,7 @@ class SwiftyVokoderTests: XCTestCase {
             return
         }
         
-        self.verifyGrandMilwaukeeStop(grandMilwaukeeStop)
+        self.verifyGrandMilwaukeeStop(stop: grandMilwaukeeStop)
     }
     
     func verifyGrandMilwaukeeStop(stop: Stop) {
@@ -90,7 +90,7 @@ class SwiftyVokoderTests: XCTestCase {
         XCTAssertEqual(stop.directionString, "S")
         XCTAssertEqual(stop.direction, Stop.Direction.South)
         
-        guard let station = stop.station, trainLine = stop.trainLine else {
+        guard let station = stop.station, let trainLine = stop.trainLine else {
             XCTFail("Could not load station or train from dictionary")
             return
         }
@@ -117,20 +117,20 @@ class SwiftyVokoderTests: XCTestCase {
             return
         }
         
-        self.verifyGrandMilwaukeeStop(grandMilwaukeeStop)
+        self.verifyGrandMilwaukeeStop(stop: grandMilwaukeeStop)
     }
     
     func testSwiftExtensionEqualObjCImports() {
         let stopDictionaries = CTAData.allStopDictionaries()
         var swiftStops: [Stop] = Stop.vok_import(stopDictionaries)
-        var objCStops: [NSManagedObject] = Stop.vok_addWithArray(stopDictionaries, forManagedObjectContext: nil)
+        var objCStops: [NSManagedObject] = Stop.vok_add(with: stopDictionaries, for: nil)
         
         XCTAssertEqual(swiftStops, objCStops)
         
         let manager = VOKCoreDataManager.sharedInstance()
         
         swiftStops = manager.importArray(stopDictionaries, forClass: Stop.self)
-        objCStops = manager.importArray(stopDictionaries, forClass: Stop.self, withContext: nil)
+        objCStops = manager.import(stopDictionaries, for: Stop.self, with: nil)
 
         XCTAssertEqual(swiftStops, objCStops)
     }

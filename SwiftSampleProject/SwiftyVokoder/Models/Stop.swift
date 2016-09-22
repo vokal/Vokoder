@@ -30,7 +30,7 @@ class Stop: NSManagedObject {
         init(value: String?) {
             if let
                 value = value,
-                knownDirection = Direction(rawValue: value) {
+                let knownDirection = Direction(rawValue: value) {
                     self = knownDirection
             } else {
                 self = .Unknown
@@ -38,7 +38,7 @@ class Stop: NSManagedObject {
         }
     }
     
-    lazy private(set) var direction: Direction = {
+    lazy fileprivate(set) var direction: Direction = {
         Direction(value: self.directionString)
     }()
 }
@@ -83,14 +83,14 @@ extension Stop: VOKMappableModel {
 
     static func importCompletionBlock() -> VOKPostImportBlock {
         //explicit typing for clarity
-        return { (inputDict: [String: AnyObject], inputObject: NSManagedObject) in
+        return { (inputDict: [String: Any], inputObject: NSManagedObject) in
             guard let stop = inputObject as? Stop else {
                 return
             }
          
             //NOTE: the input JSON is denormalized so we can pass in the inputDict to create stations
-            stop.station = Station.vok_addWithDictionary(inputDict,
-                forManagedObjectContext: stop.managedObjectContext)
+            stop.station = Station.vok_add(with: inputDict,
+                for: stop.managedObjectContext)
             
             //train lines are mapped manually because CTA data is strange
             stop.trainLine = TrainLine.trainLineFromStopDictionary(inputDict,
