@@ -11,8 +11,8 @@ public extension VOKManagedObjectMap {
     /**
      Creates a managed object map from a foreign key and String-based enum case
      */
-    convenience init<StringEnum: RawRepresentable where StringEnum.RawValue == String>
-        (foreignKeyPath: String, coreDataKeyEnum: StringEnum) {
+    convenience init<StringEnum: RawRepresentable>
+        (foreignKeyPath: String, coreDataKeyEnum: StringEnum) where StringEnum.RawValue == String {
             self.init(foreignKeyPath: foreignKeyPath, coreDataKey: coreDataKeyEnum.rawValue)
     }
 }
