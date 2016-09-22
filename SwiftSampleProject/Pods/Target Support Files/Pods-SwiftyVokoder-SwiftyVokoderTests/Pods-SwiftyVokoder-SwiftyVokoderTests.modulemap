@@ -1,0 +1,6 @@
+framework module Pods_SwiftyVokoder_SwiftyVokoderTests {
+  umbrella header "Pods-SwiftyVokoder-SwiftyVokoderTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

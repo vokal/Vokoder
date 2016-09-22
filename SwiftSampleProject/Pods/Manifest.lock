@@ -23,24 +23,26 @@ PODS:
 
 DEPENDENCIES:
   - Vokoder/Swift (from `../`)
-  - xUnique (from `https://github.com/vokal/xUnique.git`, commit `26adc7d50b`)
+  - xUnique (from `https://github.com/vokal/xUnique.git`, commit `43d39de`)
 
 EXTERNAL SOURCES:
   Vokoder:
     :path: "../"
   xUnique:
-    :commit: 26adc7d50b
+    :commit: 43d39de
     :git: https://github.com/vokal/xUnique.git
 
 CHECKOUT OPTIONS:
   xUnique:
-    :commit: 26adc7d50b
+    :commit: 43d39de
     :git: https://github.com/vokal/xUnique.git
 
 SPEC CHECKSUMS:
   ILGDynamicObjC: 63443567f8ce851067ea3070d3b8c7f93d37207c
-  Vokoder: ea7a319d969e187e8678d7768ce3f9bad66f640f
+  Vokoder: bb571041a942f832c71b252c630020090e70fb1b
   VOKUtilities: 460869a30db1beed7ec9954895dff24705db6e06
-  xUnique: 7f74d3f52c7769f648aa7be8fe614fc27dba2405
+  xUnique: d1303d8023f7bcc68dbb3086ffa760d1ea800812
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 30ef50252a0a770dc2d1519b7cb7451e7a97d437
+
+COCOAPODS: 1.1.0.rc.2
