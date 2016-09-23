@@ -1,7 +1,5 @@
-# OS X
-.DS_Store
-
 # Xcode
+#
 build/
 *.pbxuser
 !default.pbxuser
@@ -13,20 +11,35 @@ build/
 !default.perspectivev3
 xcuserdata
 *.xccheckout
-profile
 *.moved-aside
 DerivedData
 *.hmap
 *.ipa
+*.xcuserstate
+*.gcno
+*.xcscmblueprint
 
-# Bundler
-.bundle
-
+# CocoaPods
+#
 # We recommend against adding the Pods directory to your .gitignore. However
 # you should judge for yourself, the pros and cons are mentioned at:
 # http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
-# 
-# Note: if you ignore the Pods directory, make sure to uncomment
-# `pod install` in .travis.yml
 #
 # Pods/
+
+# Exported environment variables for XcodeCoverage
+env.sh
+
+# OS X Finder stuff
+.DS_Store
+
+# Fastlane Stuff
+*/fastlane/local_config.sh
+*/fastlane/report.xml
+*/fastlane/test_output
+*/fastlane/Provisioning
+*/fastlane/Build
+
+# SwiftLint - To save space, this will ignore the uncompressed swiftlint files but not the portable_swiftlint.zip file.
+*/swiftlint/SwiftLintFramework.framework
+*/swiftlint/swiftlint

@@ -1,23 +1,22 @@
 language: objective-c
 osx_image: xcode8
-before_install:
-    - brew update > /dev/null; if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
-matrix:
-    include:
-        - xcode_workspace: SampleProject/SampleProject.xcworkspace
-          xcode_scheme: VOKCoreDataManager
-          xcode_sdk: iphonesimulator
-        - xcode_workspace: SampleProject/SampleProject.xcworkspace
-          xcode_scheme: VOKCoreDataManager-tvOS
-          xcode_sdk: appletvsimulator
-        - xcode_workspace: SampleProject/SampleProject.xcworkspace
-          xcode_scheme: VOKCoreDataManager-OSX
-          xcode_sdk: macosx
-        - xcode_workspace: Paging Data Source Example/Paging Data Source Example.xcworkspace
-          xcode_scheme: Paging Data Source Example
-          xcode_sdk: iphonesimulator
-        - xcode_workspace: SwiftSampleProject/SwiftSampleProject.xcworkspace
-          xcode_scheme: SwiftyVokoder
-          xcode_sdk: iphonesimulator
+before_script:
+  - chmod +x travis/*.sh # Ensure that scripts are executable
+script: cd SampleProject && bundle exec fastlane test
 after_script:
     - pod lib lint
+env:
+  global:
+  # - APPNAME="___PACKAGENAME___"  # Put your app name here.
+  ################## Predefined environment variables for Fastlane ##################
+  # folder containing all fastlane files
+  - FASTLANE_FOLDER="fastlane"
+  # folder name for builds, relative to FASTLANE_FOLDER
+  - BUILD_FOLDER="Build"
+branches:
+  except:
+    - /^[^\/]+\/\d+(?:\.\d+)+\/\d+$/ # This makes travis ignore triggers from pushes from tagging builds of format builds/x.y.z/vvvv
+git:
+  depth: 10000  # For the auto-incrementing build number script to work, we need to clone with a basically-infinite depth.
+cache:
+  - bundler  # After main-repo builds, save the "bundler" (local Ruby gems) stuff to cache for future builds.
