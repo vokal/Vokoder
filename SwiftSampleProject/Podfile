@@ -7,5 +7,6 @@ target 'SwiftyVokoder' do
   pod 'xUnique', :git => 'https://github.com/vokal/xUnique.git', :commit => '43d39de'
 
   target 'SwiftyVokoderTests' do
+  	# No pods specific to this target, but it needs to be included
   end
 end
