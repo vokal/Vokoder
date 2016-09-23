@@ -18,10 +18,10 @@ public extension VOKCoreDataManager {
      - parameter context: The managed object context in which to create the object or nil for the main context (defaults to nil)
      - returns: A new instance of the given class
      */
-    public func managedObjectOfClass<T: NSManagedObject>(objectClass: T.Type,
+    public func managedObjectOfClass<T: NSManagedObject>(_ objectClass: T.Type,
         inContext context: NSManagedObjectContext? = nil) -> T {
-            guard let result = self.managedObjectOfClass(objectClass, inContext: context) as? T else {
-                fatalError("Could not cast NSManagedObject to \(String(T))")
+            guard let result = self.managedObject(of: objectClass, in: context) as? T else {
+                fatalError("Could not cast NSManagedObject to \(String(describing: T.self))")
             }
             return result
     }
@@ -34,13 +34,13 @@ public extension VOKCoreDataManager {
      - parameter context: The managed object context in which to create the objects or nil for the main context (defaults to nil)
      - returns: A typed Array of created or updated objects
      */
-    public func importArray<T: NSManagedObject>(inputArray: [[String : AnyObject]],
+    public func importArray<T: NSManagedObject>(_ inputArray: [[String : Any]],
         forClass objectClass: T.Type,
         withContext context: NSManagedObjectContext? = nil) -> [T] {
-            guard let result = self.importArray(inputArray,
-                forClass: objectClass,
-                withContext: context) as? [T] else {
-                    fatalError("Could not cast array of NSManagedObjects into \(String(T))")
+            guard let result = self.import(inputArray,
+                for: objectClass,
+                with: context) as? [T] else {
+                    fatalError("Could not cast array of NSManagedObjects into \(String(describing: T.self))")
             }
             return result
     }
@@ -55,15 +55,15 @@ public extension VOKCoreDataManager {
      - parameter context: The managed object context in which to fetch objects or nil for the main context (defaults to nil)
      - returns: A typed Array of managed object subclasses. Not threadsafe.
      */
-    public func arrayForClass<T: NSManagedObject>(objectClass: T.Type,
+    public func arrayForClass<T: NSManagedObject>(_ objectClass: T.Type,
         withPredicate predicate: NSPredicate? = nil,
         sortedBy sortDescriptors: [NSSortDescriptor]? = nil,
         forContext context: NSManagedObjectContext? = nil) -> [T] {
-            guard let result = self.arrayForClass(objectClass,
-                withPredicate: predicate,
+            guard let result = self.array(for: objectClass,
+                with: predicate,
                 sortedBy: sortDescriptors,
-                forContext: context) as? [T] else {
-                    fatalError("Could not cast array of NSManagedObjects into \(String(T))")
+                for: context) as? [T] else {
+                    fatalError("Could not cast array of NSManagedObjects into \(String(describing: T.self))")
             }
             return result
     }

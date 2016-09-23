@@ -14,12 +14,12 @@
 		2F732F61EBE713D61615BF2CE3B79386 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B504EB2B1B5DEBBBFACACABA841CAF /* Main.storyboard */; };
 		3E8A3A9E018ACEAE364B8CB2A4FE8D44 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69134836DAFD53D209ABD3D1B583F664 /* Station.swift */; };
 		4353D5BAC3ACDA8E9B315BFF47E381E2 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064ED86BE3E12AC2E321CF46D6941FEF /* Stop.swift */; };
-		496FE4EECF1A203189D7C936164B7D69 /* Pods_SwiftyVokoderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22632A657947AB536AFCFB47700AADAE /* Pods_SwiftyVokoderTests.framework */; };
 		4D240A1CC87674F3EC199156398D647F /* ManagedObjectContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC2BE0F780BC69282F4D53F27FA0C77 /* ManagedObjectContextTests.swift */; };
 		4E73857604AFC8D188ECAE06D311C066 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDEF745271231C97477CC6E3E66C37A1 /* CoreDataModel.xcdatamodeld */; };
 		5D5C37D24BB4AD73BB8F0F51CE624531 /* Pods_SwiftyVokoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0464301A1EAC0D1A513E70C586DFF49 /* Pods_SwiftyVokoder.framework */; };
 		85136C2EE244A4D628C1B219DCE952CD /* TrainLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC380682838049E79A3F13B6B368D /* TrainLine.swift */; };
 		8C0BD6C6C1284211A81D9F1AC851B516 /* CTA_stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FD1F513534063F43E10B745ACD2CB3E /* CTA_stations.json */; };
+		916126FF189CCDB204AAC73ED22A2E51 /* Pods_SwiftyVokoder_SwiftyVokoderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FCBD4E355583F7DDC772816177DA93 /* Pods_SwiftyVokoder_SwiftyVokoderTests.framework */; };
 		A2644A90E994FC887E98EEEDD942980C /* SwiftyVokoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EF860A982C324A0586B44784744EF1 /* SwiftyVokoderTests.swift */; };
 		BB543BF6616187ECDAD2239D1E3435EA /* Station+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F29BF2A8F6BD2110273BBF74D8E3C /* Station+CoreDataProperties.swift */; };
 		C3F8DAFB0F51A137A37F74C16339207F /* Stop+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF742AE7FB79EB57E65DAFCBB83F20CC /* Stop+CoreDataProperties.swift */; };
@@ -43,10 +43,9 @@
 		145BE0A7B4938209A8FA4BCFBA005F28 /* TrainLine+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrainLine+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		162BBBB03315A043E205487441426E6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1979BF0EDA24E62A8C8838488893679B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22632A657947AB536AFCFB47700AADAE /* Pods_SwiftyVokoderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyVokoderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E550F3709068140E62267CEFF2D2E70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		355157A383A0FF42F956100B65E7EFE9 /* Pods-SwiftyVokoder-SwiftyVokoderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoder-SwiftyVokoderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests.release.xcconfig"; sourceTree = "<group>"; };
 		3E67AEB71835CB471BA7FD7569490152 /* SwiftyVokoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyVokoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FDD7CD2BDCA0ED0290560C17F1AF1C1 /* Pods-SwiftyVokoderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		505231E19471EF3E916FB3EC890D27C7 /* Pods-SwiftyVokoder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder.release.xcconfig"; sourceTree = "<group>"; };
 		545EC380682838049E79A3F13B6B368D /* TrainLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainLine.swift; sourceTree = "<group>"; };
 		56EF860A982C324A0586B44784744EF1 /* SwiftyVokoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyVokoderTests.swift; sourceTree = "<group>"; };
@@ -59,9 +58,10 @@
 		A34D0C1EBBEE49A7CF082BB47B4AC1BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF742AE7FB79EB57E65DAFCBB83F20CC /* Stop+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stop+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BD521B2E02D266CC465B9D095F79005A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB47540EFD728E29A9E14F6377FE996C /* Pods-SwiftyVokoderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests.release.xcconfig"; sourceTree = "<group>"; };
+		C3FCBD4E355583F7DDC772816177DA93 /* Pods_SwiftyVokoder_SwiftyVokoderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyVokoder_SwiftyVokoderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5381E0DD2E2C4541EFD17CADD95C862 /* SwiftyVokoderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyVokoderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0464301A1EAC0D1A513E70C586DFF49 /* Pods_SwiftyVokoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyVokoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC0F49F4BF4ED99445052144A43E99D5 /* Pods-SwiftyVokoder-SwiftyVokoderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoder-SwiftyVokoderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				496FE4EECF1A203189D7C936164B7D69 /* Pods_SwiftyVokoderTests.framework in Frameworks */,
+				916126FF189CCDB204AAC73ED22A2E51 /* Pods_SwiftyVokoder_SwiftyVokoderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				F0464301A1EAC0D1A513E70C586DFF49 /* Pods_SwiftyVokoder.framework */,
-				22632A657947AB536AFCFB47700AADAE /* Pods_SwiftyVokoderTests.framework */,
+				C3FCBD4E355583F7DDC772816177DA93 /* Pods_SwiftyVokoder_SwiftyVokoderTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,10 +120,10 @@
 		4DF8BC90267D2E7C40C4D33AEA0E4CE4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				FC0F49F4BF4ED99445052144A43E99D5 /* Pods-SwiftyVokoder-SwiftyVokoderTests.debug.xcconfig */,
+				355157A383A0FF42F956100B65E7EFE9 /* Pods-SwiftyVokoder-SwiftyVokoderTests.release.xcconfig */,
 				7C980B1FEC7B20C03453003E6FF50A18 /* Pods-SwiftyVokoder.debug.xcconfig */,
 				505231E19471EF3E916FB3EC890D27C7 /* Pods-SwiftyVokoder.release.xcconfig */,
-				4FDD7CD2BDCA0ED0290560C17F1AF1C1 /* Pods-SwiftyVokoderTests.debug.xcconfig */,
-				CB47540EFD728E29A9E14F6377FE996C /* Pods-SwiftyVokoderTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -178,12 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE767AE88BA3A5EB62327B4AC8429047 /* Build configuration list for PBXNativeTarget "SwiftyVokoder" */;
 			buildPhases = (
-				F923BD3F8896EE1DCBB6F2AA3A25C76C /* Check Pods Manifest.lock */,
+				828E2651192F97B5D68A10ADDDEA9483 /* [CP] Check Pods Manifest.lock */,
 				FB97DDC14CD1A825CE27D5888F091842 /* Sources */,
 				D400D43D0126779ACC0294DC166126B0 /* Frameworks */,
 				2C72744B727B4C5CF6AF5D0F752AC135 /* Resources */,
-				49E0215509643D28489667EC20E733E9 /* Embed Pods Frameworks */,
-				480F05CCB3BB8D21C55EBE17978EB1D5 /* Copy Pods Resources */,
+				49E0215509643D28489667EC20E733E9 /* [CP] Embed Pods Frameworks */,
+				480F05CCB3BB8D21C55EBE17978EB1D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,12 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2492752AAD402EDD7D99590163D75A1 /* Build configuration list for PBXNativeTarget "SwiftyVokoderTests" */;
 			buildPhases = (
-				11600FEDE6C8D81BC8C8A8B0B13193B4 /* Check Pods Manifest.lock */,
+				7FF17C56A3A654960B1FD9D68023AA31 /* [CP] Check Pods Manifest.lock */,
 				74971D7261AEAEA3DCA94E01F6CC8B6C /* Sources */,
 				9528F4B0ECC74A6CAB4BE916C820F89C /* Frameworks */,
 				08E3D793695DE69640979C3396362A1A /* Resources */,
-				C3E4BE9BFD583053DCB3E35D43C711A2 /* Embed Pods Frameworks */,
-				2BD9C620BC2AC7AA5161220B21757DF6 /* Copy Pods Resources */,
+				3788563475F886282730C82BF464D619 /* [CP] Embed Pods Frameworks */,
+				1BFB865CE742BC3B93265880A795F5CA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -222,14 +222,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Vokal;
 				TargetAttributes = {
 					5D926D8CF832E22C37EDE3AFD3F85BAB = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 					};
 					7C6878CAA87B40EAF6ACAC010FD2CB4B = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 5D926D8CF832E22C37EDE3AFD3F85BAB;
 					};
 				};
@@ -275,44 +277,59 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		11600FEDE6C8D81BC8C8A8B0B13193B4 /* Check Pods Manifest.lock */ = {
+		7FF17C56A3A654960B1FD9D68023AA31 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		2BD9C620BC2AC7AA5161220B21757DF6 /* Copy Pods Resources */ = {
+		1BFB865CE742BC3B93265880A795F5CA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		480F05CCB3BB8D21C55EBE17978EB1D5 /* Copy Pods Resources */ = {
+		3788563475F886282730C82BF464D619 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		480F05CCB3BB8D21C55EBE17978EB1D5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,14 +337,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		49E0215509643D28489667EC20E733E9 /* Embed Pods Frameworks */ = {
+		49E0215509643D28489667EC20E733E9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,34 +352,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C3E4BE9BFD583053DCB3E35D43C711A2 /* Embed Pods Frameworks */ = {
+		828E2651192F97B5D68A10ADDDEA9483 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F923BD3F8896EE1DCBB6F2AA3A25C76C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -425,8 +427,9 @@
 /* Begin XCBuildConfiguration section */
 		0D92F8157CEA79C92C3282135374778B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FDD7CD2BDCA0ED0290560C17F1AF1C1 /* Pods-SwiftyVokoderTests.debug.xcconfig */;
+			baseConfigurationReference = FC0F49F4BF4ED99445052144A43E99D5 /* Pods-SwiftyVokoder-SwiftyVokoderTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -469,6 +472,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.vokal.SwiftyVokoderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyVokoder.app/SwiftyVokoder";
 			};
 			name = Debug;
@@ -477,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 505231E19471EF3E916FB3EC890D27C7 /* Pods-SwiftyVokoder.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -512,6 +517,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.vokal.SwiftyVokoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -519,13 +525,48 @@
 		578EBCE5B9C3CA5E94555EDE3192C6D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
 		C28C1E2544389057C0FFDFAEF1D797AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
@@ -534,6 +575,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C980B1FEC7B20C03453003E6FF50A18 /* Pods-SwiftyVokoder.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -577,13 +619,15 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		FF91FD05088C043C6B486B0DA5D4A1D1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB47540EFD728E29A9E14F6377FE996C /* Pods-SwiftyVokoderTests.release.xcconfig */;
+			baseConfigurationReference = 355157A383A0FF42F956100B65E7EFE9 /* Pods-SwiftyVokoder-SwiftyVokoderTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -619,6 +663,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.vokal.SwiftyVokoderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyVokoder.app/SwiftyVokoder";
 				VALIDATE_PRODUCT = YES;
 			};

@@ -72,7 +72,7 @@ class TrainLine: NSManagedObject {
          "O":false,
      ]
      */
-    static func trainLineFromStopDictionary(inputDict: [String: AnyObject],
+    static func trainLineFromStopDictionary(_ inputDict: [String: Any],
         forManagedObjectContext context: NSManagedObjectContext?) -> TrainLine? {
         
         let allIdentifiers: [CTAIdentifier] = [
@@ -104,11 +104,11 @@ class TrainLine: NSManagedObject {
             let predicate = NSPredicate(format: "%K == %@",
                 TrainLineAttributes.identifier.rawValue,
                 identifier.rawValue)
-            if let trainLine = TrainLine.vok_fetchAllForPredicate(predicate,
-                forManagedObjectContext: context).first as? TrainLine {
+            if let trainLine = TrainLine.vok_fetchAll(for: predicate,
+                for: context).first as? TrainLine {
                     return trainLine
             } else {
-                let trainLine = TrainLine.vok_newInstanceWithContext(context)
+                let trainLine = TrainLine.vok_newInstance(with: context)
                 trainLine.identifier = identifier.rawValue
                 trainLine.name = identifier.name
                 

@@ -14,7 +14,8 @@
   },
   "platforms": {
     "ios": "6.0",
-    "osx": "10.9"
+    "osx": "10.9",
+    "tvos": "9.0"
   },
   "preserve_paths": [
     "setup.py",

@@ -24,7 +24,7 @@ enum StationAttributes: String {
 
 @objc(Station)
 class Station: NSManagedObject {
-    lazy private(set) var coordinate: CLLocationCoordinate2D = {
+    lazy fileprivate(set) var coordinate: CLLocationCoordinate2D = {
         CLLocationCoordinate2D(latitude: Double(self.latitude ?? 0),
             longitude: Double(self.longitude ?? 0))
     }()
@@ -54,19 +54,19 @@ extension Station: VOKMappableModel {
         //we aren't using the first param so use the underscore symbol
         //explicit typing for clarity
         return { (_, inputObject: NSManagedObject) in
-            guard let
-                station = inputObject as? Station,
-                locationString = station.locationString else {
+            guard
+                let station = inputObject as? Station,
+                let locationString = station.locationString else {
                 return
             }
             
             //example locationString: "(41.875478, -87.688436)"
             //convert parentheses to curly braces to be usable by CGPointFromString
-            var pointString = locationString.stringByReplacingOccurrencesOfString("(", withString: "{")
-            pointString = pointString.stringByReplacingOccurrencesOfString(")", withString: "}")
+            var pointString = locationString.replacingOccurrences(of: "(", with: "{")
+            pointString = pointString.replacingOccurrences(of: ")", with: "}")
             let point = CGPointFromString(pointString)
-            station.latitude = point.x
-            station.longitude = point.y
+            station.latitude = point.x as NSNumber?
+            station.longitude = point.y as NSNumber?
         }
     }
 }
