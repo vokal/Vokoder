@@ -1,10 +1,9 @@
 language: objective-c
 osx_image: xcode8
-before_script:
-  - chmod +x travis/*.sh # Ensure that scripts are executable
-script: cd SampleProject && bundle exec fastlane test
+script:
+  - cd SampleProject && bundle exec fastlane test
 after_script:
-    - pod lib lint
+  - pod lib lint
 env:
   global:
   # - APPNAME="___PACKAGENAME___"  # Put your app name here.
