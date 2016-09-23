@@ -28,8 +28,8 @@ class Stop: NSManagedObject {
         case Unknown
         
         init(value: String?) {
-            if let
-                value = value,
+            if
+                let value = value,
                 let knownDirection = Direction(rawValue: value) {
                     self = knownDirection
             } else {

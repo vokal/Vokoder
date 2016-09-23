@@ -43,7 +43,7 @@ class ManagedObjectContextTests: XCTestCase {
         tempContext.performAndWait {
             self.manager.deleteAllObjects(of: Station.self, context: tempContext)
         }
-        self.manager.saveAndMerge(withMainContextAndWait:tempContext)
+        self.manager.saveAndMerge(withMainContextAndWait: tempContext)
         
         let updatedCountOfStations = self.manager.count(for: Station.self)
         XCTAssertEqual(updatedCountOfStations, 0)

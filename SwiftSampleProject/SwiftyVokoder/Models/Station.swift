@@ -54,8 +54,8 @@ extension Station: VOKMappableModel {
         //we aren't using the first param so use the underscore symbol
         //explicit typing for clarity
         return { (_, inputObject: NSManagedObject) in
-            guard let
-                station = inputObject as? Station,
+            guard
+                let station = inputObject as? Station,
                 let locationString = station.locationString else {
                 return
             }
