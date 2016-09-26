@@ -14,7 +14,6 @@
 		2F732F61EBE713D61615BF2CE3B79386 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B504EB2B1B5DEBBBFACACABA841CAF /* Main.storyboard */; };
 		3E8A3A9E018ACEAE364B8CB2A4FE8D44 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69134836DAFD53D209ABD3D1B583F664 /* Station.swift */; };
 		4353D5BAC3ACDA8E9B315BFF47E381E2 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064ED86BE3E12AC2E321CF46D6941FEF /* Stop.swift */; };
-		496FE4EECF1A203189D7C936164B7D69 /* Pods_SwiftyVokoderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22632A657947AB536AFCFB47700AADAE /* Pods_SwiftyVokoderTests.framework */; };
 		4D240A1CC87674F3EC199156398D647F /* ManagedObjectContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC2BE0F780BC69282F4D53F27FA0C77 /* ManagedObjectContextTests.swift */; };
 		4E73857604AFC8D188ECAE06D311C066 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDEF745271231C97477CC6E3E66C37A1 /* CoreDataModel.xcdatamodeld */; };
 		5D5C37D24BB4AD73BB8F0F51CE624531 /* Pods_SwiftyVokoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0464301A1EAC0D1A513E70C586DFF49 /* Pods_SwiftyVokoder.framework */; };
@@ -48,7 +47,6 @@
 		2E550F3709068140E62267CEFF2D2E70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		355157A383A0FF42F956100B65E7EFE9 /* Pods-SwiftyVokoder-SwiftyVokoderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoder-SwiftyVokoderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests.release.xcconfig"; sourceTree = "<group>"; };
 		3E67AEB71835CB471BA7FD7569490152 /* SwiftyVokoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyVokoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FDD7CD2BDCA0ED0290560C17F1AF1C1 /* Pods-SwiftyVokoderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		505231E19471EF3E916FB3EC890D27C7 /* Pods-SwiftyVokoder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder.release.xcconfig"; sourceTree = "<group>"; };
 		545EC380682838049E79A3F13B6B368D /* TrainLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainLine.swift; sourceTree = "<group>"; };
 		56EF860A982C324A0586B44784744EF1 /* SwiftyVokoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyVokoderTests.swift; sourceTree = "<group>"; };
@@ -62,7 +60,6 @@
 		AF742AE7FB79EB57E65DAFCBB83F20CC /* Stop+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stop+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BD521B2E02D266CC465B9D095F79005A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3FCBD4E355583F7DDC772816177DA93 /* Pods_SwiftyVokoder_SwiftyVokoderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyVokoder_SwiftyVokoderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB47540EFD728E29A9E14F6377FE996C /* Pods-SwiftyVokoderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoderTests/Pods-SwiftyVokoderTests.release.xcconfig"; sourceTree = "<group>"; };
 		E5381E0DD2E2C4541EFD17CADD95C862 /* SwiftyVokoderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyVokoderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0464301A1EAC0D1A513E70C586DFF49 /* Pods_SwiftyVokoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyVokoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC0F49F4BF4ED99445052144A43E99D5 /* Pods-SwiftyVokoder-SwiftyVokoderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyVokoder-SwiftyVokoderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				496FE4EECF1A203189D7C936164B7D69 /* Pods_SwiftyVokoderTests.framework in Frameworks */,
 				916126FF189CCDB204AAC73ED22A2E51 /* Pods_SwiftyVokoder_SwiftyVokoderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,8 +126,6 @@
 				355157A383A0FF42F956100B65E7EFE9 /* Pods-SwiftyVokoder-SwiftyVokoderTests.release.xcconfig */,
 				7C980B1FEC7B20C03453003E6FF50A18 /* Pods-SwiftyVokoder.debug.xcconfig */,
 				505231E19471EF3E916FB3EC890D27C7 /* Pods-SwiftyVokoder.release.xcconfig */,
-				4FDD7CD2BDCA0ED0290560C17F1AF1C1 /* Pods-SwiftyVokoderTests.debug.xcconfig */,
-				CB47540EFD728E29A9E14F6377FE996C /* Pods-SwiftyVokoderTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
