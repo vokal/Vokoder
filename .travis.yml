@@ -1,23 +1,13 @@
 language: objective-c
 osx_image: xcode8
-before_install:
-    - brew update > /dev/null; if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
-matrix:
-    include:
-        - xcode_workspace: SampleProject/SampleProject.xcworkspace
-          xcode_scheme: VOKCoreDataManager
-          xcode_sdk: iphonesimulator
-        - xcode_workspace: SampleProject/SampleProject.xcworkspace
-          xcode_scheme: VOKCoreDataManager-tvOS
-          xcode_sdk: appletvsimulator
-        - xcode_workspace: SampleProject/SampleProject.xcworkspace
-          xcode_scheme: VOKCoreDataManager-OSX
-          xcode_sdk: macosx
-        - xcode_workspace: Paging Data Source Example/Paging Data Source Example.xcworkspace
-          xcode_scheme: Paging Data Source Example
-          xcode_sdk: iphonesimulator
-        - xcode_workspace: SwiftSampleProject/SwiftSampleProject.xcworkspace
-          xcode_scheme: SwiftyVokoder
-          xcode_sdk: iphonesimulator
+env: # Specify two projects here, so that each is run using the `script` specified below
+  - PROJECT_DIR=SampleProject
+  - PROJECT_DIR=SwiftSampleProject
+  - PROJECT_DIR="Paging Data Source Example"
+script: cd "${PROJECT_DIR}" && bundle exec fastlane test
 after_script:
-    - pod lib lint
+  - pod lib lint
+git:
+  depth: 10000  # For the auto-incrementing build number script to work, we need to clone with a basically-infinite depth.
+cache:
+  - bundler  # After main-repo builds, save the "bundler" (local Ruby gems) stuff to cache for future builds.

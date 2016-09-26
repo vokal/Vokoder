@@ -237,6 +237,11 @@ VOKPerson *person = [VOKPerson vok_fetchForPredicate:personPredicate
 
 **NOTE**: There is a private context that asynchronously saves changes to the persistent store when any of these methods are called. The main context is a child of this "root" context. This should not pose a problem if you are using the main context and temporary contexts.  If you have created a context that is **not** a descendent of the main context, be aware of this.
 
+## Swift Version Support
+The 2.x and 3.x versions of Vokoder support Swift 2. This support is being maintained in the `swift2` branch.
+
+Swift 3 will be supported in Vokoder versions 4.x.
+
 ## License
 
 Vokoder is available under the MIT license. See the LICENSE file for more info.
