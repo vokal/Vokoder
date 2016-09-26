@@ -43,11 +43,20 @@
                           [libraryFolder URLByAppendingPathComponent:databaseName]);
 }
 
-- (void)testCustomDatabaseURL
+- (NSURL *)actualPersistentStoreURL
+{
+    NSManagedObjectContext *context = [VOKCoreDataManager sharedInstance].managedObjectContext;
+    NSPersistentStoreCoordinator *coordinator = context.persistentStoreCoordinator;
+    NSPersistentStore *store = coordinator.persistentStores.firstObject;
+    return store.URL;
+}
+
+- (void)testCustomDatabaseURLInMainBundle
 {
     //setting an explicit database URL should be possible
     NSURL *documentsFolder = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
                                                                     inDomains:NSUserDomainMask].lastObject;
+    
     NSURL *databaseURL = [documentsFolder URLByAppendingPathComponent:@"test.sqlite"];
     
     [[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel"
@@ -57,10 +66,24 @@
     XCTAssertEqualObjects([VOKCoreDataManager sharedInstance].persistentStoreFileURL, databaseURL);
     
     //make sure the URL is actually what is used by the persistent store
-    NSManagedObjectContext *context = [VOKCoreDataManager sharedInstance].managedObjectContext;
-    NSPersistentStoreCoordinator *coordinator = context.persistentStoreCoordinator;
-    NSPersistentStore *store = coordinator.persistentStores.firstObject;
-    XCTAssertEqualObjects(store.URL, databaseURL);
+    XCTAssertEqualObjects([self actualPersistentStoreURL], databaseURL);
+}
+
+- (void)testCustomDatabaseURLNotInMainBundle
+{
+    //setting an explicit database URL outside the main bundle should be possible
+    NSURL *testBundleBase = [NSBundle bundleForClass:[self class]].bundleURL;
+    
+    NSURL *databaseURL = [testBundleBase URLByAppendingPathComponent:@"test.sqlite"];
+    
+    [[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel"
+                                         databaseURL:databaseURL
+                                              bundle:nil];
+    
+    XCTAssertEqualObjects([VOKCoreDataManager sharedInstance].persistentStoreFileURL, databaseURL);
+    
+    //make sure the URL is actually what is used by the persistent store
+    XCTAssertEqualObjects([self actualPersistentStoreURL], databaseURL);
 }
 
 - (void)testInMemoryDatabaseURL
