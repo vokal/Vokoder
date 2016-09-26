@@ -27,17 +27,6 @@ platform :ios do
     },
   ]
 
-  #########################
-  # Pre-defined variables #
-  #########################
-
-  # The root fastlane folder (typically "fastlane")
-  fastlane_folder = ENV['FASTLANE_FOLDER']
-
-  # The output folder for building archives, relative to fastlane_folder
-  # (typically "Build")
-  build_folder = File.join(fastlane_folder, ENV['BUILD_FOLDER'])
-
   ###########
   ## SETUP ##
   ###########
@@ -61,13 +50,12 @@ platform :ios do
         workspace: scheme_info[:workspace],
         scheme: scheme_info[:scheme],
         sdk: scheme_info[:sdk],
-        derived_data_path: build_folder,
+        derived_data_path: "fastlane/Build",
         skip_build: true, #the test action will already kick off a build, don't build twice
       )
     end
   end
 
-  
   ######################
   ## SUCCESS HANDLING ##
   ######################

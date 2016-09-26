@@ -20,8 +20,3 @@
 # Currently using a renamed Xcode for 8
 export DEVELOPER_DIR="/Applications/Xcode 8.app/Contents/Developer"
 
-# folder containing all fastlane files
-export FASTLANE_FOLDER='fastlane'
-
-# folder name for builds, relative to FASTLANE_FOLDER
-export BUILD_FOLDER='Build'
