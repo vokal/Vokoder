@@ -17,6 +17,7 @@
 		304D554A9C6D156D01C97D5673AD6AFA /* ManagedObjectImportExportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 094901C44573889FE3BC6CA970BF0F8D /* ManagedObjectImportExportTests.m */; };
 		362CD69ACEA416687D1FBEBFF850D4AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7608E2CDD311959D2A218E63B737E586 /* main.m */; };
 		3ABB7F0A1A6AD3199DC6B3B09E132B3C /* VOKCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B49410900A158E8377CE7F2559B9C35 /* VOKCoreDataModel.xcdatamodeld */; };
+		3D894250F6F7B81893B0E69B1C644E64 /* DatabaseURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 482279C39A961A7C837B2DBD5108F73D /* DatabaseURLTests.m */; };
 		436AC84A3EFEEFF5F3BF38D475767B0A /* VOKMappablePerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 898F9437D2CAF202DBD97BC5AEAD47C2 /* VOKMappablePerson.m */; };
 		49EDA1634C399FFE14F7EE338B5F1B0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F03576EBB83E78E3708F9518FBC87D /* Main.storyboard */; };
 		5528702B115564B98234658E86BECDB2 /* VOKPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF021A702E38C937AEC4C778314F028 /* VOKPerson.m */; };
@@ -65,9 +66,11 @@
 		D7471EECFFA694CA8FC7CE8291A9C235 /* VOKEntityC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D375AD41A0ED432613256AD6853ADBB /* VOKEntityC.m */; };
 		D7888AC34E214A9029E9ACC8700BFE62 /* VOKEntityB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5843558F2814496F70951C7E8E76BE13 /* VOKEntityB.m */; };
 		DDFF7B82098E2DB5786833350FE7FA75 /* VOKEntityA.m in Sources */ = {isa = PBXBuildFile; fileRef = 861BB9DE6B90C6BDE07193D7893D9589 /* VOKEntityA.m */; };
+		E06CBA20C739E02C65871D48A2A40876 /* DatabaseURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 482279C39A961A7C837B2DBD5108F73D /* DatabaseURLTests.m */; };
 		E1C5396AC0D3692699E17FF1F5B50D2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F14426CC8C62366AF40FAA0D733960D /* AppDelegate.m */; };
 		E6B02C74060738687F09E73ECEC01163 /* VOKEntityA.m in Sources */ = {isa = PBXBuildFile; fileRef = 861BB9DE6B90C6BDE07193D7893D9589 /* VOKEntityA.m */; };
 		E950A8011C042377F1DE12FAC44A045C /* VOKPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF021A702E38C937AEC4C778314F028 /* VOKPerson.m */; };
+		E9A93996BB3A93D6189703F6A21539C7 /* DatabaseURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 482279C39A961A7C837B2DBD5108F73D /* DatabaseURLTests.m */; };
 		EBCAE2DEB41BB0F5E98C2B6B366EB78B /* ManagedObjectImportExportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 094901C44573889FE3BC6CA970BF0F8D /* ManagedObjectImportExportTests.m */; };
 		EDE684A6CAF7E10DA192A11A1510E6C6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C454789BCB5571F7D03F6F71460C2F82 /* XCTest.framework */; };
 		F2C00F72A8ED293B4E6324C2952234CB /* BundleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4DD2AAEC0B3DD755783E7F21A464A /* BundleTests.m */; };
@@ -135,6 +138,7 @@
 		413980B907452FB1B1A07AE2FA8D9914 /* libPods-VOKCoreDataManager-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C55E092D0EC4DB5DBCF76B4617AE2D /* UIViewController+VOKConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VOKConvenience.h"; sourceTree = "<group>"; };
 		439D7AC3F9926A79585FB4FFBFDB6F1F /* UIViewController+VOKConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VOKConvenience.m"; sourceTree = "<group>"; };
+		482279C39A961A7C837B2DBD5108F73D /* DatabaseURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseURLTests.m; sourceTree = "<group>"; };
 		4BCF5F314951F3C0C40D9658DC90CE34 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		514BC5999212C5738572E093E24C0BCE /* VOKPersonDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPersonDataSource.h; sourceTree = "<group>"; };
 		560A1CEABCB61685D7A069D263AD39AF /* libPods-VOKCoreDataManager Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +257,7 @@
 				FA2F297D068BFFFCE1021725A5B5CD01 /* Supporting Files */,
 				C0D4DD2AAEC0B3DD755783E7F21A464A /* BundleTests.m */,
 				7381A2721C74D316B999FB71F93FF56C /* CoreDataManagerDeleteTests.m */,
+				482279C39A961A7C837B2DBD5108F73D /* DatabaseURLTests.m */,
 				0D110748613B01C46558315B637A9834 /* DateFormatterTests.m */,
 				094901C44573889FE3BC6CA970BF0F8D /* ManagedObjectImportExportTests.m */,
 				670959E41C09F12BE8B77B7E7B89A730 /* VOKManagedObjectAdditions.m */,
@@ -978,6 +983,7 @@
 			files = (
 				F2C00F72A8ED293B4E6324C2952234CB /* BundleTests.m in Sources */,
 				F96FAAEFD622780D5452DFA1B9DA28F8 /* CoreDataManagerDeleteTests.m in Sources */,
+				E9A93996BB3A93D6189703F6A21539C7 /* DatabaseURLTests.m in Sources */,
 				77DBA3E05CD108B5B3493BCE438E25F5 /* DateFormatterTests.m in Sources */,
 				304D554A9C6D156D01C97D5673AD6AFA /* ManagedObjectImportExportTests.m in Sources */,
 				B7ABA254FB023FF0B797CD7475965BE3 /* VOKManagedObjectAdditions.m in Sources */,
@@ -1006,6 +1012,7 @@
 			files = (
 				0B50D7395219C3B53E39EFFED1594752 /* BundleTests.m in Sources */,
 				167CAA333B6C7C733C7807D096502B33 /* CoreDataManagerDeleteTests.m in Sources */,
+				E06CBA20C739E02C65871D48A2A40876 /* DatabaseURLTests.m in Sources */,
 				8C3E8B19C2A5AC1DF1F422A68E9D93B3 /* DateFormatterTests.m in Sources */,
 				6AB1558FB6A74AFAE6E5B0107A7297FC /* ManagedObjectImportExportTests.m in Sources */,
 				F4A7BC2F0A5A29E91C0F97EC38907630 /* VOKManagedObjectAdditions.m in Sources */,
@@ -1040,6 +1047,7 @@
 			files = (
 				C60F5A3B07B37C9CF9EFDBBBF0E6B1A5 /* BundleTests.m in Sources */,
 				BE5624032EB8CAC025BED19DBADEA15E /* CoreDataManagerDeleteTests.m in Sources */,
+				3D894250F6F7B81893B0E69B1C644E64 /* DatabaseURLTests.m in Sources */,
 				D192CBF4DBE04D80BFE8B37B9F3E44B3 /* DateFormatterTests.m in Sources */,
 				EBCAE2DEB41BB0F5E98C2B6B366EB78B /* ManagedObjectImportExportTests.m in Sources */,
 				B010017AB8E4BB93E51539899960ECC9 /* VOKManagedObjectAdditions.m in Sources */,
