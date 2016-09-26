@@ -4,7 +4,7 @@ env: # Specify two projects here, so that each is run using the `script` specifi
   - PROJECT_DIR=SampleProject
   - PROJECT_DIR=SwiftSampleProject
   - PROJECT_DIR="Paging Data Source Example"
-script: cd $PROJECT_DIR && bundle exec fastlane test
+script: cd "${PROJECT_DIR}" && bundle exec fastlane test
 after_script:
   - pod lib lint
 git:
