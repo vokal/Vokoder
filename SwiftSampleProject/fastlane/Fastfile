@@ -11,19 +11,9 @@ platform :ios do
   # Scheme/SDK combos to test
   schemes_to_test = [
     {
-      workspace: "SampleProject.xcworkspace",
-      scheme: "VOKCoreDataManager",
+      workspace: "SwiftSampleProject.xcworkspace",
+      scheme: "SwiftyVokoder",
       sdk: "iphonesimulator"
-    },
-    {
-      workspace: "SampleProject.xcworkspace",
-      scheme: "VOKCoreDataManager-tvOS",
-      sdk: "appletvsimulator"
-    },
-    {
-      workspace: "SampleProject.xcworkspace",
-      scheme: "VOKCoreDataManager-OSX",
-      sdk: "macosx"
     },
   ]
 

@@ -2,6 +2,7 @@ language: objective-c
 osx_image: xcode8
 script:
   - cd SampleProject && bundle exec fastlane test
+  - cd ../SwiftSampleProject && bundle exec fastlane test
 after_script:
   - pod lib lint
 env:
