@@ -57,6 +57,9 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
 /// The managed object model, based on the resource and database.
 @property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
 
+/// The file URL for the persistent store's .sqlite file, or nil if no filename exists.  Useful for logging or direct examination of the database
+@property (nullable, nonatomic, readonly) NSURL *persistentStoreFileURL;
+
 /**
  Set the name of the managed object model and the name of the SQLite store on disk. Call this first when you setup the Core Data stack.
  The main context will be initialized immediately.
@@ -70,12 +73,24 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
 /**
  Set the name of the managed object model and the name of the SQLite store on disk, in the provided bundle. Call this first when you setup the Core Data stack.
  The main context will be initialized immediately.
- @param resource    The filename of the mom or momd file in your project. If nil the first model found in the provided bundle will be used.
- @param database    The filename of the SQLite store in your application. A nil database name will create an in-memory store.
- @param bundle      The bundle where the Managed Object Model can be found. If nil, the main bundle will be used.
+ @param resource     The filename of the mom or momd file in your project. If nil the first model found in the provided bundle will be used.
+ @param databaseName The filename of the SQLite store in your application. A nil database name will create an in-memory store.
+                     A non-nil name will create a SQLite store in the app's Library directory.
+ @param bundle       The bundle where the Managed Object Model can be found. If nil, the main bundle will be used.
  */
 - (void)setResource:(nullable NSString *)resource
-           database:(nullable NSString *)database
+           database:(nullable NSString *)databaseName
+             bundle:(nullable NSBundle *)bundle;
+
+/**
+ Set the name of the managed object model in the provided bundle and the absolute URL of the SQLite store on disk.
+ Call this first when you setup the Core Data stack. The main context will be initialized immediately.
+ @param resource     The filename of the mom or momd file in your project. If nil the first model found in the provided bundle will be used.
+ @param databaseURL  The file URL of a SQLite store. A nil URL will create an in-memory store.
+ @param bundle       The bundle where the Managed Object Model can be found. If nil, the main bundle will be used.
+ */
+- (void)setResource:(nullable NSString *)resource
+        databaseURL:(nullable NSURL *)databaseURL
              bundle:(nullable NSBundle *)bundle;
 
 /**
@@ -309,12 +324,6 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
  Deletes the persistent stores and resets the main context and model to nil
  */
 - (void)resetCoreData;
-
-/**
- Method to facilitate logging of the persistent store's file URL so the file itself can be examined on the simulator.
- @return The file URL for the persistent store's .sqlite file, or nil if no filename exists.
- */
-- (nullable NSURL *)persistentStoreFileURL;
 
 @end
 
