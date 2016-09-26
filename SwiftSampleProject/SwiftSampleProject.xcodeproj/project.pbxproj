@@ -313,6 +313,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3788563475F886282730C82BF464D619 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		480F05CCB3BB8D21C55EBE17978EB1D5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -341,21 +356,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3788563475F886282730C82BF464D619 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F923BD3F8896EE1DCBB6F2AA3A25C76C /* [CP] Check Pods Manifest.lock */ = {
