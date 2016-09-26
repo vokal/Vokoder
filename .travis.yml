@@ -3,6 +3,7 @@ osx_image: xcode8
 env: # Specify two projects here, so that each is run using the `script` specified below
   - PROJECT_DIR=SampleProject
   - PROJECT_DIR=SwiftSampleProject
+  - PROJECT_DIR="Paging Data Source Example"
 script: cd $PROJECT_DIR && bundle exec fastlane test
 after_script:
   - pod lib lint

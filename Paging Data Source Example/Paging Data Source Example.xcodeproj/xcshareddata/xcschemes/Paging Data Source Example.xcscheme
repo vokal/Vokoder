@@ -47,6 +47,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0550FB5F7EA7666193181F957FD2DB18"
+               BuildableName = "Paging Data Source ExampleTests.xctest"
+               BlueprintName = "Paging Data Source ExampleTests"
+               ReferencedContainer = "container:Paging Data Source Example.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

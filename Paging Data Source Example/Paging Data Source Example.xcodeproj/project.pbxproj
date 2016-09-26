@@ -10,6 +10,7 @@
 		00B13EBCB91DC4FFAED469623A584492 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C3325754080195648DB4DC4960B4AC /* CoreData.framework */; };
 		24F7D73C066D716D40314C295F621511 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5D8788B738564CFE665A6EC52E012E /* Foundation.framework */; };
 		3E6052E27123D739CA6B52CCAB5EFA55 /* VOKPlayerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D5229A385CF22C84615F0A96FA52A4 /* VOKPlayerDataSource.m */; };
+		4379C7AEDF5E92FAA4CB3DBC6E31BA61 /* Paging_Data_Source_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FCC6B153B2A3D05922490C64AB066E /* Paging_Data_Source_ExampleTests.m */; };
 		56ABEEB5FD1E5EDA868F9E6FE05766EE /* libPods-Paging Data Source Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B4C8C264E70B5B76960964F14623432 /* libPods-Paging Data Source Example.a */; };
 		56F33BA57C3882AFD70033C881A0A8AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76E208DE81AEAEA024C1DD0CE19E613 /* UIKit.framework */; };
 		57487303E2E4E57CD2F637E15A7D9BFC /* VOKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E79A49C0F27BB08504A66375B92C13CA /* VOKAppDelegate.m */; };
@@ -22,6 +23,16 @@
 		D88FFA4552373A0E365022B45C2CC22E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE8F5073D03EFF946FD22D6E2BA22FE /* CoreGraphics.framework */; };
 		F27A1EE018E6E689A131D51E8132FBAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B68D7BEECB30D4E2466392170C79C2EA /* main.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3A637E32317BEB374897EC86FAD8CB14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49B72D2B6EB07A6B0C7B18EC480D3480 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 408232601F6454132847C2DCAE154679;
+			remoteInfo = "Paging Data Source Example";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		022E4037C2A74E2432665B4F650EFDE8 /* VOKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKAppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -36,6 +47,7 @@
 		6F7C0DD307B5D082841FB5AD8B1413D8 /* Pods-Paging Data Source Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paging Data Source Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Paging Data Source Example/Pods-Paging Data Source Example.debug.xcconfig"; sourceTree = "<group>"; };
 		888AB0776298E2AA69BF519C5D669A38 /* Paging Data Source Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Paging Data Source Example-Info.plist"; sourceTree = "<group>"; };
 		A33DE4E85229E765C1D48E4344D68F8E /* Pods-Paging Data Source Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paging Data Source Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Paging Data Source Example/Pods-Paging Data Source Example.release.xcconfig"; sourceTree = "<group>"; };
+		A39C08DA30CF2AA27DC759C1AEA7F62B /* Paging Data Source ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Paging Data Source ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3B85B2879AAAD370403DA024304749C /* VOKPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VOKPlayer.h; path = "Core Data/Models/VOKPlayer.h"; sourceTree = SOURCE_ROOT; };
 		B68D7BEECB30D4E2466392170C79C2EA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		C5D5229A385CF22C84615F0A96FA52A4 /* VOKPlayerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VOKPlayerDataSource.m; path = "Core Data/Data Sources/VOKPlayerDataSource.m"; sourceTree = SOURCE_ROOT; };
@@ -45,6 +57,8 @@
 		E403EF96F52AC52E336DAFCC839FD519 /* Paging Data Source Example-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Paging Data Source Example-Prefix.pch"; sourceTree = "<group>"; };
 		E79A49C0F27BB08504A66375B92C13CA /* VOKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		EF5D8788B738564CFE665A6EC52E012E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F1FCC6B153B2A3D05922490C64AB066E /* Paging_Data_Source_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Paging_Data_Source_ExampleTests.m; sourceTree = "<group>"; };
+		FA38AE0636C366CF68DB54F01C228249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA739584465B491859133400E4622752 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FFE8F5073D03EFF946FD22D6E2BA22FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -63,9 +77,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		896BFF52FAC03771D08DA117239911A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2178FCE12C2B018DBDAA39EE61E97CF1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B3B85B2879AAAD370403DA024304749C /* VOKPlayer.h */,
+				27F3ACD90CD93D784E0B6AAC46F59659 /* VOKPlayer.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		38F8F1E450079F3A17A7D138FDC21F92 /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				298086FF9400071DD9B5328EFA15FE43 /* VOKPlayerDataSource.h */,
+				C5D5229A385CF22C84615F0A96FA52A4 /* VOKPlayerDataSource.m */,
+			);
+			path = "Data Sources";
+			sourceTree = "<group>";
+		};
+		7CEB74F7203A9E76B84B45188DE617BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16C3325754080195648DB4DC4960B4AC /* CoreData.framework */,
+				FFE8F5073D03EFF946FD22D6E2BA22FE /* CoreGraphics.framework */,
+				EF5D8788B738564CFE665A6EC52E012E /* Foundation.framework */,
+				FA739584465B491859133400E4622752 /* QuartzCore.framework */,
+				D76E208DE81AEAEA024C1DD0CE19E613 /* UIKit.framework */,
+				5B4C8C264E70B5B76960964F14623432 /* libPods-Paging Data Source Example.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		81517E01F8C32FD03F02A63A8C315253 /* Paging Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,22 +141,24 @@
 			path = "Core Data";
 			sourceTree = "<group>";
 		};
-		38F8F1E450079F3A17A7D138FDC21F92 /* Data Sources */ = {
+		8793F7DD634660469F3A6FD376501A51 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				298086FF9400071DD9B5328EFA15FE43 /* VOKPlayerDataSource.h */,
-				C5D5229A385CF22C84615F0A96FA52A4 /* VOKPlayerDataSource.m */,
+				DE0CF8DE290A1852927E49A948D79384 /* Paging Data Source Example.app */,
+				A39C08DA30CF2AA27DC759C1AEA7F62B /* Paging Data Source ExampleTests.xctest */,
 			);
-			path = "Data Sources";
+			name = Products;
 			sourceTree = "<group>";
 		};
-		2178FCE12C2B018DBDAA39EE61E97CF1 /* Models */ = {
+		9FC58C958D239BED97A06490DB0BE670 = {
 			isa = PBXGroup;
 			children = (
-				B3B85B2879AAAD370403DA024304749C /* VOKPlayer.h */,
-				27F3ACD90CD93D784E0B6AAC46F59659 /* VOKPlayer.m */,
+				7CEB74F7203A9E76B84B45188DE617BF /* Frameworks */,
+				513C01A6F9E6C1205C4879D45D04E124 /* Paging Data Source ExampleTests */,
+				81517E01F8C32FD03F02A63A8C315253 /* Paging Example */,
+				CDE613640B2A532748493208F5507885 /* Pods */,
+				8793F7DD634660469F3A6FD376501A51 /* Products */,
 			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		A21FC08C17B11425F837C17596285590 /* Supporting Files */ = {
@@ -119,6 +173,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		513C01A6F9E6C1205C4879D45D04E124 /* Paging Data Source ExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA38AE0636C366CF68DB54F01C228249 /* Info.plist */,
+				F1FCC6B153B2A3D05922490C64AB066E /* Paging_Data_Source_ExampleTests.m */,
+			);
+			path = "Paging Data Source ExampleTests";
+			sourceTree = "<group>";
+		};
 		CDE613640B2A532748493208F5507885 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,37 +189,6 @@
 				A33DE4E85229E765C1D48E4344D68F8E /* Pods-Paging Data Source Example.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		9FC58C958D239BED97A06490DB0BE670 = {
-			isa = PBXGroup;
-			children = (
-				7CEB74F7203A9E76B84B45188DE617BF /* Frameworks */,
-				81517E01F8C32FD03F02A63A8C315253 /* Paging Example */,
-				CDE613640B2A532748493208F5507885 /* Pods */,
-				8793F7DD634660469F3A6FD376501A51 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		8793F7DD634660469F3A6FD376501A51 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DE0CF8DE290A1852927E49A948D79384 /* Paging Data Source Example.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		7CEB74F7203A9E76B84B45188DE617BF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				16C3325754080195648DB4DC4960B4AC /* CoreData.framework */,
-				FFE8F5073D03EFF946FD22D6E2BA22FE /* CoreGraphics.framework */,
-				EF5D8788B738564CFE665A6EC52E012E /* Foundation.framework */,
-				FA739584465B491859133400E4622752 /* QuartzCore.framework */,
-				D76E208DE81AEAEA024C1DD0CE19E613 /* UIKit.framework */,
-				5B4C8C264E70B5B76960964F14623432 /* libPods-Paging Data Source Example.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +214,24 @@
 			productReference = DE0CF8DE290A1852927E49A948D79384 /* Paging Data Source Example.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0550FB5F7EA7666193181F957FD2DB18 /* Paging Data Source ExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34A3FD23BD53DCD8DCEFCB918C722393 /* Build configuration list for PBXNativeTarget "Paging Data Source ExampleTests" */;
+			buildPhases = (
+				6039A3AD960696874FB0FBD76DB7965D /* Sources */,
+				896BFF52FAC03771D08DA117239911A4 /* Frameworks */,
+				4D76DCFA8626E88AAB8E18DF627D1D8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0D6AE44B12DB119080F6F98D4545CB1 /* PBXTargetDependency */,
+			);
+			name = "Paging Data Source ExampleTests";
+			productName = "Paging Data Source ExampleTests";
+			productReference = A39C08DA30CF2AA27DC759C1AEA7F62B /* Paging Data Source ExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -190,6 +240,14 @@
 			attributes = {
 				CLASSPREFIX = VI;
 				LastUpgradeCheck = 0710;
+				TargetAttributes = {
+					0550FB5F7EA7666193181F957FD2DB18 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = TZPBQT6RZA;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 408232601F6454132847C2DCAE154679;
+					};
+				};
 			};
 			buildConfigurationList = C36FFA3E2C24C255C5244A04F5EA6EFA /* Build configuration list for PBXProject "Paging Data Source Example" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -204,6 +262,7 @@
 			projectRoot = "";
 			targets = (
 				408232601F6454132847C2DCAE154679 /* Paging Data Source Example */,
+				0550FB5F7EA7666193181F957FD2DB18 /* Paging Data Source ExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -215,6 +274,13 @@
 			files = (
 				88822987D87ADC7F084035F6D925990F /* Images.xcassets in Resources */,
 				D7F3BD6FD143F686F46E8006A6E47E3D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D76DCFA8626E88AAB8E18DF627D1D8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +348,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6039A3AD960696874FB0FBD76DB7965D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4379C7AEDF5E92FAA4CB3DBC6E31BA61 /* Paging_Data_Source_ExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0D6AE44B12DB119080F6F98D4545CB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 408232601F6454132847C2DCAE154679 /* Paging Data Source Example */;
+			targetProxy = 3A637E32317BEB374897EC86FAD8CB14 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0AA4A4F3AC95477FB17B49E969A9434A /* InfoPlist.strings */ = {
@@ -296,6 +378,23 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		292750600087E59979072E48570660F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F7C0DD307B5D082841FB5AD8B1413D8 /* Pods-Paging Data Source Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Paging Data Source Example-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Paging Data Source Example-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Vokal.Paging-Data-Source-Example";
+				PRODUCT_NAME = "Paging Data Source Example";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
 		49A7B2915DCA2BF411AD8F528054054D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -335,6 +434,24 @@
 			};
 			name = Debug;
 		};
+		4A37BF6968441AD0234A51925226D983 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A33DE4E85229E765C1D48E4344D68F8E /* Pods-Paging Data Source Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Paging Data Source Example-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/Paging Data Source Example-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Vokal.Paging-Data-Source-Example";
+				PRODUCT_NAME = "Paging Data Source Example";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		5241403ADEA9F60DDFA5CE639347D569 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -367,58 +484,87 @@
 			};
 			name = Release;
 		};
-		292750600087E59979072E48570660F9 /* Debug */ = {
+		014CA8C24C87D2DA5DF88E1D6207A341 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F7C0DD307B5D082841FB5AD8B1413D8 /* Pods-Paging Data Source Example.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Paging Data Source Example-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Paging Data Source Example-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Vokal.Paging-Data-Source-Example";
-				PRODUCT_NAME = "Paging Data Source Example";
-				WRAPPER_EXTENSION = app;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = TZPBQT6RZA;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Paging Data Source ExampleTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.vokal.Paging-Data-Source-ExampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paging Data Source Example.app/Paging Data Source Example";
 			};
 			name = Debug;
 		};
-		4A37BF6968441AD0234A51925226D983 /* Release */ = {
+		65EAE3B9430F654E67D4EA04BEC9F470 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A33DE4E85229E765C1D48E4344D68F8E /* Pods-Paging Data Source Example.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Paging Data Source Example-Prefix.pch";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/Paging Data Source Example-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Vokal.Paging-Data-Source-Example";
-				PRODUCT_NAME = "Paging Data Source Example";
-				WRAPPER_EXTENSION = app;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = TZPBQT6RZA;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Paging Data Source ExampleTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.vokal.Paging-Data-Source-ExampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paging Data Source Example.app/Paging Data Source Example";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C36FFA3E2C24C255C5244A04F5EA6EFA /* Build configuration list for PBXProject "Paging Data Source Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				49A7B2915DCA2BF411AD8F528054054D /* Debug */,
-				5241403ADEA9F60DDFA5CE639347D569 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		68FB3CDFA37F6F476464B34851C97B71 /* Build configuration list for PBXNativeTarget "Paging Data Source Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				292750600087E59979072E48570660F9 /* Debug */,
 				4A37BF6968441AD0234A51925226D983 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34A3FD23BD53DCD8DCEFCB918C722393 /* Build configuration list for PBXNativeTarget "Paging Data Source ExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				014CA8C24C87D2DA5DF88E1D6207A341 /* Debug */,
+				65EAE3B9430F654E67D4EA04BEC9F470 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C36FFA3E2C24C255C5244A04F5EA6EFA /* Build configuration list for PBXProject "Paging Data Source Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49A7B2915DCA2BF411AD8F528054054D /* Debug */,
+				5241403ADEA9F60DDFA5CE639347D569 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
