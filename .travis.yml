@@ -1,8 +1,9 @@
 language: objective-c
 osx_image: xcode8
-script:
-  - cd SampleProject && bundle exec fastlane test
-  - cd ../SwiftSampleProject && bundle exec fastlane test
+env: # Specify two projects here, so that each is run using the `script` specified below
+  - PROJECT_DIR=SampleProject
+  - PROJECT_DIR=SwiftSampleProject
+script: cd $PROJECT_DIR && bundle exec fastlane test
 after_script:
   - pod lib lint
 git:
