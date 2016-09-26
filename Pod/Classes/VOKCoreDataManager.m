@@ -705,8 +705,8 @@ static VOKCoreDataManager *VOK_SharedObject;
     NSArray *stores = [_persistentStoreCoordinator persistentStores];
     
     for (NSPersistentStore *store in stores) {
-        [self.persistentStoreCoordinator removePersistentStore:store error:nil];
-        if (self.databaseFilename) {
+        [_persistentStoreCoordinator removePersistentStore:store error:nil];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:store.URL.path]) {
             [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
         }
     }
