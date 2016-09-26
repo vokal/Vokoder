@@ -24,9 +24,9 @@
 
 + (void)tearDown
 {
-    [super tearDown];
-    
     [[VOKCoreDataManager sharedInstance] resetCoreData];
+
+    [super tearDown];
 }
 
 - (void)testDefaultDatabaseURL
