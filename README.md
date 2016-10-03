@@ -35,9 +35,11 @@ The optional `Swift` subspec includes some Swift extensions for strong typing an
 
 Macros to help create managed object property maps for importing and exporting are included in the `MapperMacros` subspec.  This subspec is included by default, but excluded from the `Swift` subspec since the macros are only usable from Objective-C code.
 
-##Usage
+If you want to include Vokoder in an App Extension (ie Today Widget), include the optional `Extension` subspec.  This will add a preprocessor definition for `VOK_TARGET_IS_EXTENSION` and exclude code from Vokoder that is incompatible with extensions.  **NOTE**: This will also disable any alerting the `VOKMigrationFailureOptionWipeRecoveryAndAlert` option would have provided on a model migration failure.
 
-###Setting up the data model
+## Usage
+
+### Setting up the data model
 
 ```objective-c
 // Omit the .xcdatamodeld extension on the model file name

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Vokoder"
-  s.version          = "3.2.0"
+  s.version          = "3.3.0"
   s.summary          = "Vokal's Core Data Manager"
   s.homepage         = "https://github.com/vokal/Vokoder"
   s.license          = { :type => "MIT", :file => "LICENSE"}
@@ -57,5 +57,11 @@ Pod::Spec.new do |s|
     sw.tvos.deployment_target = '9.0'
     sw.dependency 'Vokoder/DataSources'
     sw.source_files = 'Pod/Classes/Swift/*.swift'
+  end
+
+  s.subspec 'Extension' do |ext|
+    ext.ios.deployment_target = '8.0'
+    ext.dependency 'Vokoder/DataSources'
+    ext.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'VOK_TARGET_IS_EXTENSION=1' }
   end
 end
