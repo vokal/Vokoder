@@ -1,32 +1,35 @@
 PODS:
   - ILGDynamicObjC/ILGClasses (0.1.1)
-  - Vokoder (3.2.0):
-    - Vokoder/Core (= 3.2.0)
-    - Vokoder/DataSources (= 3.2.0)
-    - Vokoder/MapperMacros (= 3.2.0)
-  - Vokoder/Core (3.2.0):
+  - Vokoder (3.2.1):
+    - Vokoder/Core (= 3.2.1)
+    - Vokoder/DataSources (= 3.2.1)
+    - Vokoder/MapperMacros (= 3.2.1)
+  - Vokoder/Core (3.2.1):
     - ILGDynamicObjC/ILGClasses (~> 0.1.1)
     - VOKUtilities/VOKKeyPathHelper (~> 0.9.0)
-  - Vokoder/DataSources (3.2.0):
+  - Vokoder/DataSources (3.2.1):
     - Vokoder/Core
-    - Vokoder/DataSources/Collection (= 3.2.0)
-    - Vokoder/DataSources/FetchedResults (= 3.2.0)
-    - Vokoder/DataSources/PagingFetchedResults (= 3.2.0)
-  - Vokoder/DataSources/Collection (3.2.0):
-    - Vokoder/Core
-    - Vokoder/DataSources/FetchedResults
-  - Vokoder/DataSources/FetchedResults (3.2.0):
-    - Vokoder/Core
-  - Vokoder/DataSources/PagingFetchedResults (3.2.0):
+    - Vokoder/DataSources/Collection (= 3.2.1)
+    - Vokoder/DataSources/FetchedResults (= 3.2.1)
+    - Vokoder/DataSources/PagingFetchedResults (= 3.2.1)
+  - Vokoder/DataSources/Collection (3.2.1):
     - Vokoder/Core
     - Vokoder/DataSources/FetchedResults
-  - Vokoder/MapperMacros (3.2.0):
+  - Vokoder/DataSources/FetchedResults (3.2.1):
+    - Vokoder/Core
+  - Vokoder/DataSources/PagingFetchedResults (3.2.1):
+    - Vokoder/Core
+    - Vokoder/DataSources/FetchedResults
+  - Vokoder/Extension (3.2.1):
+    - Vokoder/DataSources
+  - Vokoder/MapperMacros (3.2.1):
     - Vokoder/Core
   - VOKUtilities/VOKKeyPathHelper (0.9.0)
   - xUnique (4.1.2)
 
 DEPENDENCIES:
   - Vokoder (from `../`)
+  - Vokoder/Extension (from `../`)
   - xUnique (from `https://github.com/vokal/xUnique.git`, commit `26adc7d50b`)
 
 EXTERNAL SOURCES:
@@ -43,10 +46,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ILGDynamicObjC: 63443567f8ce851067ea3070d3b8c7f93d37207c
-  Vokoder: 8a9e56841d3719c6bba8671db9537bfc6d47b0c8
+  Vokoder: d6ebe408d745871a32bdf4dbd7f6343868187499
   VOKUtilities: 460869a30db1beed7ec9954895dff24705db6e06
   xUnique: 7f74d3f52c7769f648aa7be8fe614fc27dba2405
 
-PODFILE CHECKSUM: fff6c970c1aa10c35530ea508253634dc2722905
+PODFILE CHECKSUM: 0076ff581cb02263964efe52587650976afd35ad
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

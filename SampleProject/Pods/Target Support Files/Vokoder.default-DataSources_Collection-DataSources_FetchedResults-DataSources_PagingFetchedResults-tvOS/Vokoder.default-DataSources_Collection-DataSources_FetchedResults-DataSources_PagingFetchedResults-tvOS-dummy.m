@@ -1,5 +1,0 @@
-#import <Foundation/Foundation.h>
-@interface PodsDummy_Vokoder_default_DataSources_Collection_DataSources_FetchedResults_DataSources_PagingFetchedResults_tvOS : NSObject
-@end
-@implementation PodsDummy_Vokoder_default_DataSources_Collection_DataSources_FetchedResults_DataSources_PagingFetchedResults_tvOS
-@end

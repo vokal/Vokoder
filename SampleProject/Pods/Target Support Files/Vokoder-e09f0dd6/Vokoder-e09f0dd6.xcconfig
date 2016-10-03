@@ -1,7 +1,7 @@
-CONFIGURATION_BUILD_DIR = $PODS_CONFIGURATION_BUILD_DIR/Vokoder.default-DataSources_Collection-DataSources_FetchedResults-DataSources_PagingFetchedResults-iOS
+CONFIGURATION_BUILD_DIR = $PODS_CONFIGURATION_BUILD_DIR/Vokoder-e09f0dd6
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Vokoder" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" "${PODS_ROOT}/Headers/Public/VOKUtilities" "${PODS_ROOT}/Headers/Public/Vokoder" "${PODS_ROOT}/Headers/Public/xUnique"
-LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ILGDynamicObjC-iOS"
+LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ILGDynamicObjC-iOS7.0"
 OTHER_LDFLAGS = -framework "CoreData"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

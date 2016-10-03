@@ -28,3 +28,8 @@ target 'VOKCoreDataManager-OSX' do
     #inherit Vokoder pod from parent
   end
 end
+
+target 'TodayWidget' do
+  platform :ios, '8.0'
+  pod 'Vokoder/Extension', :path => '../'
+end

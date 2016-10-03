@@ -1,6 +1,6 @@
 {
   "name": "Vokoder",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "summary": "Vokal's Core Data Manager",
   "homepage": "https://github.com/vokal/Vokoder",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/vokal/Vokoder.git",
-    "tag": "3.2.0"
+    "tag": "3.2.1"
   },
   "platforms": {
     "ios": "7.0",
@@ -102,6 +102,20 @@
         ]
       },
       "source_files": "Pod/Classes/Swift/*.swift"
+    },
+    {
+      "name": "Extension",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "Vokoder/DataSources": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "VOK_TARGET_IS_EXTENSION=1"
+      }
     }
   ]
 }

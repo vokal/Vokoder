@@ -13,6 +13,9 @@ matrix:
         - xcode_workspace: SampleProject/SampleProject.xcworkspace
           xcode_scheme: VOKCoreDataManager-OSX
           xcode_sdk: macosx
+        - xcode_workspace: SampleProject/SampleProject.xcworkspace
+          xcode_scheme: TodayWidget
+          xcode_sdk: iphonesimulator
         - xcode_workspace: Paging Data Source Example/Paging Data Source Example.xcworkspace
           xcode_scheme: Paging Data Source Example
           xcode_sdk: iphonesimulator
