@@ -9,6 +9,8 @@
 #import "TodayViewController.h"
 #import <NotificationCenter/NotificationCenter.h>
 
+#import "VOKCoreDataManager.h"
+
 @interface TodayViewController () <NCWidgetProviding>
 
 @end
@@ -19,6 +21,8 @@
 {
     [super viewDidLoad];
 
+    //Make sure the widget compiles and can access Vokoder
+    [[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:@"VOKCoreDataModel.sqlite"];
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler
