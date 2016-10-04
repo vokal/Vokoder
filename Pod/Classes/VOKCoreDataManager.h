@@ -26,7 +26,7 @@ typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
     /// Silently delete and recreate the database file, data will be erased, but instability and crashing will be avoided
     VOKMigrationFailureOptionWipeRecovery,
     /// Same as VOKMigrationFailureOptionWipeRecoveryAndAlert, but will also notify the user that data has been erased via an on screen alert. NOTE: not yet implemented on OS X
-    VOKMigrationFailureOptionWipeRecoveryAndAlert,
+    VOKMigrationFailureOptionWipeRecoveryAndAlert __deprecated_enum_msg("This option will be removed in Vokoder 4.0"),
 };
 
 /// The action block for asynchronous writing to a temporary context.
