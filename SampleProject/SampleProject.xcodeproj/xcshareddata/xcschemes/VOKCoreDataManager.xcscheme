@@ -52,6 +52,20 @@
                ReferencedContainer = "container:SampleProject.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DB011FCF1A38BC5A18D520E76EB75B35"
+               BuildableName = "TodayWidget.appex"
+               BlueprintName = "TodayWidget"
+               ReferencedContainer = "container:SampleProject.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

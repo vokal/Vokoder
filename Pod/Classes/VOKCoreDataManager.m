@@ -174,7 +174,9 @@ static VOKCoreDataManager *VOK_SharedObject;
                                                           error:&error]) {
         switch (self.migrationFailureOptions) {
             case VOKMigrationFailureOptionWipeRecoveryAndAlert:
-#if VOK_TARGET_USES_UIKIT
+                //NOTE: if compiling in an app extension and you get errors for code below.
+                //add a preprocessor definition for VOK_TARGET_IS_EXTENSION to exclude this code
+#if VOK_TARGET_USES_UIKIT && !defined(VOK_TARGET_IS_EXTENSION)
             {
                 NSString *title = @"Migration Failed";
                 NSString *message = @"Migration has failed, data will be erased to ensure application stability.";
