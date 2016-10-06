@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSManagedObjectContext *privateRootContext;
 
 @property (nonatomic, copy) NSString *resource;
-@property (nonatomic, copy) NSString *databaseFilename;
+@property (nonatomic, strong, readwrite) NSURL *persistentStoreFileURL;
 @property (nonatomic, strong) NSMutableDictionary *mapperCollection;
 @property (nonatomic, strong) NSBundle *bundleForModel;
 
@@ -72,16 +72,30 @@ static VOKCoreDataManager *VOK_SharedObject;
 }
 
 - (void)setResource:(NSString *)resource
-           database:(NSString *)database
+           database:(NSString *)databaseName
              bundle:(NSBundle *)bundle
 {
+    NSURL *databaseURL;
+    if (databaseName) {
+        databaseURL = [[self applicationLibraryDirectory] URLByAppendingPathComponent:databaseName];
+    }
+    
+    [self setResource:resource
+          databaseURL:databaseURL
+               bundle:bundle];
+}
+
+- (void)setResource:(nullable NSString *)resource
+        databaseURL:(nullable NSURL *)databaseURL
+             bundle:(nullable NSBundle *)bundle
+{
     self.resource = resource;
-    self.databaseFilename = database;
+    self.persistentStoreFileURL = databaseURL;
     
     if (bundle) {
         self.bundleForModel = bundle;
     }
-
+    
     // Touch the managed object context to ensure it's been created
     [[VOKCoreDataManager sharedInstance] managedObjectContext];
 }
@@ -705,8 +719,8 @@ static VOKCoreDataManager *VOK_SharedObject;
     NSArray *stores = [_persistentStoreCoordinator persistentStores];
     
     for (NSPersistentStore *store in stores) {
-        [self.persistentStoreCoordinator removePersistentStore:store error:nil];
-        if (self.databaseFilename) {
+        [_persistentStoreCoordinator removePersistentStore:store error:nil];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:store.URL.path]) {
             [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
         }
     }
@@ -718,15 +732,6 @@ static VOKCoreDataManager *VOK_SharedObject;
     _bundleForModel = nil;
     [_mapperCollection removeAllObjects];
     [self addMappableModelMappers];
-}
-
-- (NSURL *)persistentStoreFileURL
-{
-    if (!self.databaseFilename) {
-        return nil;
-    } else {
-        return [[self applicationLibraryDirectory] URLByAppendingPathComponent:self.databaseFilename];
-    }
 }
 
 @end
