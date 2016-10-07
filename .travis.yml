@@ -1,12 +1,16 @@
 language: objective-c
 osx_image: xcode8
-env: # Specify two projects here, so that each is run using the `script` specified below
-  - XC_WORKSPACE=SampleProject/SampleProject.xcworkspace XC_SCHEME="VOKCoreDataManager" XC_SDK=iphonesimulator
-  - XC_WORKSPACE=SampleProject/SampleProject.xcworkspace XC_SCHEME="VOKCoreDataManager-tvOS" XC_SDK=appletvsimulator
-  - XC_WORKSPACE=SampleProject/SampleProject.xcworkspace XC_SCHEME="VOKCoreDataManager-OSX" XC_SDK=macosx
-  - XC_WORKSPACE=SwiftSampleProject/SwiftSampleProject.xcworkspace XC_SCHEME="SwiftyVokoder-OSX" XC_SDK=iphonesimulator
-  - XC_WORKSPACE="Paging Data Source Example/Paging Data Source Example.xcworkspace" XC_SCHEME="Paging Data Source Example" XC_SDK=iphonesimulator
-script: bundle exec fastlane test
+env:
+  global:
+    - SCAN_SKIP_BUILD=1
+  matrix:
+    # Define the details for each test that should be run
+    - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager"         SCAN_SDK="iphonesimulator"
+    - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager-tvOS"    SCAN_SDK="appletvsimulator"
+    - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager-OSX"     SCAN_SDK="macosx"
+    - SCAN_WORKSPACE="SwiftSampleProject/SwiftSampleProject.xcworkspace"                 SCAN_SCHEME="SwiftyVokoder"          SCAN_SDK="macosx"
+    - SCAN_WORKSPACE="Paging Data Source Example/Paging Data Source Example.xcworkspace" SCAN_SCHEME="Paging Data Source Example" SCAN_SDK="iphonesimulator"
+script: bundle exec scan
 after_script:
   - pod lib lint
 git:
