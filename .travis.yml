@@ -20,4 +20,4 @@ matrix:
           xcode_scheme: SwiftyVokoder
           xcode_sdk: iphonesimulator
 after_script:
-    - bundle pod lib lint
+    - bundle exec pod lib lint
