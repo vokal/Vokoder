@@ -1,0 +1,33 @@
+require 'fileutils'
+
+default_platform :ios
+
+platform :ios do
+
+  before_all do
+    # Set up the shared environment keychain name. This is used by fastlane internals as
+    # the keychain for signing certificates.
+    ENV['KEYCHAIN_NAME'] = 'fastlane_keychain'
+  end
+
+  desc "Runs all the tests of the iOS App and gathers code coverage"
+  lane :test do
+    scan(
+      workspace: ENV['XC_WORKSPACE'],
+      scheme: ENV['XC_SCHEME'],
+      sdk: ENV['XC_SDK'],
+      derived_data_path: "fastlane/Build",
+      skip_build: true, #the test action will already kick off a build, don't build twice
+    )
+  end
+
+  # This gets called if the executed lanes were all successful
+  after_all do |lane|
+    puts "Success!"
+  end
+
+  # This gets called if anything failed along the way
+  error do |lane, exception|
+    puts "FAIL!!!!: #{exception}"
+  end
+end

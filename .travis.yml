@@ -1,10 +1,12 @@
 language: objective-c
 osx_image: xcode8
 env: # Specify two projects here, so that each is run using the `script` specified below
-  - PROJECT_DIR=SampleProject
-  - PROJECT_DIR=SwiftSampleProject
-  - PROJECT_DIR="Paging Data Source Example"
-script: cd "${PROJECT_DIR}" && bundle exec fastlane test
+  - XC_WORKSPACE=SampleProject/SampleProject.xcworkspace XC_SCHEME="VOKCoreDataManager" XC_SDK=iphonesimulator
+  - XC_WORKSPACE=SampleProject/SampleProject.xcworkspace XC_SCHEME="VOKCoreDataManager-tvOS" XC_SDK=appletvsimulator
+  - XC_WORKSPACE=SampleProject/SampleProject.xcworkspace XC_SCHEME="VOKCoreDataManager-OSX" XC_SDK=macosx
+  - XC_WORKSPACE=SwiftSampleProject/SwiftSampleProject.xcworkspace XC_SCHEME="SwiftyVokoder-OSX" XC_SDK=iphonesimulator
+  - XC_WORKSPACE="Paging Data Source Example/Paging Data Source Example.xcworkspace" XC_SCHEME="Paging Data Source Example" XC_SDK=iphonesimulator
+script: bundle exec fastlane test
 after_script:
   - pod lib lint
 git:
