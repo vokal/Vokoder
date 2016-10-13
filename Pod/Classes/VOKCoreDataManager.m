@@ -97,7 +97,7 @@
     }
     
     // Touch the managed object context to ensure it's been created
-    [[VOKCoreDataManager sharedInstance] managedObjectContext];
+    [self managedObjectContext];
 }
 
 #pragma mark - Getters
@@ -631,17 +631,18 @@
 
 #pragma mark - Background Importing
 
-+ (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock
+- (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock
                      completion:(void (^)(void))completion
 {
     NSAssert(writeBlock, @"Write block must not be nil");
     
-    NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+    NSManagedObjectContext *tempContext = [self temporaryContext];
+    typeof(self) __weak weakSelf = self;
     [tempContext performBlock:^{
         writeBlock(tempContext);
         
         BOOL wait = (completion != nil);
-        [[VOKCoreDataManager sharedInstance] saveContext:tempContext andWait:wait];
+        [weakSelf saveContext:tempContext andWait:wait];
         
         if (completion) {
             [[NSOperationQueue mainQueue] addOperationWithBlock:completion];
@@ -649,18 +650,19 @@
     }];
 }
 
-+ (void)importArrayInBackground:(NSArray *)inputArray
+- (void)importArrayInBackground:(NSArray *)inputArray
                        forClass:(Class)objectClass
                      completion:(VOKObjectIDsReturnBlock)completion
 {
-    NSManagedObjectContext *tempContext = [[VOKCoreDataManager sharedInstance] temporaryContext];
+    NSManagedObjectContext *tempContext = [self temporaryContext];
+    typeof(self) __weak weakSelf = self;
     [tempContext performBlock:^{
         
-        NSArray *managedObjectsArray = [[VOKCoreDataManager sharedInstance] importArray:inputArray
-                                                                               forClass:objectClass
-                                                                            withContext:tempContext];
+        NSArray *managedObjectsArray = [weakSelf importArray:inputArray
+                                                    forClass:objectClass
+                                                 withContext:tempContext];
         BOOL wait = (completion != nil);
-        [[VOKCoreDataManager sharedInstance] saveContext:tempContext andWait:wait];
+        [weakSelf saveContext:tempContext andWait:wait];
         
         if (completion) {
             NSArray *arrayOfManagedObjectIDs = [managedObjectsArray valueForKeyPath:VOKKeyForInstanceOf(VOKManagedObjectSubclass, objectID)];

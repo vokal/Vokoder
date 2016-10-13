@@ -113,19 +113,20 @@
 
 + (void)vok_addWithArrayInBackground:(NSArray *)inputArray completion:(VOKManagedObjectsReturnBlock)completion
 {
-    [VOKCoreDataManager importArrayInBackground:inputArray
-                                       forClass:[self class]
-                                     completion:^(NSArray *arrayOfManagedObjectIDs) {
-                                         if (completion) {
-                                             // if there is no completion block there's no need to collect the new/updated objects
-                                             NSMutableArray *returnArray = [NSMutableArray arrayWithCapacity:arrayOfManagedObjectIDs.count];
-                                             NSManagedObjectContext *moc = [[VOKCoreDataManager sharedInstance] managedObjectContext];
-                                             for (NSManagedObjectID *objectID in arrayOfManagedObjectIDs) {
-                                                 [returnArray addObject:[moc objectWithID:objectID]];
-                                             }
-                                             completion([returnArray copy]);
-                                         }
-                                     }];
+    VOKCoreDataManager *coreDataManager = VOKCoreDataManager.sharedInstance;
+    [coreDataManager importArrayInBackground:inputArray
+                                    forClass:[self class]
+                                  completion:^(NSArray *arrayOfManagedObjectIDs) {
+                                      if (completion) {
+                                          // if there is no completion block there's no need to collect the new/updated objects
+                                          NSMutableArray *returnArray = [NSMutableArray arrayWithCapacity:arrayOfManagedObjectIDs.count];
+                                          NSManagedObjectContext *moc = [coreDataManager managedObjectContext];
+                                          for (NSManagedObjectID *objectID in arrayOfManagedObjectIDs) {
+                                              [returnArray addObject:[moc objectWithID:objectID]];
+                                          }
+                                          completion([returnArray copy]);
+                                      }
+                                  }];
 }
 
 #pragma mark - Fetching
