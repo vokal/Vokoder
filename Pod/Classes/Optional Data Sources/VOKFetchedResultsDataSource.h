@@ -239,16 +239,16 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return New data source
  */
-- (instancetype)initWithCoreDataManager:(VOKCoreDataManager *)coreDataManager
-                              predicate:(NSPredicate *)predicate
-                              cacheName:(NSString *)cacheName
-                              tableView:(UITableView *)tableView
-                     sectionNameKeyPath:(NSString *)sectionNameKeyPath
-                        sortDescriptors:(NSArray *)sortDescriptors
+- (instancetype)initWithCoreDataManager:(nullable VOKCoreDataManager *)coreDataManager
+                              predicate:(nullable NSPredicate *)predicate
+                              cacheName:(nullable NSString *)cacheName
+                              tableView:(nullable UITableView *)tableView
+                     sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
+                        sortDescriptors:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
                      managedObjectClass:(Class)managedObjectClass
                               batchSize:(NSInteger)batchSize
                              fetchLimit:(NSInteger)fetchLimit
-                               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate;
+                               delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
 
 /**
  Provide a cell for the given index path. The default implementation of this method attempts to
