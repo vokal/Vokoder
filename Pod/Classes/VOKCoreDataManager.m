@@ -8,6 +8,8 @@
 #import "VOKCoreDataManager.h"
 #import "VOKCoreDataManagerInternalMacros.h"
 
+#import <objc/runtime.h>
+
 #import <ILGDynamicObjC/ILGClasses.h>
 #import <VOKUtilities/VOKKeyPathHelper.h>
 
@@ -249,7 +251,7 @@
 - (NSManagedObject *)managedObjectOfClass:(Class)managedObjectClass inContext:(NSManagedObjectContext *)contextOrNil
 {
     contextOrNil = [self safeContext:contextOrNil];
-    return [NSEntityDescription insertNewObjectForEntityForName:[managedObjectClass vok_entityName]
+    return [NSEntityDescription insertNewObjectForEntityForName:[self entityNameForClass:managedObjectClass]
                                          inManagedObjectContext:contextOrNil];
 }
 
@@ -368,6 +370,55 @@
     } else {
         return [mapper dictionaryRepresentationOfManagedObject:object];
     }
+}
+
+#pragma mark - Entity Name
+
+- (NSString *)entityNameForClass:(Class)managedObjectClass
+{
+    // For the runtime associated objects, use the address of self (&self) so that the association is tied to this
+    // particular core data manager instance.
+    
+    // Get the associated value.
+    NSString *entityName = objc_getAssociatedObject(managedObjectClass, &self);
+    
+    // If we didn't find an associated entity name, determine the entity name.
+    if (!entityName) {
+        // If the class has an entityName class method (e.g., MOGenerator-generated subclasses), use it.
+        // (Note that we have to cast the Class to id to use NSObject's dynamic-selector methods, even though they work.)
+        if ([(id)managedObjectClass respondsToSelector:@selector(entityName)]) {
+            entityName = [(id)managedObjectClass performSelector:@selector(entityName)];
+        }
+        if (!entityName) {
+            // On OS X, NSObject has a private class method called entityName but it may return nil.
+            // https://github.com/rentzsch/mogenerator/issues/196
+            
+            // Since we don't have an entityName class method (or it didn't return a result),
+            // look up the entity name in the managed object model.
+            NSManagedObjectModel *model = self.managedObjectModel;
+            
+            // Start with the given class...
+            Class workingClass = managedObjectClass;
+            do {
+                NSString *workingClassName = NSStringFromClass(workingClass);
+                // ... check for a matching entity in the model...
+                for (NSEntityDescription *description in model.entities) {
+                    if ([workingClassName isEqualToString:description.managedObjectClassName]) {
+                        entityName = description.name;
+                        break;
+                    }
+                }
+                // ... and walk up the superclass chain...
+                workingClass = [workingClass superclass];
+                // ... until we get Nil or find a matching entity (as long as we have a superclass to test and haven't found the entity name).
+            } while (workingClass && !entityName);
+        }
+        NSAssert(entityName, @"no entity found that uses %@ as its class", NSStringFromClass(managedObjectClass));
+        // Save the determined entity name as an associated value.
+        objc_setAssociatedObject(managedObjectClass, &self, entityName, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    
+    return entityName;
 }
 
 #pragma mark - Count, Fetch, and Delete
@@ -678,7 +729,7 @@
 
 - (NSFetchRequest *)fetchRequestWithClass:(Class)managedObjectClass predicate:(NSPredicate *)predicate
 {
-    NSString *entityName = [managedObjectClass vok_entityName];
+    NSString *entityName = [self entityNameForClass:managedObjectClass];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
     fetchRequest.predicate = predicate;
     return fetchRequest;

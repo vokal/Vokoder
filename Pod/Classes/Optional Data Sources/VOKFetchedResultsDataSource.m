@@ -280,7 +280,7 @@
     NSManagedObjectContext *moc = [self.coreDataManager managedObjectContext];
 
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:[_managedObjectClass vok_entityName]
+    NSEntityDescription *entity = [NSEntityDescription entityForName:[self.coreDataManager entityNameForClass:_managedObjectClass]
                                               inManagedObjectContext:moc];
     fetchRequest.entity = entity;
     

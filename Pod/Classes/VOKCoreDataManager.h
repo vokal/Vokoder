@@ -153,6 +153,13 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
                                                          respectKeyPaths:(BOOL)keyPathsEnabled;
 
 /**
+ Get the entity name for a given managed object class.
+ @param managedObjectClass  The target NSManagedObject subclass.
+ @return                    The entity name corresponding to the given managed object class or nil if it cannot be determined.
+ */
+- (nullable NSString *)entityNameForClass:(Class)managedObjectClass;
+
+/**
  Counts every instance of a given class using the main managed object context. Includes subentities.
  NOT threadsafe! Always use a temp context if you are NOT on the main queue, by calling countForClass:forContext: instead
  @param managedObjectClass      The class to count.
