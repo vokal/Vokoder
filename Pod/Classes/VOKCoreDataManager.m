@@ -44,15 +44,15 @@
     [self sharedInstance];
 }
 
-static VOKCoreDataManager *VOK_SharedObject;
 + (VOKCoreDataManager *)sharedInstance
 {
+    static VOKCoreDataManager *sharedInstance;
     static dispatch_once_t pred;
     dispatch_once(&pred, ^{
-        VOK_SharedObject = [[self alloc] init];
-        [VOK_SharedObject addMappableModelMappers];
+        sharedInstance = [[self alloc] init];
+        [sharedInstance addMappableModelMappers];
     });
-    return VOK_SharedObject;
+    return sharedInstance;
 }
 
 - (instancetype)init
