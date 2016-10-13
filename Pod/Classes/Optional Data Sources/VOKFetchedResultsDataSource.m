@@ -14,23 +14,27 @@
 @property (nonatomic, copy) NSString *sectionNameKeyPath;
 @property (nonatomic, copy) NSString *cacheName;
 
+@property (nonatomic, strong) VOKCoreDataManager *coreDataManager;
+
 @end
 
 @implementation VOKFetchedResultsDataSource
 
-- (instancetype)initWithPredicate:(NSPredicate *)predicate
-                        cacheName:(NSString *)cacheName
-                        tableView:(UITableView *)tableView
-               sectionNameKeyPath:(NSString *)sectionNameKeyPath
-                  sortDescriptors:(NSArray *)sortDescriptors
-               managedObjectClass:(Class)managedObjectClass
-                        batchSize:(NSInteger)batchSize
-                       fetchLimit:(NSInteger)fetchLimit
-                         delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
+- (instancetype)initWithCoreDataManager:(VOKCoreDataManager *)coreDataManager
+                              predicate:(NSPredicate *)predicate
+                              cacheName:(NSString *)cacheName
+                              tableView:(UITableView *)tableView
+                     sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                        sortDescriptors:(NSArray *)sortDescriptors
+                     managedObjectClass:(Class)managedObjectClass
+                              batchSize:(NSInteger)batchSize
+                             fetchLimit:(NSInteger)fetchLimit
+                               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
 {
     self = [super init];
 
     if (self) {
+        _coreDataManager = coreDataManager ?: VOKCoreDataManager.sharedInstance;
         _predicate = predicate;
         _sortDescriptors = sortDescriptors;
         _managedObjectClass = managedObjectClass;
@@ -50,6 +54,28 @@
     }
 
     return self;
+}
+
+- (instancetype)initWithPredicate:(NSPredicate *)predicate
+                        cacheName:(NSString *)cacheName
+                        tableView:(UITableView *)tableView
+               sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                  sortDescriptors:(NSArray *)sortDescriptors
+               managedObjectClass:(Class)managedObjectClass
+                        batchSize:(NSInteger)batchSize
+                       fetchLimit:(NSInteger)fetchLimit
+                         delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
+{
+    return [self initWithCoreDataManager:VOKCoreDataManager.sharedInstance
+                               predicate:predicate
+                               cacheName:cacheName
+                               tableView:tableView
+                      sectionNameKeyPath:sectionNameKeyPath
+                         sortDescriptors:sortDescriptors
+                      managedObjectClass:managedObjectClass
+                               batchSize:batchSize
+                              fetchLimit:fetchLimit
+                                delegate:delegate];
 }
 
 - (instancetype)initWithPredicate:(NSPredicate *)predicate
@@ -251,7 +277,7 @@
 
 - (void)initFetchedResultsController
 {
-    NSManagedObjectContext *moc = [[VOKCoreDataManager sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [self.coreDataManager managedObjectContext];
 
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:[_managedObjectClass vok_entityName]

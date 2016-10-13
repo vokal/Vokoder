@@ -224,6 +224,33 @@ NS_ASSUME_NONNULL_BEGIN
                          delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
 
 /**
+ Setup this data source.
+ 
+ @param coreDataManager    VOKCoreDataManager object to use as the core data manager
+ @param predicate          Predicate used to filter the objects displayed
+ @param cacheName          Name for the fetched results controller cache
+ @param tableView          Table view to display in. The data source and delegate are set to the newly-created data source.
+ @param sectionNameKeyPath Keypath to use to group results in sections
+ @param sortDescriptors    Sort descriptors to sort the objects
+ @param managedObjectClass NSManagedObject subclass to fetch
+ @param batchSize          Batch size to use for the fetch request fetchBatchSize.
+ @param fetchLimit         Fetch limit to use for the fetch request fetchLimit.
+ @param delegate           Delegate to notify of object selection/deselection and whether the fetch has results
+ 
+ @return New data source
+ */
+- (instancetype)initWithCoreDataManager:(VOKCoreDataManager *)coreDataManager
+                              predicate:(NSPredicate *)predicate
+                              cacheName:(NSString *)cacheName
+                              tableView:(UITableView *)tableView
+                     sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                        sortDescriptors:(NSArray *)sortDescriptors
+                     managedObjectClass:(Class)managedObjectClass
+                              batchSize:(NSInteger)batchSize
+                             fetchLimit:(NSInteger)fetchLimit
+                               delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate;
+
+/**
  Provide a cell for the given index path. The default implementation of this method attempts to
  dequeue a cell with the reuse identifier "CellIdentifier" and returns it without any configuration.
  As such, this method should be overridden in all subclasses.
