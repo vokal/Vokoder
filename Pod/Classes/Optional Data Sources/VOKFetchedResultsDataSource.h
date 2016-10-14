@@ -226,7 +226,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Setup this data source.
  
- @param coreDataManager    VOKCoreDataManager object to use as the core data manager
+ @param coreDataManager    VOKCoreDataManager object to use as the core data manager (pass nil to use VOKCoreDataManager.sharedInstance)
  @param predicate          Predicate used to filter the objects displayed
  @param cacheName          Name for the fetched results controller cache
  @param tableView          Table view to display in. The data source and delegate are set to the newly-created data source.

@@ -66,7 +66,7 @@
                        fetchLimit:(NSInteger)fetchLimit
                          delegate:(id <VOKFetchedResultsDataSourceDelegate>)delegate
 {
-    return [self initWithCoreDataManager:VOKCoreDataManager.sharedInstance
+    return [self initWithCoreDataManager:nil
                                predicate:predicate
                                cacheName:cacheName
                                tableView:tableView
