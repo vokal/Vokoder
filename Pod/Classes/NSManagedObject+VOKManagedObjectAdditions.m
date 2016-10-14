@@ -7,8 +7,6 @@
 
 #import "NSManagedObject+VOKManagedObjectAdditions.h"
 
-#import <objc/runtime.h>
-
 #import "VOKCoreDataManager.h"
 
 @implementation NSManagedObject (VOKManagedObjectAdditions)
