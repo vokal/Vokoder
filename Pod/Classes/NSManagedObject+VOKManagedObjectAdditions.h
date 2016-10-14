@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// A completion block after an asynchronous operation on a temporary context. NSManagedObject's are not threadsafe.
 typedef void(^VOKManagedObjectsReturnBlock)(VOKArrayOfManagedObjects *managedObjects);
 
+/**
+ This category adds conveniece methods to NSManagedObject.  These methods call the underlying methods on VOKCoreDataManager.sharedInstance.
+ */
 @interface NSManagedObject (VOKManagedObjectAdditions)
 
 /**
