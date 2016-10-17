@@ -153,6 +153,13 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
                                                          respectKeyPaths:(BOOL)keyPathsEnabled;
 
 /**
+ Get the entity name for a given managed object class.
+ @param managedObjectClass  The target NSManagedObject subclass.
+ @return                    The entity name corresponding to the given managed object class or nil if it cannot be determined.
+ */
+- (nullable NSString *)entityNameForClass:(Class)managedObjectClass;
+
+/**
  Counts every instance of a given class using the main managed object context. Includes subentities.
  NOT threadsafe! Always use a temp context if you are NOT on the main queue, by calling countForClass:forContext: instead
  @param managedObjectClass      The class to count.
@@ -293,7 +300,7 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
                         Do not save or merge the context, it will be done for you.
  @prarm completion      Fired on the main queue once the changes have been merged.
  */
-+ (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock
+- (void)writeToTemporaryContext:(VOKWriteBlock)writeBlock
                      completion:(nullable void (^)(void))completion;
 
 /**
@@ -302,7 +309,7 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
  @param objectClass     Specifies the class to instantiate or fetch when importing data.
  @param completion      Fired on the main queue once the changes have been merged. It brings an NSArray of permanent NSManagedObjectIDs matching the objects deserialized from the import array.
  */
-+ (void)importArrayInBackground:(VOKArrayOfObjectDictionaries *)inputArray
+- (void)importArrayInBackground:(VOKArrayOfObjectDictionaries *)inputArray
                        forClass:(Class)objectClass
                      completion:(nullable VOKObjectIDsReturnBlock)completion;
 

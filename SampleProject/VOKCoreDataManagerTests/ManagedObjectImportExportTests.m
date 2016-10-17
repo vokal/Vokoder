@@ -228,7 +228,7 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
     [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VOKPerson class]];
 
     XCTestExpectation *completionExpectation = [self expectationWithDescription:@"completion"];
-    [VOKCoreDataManager writeToTemporaryContext:^(NSManagedObjectContext *tempContext) {
+    [VOKCoreDataManager.sharedInstance writeToTemporaryContext:^(NSManagedObjectContext *tempContext) {
         [VOKPerson vok_addWithArray:array forManagedObjectContext:tempContext];
     } completion:^{
         NSArray *arrayOfPeople = [VOKPerson vok_fetchAllForPredicate:nil forManagedObjectContext:nil];
@@ -256,23 +256,24 @@ static NSString *const THING_HAT_COUNT_KEY = @"thing_hats";
                        [self makePersonDictForCustomMapper],
                        ];
     VOKManagedObjectMapper *mapper = [VOKManagedObjectMapper mapperWithUniqueKey:nil andMaps:[self customMapsArray]];
-    [[VOKCoreDataManager sharedInstance] setObjectMapper:mapper forClass:[VOKPerson class]];
-
+    VOKCoreDataManager *coreDataManager = VOKCoreDataManager.sharedInstance;
+    [coreDataManager setObjectMapper:mapper forClass:[VOKPerson class]];
+    
     XCTestExpectation *completionExpectation = [self expectationWithDescription:@"completion"];
-    [VOKCoreDataManager importArrayInBackground:array
-                                       forClass:[VOKPerson class]
-                                     completion:^(NSArray *arrayOfManagedObjectIDs) {
-                                         NSMutableArray *arrayOfPeople = [NSMutableArray arrayWithCapacity:arrayOfManagedObjectIDs.count];
-                                         NSManagedObjectContext *moc = [[VOKCoreDataManager sharedInstance] managedObjectContext];
-                                         for (NSManagedObjectID *objectID in arrayOfManagedObjectIDs) {
-                                             VOKPerson *obj = (VOKPerson *)[moc objectWithID:objectID];
-                                             [arrayOfPeople addObject:obj];
-                                             [self checkCustomMappingForPerson:obj
-                                                                 andDictionary:[self makePersonDictForCustomMapper]];
-                                         }
-                                         XCTAssertEqual(arrayOfPeople.count, 5, @"person array has incorrect number of people");
-                                         [completionExpectation fulfill];
-                                     }];
+    [coreDataManager importArrayInBackground:array
+                                    forClass:[VOKPerson class]
+                                  completion:^(NSArray *arrayOfManagedObjectIDs) {
+                                      NSMutableArray *arrayOfPeople = [NSMutableArray arrayWithCapacity:arrayOfManagedObjectIDs.count];
+                                      NSManagedObjectContext *moc = [[VOKCoreDataManager sharedInstance] managedObjectContext];
+                                      for (NSManagedObjectID *objectID in arrayOfManagedObjectIDs) {
+                                          VOKPerson *obj = (VOKPerson *)[moc objectWithID:objectID];
+                                          [arrayOfPeople addObject:obj];
+                                          [self checkCustomMappingForPerson:obj
+                                                              andDictionary:[self makePersonDictForCustomMapper]];
+                                      }
+                                      XCTAssertEqual(arrayOfPeople.count, 5, @"person array has incorrect number of people");
+                                      [completionExpectation fulfill];
+                                  }];
     [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
         XCTAssertNil(error, @"Error waiting for response:%@", error.description);
     }];

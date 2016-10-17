@@ -224,6 +224,33 @@ NS_ASSUME_NONNULL_BEGIN
                          delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
 
 /**
+ Setup this data source.
+ 
+ @param coreDataManager    VOKCoreDataManager object to use as the core data manager (pass nil to use VOKCoreDataManager.sharedInstance)
+ @param predicate          Predicate used to filter the objects displayed
+ @param cacheName          Name for the fetched results controller cache
+ @param tableView          Table view to display in. The data source and delegate are set to the newly-created data source.
+ @param sectionNameKeyPath Keypath to use to group results in sections
+ @param sortDescriptors    Sort descriptors to sort the objects
+ @param managedObjectClass NSManagedObject subclass to fetch
+ @param batchSize          Batch size to use for the fetch request fetchBatchSize.
+ @param fetchLimit         Fetch limit to use for the fetch request fetchLimit.
+ @param delegate           Delegate to notify of object selection/deselection and whether the fetch has results
+ 
+ @return New data source
+ */
+- (instancetype)initWithCoreDataManager:(nullable VOKCoreDataManager *)coreDataManager
+                              predicate:(nullable NSPredicate *)predicate
+                              cacheName:(nullable NSString *)cacheName
+                              tableView:(nullable UITableView *)tableView
+                     sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
+                        sortDescriptors:(nullable VOKArrayOfSortDescriptors *)sortDescriptors
+                     managedObjectClass:(Class)managedObjectClass
+                              batchSize:(NSInteger)batchSize
+                             fetchLimit:(NSInteger)fetchLimit
+                               delegate:(nullable id <VOKFetchedResultsDataSourceDelegate>)delegate;
+
+/**
  Provide a cell for the given index path. The default implementation of this method attempts to
  dequeue a cell with the reuse identifier "CellIdentifier" and returns it without any configuration.
  As such, this method should be overridden in all subclasses.

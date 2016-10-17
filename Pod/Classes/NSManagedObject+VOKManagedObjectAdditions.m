@@ -7,8 +7,6 @@
 
 #import "NSManagedObject+VOKManagedObjectAdditions.h"
 
-#import <objc/runtime.h>
-
 #import "VOKCoreDataManager.h"
 
 @implementation NSManagedObject (VOKManagedObjectAdditions)
@@ -34,48 +32,7 @@
 
 + (NSString *)vok_entityName
 {
-    static char AssociatedObjectKey;  // The key for the runtime-association.
-    
-    // Get the associated value.
-    NSString *vok_entityName = objc_getAssociatedObject(self, &AssociatedObjectKey);
-    
-    // If we didn't find an associated entity name, determine the entity name.
-    if (!vok_entityName) {
-        // If we already have an entityName class method (e.g., MOGenerator-generated subclasses), use it.
-        // (Note that we have to cast self (a Class) to id to use NSObject's dynamic-selector methods, even though they work.)
-        if ([(id)self respondsToSelector:@selector(entityName)]) {
-            vok_entityName = [(id)self performSelector:@selector(entityName)];
-        }
-        if (!vok_entityName) {
-            // On OS X, NSObject has a private class method called entityName but it may return nil.
-            // https://github.com/rentzsch/mogenerator/issues/196
-            
-            // Since we don't have an entityName class method (or it didn't return a result),
-            // look up the entity name in the managed object model.
-            NSManagedObjectModel *model = [[VOKCoreDataManager sharedInstance] managedObjectModel];
-            
-            // Start with the class we are...
-            Class workingClass = self;
-            do {
-                NSString *workingClassName = NSStringFromClass(workingClass);
-                // ... check for a matching entity in the model...
-                for (NSEntityDescription *description in model.entities) {
-                    if ([workingClassName isEqualToString:description.managedObjectClassName]) {
-                        vok_entityName = description.name;
-                        break;
-                    }
-                }
-                // ... and walk up the superclass chain...
-                workingClass = [workingClass superclass];
-                // ... until we get Nil or find a matching entity (as long as we have a superclass to test and haven't found the entity name).
-            } while (workingClass && !vok_entityName);
-        }
-        NSAssert(vok_entityName, @"no entity found that uses %@ as its class", NSStringFromClass(self));
-        // Save the determined entity name as an associated value.
-        objc_setAssociatedObject(self, &AssociatedObjectKey, vok_entityName, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    
-    return vok_entityName;
+    return [[VOKCoreDataManager sharedInstance] entityNameForClass:self];
 }
 
 #pragma mark - Create Objects
@@ -113,19 +70,20 @@
 
 + (void)vok_addWithArrayInBackground:(NSArray *)inputArray completion:(VOKManagedObjectsReturnBlock)completion
 {
-    [VOKCoreDataManager importArrayInBackground:inputArray
-                                       forClass:[self class]
-                                     completion:^(NSArray *arrayOfManagedObjectIDs) {
-                                         if (completion) {
-                                             // if there is no completion block there's no need to collect the new/updated objects
-                                             NSMutableArray *returnArray = [NSMutableArray arrayWithCapacity:arrayOfManagedObjectIDs.count];
-                                             NSManagedObjectContext *moc = [[VOKCoreDataManager sharedInstance] managedObjectContext];
-                                             for (NSManagedObjectID *objectID in arrayOfManagedObjectIDs) {
-                                                 [returnArray addObject:[moc objectWithID:objectID]];
-                                             }
-                                             completion([returnArray copy]);
-                                         }
-                                     }];
+    VOKCoreDataManager *coreDataManager = VOKCoreDataManager.sharedInstance;
+    [coreDataManager importArrayInBackground:inputArray
+                                    forClass:[self class]
+                                  completion:^(NSArray *arrayOfManagedObjectIDs) {
+                                      if (completion) {
+                                          // if there is no completion block there's no need to collect the new/updated objects
+                                          NSMutableArray *returnArray = [NSMutableArray arrayWithCapacity:arrayOfManagedObjectIDs.count];
+                                          NSManagedObjectContext *moc = [coreDataManager managedObjectContext];
+                                          for (NSManagedObjectID *objectID in arrayOfManagedObjectIDs) {
+                                              [returnArray addObject:[moc objectWithID:objectID]];
+                                          }
+                                          completion([returnArray copy]);
+                                      }
+                                  }];
 }
 
 #pragma mark - Fetching
