@@ -25,9 +25,13 @@ typedef NS_ENUM (NSInteger, VOKMigrationFailureOption) {
     VOKMigrationFailureOptionNone,
     /// Silently delete and recreate the database file, data will be erased, but instability and crashing will be avoided
     VOKMigrationFailureOptionWipeRecovery,
-    /// Same as VOKMigrationFailureOptionWipeRecoveryAndAlert, but will also notify the user that data has been erased via an on screen alert. NOTE: not yet implemented on OS X
-    VOKMigrationFailureOptionWipeRecoveryAndAlert,
 };
+
+/**
+ * Name of the NSNotification that's posted after a successful DB wipe following a migration failure.
+ * See VOKMigrationFailureOptionWipeRecovery.
+ */
+FOUNDATION_EXPORT NSString *const VOKMigrationFailureWipeRecoveryNotificationName;
 
 /// The action block for asynchronous writing to a temporary context.
 typedef void(^VOKWriteBlock)(NSManagedObjectContext *tempContext);
