@@ -10,6 +10,7 @@ env:
     - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager-OSX"     SCAN_SDK="macosx"
     - SCAN_WORKSPACE="SwiftSampleProject/SwiftSampleProject.xcworkspace"                 SCAN_SCHEME="SwiftyVokoder"              SCAN_SDK="iphonesimulator"
     - SCAN_WORKSPACE="Paging Data Source Example/Paging Data Source Example.xcworkspace" SCAN_SCHEME="Paging Data Source Example" SCAN_SDK="iphonesimulator"
+    - SCAN_WORKSPACE="MigrationProject/MigrationProject.xcworkspace"                     SCAN_SCHEME="MigrationProject"           SCAN_SDK="iphonesimulator"
 script: bundle exec scan
 after_script:
   - bundle exec pod lib lint
