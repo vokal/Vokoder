@@ -123,7 +123,7 @@
 		869B5154502141C012BA472A1C847BDE /* ILGClasses.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ILGClasses.h; path = Pod/ILGClasses/ILGClasses.h; sourceTree = "<group>"; };
 		86BA5C9F5E34AB041378F240DF219CA0 /* Vokoder.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Vokoder.modulemap; sourceTree = "<group>"; };
 		88A5294456A06DB5042E6E9FCFA15458 /* VOKManagedObjectMap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VOKManagedObjectMap.h; sourceTree = "<group>"; };
-		9AD7F7B2FD0271A000FCD221B7247089 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9AD7F7B2FD0271A000FCD221B7247089 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		9E243B438B1D6042D561987A9CA9E5FD /* Pods-SwiftyVokoder-SwiftyVokoderTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftyVokoder-SwiftyVokoderTests-dummy.m"; sourceTree = "<group>"; };
 		A0FF4DDB99171632570406CC45453357 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A38FF61C71733211E6DDB19385503404 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -136,7 +136,7 @@
 		C4902ACEB6F9D234A1C2BF2DA248D53D /* ILGDynamicObjC-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ILGDynamicObjC-prefix.pch"; sourceTree = "<group>"; };
 		CC8DC84CD7368660327087E59AD57D32 /* VOKDefaultPagingAccessory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VOKDefaultPagingAccessory.m; sourceTree = "<group>"; };
 		CD88F0AAFA2539E326897370447A0A47 /* Pods_SwiftyVokoder_SwiftyVokoderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyVokoder_SwiftyVokoderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEB59BB85EC7E22208C8A9DC78B41673 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		CEB59BB85EC7E22208C8A9DC78B41673 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		D04EC1A9C6BA5D4E222D9E5525D6D641 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC30256BDC690C4FDE85E97F341E11E1 /* Vokoder.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Vokoder.xcconfig; sourceTree = "<group>"; };
 		DF30ECF27987776BECCD96663C0D3700 /* VokoderTypedManagedObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VokoderTypedManagedObject.swift; sourceTree = "<group>"; };
@@ -436,6 +436,15 @@
 			path = Internal;
 			sourceTree = "<group>";
 		};
+		A82DCA28FABF1F9080B1B2234FFB9045 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEB59BB85EC7E22208C8A9DC78B41673 /* CoreData.framework */,
+				9AD7F7B2FD0271A000FCD221B7247089 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		4C41F011FF8ED22F05291E655C2F2619 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,15 +506,6 @@
 			);
 			name = "Pods-SwiftyVokoder";
 			path = "Target Support Files/Pods-SwiftyVokoder";
-			sourceTree = "<group>";
-		};
-		A82DCA28FABF1F9080B1B2234FFB9045 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				CEB59BB85EC7E22208C8A9DC78B41673 /* CoreData.framework */,
-				9AD7F7B2FD0271A000FCD221B7247089 /* Foundation.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 		6E64A72C77FF954E0048EEA6218BA40E /* Optional Data Sources */ = {
