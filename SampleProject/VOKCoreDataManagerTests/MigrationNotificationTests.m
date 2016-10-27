@@ -31,19 +31,21 @@
     XCTAssertNotNil(oldPersistentStoreURL, @"Cannot find MyDB.sqlite");
 
     NSURL *docsDir = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask].lastObject;
+    XCTAssertNotNil(docsDir);
     self.persistentStoreURL = [docsDir URLByAppendingPathComponent:@"testdb"];
     
     // Copy the old version of the database into the documents directory to work with
     NSError *error;
-     [[NSFileManager defaultManager] copyItemAtURL:oldPersistentStoreURL
-                                             toURL:self.persistentStoreURL
-                                             error:&error];
-     XCTAssertNil(error);
+    BOOL copySuccess = [[NSFileManager defaultManager] copyItemAtURL:oldPersistentStoreURL
+                                                               toURL:self.persistentStoreURL
+                                                               error:&error];
+    XCTAssertNil(error, @"Error copying old persistent store file");
+    XCTAssertTrue(copySuccess, @"Failed to copy old persistent store file");
 }
 
 - (void)tearDown
 {
-    // Make sure the file doesn't lingered around after the test is done
+    // Make sure the file doesn't linger around after the test is done
     [[NSFileManager defaultManager] removeItemAtURL:self.persistentStoreURL error:nil];
     self.persistentStoreURL = nil;
     [super tearDown];
