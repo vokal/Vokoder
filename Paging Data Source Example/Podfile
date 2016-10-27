@@ -1,6 +1,4 @@
-source 'https://github.com/CocoaPods/Specs.git'
-
-target 'Paging Data Source Example', :exclusive => true do
+target 'Paging Data Source Example' do
   pod 'Vokoder', :path => '../'
   pod 'xUnique', :git => 'https://github.com/vokal/xUnique.git', :commit => '26adc7d50b'
 end
