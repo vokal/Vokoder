@@ -1,5 +1,3 @@
-source 'https://github.com/CocoaPods/Specs.git'
-
 def vokoder_pod
   pod 'Vokoder', :path => '../'
 end
@@ -7,24 +5,28 @@ end
 target 'VOKCoreDataManager' do
   vokoder_pod
   pod 'xUnique', :git => 'https://github.com/vokal/xUnique.git', :commit => '26adc7d50b'
-end
 
-target 'VOKCoreDataManager Tests' do
-  vokoder_pod
-end
-
-target 'VOKCoreDataManager-tvOS' do
-  platform :tvos, '9.0'
-  vokoder_pod
-  target 'VOKCoreDataManagerTests-tvOS' do
-    #inherit Vokoder pod from parent
+  target 'VOKCoreDataManager Tests' do
+    inherit! :search_paths
   end
+
 end
 
 target 'VOKCoreDataManager-OSX' do
   platform :osx, '10.9'
   vokoder_pod
+
   target 'VOKCoreDataManagerTests-OSX' do
-    #inherit Vokoder pod from parent
+    inherit! :search_paths
   end
+end
+
+target 'VOKCoreDataManager-tvOS' do
+  platform :tvos, '9.0'
+  vokoder_pod
+
+  target 'VOKCoreDataManagerTests-tvOS' do
+    inherit! :search_paths
+  end
+
 end

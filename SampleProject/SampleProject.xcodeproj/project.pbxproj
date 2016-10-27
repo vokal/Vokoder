@@ -54,8 +54,8 @@
 		8F53982CDAFFFA4E1483BFDD8C114742 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22A9C3E9C207075DFDCD69096AE5A404 /* InfoPlist.strings */; };
 		8F7C2CCA5A98819B95085C02B41BF91C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5AFB41A45B6AB07B4CAAF4933AAE026 /* Foundation.framework */; };
 		9306E42CCE90307D0BDA0018279370AC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6B321DB495E4C30A493B2DB9A41656 /* UIKit.framework */; };
+		978A6E39E00F6936CB69D7E9B77F5CB7 /* libPods-VOKCoreDataManagerTests-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320E9DB99296F2E119CD4295BF07169D /* libPods-VOKCoreDataManagerTests-tvOS.a */; };
 		9E006B5A75D1CD6A035294F54493D22D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B16F6D2C144CCC5BE17B24F38B1101E /* Default-568h@2x.png */; };
-		A3EE8CAB2778552B89F4E4E180677164 /* libPods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF303763CF5C95088A86A5FA937131E /* libPods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.a */; };
 		A5DEC0D2BDFD3604BEA85ECA1B0405B9 /* MigrationNotificationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2659E97CD2A58A7CABA87C807E1DC83D /* MigrationNotificationTests.m */; };
 		AC28F27C4328AB9E2D90D073BEEA931B /* BaseballTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = FE53AFD00E313B14707C69813B68ABF2 /* BaseballTeam.m */; };
 		ACD658ADEBDFAF74E5B6D4008D522519 /* VOKThing.m in Sources */ = {isa = PBXBuildFile; fileRef = C492A67818286CDA302FFF0E534A5875 /* VOKThing.m */; };
@@ -93,6 +93,7 @@
 		F2C00F72A8ED293B4E6324C2952234CB /* BundleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4DD2AAEC0B3DD755783E7F21A464A /* BundleTests.m */; };
 		F4A7BC2F0A5A29E91C0F97EC38907630 /* VOKManagedObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 670959E41C09F12BE8B77B7E7B89A730 /* VOKManagedObjectAdditions.m */; };
 		F4EE1690BF39D4BA7772CC4BB8FDD4A9 /* BaseballModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 628F4F3CFE1CCED3144EE80751BA2622 /* BaseballModel.xcdatamodeld */; };
+		F95CFFC357AAA508AF6E341AA7E585DF /* libPods-VOKCoreDataManagerTests-OSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B3C8559A70AB5A0CD90C3D593300CD /* libPods-VOKCoreDataManagerTests-OSX.a */; };
 		F96FAAEFD622780D5452DFA1B9DA28F8 /* CoreDataManagerDeleteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7381A2721C74D316B999FB71F93FF56C /* CoreDataManagerDeleteTests.m */; };
 		FD9CD663AF9CAC41227BC3BD2D8E8268 /* VOKCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B49410900A158E8377CE7F2559B9C35 /* VOKCoreDataModel.xcdatamodeld */; };
 		FDACA04F17E0D04BED54883A4A0C9DE0 /* VOKEntityA.m in Sources */ = {isa = PBXBuildFile; fileRef = 861BB9DE6B90C6BDE07193D7893D9589 /* VOKEntityA.m */; };
@@ -138,6 +139,8 @@
 		1BF6B8760CCF755088183EFC283575B3 /* VOKPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPerson.h; sourceTree = "<group>"; };
 		1D375AD41A0ED432613256AD6853ADBB /* VOKEntityC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKEntityC.m; sourceTree = "<group>"; };
 		1DC688BC38E49048764D57D15048C313 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1E6916EC2018F246D4D899080DEADD14 /* Pods-VOKCoreDataManagerTests-OSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManagerTests-OSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManagerTests-OSX/Pods-VOKCoreDataManagerTests-OSX.release.xcconfig"; sourceTree = "<group>"; };
+		202E4CF0924CAFFB3BED1F7C8027ACAD /* Pods-VOKCoreDataManagerTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManagerTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManagerTests-tvOS/Pods-VOKCoreDataManagerTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		229611BF87725E87AF23513868B8DAD0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24471CD58F33E4ABD0946D7AC7B48F29 /* VOKCoreDataManager Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VOKCoreDataManager Tests-Info.plist"; sourceTree = "<group>"; };
 		2659E97CD2A58A7CABA87C807E1DC83D /* MigrationNotificationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationNotificationTests.m; sourceTree = "<group>"; };
@@ -146,6 +149,7 @@
 		2BE8A13960C09E022C462C3A041F04AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C442DB661DE3D79B68E51E079C08BA7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		2DCAA553CBD3CF73E101774117C70503 /* VOKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKCollectionViewCell.h; sourceTree = "<group>"; };
+		320E9DB99296F2E119CD4295BF07169D /* libPods-VOKCoreDataManagerTests-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManagerTests-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		332F1D580B04F2595919772E40FCB32E /* VOKCoreDataManager Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VOKCoreDataManager Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		366F985567141C4DDC1817D896A49CB2 /* VOKPersonCollectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKPersonCollectionDataSource.m; sourceTree = "<group>"; };
 		37CD8532FDFC382777E4E28428919C45 /* Pods-VOKCoreDataManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,20 +157,19 @@
 		3ABB2D700B69FE21AF109F4A1D1BD43C /* VOKEntityB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKEntityB.h; sourceTree = "<group>"; };
 		3BB959A88FB27577E6F58F22732F2005 /* VOKTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKTableViewController.m; sourceTree = "<group>"; };
 		3CEB35CF932F49DA8C55F322EEBE38DD /* VOKPersonDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKPersonDataSource.m; sourceTree = "<group>"; };
-		3DF303763CF5C95088A86A5FA937131E /* libPods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40D030FA504CCCC484A71225285C5400 /* VOKEntityA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKEntityA.h; sourceTree = "<group>"; };
 		413980B907452FB1B1A07AE2FA8D9914 /* libPods-VOKCoreDataManager-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C55E092D0EC4DB5DBCF76B4617AE2D /* UIViewController+VOKConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VOKConvenience.h"; sourceTree = "<group>"; };
 		439D7AC3F9926A79585FB4FFBFDB6F1F /* UIViewController+VOKConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VOKConvenience.m"; sourceTree = "<group>"; };
 		482279C39A961A7C837B2DBD5108F73D /* DatabaseURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseURLTests.m; sourceTree = "<group>"; };
 		4BCF5F314951F3C0C40D9658DC90CE34 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		510677119DF175C2C8A9B5323D819CAB /* Pods-VOKCoreDataManagerTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManagerTests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManagerTests-tvOS/Pods-VOKCoreDataManagerTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		514BC5999212C5738572E093E24C0BCE /* VOKPersonDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPersonDataSource.h; sourceTree = "<group>"; };
 		5315B18FE3D54D302423F6980EB42867 /* MyDB.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyDB.sqlite-wal"; sourceTree = "<group>"; };
 		560A1CEABCB61685D7A069D263AD39AF /* libPods-VOKCoreDataManager Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5843558F2814496F70951C7E8E76BE13 /* VOKEntityB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKEntityB.m; sourceTree = "<group>"; };
 		58E0A5085AC44F27EDBB16919EA3B05D /* Pods-VOKCoreDataManager-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager-tvOS/Pods-VOKCoreDataManager-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		591693090ABD314F88A1C7122CD7CE37 /* VOKCoreDataManager-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOKCoreDataManager-Prefix.pch"; sourceTree = "<group>"; };
-		5A350AB6E19E45E04B3B5B99888F50BC /* Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS/Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5F14426CC8C62366AF40FAA0D733960D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		665CAC230C9404A8F8B7A515E653B5EA /* VOKCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VOKCollectionViewCell.xib; sourceTree = "<group>"; };
 		670959E41C09F12BE8B77B7E7B89A730 /* VOKManagedObjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKManagedObjectAdditions.m; sourceTree = "<group>"; };
@@ -175,6 +178,7 @@
 		731889F0910F6BDA7C30B3CE315F5B2B /* Pods-VOKCoreDataManager-OSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager-OSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager-OSX/Pods-VOKCoreDataManager-OSX.debug.xcconfig"; sourceTree = "<group>"; };
 		7381A2721C74D316B999FB71F93FF56C /* CoreDataManagerDeleteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManagerDeleteTests.m; sourceTree = "<group>"; };
 		7608E2CDD311959D2A218E63B737E586 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		76B3C8559A70AB5A0CD90C3D593300CD /* libPods-VOKCoreDataManagerTests-OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManagerTests-OSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		781D42772C35DC442A60C14AF13E842E /* VOKThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKThing.h; sourceTree = "<group>"; };
 		84C28B3364E341155A2C6C70A23D24EB /* Pods-VOKCoreDataManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager.release.xcconfig"; sourceTree = "<group>"; };
 		861BB9DE6B90C6BDE07193D7893D9589 /* VOKEntityA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKEntityA.m; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 		8B06703BC71A3E0FD817C46EF2B7C568 /* VOKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKCollectionViewCell.m; sourceTree = "<group>"; };
 		8C02CF4E1660D7EBDA964E0D1F4404F2 /* VOKCoreDataManager-OSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VOKCoreDataManager-OSX.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D139D802F464DC1E547E94E86EE2A2F /* VOKCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKCollectionViewController.m; sourceTree = "<group>"; };
+		931A7706863381FFBFFB364B3AD14371 /* Pods-VOKCoreDataManagerTests-OSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManagerTests-OSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManagerTests-OSX/Pods-VOKCoreDataManagerTests-OSX.debug.xcconfig"; sourceTree = "<group>"; };
 		9AF996026FA5DF5860DD4C4AEB7F0B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B16F6D2C144CCC5BE17B24F38B1101E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ADE2E8ABC9F59CDA79DC78567CC1FC45 /* VOKCoreDataManager-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VOKCoreDataManager-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,7 +220,6 @@
 		F7D040899F6D8F8881E9E0E045B6BDD2 /* BaseballTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseballTeam.h; sourceTree = "<group>"; };
 		F9A0DBC4EF27EAAE6ECE48E4C675565A /* VOKCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VOKCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		FC0C6780209C8E13C795A9EF0D12ED74 /* MyDB.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyDB.sqlite-shm"; sourceTree = "<group>"; };
-		FDADDEE7C7DBF4FC21BAC9A1796A7976 /* Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS/Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		FE53AFD00E313B14707C69813B68ABF2 /* BaseballTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseballTeam.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,7 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3EE8CAB2778552B89F4E4E180677164 /* libPods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.a in Frameworks */,
+				978A6E39E00F6936CB69D7E9B77F5CB7 /* libPods-VOKCoreDataManagerTests-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F95CFFC357AAA508AF6E341AA7E585DF /* libPods-VOKCoreDataManagerTests-OSX.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,12 +474,14 @@
 				0CC15FD1BD511956799D5432CE92BC9F /* Pods-VOKCoreDataManager Tests.release.xcconfig */,
 				731889F0910F6BDA7C30B3CE315F5B2B /* Pods-VOKCoreDataManager-OSX.debug.xcconfig */,
 				87F833A2827A766F7A92DDB07BAA77C3 /* Pods-VOKCoreDataManager-OSX.release.xcconfig */,
-				5A350AB6E19E45E04B3B5B99888F50BC /* Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.debug.xcconfig */,
-				FDADDEE7C7DBF4FC21BAC9A1796A7976 /* Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.release.xcconfig */,
 				58E0A5085AC44F27EDBB16919EA3B05D /* Pods-VOKCoreDataManager-tvOS.debug.xcconfig */,
 				CFD745619165E688B401DC70ACBDA930 /* Pods-VOKCoreDataManager-tvOS.release.xcconfig */,
 				37CD8532FDFC382777E4E28428919C45 /* Pods-VOKCoreDataManager.debug.xcconfig */,
 				84C28B3364E341155A2C6C70A23D24EB /* Pods-VOKCoreDataManager.release.xcconfig */,
+				931A7706863381FFBFFB364B3AD14371 /* Pods-VOKCoreDataManagerTests-OSX.debug.xcconfig */,
+				1E6916EC2018F246D4D899080DEADD14 /* Pods-VOKCoreDataManagerTests-OSX.release.xcconfig */,
+				510677119DF175C2C8A9B5323D819CAB /* Pods-VOKCoreDataManagerTests-tvOS.debug.xcconfig */,
+				202E4CF0924CAFFB3BED1F7C8027ACAD /* Pods-VOKCoreDataManagerTests-tvOS.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -509,9 +516,10 @@
 				C454789BCB5571F7D03F6F71460C2F82 /* XCTest.framework */,
 				560A1CEABCB61685D7A069D263AD39AF /* libPods-VOKCoreDataManager Tests.a */,
 				0FA0048E0B064E81BA3BA90C3C2EE178 /* libPods-VOKCoreDataManager-OSX.a */,
-				3DF303763CF5C95088A86A5FA937131E /* libPods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS.a */,
 				413980B907452FB1B1A07AE2FA8D9914 /* libPods-VOKCoreDataManager-tvOS.a */,
 				EF0B6294EC9E3096ABA8EE7B3866B4F6 /* libPods-VOKCoreDataManager.a */,
+				76B3C8559A70AB5A0CD90C3D593300CD /* libPods-VOKCoreDataManagerTests-OSX.a */,
+				320E9DB99296F2E119CD4295BF07169D /* libPods-VOKCoreDataManagerTests-tvOS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -544,12 +552,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A2C42FDE3475F08198158A3FD6DD143 /* Build configuration list for PBXNativeTarget "VOKCoreDataManager-OSX" */;
 			buildPhases = (
-				3D91A4A943B3D4E608D19C7572CED08F /* Check Pods Manifest.lock */,
+				27F7212D5A058EF794F1DC8FE47AD1F0 /* [CP] Check Pods Manifest.lock */,
 				B1E0DA11C3CEF5F937589C7F3FA0CE18 /* Sources */,
 				AB8A0EFFBF4766E689BB0AF4683041BA /* Frameworks */,
 				88CEC5AA670F3E6FE7E8C526B77DDDA5 /* Resources */,
-				B3E30D8C73BB46E8AF290A75222420DC /* Embed Pods Frameworks */,
-				EB4ADF0D1CACE22A16583C337F05F5DA /* Copy Pods Resources */,
+				B3E30D8C73BB46E8AF290A75222420DC /* [CP] Embed Pods Frameworks */,
+				EB4ADF0D1CACE22A16583C337F05F5DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -564,12 +572,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDDE5CFC21A7E09D79872ED2FCC7FE46 /* Build configuration list for PBXNativeTarget "VOKCoreDataManager-tvOS" */;
 			buildPhases = (
-				0AD6E4037C575BC68FBF6AD813823D71 /* Check Pods Manifest.lock */,
+				3748E88336D1F2B55DCE200280E99C9C /* [CP] Check Pods Manifest.lock */,
 				2D1B934EE14BF26E7040A92CB3E868B9 /* Sources */,
 				2714DB406E170573458B33813D418525 /* Frameworks */,
 				066DA0F94F5C453E20901F9F0FB56153 /* Resources */,
-				27A013B609CC4C2EF400C54D63B5AFFF /* Embed Pods Frameworks */,
-				D27D29FDF4827938DB770D48DE6067F6 /* Copy Pods Resources */,
+				27A013B609CC4C2EF400C54D63B5AFFF /* [CP] Embed Pods Frameworks */,
+				D27D29FDF4827938DB770D48DE6067F6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -584,13 +592,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D575C0B2DB5B2D0C7B0F6561A8C98866 /* Build configuration list for PBXNativeTarget "VOKCoreDataManager" */;
 			buildPhases = (
-				9AB3E3CF3707C9BC048973EDF174FC70 /* Check Pods Manifest.lock */,
+				D67EBE03B2684C22F16B9881791180C5 /* [CP] Check Pods Manifest.lock */,
 				D70E7E165B1DDEAB4D09B9AEEB8C68C7 /* Sources */,
 				C336BA770BF3F171C2DB596AA47D7B57 /* Frameworks */,
 				65299D937013D1438F13EDDB27D8F4AB /* Resources */,
 				3D35CB3B49D8A38F19EE9D5E0AE1D03B /* Objective-Clean Run Script */,
-				E6A504CC045AB83B9CB3EA390EFE4518 /* Copy Pods Resources */,
-				D2C2C45F70B733C76E4E76808FB6ACB6 /* Embed Pods Frameworks */,
+				D2C2C45F70B733C76E4E76808FB6ACB6 /* [CP] Embed Pods Frameworks */,
+				E6A504CC045AB83B9CB3EA390EFE4518 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -605,12 +613,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DCFA23CFD4B506D47B68B023BD0BF91 /* Build configuration list for PBXNativeTarget "VOKCoreDataManager Tests" */;
 			buildPhases = (
-				2D4684F2D97C602AD8026C5EBB42394F /* Check Pods Manifest.lock */,
+				F114E8552591AEB62B72BBD41E48E42E /* [CP] Check Pods Manifest.lock */,
 				969E74A905279143F0556E962DE96C14 /* Sources */,
 				8737E0DE84D03E48F1EEA81E35E2A374 /* Frameworks */,
 				C71E4A72A942B79725B50519B030BD8A /* Resources */,
-				A824F885E998B1B80531BC2E43BAE4E0 /* Copy Pods Resources */,
-				34E92E99DAE0FC53C1B9420C3B1D83CB /* Embed Pods Frameworks */,
+				34E92E99DAE0FC53C1B9420C3B1D83CB /* [CP] Embed Pods Frameworks */,
+				A824F885E998B1B80531BC2E43BAE4E0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -626,9 +634,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F21DB46F9AF592A5D42F27CE657B5219 /* Build configuration list for PBXNativeTarget "VOKCoreDataManagerTests-OSX" */;
 			buildPhases = (
+				9D235C657B0D135D86E2A32C868056FB /* [CP] Check Pods Manifest.lock */,
 				EA7D79BFC80E18904CD4D22FC1943CEC /* Sources */,
 				BDC6D927F4B5F8B03B70F066AD9DBD52 /* Frameworks */,
 				9046D9F749C9F1FE038B1C89D8B124EC /* Resources */,
+				74781AE808925454A43547669F647B13 /* [CP] Embed Pods Frameworks */,
+				63523389217BF63540AC8B765AA4CB2D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -644,12 +655,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B35A5BFC52F07DEE5399D833F88A9751 /* Build configuration list for PBXNativeTarget "VOKCoreDataManagerTests-tvOS" */;
 			buildPhases = (
-				66287F845168265C1F192A2AE435635C /* Check Pods Manifest.lock */,
+				1B137DBB0F9BC97114ABE6637FE4287D /* [CP] Check Pods Manifest.lock */,
 				C1E03D856025660F58A3497D56F7C71F /* Sources */,
 				ADFECF79023367069E170FE0152FF2AE /* Frameworks */,
 				AEB5D6B62A11B249361D8A0D838FCE61 /* Resources */,
-				83FB4D9D326DC5728B69658B26B316EA /* Embed Pods Frameworks */,
-				75C29E5A6DD2D0C5895903A5ACB341DC /* Copy Pods Resources */,
+				F4740915D355C7D1AFA82537DFCD5275 /* [CP] Embed Pods Frameworks */,
+				D2A2D208FDCCB7B111B62C1240B61BC9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -777,29 +788,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0AD6E4037C575BC68FBF6AD813823D71 /* Check Pods Manifest.lock */ = {
+		1B137DBB0F9BC97114ABE6637FE4287D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		27A013B609CC4C2EF400C54D63B5AFFF /* Embed Pods Frameworks */ = {
+		27A013B609CC4C2EF400C54D63B5AFFF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -807,34 +818,49 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager-tvOS/Pods-VOKCoreDataManager-tvOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2D4684F2D97C602AD8026C5EBB42394F /* Check Pods Manifest.lock */ = {
+		27F7212D5A058EF794F1DC8FE47AD1F0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		34E92E99DAE0FC53C1B9420C3B1D83CB /* Embed Pods Frameworks */ = {
+		34E92E99DAE0FC53C1B9420C3B1D83CB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager Tests/Pods-VOKCoreDataManager Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3748E88336D1F2B55DCE200280E99C9C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		3D35CB3B49D8A38F19EE9D5E0AE1D03B /* Objective-Clean Run Script */ = {
@@ -851,89 +877,59 @@
 			shellPath = /bin/bash;
 			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then \n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\" \nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\" \nfi\nfi";
 		};
-		3D91A4A943B3D4E608D19C7572CED08F /* Check Pods Manifest.lock */ = {
+		63523389217BF63540AC8B765AA4CB2D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManagerTests-OSX/Pods-VOKCoreDataManagerTests-OSX-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		66287F845168265C1F192A2AE435635C /* Check Pods Manifest.lock */ = {
+		74781AE808925454A43547669F647B13 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManagerTests-OSX/Pods-VOKCoreDataManagerTests-OSX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		75C29E5A6DD2D0C5895903A5ACB341DC /* Copy Pods Resources */ = {
+		9D235C657B0D135D86E2A32C868056FB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS/Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		83FB4D9D326DC5728B69658B26B316EA /* Embed Pods Frameworks */ = {
+		A824F885E998B1B80531BC2E43BAE4E0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS/Pods-VOKCoreDataManager-tvOS-VOKCoreDataManagerTests-tvOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9AB3E3CF3707C9BC048973EDF174FC70 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A824F885E998B1B80531BC2E43BAE4E0 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -941,14 +937,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager Tests/Pods-VOKCoreDataManager Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B3E30D8C73BB46E8AF290A75222420DC /* Embed Pods Frameworks */ = {
+		B3E30D8C73BB46E8AF290A75222420DC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -956,14 +952,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager-OSX/Pods-VOKCoreDataManager-OSX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D27D29FDF4827938DB770D48DE6067F6 /* Copy Pods Resources */ = {
+		D27D29FDF4827938DB770D48DE6067F6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -971,14 +967,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager-tvOS/Pods-VOKCoreDataManager-tvOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D2C2C45F70B733C76E4E76808FB6ACB6 /* Embed Pods Frameworks */ = {
+		D2A2D208FDCCB7B111B62C1240B61BC9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManagerTests-tvOS/Pods-VOKCoreDataManagerTests-tvOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2C2C45F70B733C76E4E76808FB6ACB6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -986,14 +997,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E6A504CC045AB83B9CB3EA390EFE4518 /* Copy Pods Resources */ = {
+		D67EBE03B2684C22F16B9881791180C5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E6A504CC045AB83B9CB3EA390EFE4518 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1001,19 +1027,49 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EB4ADF0D1CACE22A16583C337F05F5DA /* Copy Pods Resources */ = {
+		EB4ADF0D1CACE22A16583C337F05F5DA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager-OSX/Pods-VOKCoreDataManager-OSX-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F114E8552591AEB62B72BBD41E48E42E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F4740915D355C7D1AFA82537DFCD5275 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManagerTests-tvOS/Pods-VOKCoreDataManagerTests-tvOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1220,7 +1276,7 @@
 		};
 		36D10AE5E2F115B888A9552A944732F6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFD745619165E688B401DC70ACBDA930 /* Pods-VOKCoreDataManager-tvOS.release.xcconfig */;
+			baseConfigurationReference = 202E4CF0924CAFFB3BED1F7C8027ACAD /* Pods-VOKCoreDataManagerTests-tvOS.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1260,7 +1316,7 @@
 		};
 		6802F61D210F0808E316A70A5FEC63BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 731889F0910F6BDA7C30B3CE315F5B2B /* Pods-VOKCoreDataManager-OSX.debug.xcconfig */;
+			baseConfigurationReference = 931A7706863381FFBFFB364B3AD14371 /* Pods-VOKCoreDataManagerTests-OSX.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1286,7 +1342,7 @@
 		};
 		6F44224AEF5F489A288F3330F1E86C26 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58E0A5085AC44F27EDBB16919EA3B05D /* Pods-VOKCoreDataManager-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 510677119DF175C2C8A9B5323D819CAB /* Pods-VOKCoreDataManagerTests-tvOS.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1489,7 +1545,7 @@
 		};
 		C5DADCAC5DC55A4FB2CEDF040881E4A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87F833A2827A766F7A92DDB07BAA77C3 /* Pods-VOKCoreDataManager-OSX.release.xcconfig */;
+			baseConfigurationReference = 1E6916EC2018F246D4D899080DEADD14 /* Pods-VOKCoreDataManagerTests-OSX.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
