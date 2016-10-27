@@ -15,6 +15,8 @@
 
 #import "VOKMappableModel.h"
 
+NSString *const VOKMigrationFailureWipeRecoveryNotificationName = @"VOKMigrationFailureWipeRecoveryNotification";
+
 @interface VOKCoreDataManager ()
 
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
@@ -175,46 +177,18 @@
                                                         options:options
                                                           error:&error]) {
         switch (self.migrationFailureOptions) {
-            case VOKMigrationFailureOptionWipeRecoveryAndAlert:
-#if VOK_TARGET_USES_UIKIT
-            {
-                NSString *title = @"Migration Failed";
-                NSString *message = @"Migration has failed, data will be erased to ensure application stability.";
-#ifdef __IPHONE_8_0 //if compiling with an old version of Xcode that doesn't include the iOS 8 SDK, ignore UIAlertController
-                if ([UIAlertController class]) {
-                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
-                                                                                   message:message
-                                                                            preferredStyle:UIAlertControllerStyleAlert];
-                    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert
-                                                                                                 animated:YES
-                                                                                               completion:nil];
-                } else {
-#endif
-                    //TODO: delete UIAlertView once support is dropped for iOS 7
-#if TARGET_OS_IOS //UIAlertView is only available for iOS < 8
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-                    [[[UIAlertView alloc] initWithTitle:title
-                                                message:message
-                                               delegate:nil
-                                      cancelButtonTitle:@""
-                                      otherButtonTitles:nil] show];
-#pragma clang diagnostic pop
-#endif //TARGET_OS_IOS
-#ifdef __IPHONE_8_0
-                }
-#endif //__IPHONE_8_0
-            }
-#endif // VOK_TARGET_USES_UIKIT
-                //intentional fallthrough
             case VOKMigrationFailureOptionWipeRecovery:
                 VOK_CDLog(@"Full database delete and rebuild");
                 [[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:nil];
-                if (![persistentStoreCoordinator addPersistentStoreWithType:storeType
-                                                              configuration:nil
-                                                                        URL:storeURL
-                                                                    options:options
-                                                                      error:&error]) {
+                if ([persistentStoreCoordinator addPersistentStoreWithType:storeType
+                                                             configuration:nil
+                                                                       URL:storeURL
+                                                                   options:options
+                                                                     error:&error]) {
+                    // Post a notification about the recovery
+                    [[NSNotificationCenter defaultCenter] postNotificationName:VOKMigrationFailureWipeRecoveryNotificationName
+                                                                        object:nil];
+                } else {
                     [NSException raise:@"Vokoder Persistent Store Creation Failure after migration"
                                 format:@"Unresolved error %@, %@", error, [error userInfo]];
                 }
