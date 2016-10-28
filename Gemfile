@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
 gem 'cocoapods', '~>1.1'
-gem 'scan', '~>0.13'
+gem 'scan', '~>0.13.1'

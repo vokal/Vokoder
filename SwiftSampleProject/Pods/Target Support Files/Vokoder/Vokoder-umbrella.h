@@ -1,4 +1,6 @@
+#ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#endif
 
 #import "NSManagedObject+VOKManagedObjectAdditions.h"
 #import "VOKCoreDataCollectionTypes.h"

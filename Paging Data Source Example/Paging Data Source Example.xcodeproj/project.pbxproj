@@ -64,6 +64,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		896BFF52FAC03771D08DA117239911A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DB0375A5CEA26229AFB41D661EDDADB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,16 +84,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		896BFF52FAC03771D08DA117239911A4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CDE613640B2A532748493208F5507885 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F7C0DD307B5D082841FB5AD8B1413D8 /* Pods-Paging Data Source Example.debug.xcconfig */,
+				A33DE4E85229E765C1D48E4344D68F8E /* Pods-Paging Data Source Example.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2178FCE12C2B018DBDAA39EE61E97CF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +112,15 @@
 				C5D5229A385CF22C84615F0A96FA52A4 /* VOKPlayerDataSource.m */,
 			);
 			path = "Data Sources";
+			sourceTree = "<group>";
+		};
+		513C01A6F9E6C1205C4879D45D04E124 /* Paging Data Source ExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA38AE0636C366CF68DB54F01C228249 /* Info.plist */,
+				F1FCC6B153B2A3D05922490C64AB066E /* Paging_Data_Source_ExampleTests.m */,
+			);
+			path = "Paging Data Source ExampleTests";
 			sourceTree = "<group>";
 		};
 		7CEB74F7203A9E76B84B45188DE617BF /* Frameworks */ = {
@@ -173,50 +191,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		513C01A6F9E6C1205C4879D45D04E124 /* Paging Data Source ExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				FA38AE0636C366CF68DB54F01C228249 /* Info.plist */,
-				F1FCC6B153B2A3D05922490C64AB066E /* Paging_Data_Source_ExampleTests.m */,
-			);
-			path = "Paging Data Source ExampleTests";
-			sourceTree = "<group>";
-		};
-		CDE613640B2A532748493208F5507885 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6F7C0DD307B5D082841FB5AD8B1413D8 /* Pods-Paging Data Source Example.debug.xcconfig */,
-				A33DE4E85229E765C1D48E4344D68F8E /* Pods-Paging Data Source Example.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		408232601F6454132847C2DCAE154679 /* Paging Data Source Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 68FB3CDFA37F6F476464B34851C97B71 /* Build configuration list for PBXNativeTarget "Paging Data Source Example" */;
-			buildPhases = (
-				AFF7DA6B4D72CBF542839394B3BA8385 /* Check Pods Manifest.lock */,
-				71280A8E108C67D6B43789A5188C2D9D /* Sources */,
-				8DB0375A5CEA26229AFB41D661EDDADB /* Frameworks */,
-				3ED6ACB6DCF8DF0CB84483530612F40E /* Resources */,
-				59D66CBB53568A532089D091F2A79F67 /* Copy Pods Resources */,
-				CE9FFF305AC1F835FA3BE8092A0ED1E5 /* Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Paging Data Source Example";
-			productName = CoreData;
-			productReference = DE0CF8DE290A1852927E49A948D79384 /* Paging Data Source Example.app */;
-			productType = "com.apple.product-type.application";
-		};
 		0550FB5F7EA7666193181F957FD2DB18 /* Paging Data Source ExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 34A3FD23BD53DCD8DCEFCB918C722393 /* Build configuration list for PBXNativeTarget "Paging Data Source ExampleTests" */;
+			buildConfigurationList = 93D583F8BE6FA36F5ABA8075B83467AE /* Build configuration list for PBXNativeTarget "Paging Data Source ExampleTests" */;
 			buildPhases = (
 				6039A3AD960696874FB0FBD76DB7965D /* Sources */,
 				896BFF52FAC03771D08DA117239911A4 /* Frameworks */,
@@ -231,6 +211,26 @@
 			productName = "Paging Data Source ExampleTests";
 			productReference = A39C08DA30CF2AA27DC759C1AEA7F62B /* Paging Data Source ExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		408232601F6454132847C2DCAE154679 /* Paging Data Source Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68FB3CDFA37F6F476464B34851C97B71 /* Build configuration list for PBXNativeTarget "Paging Data Source Example" */;
+			buildPhases = (
+				9404135CD0AB44D6B95F0F9F0C5BB633 /* [CP] Check Pods Manifest.lock */,
+				71280A8E108C67D6B43789A5188C2D9D /* Sources */,
+				8DB0375A5CEA26229AFB41D661EDDADB /* Frameworks */,
+				3ED6ACB6DCF8DF0CB84483530612F40E /* Resources */,
+				CE9FFF305AC1F835FA3BE8092A0ED1E5 /* [CP] Embed Pods Frameworks */,
+				59D66CBB53568A532089D091F2A79F67 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Paging Data Source Example";
+			productName = CoreData;
+			productReference = DE0CF8DE290A1852927E49A948D79384 /* Paging Data Source Example.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -287,14 +287,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		59D66CBB53568A532089D091F2A79F67 /* Copy Pods Resources */ = {
+		9404135CD0AB44D6B95F0F9F0C5BB633 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		59D66CBB53568A532089D091F2A79F67 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,29 +317,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Paging Data Source Example/Pods-Paging Data Source Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AFF7DA6B4D72CBF542839394B3BA8385 /* Check Pods Manifest.lock */ = {
+		CE9FFF305AC1F835FA3BE8092A0ED1E5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CE9FFF305AC1F835FA3BE8092A0ED1E5 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +335,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6039A3AD960696874FB0FBD76DB7965D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4379C7AEDF5E92FAA4CB3DBC6E31BA61 /* Paging_Data_Source_ExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		71280A8E108C67D6B43789A5188C2D9D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,14 +353,6 @@
 				C93BD0161CBF5FE661C09F5D7C2846E7 /* VOKPlayer.m in Sources */,
 				3E6052E27123D739CA6B52CCAB5EFA55 /* VOKPlayerDataSource.m in Sources */,
 				F27A1EE018E6E689A131D51E8132FBAA /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6039A3AD960696874FB0FBD76DB7965D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4379C7AEDF5E92FAA4CB3DBC6E31BA61 /* Paging_Data_Source_ExampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +378,33 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BD5A0446A5929B8D1E2FC3D3B539A680 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = TZPBQT6RZA;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Paging Data Source ExampleTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.vokal.Paging-Data-Source-ExampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paging Data Source Example.app/Paging Data Source Example";
+			};
+			name = Debug;
+		};
 		292750600087E59979072E48570660F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F7C0DD307B5D082841FB5AD8B1413D8 /* Pods-Paging Data Source Example.debug.xcconfig */;
@@ -484,34 +511,7 @@
 			};
 			name = Release;
 		};
-		014CA8C24C87D2DA5DF88E1D6207A341 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = TZPBQT6RZA;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Paging Data Source ExampleTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.vokal.Paging-Data-Source-ExampleTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paging Data Source Example.app/Paging Data Source Example";
-			};
-			name = Debug;
-		};
-		65EAE3B9430F654E67D4EA04BEC9F470 /* Release */ = {
+		42EA6D2F35AAEB0AC73B13816D263B3F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -543,6 +543,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		93D583F8BE6FA36F5ABA8075B83467AE /* Build configuration list for PBXNativeTarget "Paging Data Source ExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD5A0446A5929B8D1E2FC3D3B539A680 /* Debug */,
+				42EA6D2F35AAEB0AC73B13816D263B3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		68FB3CDFA37F6F476464B34851C97B71 /* Build configuration list for PBXNativeTarget "Paging Data Source Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -551,14 +560,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		34A3FD23BD53DCD8DCEFCB918C722393 /* Build configuration list for PBXNativeTarget "Paging Data Source ExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				014CA8C24C87D2DA5DF88E1D6207A341 /* Debug */,
-				65EAE3B9430F654E67D4EA04BEC9F470 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 		C36FFA3E2C24C255C5244A04F5EA6EFA /* Build configuration list for PBXProject "Paging Data Source Example" */ = {
 			isa = XCConfigurationList;
