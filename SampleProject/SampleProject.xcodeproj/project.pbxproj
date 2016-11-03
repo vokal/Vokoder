@@ -16,6 +16,7 @@
 		1E51D7C8A0CDF061CAD9427D0C6C28BC /* VOKCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D139D802F464DC1E547E94E86EE2A2F /* VOKCollectionViewController.m */; };
 		1EAFC10C3046D52DDAF6589339038DF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5AFB41A45B6AB07B4CAAF4933AAE026 /* Foundation.framework */; };
 		2461CCBFCEFD76C44FD444B5AC7101D3 /* MyDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = BA00E478E6C53C4928B13C8377629520 /* MyDB.sqlite */; };
+		2499AF468D36D53E48BB2CC1EC48453B /* libPods-TodayWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F36321D92C554BB794B83EEF5DBC23 /* libPods-TodayWidget.a */; };
 		2B7C78708D551C98E99A38A8439551D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1EBF96BDDFC920C56895AF2C0BCD89C /* Assets.xcassets */; };
 		304D554A9C6D156D01C97D5673AD6AFA /* ManagedObjectImportExportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 094901C44573889FE3BC6CA970BF0F8D /* ManagedObjectImportExportTests.m */; };
 		362CD69ACEA416687D1FBEBFF850D4AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7608E2CDD311959D2A218E63B737E586 /* main.m */; };
@@ -46,6 +47,7 @@
 		79C85DB9C49CEE0DEF56B6DA4EC442D2 /* VOKEntityC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D375AD41A0ED432613256AD6853ADBB /* VOKEntityC.m */; };
 		7B5B5DA9E27089E055D251C77DD741E5 /* VOKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB959A88FB27577E6F58F22732F2005 /* VOKTableViewController.m */; };
 		7C7CF98C2C980F070109BC3BFD26E24F /* MyDB.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = FC0C6780209C8E13C795A9EF0D12ED74 /* MyDB.sqlite-shm */; };
+		82544E42723DEDDE5F2D0B13428BAB93 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD57CBC9424C9494B8C388939C57287 /* TodayViewController.m */; };
 		83B03089266E5E3848D3DBDD2B7B70CC /* VOKPersonCollectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 366F985567141C4DDC1817D896A49CB2 /* VOKPersonCollectionDataSource.m */; };
 		883AC0ABAA25D49D98E71211CCF314F7 /* VOKCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665CAC230C9404A8F8B7A515E653B5EA /* VOKCollectionViewCell.xib */; };
 		88D23F9947689467C68ACA12035F7359 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D0F99B4E37B8F809468E84A3A2F932 /* MainMenu.xib */; };
@@ -75,9 +77,11 @@
 		CE94C46F7170A69F3CAFB757EA445D37 /* MyDB.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 5315B18FE3D54D302423F6980EB42867 /* MyDB.sqlite-wal */; };
 		CED576CBF3FA1E1EADA09398FB3D52D1 /* libPods-VOKCoreDataManager-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 413980B907452FB1B1A07AE2FA8D9914 /* libPods-VOKCoreDataManager-tvOS.a */; };
 		CFE3DAB46823E8C985C289CC9D41DE5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B938FCCC95B9F66FFB976555EEB27471 /* AppDelegate.m */; };
+		D05E11E00F547E2488333FC0D726D0B5 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAB9BD1AFF63C49705982795C164090 /* NotificationCenter.framework */; };
 		D0C5771FC63581EB2B5B258026157083 /* VOKEntityB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5843558F2814496F70951C7E8E76BE13 /* VOKEntityB.m */; };
 		D192CBF4DBE04D80BFE8B37B9F3E44B3 /* DateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D110748613B01C46558315B637A9834 /* DateFormatterTests.m */; };
 		D24A7B038B19A311A22E29A5B0331E50 /* libPods-VOKCoreDataManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0B6294EC9E3096ABA8EE7B3866B4F6 /* libPods-VOKCoreDataManager.a */; };
+		D4599EC4D431A109B0C163FD8ACAF2C0 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC8A6446174B47D5C01EDC1B66D94B38 /* MainInterface.storyboard */; };
 		D4B4AEF77F3CF66B741DD258AF0B1F14 /* BaseballModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 628F4F3CFE1CCED3144EE80751BA2622 /* BaseballModel.xcdatamodeld */; };
 		D6D616E63DD270ABB5042BE819B7D4F8 /* MigrationNotificationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2659E97CD2A58A7CABA87C807E1DC83D /* MigrationNotificationTests.m */; };
 		D7471EECFFA694CA8FC7CE8291A9C235 /* VOKEntityC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D375AD41A0ED432613256AD6853ADBB /* VOKEntityC.m */; };
@@ -86,6 +90,7 @@
 		E06CBA20C739E02C65871D48A2A40876 /* DatabaseURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 482279C39A961A7C837B2DBD5108F73D /* DatabaseURLTests.m */; };
 		E1C5396AC0D3692699E17FF1F5B50D2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F14426CC8C62366AF40FAA0D733960D /* AppDelegate.m */; };
 		E6B02C74060738687F09E73ECEC01163 /* VOKEntityA.m in Sources */ = {isa = PBXBuildFile; fileRef = 861BB9DE6B90C6BDE07193D7893D9589 /* VOKEntityA.m */; };
+		E76BA134F73C5EFD02826EFE23B0BB7B /* TodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4500DFCDF2D128675EC2D28D3C72E13F /* TodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E950A8011C042377F1DE12FAC44A045C /* VOKPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF021A702E38C937AEC4C778314F028 /* VOKPerson.m */; };
 		E9A93996BB3A93D6189703F6A21539C7 /* DatabaseURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 482279C39A961A7C837B2DBD5108F73D /* DatabaseURLTests.m */; };
 		EBCAE2DEB41BB0F5E98C2B6B366EB78B /* ManagedObjectImportExportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 094901C44573889FE3BC6CA970BF0F8D /* ManagedObjectImportExportTests.m */; };
@@ -121,7 +126,28 @@
 			remoteGlobalIDString = 39FCFD1CAF0ACC62CD10101BBC3F5AEB;
 			remoteInfo = "VOKCoreDataManager-OSX";
 		};
+		004FC0974D7D1705640D7AFA8E8BE2E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AF59CC944DB83110CECE01733FB4801 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB011FCF1A38BC5A18D520E76EB75B35;
+			remoteInfo = TodayWidget;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E25B0E5B1316659F8FDDEC15F173FF56 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E76BA134F73C5EFD02826EFE23B0BB7B /* TodayWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0092406DDC5DF76635B96687B562D11E /* VOKTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKTableViewController.h; sourceTree = "<group>"; };
@@ -133,6 +159,7 @@
 		0CC15FD1BD511956799D5432CE92BC9F /* Pods-VOKCoreDataManager Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager Tests/Pods-VOKCoreDataManager Tests.release.xcconfig"; sourceTree = "<group>"; };
 		0D110748613B01C46558315B637A9834 /* DateFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateFormatterTests.m; sourceTree = "<group>"; };
 		0FA0048E0B064E81BA3BA90C3C2EE178 /* libPods-VOKCoreDataManager-OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager-OSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14F70F06D81445BA2AF0E1749A1EDFED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		175C11E8F280F25D16DBC7BBE1F97056 /* VOKMappablePerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKMappablePerson.h; sourceTree = "<group>"; };
 		179731D68159DE80C44CAA1CC0D537A4 /* VOKPersonCollectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPersonCollectionDataSource.h; sourceTree = "<group>"; };
 		1996FA3A41B3DE40F041E0E44450C3CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -141,6 +168,7 @@
 		1DC688BC38E49048764D57D15048C313 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1E6916EC2018F246D4D899080DEADD14 /* Pods-VOKCoreDataManagerTests-OSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManagerTests-OSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManagerTests-OSX/Pods-VOKCoreDataManagerTests-OSX.release.xcconfig"; sourceTree = "<group>"; };
 		202E4CF0924CAFFB3BED1F7C8027ACAD /* Pods-VOKCoreDataManagerTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManagerTests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManagerTests-tvOS/Pods-VOKCoreDataManagerTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		20733E0047B8647C17FA32BD52D4AFCE /* Pods-TodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.release.xcconfig"; sourceTree = "<group>"; };
 		229611BF87725E87AF23513868B8DAD0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24471CD58F33E4ABD0946D7AC7B48F29 /* VOKCoreDataManager Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VOKCoreDataManager Tests-Info.plist"; sourceTree = "<group>"; };
 		2659E97CD2A58A7CABA87C807E1DC83D /* MigrationNotificationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationNotificationTests.m; sourceTree = "<group>"; };
@@ -149,6 +177,7 @@
 		2BE8A13960C09E022C462C3A041F04AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C442DB661DE3D79B68E51E079C08BA7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		2DCAA553CBD3CF73E101774117C70503 /* VOKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKCollectionViewCell.h; sourceTree = "<group>"; };
+		2EAB9BD1AFF63C49705982795C164090 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		320E9DB99296F2E119CD4295BF07169D /* libPods-VOKCoreDataManagerTests-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManagerTests-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		332F1D580B04F2595919772E40FCB32E /* VOKCoreDataManager Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VOKCoreDataManager Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		366F985567141C4DDC1817D896A49CB2 /* VOKPersonCollectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKPersonCollectionDataSource.m; sourceTree = "<group>"; };
@@ -161,6 +190,7 @@
 		413980B907452FB1B1A07AE2FA8D9914 /* libPods-VOKCoreDataManager-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C55E092D0EC4DB5DBCF76B4617AE2D /* UIViewController+VOKConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VOKConvenience.h"; sourceTree = "<group>"; };
 		439D7AC3F9926A79585FB4FFBFDB6F1F /* UIViewController+VOKConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VOKConvenience.m"; sourceTree = "<group>"; };
+		4500DFCDF2D128675EC2D28D3C72E13F /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		482279C39A961A7C837B2DBD5108F73D /* DatabaseURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseURLTests.m; sourceTree = "<group>"; };
 		4BCF5F314951F3C0C40D9658DC90CE34 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		510677119DF175C2C8A9B5323D819CAB /* Pods-VOKCoreDataManagerTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManagerTests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManagerTests-tvOS/Pods-VOKCoreDataManagerTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,12 +204,15 @@
 		665CAC230C9404A8F8B7A515E653B5EA /* VOKCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VOKCollectionViewCell.xib; sourceTree = "<group>"; };
 		670959E41C09F12BE8B77B7E7B89A730 /* VOKManagedObjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKManagedObjectAdditions.m; sourceTree = "<group>"; };
 		674C8AFAB0A0158E0A9F3A39E7D5F309 /* VOKCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKCollectionViewController.h; sourceTree = "<group>"; };
+		6A0E60E6D9839A6F2D2D4CA70C8CFCC7 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		6A558D37985AA8866BC7397F0C4FF84E /* Pods-TodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		705E822880A687B31480735AE3E4EBD7 /* VOKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		731889F0910F6BDA7C30B3CE315F5B2B /* Pods-VOKCoreDataManager-OSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager-OSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager-OSX/Pods-VOKCoreDataManager-OSX.debug.xcconfig"; sourceTree = "<group>"; };
 		7381A2721C74D316B999FB71F93FF56C /* CoreDataManagerDeleteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManagerDeleteTests.m; sourceTree = "<group>"; };
 		7608E2CDD311959D2A218E63B737E586 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		76B3C8559A70AB5A0CD90C3D593300CD /* libPods-VOKCoreDataManagerTests-OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManagerTests-OSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		781D42772C35DC442A60C14AF13E842E /* VOKThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKThing.h; sourceTree = "<group>"; };
+		7BD57CBC9424C9494B8C388939C57287 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		84C28B3364E341155A2C6C70A23D24EB /* Pods-VOKCoreDataManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager.release.xcconfig"; sourceTree = "<group>"; };
 		861BB9DE6B90C6BDE07193D7893D9589 /* VOKEntityA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKEntityA.m; sourceTree = "<group>"; };
 		87F833A2827A766F7A92DDB07BAA77C3 /* Pods-VOKCoreDataManager-OSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager-OSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager-OSX/Pods-VOKCoreDataManager-OSX.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +223,7 @@
 		931A7706863381FFBFFB364B3AD14371 /* Pods-VOKCoreDataManagerTests-OSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManagerTests-OSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManagerTests-OSX/Pods-VOKCoreDataManagerTests-OSX.debug.xcconfig"; sourceTree = "<group>"; };
 		9AF996026FA5DF5860DD4C4AEB7F0B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B16F6D2C144CCC5BE17B24F38B1101E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A0F36321D92C554BB794B83EEF5DBC23 /* libPods-TodayWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TodayWidget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE2E8ABC9F59CDA79DC78567CC1FC45 /* VOKCoreDataManager-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VOKCoreDataManager-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1425F20B905F374BD7E1E2EBD3D1B82 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B87C00C84B5D5684F5FDD1016605CC56 /* VOKCoreDataManagerTests-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VOKCoreDataManagerTests-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +237,7 @@
 		C454789BCB5571F7D03F6F71460C2F82 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C492A67818286CDA302FFF0E534A5875 /* VOKThing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKThing.m; sourceTree = "<group>"; };
 		C52A1129B810D609E6CDDF7E1E5BA4AB /* VOKCoreDataManager-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VOKCoreDataManager-Info.plist"; sourceTree = "<group>"; };
+		C7D2B21E89D2BF2519901F57EE7A3151 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		CA068F1FD61ED8B716CFED811E9F3532 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBCBCBE8EE53C195512A7480C3DF3993 /* BaseballModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaseballModel.xcdatamodel; sourceTree = "<group>"; };
 		CDFDE8754748E7FB4392900CCB1D4DCA /* VOKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKAppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -256,6 +291,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				978A6E39E00F6936CB69D7E9B77F5CB7 /* libPods-VOKCoreDataManagerTests-tvOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC46108F021B1535B84868440A5D94F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D05E11E00F547E2488333FC0D726D0B5 /* NotificationCenter.framework in Frameworks */,
+				2499AF468D36D53E48BB2CC1EC48453B /* libPods-TodayWidget.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +426,7 @@
 		61A1B324566DD0CBB9E26C401C65C258 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				4500DFCDF2D128675EC2D28D3C72E13F /* TodayWidget.appex */,
 				F3DA8FAD008AC4C8B64CCE498D43966D /* VOKCoreDataManager Tests.xctest */,
 				8C02CF4E1660D7EBDA964E0D1F4404F2 /* VOKCoreDataManager-OSX.app */,
 				ADE2E8ABC9F59CDA79DC78567CC1FC45 /* VOKCoreDataManager-tvOS.app */,
@@ -399,6 +444,7 @@
 				DAADD07E3568B13E96E8776997F47198 /* Pods */,
 				61A1B324566DD0CBB9E26C401C65C258 /* Products */,
 				C34FCD634F48FB6C987F868D3559BB72 /* Sample Project */,
+				D90FD271716246DB9B12A70486F83ABD /* TodayWidget */,
 				2E8373B085B908B0B154A67A0CC9597A /* VOKCoreDataManager-OSX */,
 				30EA4654446ADC12EB13C84C5E6373CE /* VOKCoreDataManager-tvOS */,
 				05EBB427072D1CF8B126BD4AE7965884 /* VOKCoreDataManagerTests */,
@@ -452,6 +498,17 @@
 			path = Models;
 			sourceTree = SOURCE_ROOT;
 		};
+		D90FD271716246DB9B12A70486F83ABD /* TodayWidget */ = {
+			isa = PBXGroup;
+			children = (
+				14F70F06D81445BA2AF0E1749A1EDFED /* Info.plist */,
+				BC8A6446174B47D5C01EDC1B66D94B38 /* MainInterface.storyboard */,
+				6A0E60E6D9839A6F2D2D4CA70C8CFCC7 /* TodayViewController.h */,
+				7BD57CBC9424C9494B8C388939C57287 /* TodayViewController.m */,
+			);
+			path = TodayWidget;
+			sourceTree = "<group>";
+		};
 		C34FCD634F48FB6C987F868D3559BB72 /* Sample Project */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +527,8 @@
 		DAADD07E3568B13E96E8776997F47198 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				6A558D37985AA8866BC7397F0C4FF84E /* Pods-TodayWidget.debug.xcconfig */,
+				20733E0047B8647C17FA32BD52D4AFCE /* Pods-TodayWidget.release.xcconfig */,
 				F65C1652486692E448D9A97AAD74576A /* Pods-VOKCoreDataManager Tests.debug.xcconfig */,
 				0CC15FD1BD511956799D5432CE92BC9F /* Pods-VOKCoreDataManager Tests.release.xcconfig */,
 				731889F0910F6BDA7C30B3CE315F5B2B /* Pods-VOKCoreDataManager-OSX.debug.xcconfig */,
@@ -512,8 +571,10 @@
 				4BCF5F314951F3C0C40D9658DC90CE34 /* CoreData.framework */,
 				1996FA3A41B3DE40F041E0E44450C3CC /* CoreGraphics.framework */,
 				D5AFB41A45B6AB07B4CAAF4933AAE026 /* Foundation.framework */,
+				2EAB9BD1AFF63C49705982795C164090 /* NotificationCenter.framework */,
 				DD6B321DB495E4C30A493B2DB9A41656 /* UIKit.framework */,
 				C454789BCB5571F7D03F6F71460C2F82 /* XCTest.framework */,
+				A0F36321D92C554BB794B83EEF5DBC23 /* libPods-TodayWidget.a */,
 				560A1CEABCB61685D7A069D263AD39AF /* libPods-VOKCoreDataManager Tests.a */,
 				0FA0048E0B064E81BA3BA90C3C2EE178 /* libPods-VOKCoreDataManager-OSX.a */,
 				413980B907452FB1B1A07AE2FA8D9914 /* libPods-VOKCoreDataManager-tvOS.a */,
@@ -599,10 +660,12 @@
 				3D35CB3B49D8A38F19EE9D5E0AE1D03B /* Objective-Clean Run Script */,
 				D2C2C45F70B733C76E4E76808FB6ACB6 /* [CP] Embed Pods Frameworks */,
 				E6A504CC045AB83B9CB3EA390EFE4518 /* [CP] Copy Pods Resources */,
+				E25B0E5B1316659F8FDDEC15F173FF56 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F1AA13EF32CB2D7928AE9F155B4766A0 /* PBXTargetDependency */,
 			);
 			name = VOKCoreDataManager;
 			productName = CoreData;
@@ -651,6 +714,25 @@
 			productReference = B87C00C84B5D5684F5FDD1016605CC56 /* VOKCoreDataManagerTests-OSX.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DB011FCF1A38BC5A18D520E76EB75B35 /* TodayWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7076766B96E0D7B85AF87F349A691C73 /* Build configuration list for PBXNativeTarget "TodayWidget" */;
+			buildPhases = (
+				490EC74853AB124B010BB6106900C5EE /* [CP] Check Pods Manifest.lock */,
+				A50338F3B08125C3C446E14DC0F0CA93 /* Sources */,
+				CC46108F021B1535B84868440A5D94F4 /* Frameworks */,
+				7D680EF637B13BD026DAA09F46FDF7EC /* Resources */,
+				10AF1E2F731283E09A9147316BAC9674 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodayWidget;
+			productName = TodayWidget;
+			productReference = 4500DFCDF2D128675EC2D28D3C72E13F /* TodayWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		FF4B69B11F9E48832FC18E7552740362 /* VOKCoreDataManagerTests-tvOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B35A5BFC52F07DEE5399D833F88A9751 /* Build configuration list for PBXNativeTarget "VOKCoreDataManagerTests-tvOS" */;
@@ -696,6 +778,10 @@
 						CreatedOnToolsVersion = 7.2.1;
 						TestTargetID = 39FCFD1CAF0ACC62CD10101BBC3F5AEB;
 					};
+					DB011FCF1A38BC5A18D520E76EB75B35 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
 					FF4B69B11F9E48832FC18E7552740362 = {
 						CreatedOnToolsVersion = 7.2.1;
 						TestTargetID = 4B44DB3ED49FE959606B3F914BAAC443;
@@ -721,6 +807,7 @@
 				FF4B69B11F9E48832FC18E7552740362 /* VOKCoreDataManagerTests-tvOS */,
 				39FCFD1CAF0ACC62CD10101BBC3F5AEB /* VOKCoreDataManager-OSX */,
 				A5B49BD45B79D57458869C1827CEFE45 /* VOKCoreDataManagerTests-OSX */,
+				DB011FCF1A38BC5A18D520E76EB75B35 /* TodayWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -771,6 +858,14 @@
 				44637338EB17E28B87C5E3E88C0176B2 /* MyDB.sqlite in Resources */,
 				0A06FFDF61B41EBCFBF591D8753B9C4B /* MyDB.sqlite-shm in Resources */,
 				5775AC79AC83E5CAE1071CA8E0F7EB20 /* MyDB.sqlite-wal in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D680EF637B13BD026DAA09F46FDF7EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4599EC4D431A109B0C163FD8ACAF2C0 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -907,6 +1002,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManagerTests-OSX/Pods-VOKCoreDataManagerTests-OSX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		10AF1E2F731283E09A9147316BAC9674 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9D235C657B0D135D86E2A32C868056FB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -995,6 +1105,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		490EC74853AB124B010BB6106900C5EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D67EBE03B2684C22F16B9881791180C5 /* [CP] Check Pods Manifest.lock */ = {
@@ -1125,6 +1250,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A50338F3B08125C3C446E14DC0F0CA93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82544E42723DEDDE5F2D0B13428BAB93 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C1E03D856025660F58A3497D56F7C71F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1190,6 +1323,11 @@
 			target = 5956D26151175B19837FC0234C370AFD /* VOKCoreDataManager */;
 			targetProxy = 383E50E0AE3E715C4C4F1642E3B2DA4C /* PBXContainerItemProxy */;
 		};
+		F1AA13EF32CB2D7928AE9F155B4766A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB011FCF1A38BC5A18D520E76EB75B35 /* TodayWidget */;
+			targetProxy = 004FC0974D7D1705640D7AFA8E8BE2E0 /* PBXContainerItemProxy */;
+		};
 		E479B8B8A5C2D4D4A579DC266804803A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4B44DB3ED49FE959606B3F914BAAC443 /* VOKCoreDataManager-tvOS */;
@@ -1220,6 +1358,14 @@
 				06F871C04D6129B36E78E27BA4C5D3DF /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BC8A6446174B47D5C01EDC1B66D94B38 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7D2B21E89D2BF2519901F57EE7A3151 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		C2D0F99B4E37B8F809468E84A3A2F932 /* MainMenu.xib */ = {
@@ -1468,6 +1614,60 @@
 			};
 			name = Debug;
 		};
+		214FFE7ECEEFFABBAC581CD7A8F41C2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A558D37985AA8866BC7397F0C4FF84E /* Pods-TodayWidget.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vokal.VOKCoreDataManager.TodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		381BC5EC2BF7B80148F055EC089E9EE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20733E0047B8647C17FA32BD52D4AFCE /* Pods-TodayWidget.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vokal.VOKCoreDataManager.TodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		C3746D6FDA6560F307D40A14BD111D72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F65C1652486692E448D9A97AAD74576A /* Pods-VOKCoreDataManager Tests.debug.xcconfig */;
@@ -1649,6 +1849,15 @@
 			buildConfigurations = (
 				6F44224AEF5F489A288F3330F1E86C26 /* Debug */,
 				36D10AE5E2F115B888A9552A944732F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7076766B96E0D7B85AF87F349A691C73 /* Build configuration list for PBXNativeTarget "TodayWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				214FFE7ECEEFFABBAC581CD7A8F41C2B /* Debug */,
+				381BC5EC2BF7B80148F055EC089E9EE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

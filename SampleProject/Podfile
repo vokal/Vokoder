@@ -12,6 +12,10 @@ target 'VOKCoreDataManager' do
 
 end
 
+target 'TodayWidget' do
+  vokoder_pod
+end
+
 target 'VOKCoreDataManager-OSX' do
   platform :osx, '10.9'
   vokoder_pod
