@@ -21,7 +21,8 @@
 {
     [super viewDidLoad];
     
-    //Make sure the widget compiles and can access Vokoder
+    //Make sure the widget compiles and can access Vokoder. This data store is in the extension,
+    // NOT shared with the main app.
     [[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:@"VOKCoreDataModel.sqlite"];
 }
 
