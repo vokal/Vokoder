@@ -36,3 +36,6 @@ env.sh
 # SwiftLint - To save space, this will ignore the uncompressed swiftlint files but not the portable_swiftlint.zip file.
 */swiftlint/SwiftLintFramework.framework
 */swiftlint/swiftlint
+
+# Default output directory for scan
+test_output
