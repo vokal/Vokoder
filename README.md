@@ -20,7 +20,7 @@ If you intend to use Vokoder in Swift, use the `Swift` subspec instead:
 
     pod "Vokoder/Swift"
 
-Vokoder requires Xcode 5.1 or higher.  The unit tests require features found in Xcode 6 and higher.  The Swift extensions require Swift 2 and Xcode 7.
+Vokoder requires iOS 7, tvOS 9, or macOS 10.9. The Swift extensions require Swift 3 and Xcode 8.
 
 ## Subspecs
 
