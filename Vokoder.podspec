@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
     ]
     ss.framework    = "CoreData"
     ss.dependency 'ILGDynamicObjC/ILGClasses', '~> 0.1.1'
-    ss.dependency 'VOKUtilities/VOKKeyPathHelper', '~> 0.9.0'
+    ss.dependency 'VOKUtilities/VOKKeyPathHelper', '~> 0.9.1'
   end
 
   s.subspec 'MapperMacros' do |mm|
