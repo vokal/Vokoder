@@ -10,7 +10,7 @@
 
 #import "VOKManagedObjectMap.h"
 
-#import <VOKKeyPathHelper.h>
+#import <VOKUtilities/VOKKeyPathHelper.h>
 
 /**
  *  Creates a map with the default date mapper.
