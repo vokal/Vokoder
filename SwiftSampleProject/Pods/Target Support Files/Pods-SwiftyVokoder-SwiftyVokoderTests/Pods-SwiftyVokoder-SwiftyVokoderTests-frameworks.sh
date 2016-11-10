@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/ILGDynamicObjC/ILGDynamicObjC.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/VOKUtilities/VOKUtilities.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Vokoder/Vokoder.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/ILGDynamicObjC/ILGDynamicObjC.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/VOKUtilities/VOKUtilities.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Vokoder/Vokoder.framework"
 fi
