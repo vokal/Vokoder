@@ -272,22 +272,24 @@
                             }
                             break;
                         case NSFetchedResultsChangeMove:
-                            if (newIndexPath != nil && fetchLimit > 0) {
-                                if (indexPath.row < fetchLimit && newIndexPath.row < fetchLimit) {
-                                    // Before and after are both in range
+                            if (newIndexPath != nil) {
+                                if (fetchLimit > 0) {
+                                    if (indexPath.row < fetchLimit && newIndexPath.row < fetchLimit) {
+                                        // Before and after are both in range
+                                        [self.collectionView moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
+                                    } else if (indexPath.row >= fetchLimit && newIndexPath.row >= fetchLimit) {
+                                        // Both out of range: do nothing
+                                    } else if (indexPath.row < fetchLimit && newIndexPath.row >= fetchLimit) {
+                                        // Destination is out of range: remove the original row
+                                        [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+                                    } else if  (indexPath.row >= fetchLimit && newIndexPath.row < fetchLimit) {
+                                        // Origin is out of range: add the new row
+                                        [self.collectionView insertItemsAtIndexPaths:@[newIndexPath]];
+                                    }
+                                } else {
+                                    // No fetch limit: behave normally
                                     [self.collectionView moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
-                                } else if (indexPath.row >= fetchLimit && newIndexPath.row >= fetchLimit) {
-                                    // Both out of range: do nothing
-                                } else if (indexPath.row < fetchLimit && newIndexPath.row >= fetchLimit) {
-                                    // Destination is out of range: remove the original row
-                                    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
-                                } else if  (indexPath.row >= fetchLimit && newIndexPath.row < fetchLimit) {
-                                    // Origin is out of range: add the new row
-                                    [self.collectionView insertItemsAtIndexPaths:@[newIndexPath]];
                                 }
-                            } else {
-                                // No fetch limit: behave normally
-                                [self.collectionView moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
                             }
                             break;
                     }
@@ -348,22 +350,24 @@
                                 }
                                 break;
                             case NSFetchedResultsChangeMove:
-                                if (newIndexPath != nil && fetchLimit > 0) {
-                                    if (indexPath.row < fetchLimit && newIndexPath.row < fetchLimit) {
-                                        // Before and after are both in range
+                                if (newIndexPath != nil) {
+                                    if (fetchLimit > 0) {
+                                        if (indexPath.row < fetchLimit && newIndexPath.row < fetchLimit) {
+                                            // Before and after are both in range
+                                            [self.collectionView moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
+                                        } else if (indexPath.row >= fetchLimit && newIndexPath.row >= fetchLimit) {
+                                            // Both out of range: do nothing
+                                        } else if (indexPath.row < fetchLimit && newIndexPath.row >= fetchLimit) {
+                                            // Destination is out of range: remove the original row
+                                            [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+                                        } else if  (indexPath.row >= fetchLimit && newIndexPath.row < fetchLimit) {
+                                            // Origin is out of range: add the new row
+                                            [self.collectionView insertItemsAtIndexPaths:@[newIndexPath]];
+                                        }
+                                    } else {
+                                        // No fetch limit: behave normally
                                         [self.collectionView moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
-                                    } else if (indexPath.row >= fetchLimit && newIndexPath.row >= fetchLimit) {
-                                        // Both out of range: do nothing
-                                    } else if (indexPath.row < fetchLimit && newIndexPath.row >= fetchLimit) {
-                                        // Destination is out of range: remove the original row
-                                        [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
-                                    } else if  (indexPath.row >= fetchLimit && newIndexPath.row < fetchLimit) {
-                                        // Origin is out of range: add the new row
-                                        [self.collectionView insertItemsAtIndexPaths:@[newIndexPath]];
                                     }
-                                } else {
-                                    // No fetch limit: behave normally
-                                    [self.collectionView moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
                                 }
                                 break;
                         }
