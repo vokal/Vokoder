@@ -66,7 +66,7 @@ typedef void(^VOKPostExportBlock)(VOKStringToObjectMutableDictionary *outputDict
  @param key The Core Data key.
  @return The foreign keypath as a string.
  */
-- (id)objectForKeyedSubscript:(id)key;
+- (nullable id)objectForKeyedSubscript:(id)key;
 
 @end
 
