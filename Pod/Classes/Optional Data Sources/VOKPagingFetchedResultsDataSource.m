@@ -134,7 +134,7 @@ static CGFloat const DefaultAccessoryHeight = 30;
     self.tableView.contentInset = insets;
 
     [self.tableView addObserver:self
-                     forKeyPath:VOKKeyForInstanceOf(UITableView, contentSize)
+                     forKeyPath:VOKKeyForObject(self.tableView, contentSize)
                         options:0 // Don't use the old or new value from the dictionary in the method, so pass 0
                         context:NULL];
 }
@@ -158,7 +158,7 @@ static CGFloat const DefaultAccessoryHeight = 30;
                         change:(NSDictionary *)change
                        context:(void *)context
 {
-    if ([keyPath isEqualToString:VOKKeyForInstanceOf(UITableView, contentSize)]) {
+    if ([keyPath isEqualToString:VOKKeyForObject(self.tableView, contentSize)]) {
         self.bottomConstraint.constant = self.tableView.contentSize.height;
     }
 }
@@ -265,7 +265,7 @@ static CGFloat const DefaultAccessoryHeight = 30;
 
 - (void)dealloc
 {
-    [self.tableView removeObserver:self forKeyPath:VOKKeyForInstanceOf(UITableView, contentSize)];
+    [self.tableView removeObserver:self forKeyPath:VOKKeyForObject(self.tableView, contentSize)];
 }
 
 @end
