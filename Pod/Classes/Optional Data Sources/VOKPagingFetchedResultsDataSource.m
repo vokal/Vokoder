@@ -8,18 +8,21 @@
 
 #import "VOKPagingFetchedResultsDataSource.h"
 #import "VOKDefaultPagingAccessory.h"
+#import <VOKUtilities/VOKKeyPathHelper.h>
+
+static CGFloat const DefaultAccessoryHeight = 30;
 
 @interface VOKPagingFetchedResultsDataSource () <UIScrollViewDelegate>
 
 @property (copy) VOKPagingResultsAction upAction;
 @property (copy) VOKPagingResultsAction downAction;
 
-@property UIView<VOKPagingAccessory> *headerView;
-@property UIView<VOKPagingAccessory> *footerView;
+@property (nonatomic) UIView<VOKPagingAccessory> *headerView;
+@property (nonatomic) UIView<VOKPagingAccessory> *footerView;
 
-@property BOOL isLoading;
-@property CGFloat triggerDistance;
-@property UIEdgeInsets orginalInsets;
+@property (nonatomic) BOOL isLoading;
+@property (nonatomic) CGFloat triggerDistance;
+@property (nonatomic) UIEdgeInsets orginalInsets;
 
 @end
 
@@ -52,21 +55,27 @@
 {
     //Attach given views, or generate default views.
     if (!self.headerView) {
-        self.headerView = [[VOKDefaultPagingAccessory alloc] initWithFrame:(CGRect){0, -30, self.tableView.frame.size.width, 30}];
+        CGRect headerFrame = (CGRect){0, -DefaultAccessoryHeight, self.tableView.frame.size.width, DefaultAccessoryHeight};
+        self.headerView = [[VOKDefaultPagingAccessory alloc] initWithFrame:headerFrame];
     }
     
-    [self.headerView setFrame:(CGRect){0, -self.headerView.frame.size.height, self.headerView.frame.size}];
+    self.headerView.frame = (CGRect){0, -self.headerView.frame.size.height, self.headerView.frame.size};
     [self.tableView addSubview:self.headerView];
     
     if (!self.footerView) {
-        self.footerView = [[VOKDefaultPagingAccessory alloc] initWithFrame:(CGRect){0,
+        CGRect footerFrame = (CGRect){0,
             MAX(self.tableView.contentSize.height, self.tableView.bounds.size.height),
-            self.tableView.frame.size.width, 30}];
+            self.tableView.frame.size.width,
+            DefaultAccessoryHeight};
+        self.footerView = [[VOKDefaultPagingAccessory alloc] initWithFrame:footerFrame];
     }
     
     [self.tableView addSubview:self.footerView];
     
-    [self.tableView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld | NSKeyValueObservingOptionPrior context:NULL];
+    [self.tableView addObserver:self
+                     forKeyPath:VOKKeyForInstanceOf(UITableView, contentSize)
+                        options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld | NSKeyValueObservingOptionPrior
+                        context:NULL];
 }
 
 - (void)cleanUpPageController
@@ -83,10 +92,13 @@
 
 #pragma mark Scrollview Observing
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
 {
-    if ([keyPath isEqualToString:@"contentSize"]) {
-        [self.footerView setFrame:(CGRect){0, MAX(self.tableView.contentSize.height, self.tableView.bounds.size.height), self.footerView.frame.size}];
+    if ([keyPath isEqualToString:VOKKeyForInstanceOf(UITableView, contentSize)]) {
+        self.footerView.frame = (CGRect){0, MAX(self.tableView.contentSize.height, self.tableView.bounds.size.height), self.footerView.frame.size};
     }
 }
 
@@ -171,8 +183,7 @@
 
 - (void)dealloc
 {
-    NSLog(@"Page controller dealloc'd %@", self);
-    [self.tableView removeObserver:self forKeyPath:@"contentSize"];
+    [self.tableView removeObserver:self forKeyPath:VOKKeyForInstanceOf(UITableView, contentSize)];
 }
 
 @end
