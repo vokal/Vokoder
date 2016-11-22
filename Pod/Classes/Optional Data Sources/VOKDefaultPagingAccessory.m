@@ -109,6 +109,22 @@
                                                          attribute:NSLayoutAttributeCenterX
                                                         multiplier:1
                                                           constant:0]];
+        
+        // Don't go too wide
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:containerView
+                                                         attribute:NSLayoutAttributeLeading
+                                                         relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                            toItem:self
+                                                         attribute:NSLayoutAttributeLeading
+                                                        multiplier:1
+                                                          constant:0]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:containerView
+                                                         attribute:NSLayoutAttributeTrailing
+                                                         relatedBy:NSLayoutRelationLessThanOrEqual
+                                                            toItem:self
+                                                         attribute:NSLayoutAttributeTrailing
+                                                        multiplier:1
+                                                          constant:0]];
     }
 }
 

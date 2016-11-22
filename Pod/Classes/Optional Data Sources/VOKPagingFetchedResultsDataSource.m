@@ -61,7 +61,7 @@ static CGFloat const DefaultAccessoryHeight = 30;
                                                                     attribute:NSLayoutAttributeHeight
                                                                     relatedBy:NSLayoutRelationEqual
                                                                        toItem:nil
-                                                                    attribute:0
+                                                                    attribute:NSLayoutAttributeNotAnAttribute
                                                                    multiplier:1
                                                                      constant:DefaultAccessoryHeight]];
     }
@@ -90,9 +90,6 @@ static CGFloat const DefaultAccessoryHeight = 30;
                                                               multiplier:1
                                                                 constant:0]];
 
-    UIEdgeInsets insets = self.tableView.contentInset;
-    insets.top -= DefaultAccessoryHeight;
-
     if (!self.footerView) {
         self.footerView = [[VOKDefaultPagingAccessory alloc] init];
         self.footerView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -100,7 +97,7 @@ static CGFloat const DefaultAccessoryHeight = 30;
                                                                     attribute:NSLayoutAttributeHeight
                                                                     relatedBy:NSLayoutRelationEqual
                                                                        toItem:nil
-                                                                    attribute:0
+                                                                    attribute:NSLayoutAttributeNotAnAttribute
                                                                    multiplier:1
                                                                      constant:DefaultAccessoryHeight]];
     }
@@ -130,6 +127,9 @@ static CGFloat const DefaultAccessoryHeight = 30;
                                                           constant:self.tableView.contentSize.height];
     [self.tableView addConstraint:self.bottomConstraint];
 
+    // Adjust the insets to push the paging accessory views off-screen initially
+    UIEdgeInsets insets = self.tableView.contentInset;
+    insets.top -= DefaultAccessoryHeight;
     insets.bottom -= DefaultAccessoryHeight;
     self.tableView.contentInset = insets;
 
@@ -185,7 +185,7 @@ static CGFloat const DefaultAccessoryHeight = 30;
             CGPoint offset = CGPointMake(0, offsetHeight);
             UIEdgeInsets insets = self.tableView.contentInset;
             insets.bottom += DefaultAccessoryHeight;
-
+            
             [self triggerAction:self.downAction
                forAccessoryView:self.footerView
               withContentOffset:offset
@@ -214,13 +214,13 @@ static CGFloat const DefaultAccessoryHeight = 30;
 
         if (distanceBelowBottomOfScreen < 0
             && [self contentHeightLargerThanFrameForScrollView:scrollView]) {
-            [self.footerView hasOverScrolled:(fabs(distanceBelowBottomOfScreen)/self.triggerDistance)];
+            [self.footerView hasOverScrolled:(fabs(distanceBelowBottomOfScreen) / self.triggerDistance)];
         } else {
             [self.footerView hasOverScrolled:0.0];
         }
 
         if (distanceAboveTopOfScreen < 0) {
-            [self.headerView hasOverScrolled:(fabs(distanceAboveTopOfScreen)/self.triggerDistance)];
+            [self.headerView hasOverScrolled:(fabs(distanceAboveTopOfScreen) / self.triggerDistance)];
         } else {
             [self.headerView hasOverScrolled:0.0];
         }
