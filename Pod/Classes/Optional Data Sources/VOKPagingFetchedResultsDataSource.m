@@ -246,20 +246,17 @@ static CGFloat const DefaultAccessoryHeight = 30;
     [UIView animateWithDuration:.3
                      animations:^{
                          strongTableView.contentInset = tempInsets;
-                         [strongTableView setContentOffset:contentOffset];
+                         strongTableView.contentOffset = contentOffset;
                      }
                      completion:^(BOOL finished) {
-                         VOKCompletionAction completionAction = ^void (void)
-                         {
+                         action(strongTableView, ^(void) {
                              self.isLoading = NO;
                              [accessory loadingHasFinished];
-
-                             [strongTableView setUserInteractionEnabled:YES];
+                             
+                             strongTableView.userInteractionEnabled = YES;
                              strongTableView.contentInset = originalInsets;
                              [strongTableView setContentOffset:returnOffset animated:YES];
-                         };
-
-                         action(strongTableView, completionAction);
+                         });
                      }];
 }
 
