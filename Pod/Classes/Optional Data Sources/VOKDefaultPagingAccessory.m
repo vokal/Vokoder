@@ -22,7 +22,7 @@
         self.clipsToBounds = YES;
         [self setBackgroundColor:[UIColor clearColor]];
         
-        UILabel *label = [[UILabel alloc] initWithFrame:(CGRect){CGPointZero, self.frame.size}];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         [label setText:@"Pull To Load"];
         [label setFont:[UIFont boldSystemFontOfSize:20]];
         [label sizeToFit];
