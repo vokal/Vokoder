@@ -10,7 +10,7 @@
 
 @interface VOKDefaultPagingAccessory ()
 
-@property UIActivityIndicatorView *indicator;
+@property (nonatomic) UIActivityIndicatorView *indicator;
 
 @end
 
@@ -25,10 +25,8 @@
         UILabel *label = [[UILabel alloc] initWithFrame:(CGRect){CGPointZero, self.frame.size}];
         [label setText:@"Pull To Load"];
         [label setFont:[UIFont boldSystemFontOfSize:20]];
-        [label setTextAlignment:NSTextAlignmentCenter];
-        [self addSubview:label];
         [label sizeToFit];
-        [label setCenter:CGPointMake(self.frame.size.width/2, self.frame.size.height/2)];
+        label.translatesAutoresizingMaskIntoConstraints = NO;
         
         UIActivityIndicatorViewStyle indicatorStyle;
 #if TARGET_OS_IOS
@@ -40,9 +38,77 @@
         self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:indicatorStyle];
         [self.indicator setTintColor:[UIColor blackColor]];
         [self.indicator setHidesWhenStopped:NO];
+        self.indicator.translatesAutoresizingMaskIntoConstraints = NO;
         
-        [self.indicator setCenter:CGPointMake(label.frame.origin.x - self.indicator.frame.size.width, self.frame.size.height/2)];
-        [self addSubview:self.indicator];
+        // Wrap the label and activity indicator in a parent view to be collectively centered
+        UIView *containerView = [[UIView alloc] init];
+        containerView.translatesAutoresizingMaskIntoConstraints = NO;
+        [containerView addSubview:self.indicator];
+        [containerView addSubview:label];
+        [self addSubview:containerView];
+        
+        // Position the activity indicator and label
+        [containerView addConstraint:[NSLayoutConstraint constraintWithItem:containerView
+                                                         attribute:NSLayoutAttributeLeading
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self.indicator
+                                                         attribute:NSLayoutAttributeLeading
+                                                        multiplier:1
+                                                          constant:0]];
+        [containerView addConstraint:[NSLayoutConstraint constraintWithItem:containerView
+                                                                  attribute:NSLayoutAttributeTrailing
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:label
+                                                                  attribute:NSLayoutAttributeTrailing
+                                                                 multiplier:1
+                                                                   constant:0]];
+        // Put a little space between the lable and activity indicator
+        [containerView addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                                  attribute:NSLayoutAttributeLeading
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.indicator
+                                                                  attribute:NSLayoutAttributeTrailing
+                                                                 multiplier:1
+                                                                   constant:20]];
+
+        // Vertically center the indicator and label inside the container
+        [containerView addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                                  attribute:NSLayoutAttributeCenterY
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:containerView
+                                                                  attribute:NSLayoutAttributeCenterY
+                                                                 multiplier:1
+                                                                   constant:0]];
+        [containerView addConstraint:[NSLayoutConstraint constraintWithItem:self.indicator
+                                                                  attribute:NSLayoutAttributeCenterY
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:containerView
+                                                                  attribute:NSLayoutAttributeCenterY
+                                                                 multiplier:1
+                                                                   constant:0]];
+
+        // Make the container fill this view, and center it horizontally
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:containerView
+                                                         attribute:NSLayoutAttributeTop
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self
+                                                         attribute:NSLayoutAttributeTop
+                                                        multiplier:1
+                                                          constant:0]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:containerView
+                                                         attribute:NSLayoutAttributeBottom
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self
+                                                         attribute:NSLayoutAttributeBottom
+                                                        multiplier:1
+                                                          constant:0]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:containerView
+                                                         attribute:NSLayoutAttributeCenterX
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self
+                                                         attribute:NSLayoutAttributeCenterX
+                                                        multiplier:1
+                                                          constant:0]];
     }
 }
 
