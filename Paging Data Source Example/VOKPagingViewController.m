@@ -15,21 +15,21 @@
 - (void)loadView
 {
     [super loadView];
-
+    
     UIBarButtonItem *deleteSomeStuffButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
                                                                                            target:self
                                                                                            action:@selector(wipeData)];
     UIBarButtonItem *addSomeStuffButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                                           target:self
-                                                                                           action:@selector(loadData)];
+                                                                                        target:self
+                                                                                        action:@selector(loadData)];
     
     UIBarButtonItem *removeTableButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                                        target:self
-                                                                                        action:@selector(removeTable)];
-
-
+                                                                                       target:self
+                                                                                       action:@selector(removeTable)];
+    
+    
     self.navigationItem.rightBarButtonItems = @[deleteSomeStuffButton, addSomeStuffButton, removeTableButton];
-
+    
     [[VOKCoreDataManager sharedInstance] resetCoreData];
 }
 
@@ -51,13 +51,13 @@
     [VOKPlayer setupMaps];
     
     NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"cHighscore" ascending:NO]];
-
+    
     self.dataSource = [[VOKPlayerDataSource alloc] initWithPredicate:nil
-                                                          cacheName:nil
-                                                          tableView:self.tableView
-                                                 sectionNameKeyPath:nil
-                                                    sortDescriptors:sortDescriptors
-                                                managedObjectClass:[VOKPlayer class]];
+                                                           cacheName:nil
+                                                           tableView:self.tableView
+                                                  sectionNameKeyPath:nil
+                                                     sortDescriptors:sortDescriptors
+                                                  managedObjectClass:[VOKPlayer class]];
     
     [self.dataSource setupForTriggerDistance:60 upAction:^(UITableView *tableView, VOKCompletionAction fetchCompleted) {
         //Normally this wait would be waiting on an API call.
@@ -99,7 +99,7 @@
         }];
         [[VOKCoreDataManager sharedInstance] saveAndMergeWithMainContext:tempContext];
     });
-
+    
 }
 
 - (void)loadData
