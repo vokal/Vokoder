@@ -14,14 +14,15 @@ static CGFloat const DefaultAccessoryHeight = 30;
 
 @interface VOKPagingFetchedResultsDataSource () <UIScrollViewDelegate>
 
-@property (copy) VOKPagingResultsAction upAction;
-@property (copy) VOKPagingResultsAction downAction;
+@property (nonatomic, copy) VOKPagingResultsAction upAction;
+@property (nonatomic, copy) VOKPagingResultsAction downAction;
 
 @property (nonatomic) UIView<VOKPagingAccessory> *headerView;
 @property (nonatomic) UIView<VOKPagingAccessory> *footerView;
 
 @property (nonatomic) BOOL isLoading;
 @property (nonatomic) CGFloat triggerDistance;
+@property (nonatomic) NSLayoutConstraint *bottomConstraint;
 @property (nonatomic) UIEdgeInsets orginalInsets;
 
 @end
@@ -38,43 +39,103 @@ static CGFloat const DefaultAccessoryHeight = 30;
 {
     self.upAction = upPageActionOrNil;
     self.downAction = downPageActionOrNil;
-    
+
     self.headerView = headerViewOrNil;
     self.footerView = footerViewOrNil;
-    
+
     self.isLoading = NO;
-    
+
     self.triggerDistance = overscrollTriggerDistance;
     self.orginalInsets = self.tableView.contentInset;
-    
+
     [self setupAccessoryViews];
-    
 }
 
 - (void)setupAccessoryViews
 {
     //Attach given views, or generate default views.
     if (!self.headerView) {
-        CGRect headerFrame = (CGRect){0, -DefaultAccessoryHeight, self.tableView.frame.size.width, DefaultAccessoryHeight};
-        self.headerView = [[VOKDefaultPagingAccessory alloc] initWithFrame:headerFrame];
+        self.headerView = [[VOKDefaultPagingAccessory alloc] init];
+        self.headerView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.headerView addConstraint:[NSLayoutConstraint constraintWithItem:self.headerView
+                                                                    attribute:NSLayoutAttributeHeight
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:nil
+                                                                    attribute:NSLayoutAttributeNotAnAttribute
+                                                                   multiplier:1
+                                                                     constant:DefaultAccessoryHeight]];
     }
-    
-    self.headerView.frame = (CGRect){0, -self.headerView.frame.size.height, self.headerView.frame.size};
-    [self.tableView addSubview:self.headerView];
-    
+
+    self.tableView.tableHeaderView = self.headerView;
+
+    [self.tableView addConstraint:[NSLayoutConstraint constraintWithItem:self.headerView
+                                                               attribute:NSLayoutAttributeWidth
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:self.tableView
+                                                               attribute:NSLayoutAttributeWidth
+                                                              multiplier:1
+                                                                constant:0]];
+    [self.tableView addConstraint:[NSLayoutConstraint constraintWithItem:self.headerView
+                                                               attribute:NSLayoutAttributeLeft
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:self.tableView
+                                                               attribute:NSLayoutAttributeLeft
+                                                              multiplier:1
+                                                                constant:0]];
+    [self.tableView addConstraint:[NSLayoutConstraint constraintWithItem:self.headerView
+                                                               attribute:NSLayoutAttributeTop
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:self.tableView
+                                                               attribute:NSLayoutAttributeTop
+                                                              multiplier:1
+                                                                constant:0]];
+
     if (!self.footerView) {
-        CGRect footerFrame = (CGRect){0,
-            MAX(self.tableView.contentSize.height, self.tableView.bounds.size.height),
-            self.tableView.frame.size.width,
-            DefaultAccessoryHeight};
-        self.footerView = [[VOKDefaultPagingAccessory alloc] initWithFrame:footerFrame];
+        self.footerView = [[VOKDefaultPagingAccessory alloc] init];
+        self.footerView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.footerView addConstraint:[NSLayoutConstraint constraintWithItem:self.footerView
+                                                                    attribute:NSLayoutAttributeHeight
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:nil
+                                                                    attribute:NSLayoutAttributeNotAnAttribute
+                                                                   multiplier:1
+                                                                     constant:DefaultAccessoryHeight]];
     }
-    
-    [self.tableView addSubview:self.footerView];
-    
+
+    self.tableView.tableFooterView = self.footerView;
+    [self.tableView addConstraint:[NSLayoutConstraint constraintWithItem:self.footerView
+                                                               attribute:NSLayoutAttributeWidth
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:self.tableView
+                                                               attribute:NSLayoutAttributeWidth
+                                                              multiplier:1
+                                                                constant:0]];
+    [self.tableView addConstraint:[NSLayoutConstraint constraintWithItem:self.footerView
+                                                               attribute:NSLayoutAttributeLeft
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:self.tableView
+                                                               attribute:NSLayoutAttributeLeft
+                                                              multiplier:1
+                                                                constant:0]];
+
+    self.bottomConstraint = [NSLayoutConstraint constraintWithItem:self.footerView
+                                                         attribute:NSLayoutAttributeBottom
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self.headerView
+                                                         attribute:NSLayoutAttributeTop
+                                                        multiplier:1
+                                                          constant:self.tableView.contentSize.height];
+    [self.tableView addConstraint:self.bottomConstraint];
+
+    // Adjust the insets to push the paging accessory views off-screen initially
+    UIEdgeInsets insets = self.tableView.contentInset;
+    insets.top -= DefaultAccessoryHeight;
+    insets.bottom -= DefaultAccessoryHeight;
+    self.tableView.contentInset = insets;
+
     [self.tableView addObserver:self
-                     forKeyPath:VOKKeyForInstanceOf(UITableView, contentSize)
-                        options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld | NSKeyValueObservingOptionPrior
+                     forKeyPath:VOKKeyForObject(self.tableView, contentSize)
+                        options:0 // Don't use the old or new value from the dictionary in the method, so pass 0
                         context:NULL];
 }
 
@@ -82,10 +143,10 @@ static CGFloat const DefaultAccessoryHeight = 30;
 {
     [self.headerView removeFromSuperview];
     self.headerView = nil;
-    
+
     [self.footerView removeFromSuperview];
     self.footerView = nil;
-    
+
     self.upAction = nil;
     self.downAction = nil;
 }
@@ -97,35 +158,50 @@ static CGFloat const DefaultAccessoryHeight = 30;
                         change:(NSDictionary *)change
                        context:(void *)context
 {
-    if ([keyPath isEqualToString:VOKKeyForInstanceOf(UITableView, contentSize)]) {
-        self.footerView.frame = (CGRect){0, MAX(self.tableView.contentSize.height, self.tableView.bounds.size.height), self.footerView.frame.size};
+    if ([keyPath isEqualToString:VOKKeyForObject(self.tableView, contentSize)]) {
+        self.bottomConstraint.constant = self.tableView.contentSize.height;
     }
 }
 
 #pragma mark Scrollview Delegates
 
+- (BOOL)contentHeightLargerThanFrameForScrollView:(UIScrollView *)scrollView
+{
+    return scrollView.contentSize.height > CGRectGetHeight(scrollView.frame);
+}
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     if (!self.isLoading) {
-        //Calculate scrollable height
-        CGFloat contentHeight = scrollView.contentSize.height;
-        CGFloat scrollableHeight = contentHeight - scrollView.bounds.size.height;
-        
-        if (scrollView.contentOffset.y > (scrollableHeight + self.triggerDistance) && self.downAction) {
+        CGFloat distanceBelowBottomOfScreen = scrollView.contentSize.height - CGRectGetMaxY(scrollView.bounds);
+        CGFloat distanceAboveTopOfScreen = CGRectGetMinY(scrollView.bounds);
+
+        //Action for getting to bottom
+        if ([self contentHeightLargerThanFrameForScrollView:scrollView]
+            && distanceBelowBottomOfScreen <= self.triggerDistance
+            && self.downAction) {
+            CGFloat contentHeight = scrollView.contentSize.height;
+            CGFloat offsetHeight = contentHeight - CGRectGetHeight(self.tableView.frame) - CGRectGetHeight(self.footerView.frame);
+            CGPoint offset = CGPointMake(0, offsetHeight);
+            UIEdgeInsets insets = self.tableView.contentInset;
+            insets.bottom += DefaultAccessoryHeight;
             
-            UIEdgeInsets newInsets = self.orginalInsets;
-            newInsets.bottom += self.footerView.frame.size.height;
-            
-            [self triggerAction:self.downAction forAccessoryView:self.footerView withInsets:newInsets];
-        }
-        
-        CGFloat topOffset = scrollView.contentOffset.y - scrollView.contentInset.top;
-        if (topOffset < (-self.triggerDistance) && self.upAction) {
-            
-            UIEdgeInsets newInsets = self.orginalInsets;
-            newInsets.top += self.headerView.frame.size.height;
-            
-            [self triggerAction:self.upAction forAccessoryView:self.headerView withInsets:newInsets];
+            [self triggerAction:self.downAction
+               forAccessoryView:self.footerView
+              withContentOffset:offset
+              returningToOffset:offset
+                temporaryInsets:insets];
+        } else if (distanceAboveTopOfScreen < (-self.triggerDistance) && self.upAction) {
+            //Action for pulling down from top.
+            CGPoint offset = CGPointMake(0, CGRectGetHeight(self.headerView.frame));
+            UIEdgeInsets insets = self.tableView.contentInset;
+            insets.top += DefaultAccessoryHeight;
+
+            [self triggerAction:self.upAction
+               forAccessoryView:self.headerView
+              withContentOffset:CGPointZero
+              returningToOffset:offset
+                temporaryInsets:insets];
         }
     }
 }
@@ -133,21 +209,18 @@ static CGFloat const DefaultAccessoryHeight = 30;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (!self.isLoading) {
-        //Calculate scrollable height
-        CGFloat contentHeight = scrollView.contentSize.height;
-        CGFloat scrollableHeight = contentHeight - scrollView.bounds.size.height;
-        
-        CGFloat topOffset = scrollView.contentOffset.y + scrollView.contentInset.top;
-        
-        if (topOffset > scrollableHeight) {
-            CGFloat distanceOverscrolled = topOffset - scrollableHeight;
-            [self.footerView hasOverScrolled:(distanceOverscrolled/self.triggerDistance)];
+        CGFloat distanceBelowBottomOfScreen = scrollView.contentSize.height - CGRectGetMaxY(scrollView.bounds);
+        CGFloat distanceAboveTopOfScreen = CGRectGetMinY(scrollView.bounds);
+
+        if (distanceBelowBottomOfScreen < 0
+            && [self contentHeightLargerThanFrameForScrollView:scrollView]) {
+            [self.footerView hasOverScrolled:(fabs(distanceBelowBottomOfScreen) / self.triggerDistance)];
         } else {
             [self.footerView hasOverScrolled:0.0];
         }
-        
-        if (topOffset < 0) {
-            [self.headerView hasOverScrolled:(fabs(topOffset)/self.triggerDistance)];
+
+        if (distanceAboveTopOfScreen < 0) {
+            [self.headerView hasOverScrolled:(fabs(distanceAboveTopOfScreen) / self.triggerDistance)];
         } else {
             [self.headerView hasOverScrolled:0.0];
         }
@@ -158,32 +231,38 @@ static CGFloat const DefaultAccessoryHeight = 30;
 
 - (void)triggerAction:(VOKPagingResultsAction)action
      forAccessoryView:(UIView<VOKPagingAccessory> *)accessory
-           withInsets:(UIEdgeInsets)insets
+    withContentOffset:(CGPoint)contentOffset
+    returningToOffset:(CGPoint)returnOffset
+      temporaryInsets:(UIEdgeInsets)tempInsets
 {
     self.isLoading = YES;
     [self.tableView setUserInteractionEnabled:NO];
-    
+
+    UIEdgeInsets originalInsets = self.tableView.contentInset;
     [accessory loadingWillBegin];
-    
-    [UIView animateWithDuration:.3 animations:^{
-        [self.tableView setContentInset:insets];
-    } completion:^(BOOL finished) {
-        VOKCompletionAction completionAction = ^void (void)
-        {
-            self.isLoading = NO;
-            [accessory loadingHasFinished];
-            
-            [self.tableView setUserInteractionEnabled:YES];
-            [self.tableView setContentInset:self.orginalInsets];
-        };
-        
-        action(self.tableView, completionAction);
-    }];
+
+    //self.table is a weak relationship, causing it to be dealloc'd before self while this block was in-flight.
+    typeof(self.tableView) __strong strongTableView = self.tableView;
+    [UIView animateWithDuration:.3
+                     animations:^{
+                         strongTableView.contentInset = tempInsets;
+                         strongTableView.contentOffset = contentOffset;
+                     }
+                     completion:^(BOOL finished) {
+                         action(strongTableView, ^(void) {
+                             self.isLoading = NO;
+                             [accessory loadingHasFinished];
+                             
+                             strongTableView.userInteractionEnabled = YES;
+                             strongTableView.contentInset = originalInsets;
+                             [strongTableView setContentOffset:returnOffset animated:YES];
+                         });
+                     }];
 }
 
 - (void)dealloc
 {
-    [self.tableView removeObserver:self forKeyPath:VOKKeyForInstanceOf(UITableView, contentSize)];
+    [self.tableView removeObserver:self forKeyPath:VOKKeyForObject(self.tableView, contentSize)];
 }
 
 @end
