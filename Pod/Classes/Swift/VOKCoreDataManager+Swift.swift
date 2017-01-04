@@ -12,13 +12,22 @@ Swiftier versions of some Vokoder functions that return more exact managed objec
 public extension VOKCoreDataManager {
     
     /**
+     A swiftly named wrapper for the singleton.
+     
+     - returns: The shared instance of the core data manager
+     */
+    public static var shared: VOKCoreDataManager {
+        return self.sharedInstance()
+    }
+    
+    /**
      Create an appropriately typed instance of a given NSManagedObject subclass.
      
      - parameter objectClass: The class of object to create
      - parameter context: The managed object context in which to create the object or nil for the main context (defaults to nil)
      - returns: A new instance of the given class
      */
-    public func managedObjectOfClass<T: NSManagedObject>(_ objectClass: T.Type,
+    public func managedObject<T: NSManagedObject>(ofClass objectClass: T.Type,
         inContext context: NSManagedObjectContext? = nil) -> T {
             guard let result = self.managedObject(of: objectClass, in: context) as? T else {
                 fatalError("Could not cast NSManagedObject to \(String(describing: T.self))")
@@ -35,7 +44,7 @@ public extension VOKCoreDataManager {
      - returns: A typed Array of created or updated objects
      */
     public func importArray<T: NSManagedObject>(_ inputArray: [[String : Any]],
-        forClass objectClass: T.Type,
+        of objectClass: T.Type,
         withContext context: NSManagedObjectContext? = nil) -> [T] {
             guard let result = self.import(inputArray,
                 for: objectClass,
@@ -55,7 +64,7 @@ public extension VOKCoreDataManager {
      - parameter context: The managed object context in which to fetch objects or nil for the main context (defaults to nil)
      - returns: A typed Array of managed object subclasses. Not threadsafe.
      */
-    public func arrayForClass<T: NSManagedObject>(_ objectClass: T.Type,
+    public func array<T: NSManagedObject>(of objectClass: T.Type,
         withPredicate predicate: NSPredicate? = nil,
         sortedBy sortDescriptors: [NSSortDescriptor]? = nil,
         forContext context: NSManagedObjectContext? = nil) -> [T] {

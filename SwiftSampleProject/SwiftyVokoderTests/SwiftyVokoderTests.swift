@@ -68,6 +68,10 @@ class SwiftyVokoderTests: XCTestCase {
         ]
     }
     
+    func testSingletonEquality() {
+        XCTAssertEqual(VOKCoreDataManager.shared, VOKCoreDataManager.sharedInstance())
+    }
+    
     func testCreateTrainLineFromIdentifier() {
         let redLine = TrainLine.trainLine(ctaIdentifier: .Red, forManagedObjectContext: nil)
         XCTAssertEqual(redLine.identifier, TrainLine.CTAIdentifier.Red.rawValue)
@@ -127,9 +131,9 @@ class SwiftyVokoderTests: XCTestCase {
         
         XCTAssertEqual(swiftStops, objCStops)
         
-        let manager = VOKCoreDataManager.sharedInstance()
+        let manager = VOKCoreDataManager.shared
         
-        swiftStops = manager.importArray(stopDictionaries, forClass: Stop.self)
+        swiftStops = manager.importArray(stopDictionaries, of: Stop.self)
         objCStops = manager.import(stopDictionaries, for: Stop.self, with: nil)
 
         XCTAssertEqual(swiftStops, objCStops)
@@ -140,7 +144,7 @@ class SwiftyVokoderTests: XCTestCase {
         
         XCTAssertEqual(stops.count, 0)
         
-        stops = VOKCoreDataManager.sharedInstance().importArray([], forClass: Stop.self)
+        stops = VOKCoreDataManager.shared.importArray([], of: Stop.self)
         XCTAssertEqual(stops.count, 0)
     }
 }
