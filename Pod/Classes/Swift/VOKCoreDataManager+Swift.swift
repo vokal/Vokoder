@@ -31,9 +31,7 @@ public extension VOKCoreDataManager {
      */
     @available(*, deprecated: 4.1.0, message: "use managedObject(ofClass:inContext:) instead")
     public func managedObjectOfClass<T: NSManagedObject>(_ objectClass: T.Type, inContext context: NSManagedObjectContext? = nil) -> T {
-        // Force-unwrapped since the method below will fatal error if it's not there,
-        // and the compiler is too stupid to realize this is already typed.
-        return self.managedObject(of: objectClass, in: context) as! T
+        return self.managedObject(ofClass: objectClass, inContext: context)
     }
     
     /**
