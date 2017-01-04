@@ -222,7 +222,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Vokal;
 				TargetAttributes = {
 					5D926D8CF832E22C37EDE3AFD3F85BAB = {
