@@ -16,6 +16,7 @@ public extension VOKCoreDataManager {
      
      - returns: The shared instance of the core data manager
      */
+    @nonobjc
     public static var shared: VOKCoreDataManager {
         return self.sharedInstance()
     }
