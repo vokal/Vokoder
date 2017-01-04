@@ -59,7 +59,7 @@ public extension VokoderTypedManagedObject where Self: NSManagedObject {
     public static func vok_fetchAll(forPredicate predicate: NSPredicate? = nil,
         sortedBy sortDescriptors: [NSSortDescriptor]? = nil,
         forManagedObjectContext context: NSManagedObjectContext? = nil) -> [Self] {
-            return VOKCoreDataManager.shared.array(of: self,
+            return VOKCoreDataManager.shared.arrayOf(self,
                 withPredicate: predicate,
                 sortedBy: sortDescriptors,
                 forContext: context)
