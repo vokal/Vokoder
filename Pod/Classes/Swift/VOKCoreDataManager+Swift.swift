@@ -7,8 +7,8 @@
 //
 
 /**
-Swiftier versions of some Vokoder functions that return more exact managed object subclass types.
-*/
+ Swiftier versions of some Vokoder functions that return more exact managed object subclass types.
+ */
 public extension VOKCoreDataManager {
     
     /**
@@ -42,11 +42,11 @@ public extension VOKCoreDataManager {
      - returns: A new instance of the given class
      */
     public func managedObject<T: NSManagedObject>(ofClass objectClass: T.Type,
-        inContext context: NSManagedObjectContext? = nil) -> T {
-            guard let result = self.managedObject(of: objectClass, in: context) as? T else {
-                fatalError("Could not cast NSManagedObject to \(String(describing: T.self))")
-            }
-            return result
+                              inContext context: NSManagedObjectContext? = nil) -> T {
+        guard let result = self.managedObject(of: objectClass, in: context) as? T else {
+            fatalError("Could not cast NSManagedObject to \(String(describing: T.self))")
+        }
+        return result
     }
     
     /**
@@ -76,14 +76,14 @@ public extension VOKCoreDataManager {
      - returns: A typed Array of created or updated objects
      */
     public func importArray<T: NSManagedObject>(_ inputArray: [[String : Any]],
-        of objectClass: T.Type,
-        withContext context: NSManagedObjectContext? = nil) -> [T] {
-            guard let result = self.import(inputArray,
-                for: objectClass,
-                with: context) as? [T] else {
-                    fatalError("Could not cast array of NSManagedObjects into \(String(describing: T.self))")
-            }
-            return result
+                            of objectClass: T.Type,
+                            withContext context: NSManagedObjectContext? = nil) -> [T] {
+        guard let result = self.import(inputArray,
+                                       for: objectClass,
+                                       with: context) as? [T] else {
+                                        fatalError("Could not cast array of NSManagedObjects into \(String(describing: T.self))")
+        }
+        return result
     }
     
     
@@ -113,7 +113,7 @@ public extension VOKCoreDataManager {
     /**
      Fetches every instance of a given class that matches the predicate using the given managed object context. Includes subentities.
      NOT threadsafe! Always use a temp context if you are NOT on the main queue.
-
+     
      - parameter objectClass: The class of objects to fetch
      - parameter predicate: The predicate limit the fetch (defaults to nil)
      - parameter sortedBy: The sort descriptors to sort the results (defaults to nil)
@@ -121,15 +121,15 @@ public extension VOKCoreDataManager {
      - returns: A typed Array of managed object subclasses. Not threadsafe.
      */
     public func arrayOf<T: NSManagedObject>(_ objectClass: T.Type,
-        withPredicate predicate: NSPredicate? = nil,
-        sortedBy sortDescriptors: [NSSortDescriptor]? = nil,
-        forContext context: NSManagedObjectContext? = nil) -> [T] {
-            guard let result = self.array(for: objectClass,
-                with: predicate,
-                sortedBy: sortDescriptors,
-                for: context) as? [T] else {
-                    fatalError("Could not cast array of NSManagedObjects into \(String(describing: T.self))")
-            }
-            return result
+                        withPredicate predicate: NSPredicate? = nil,
+                        sortedBy sortDescriptors: [NSSortDescriptor]? = nil,
+                        forContext context: NSManagedObjectContext? = nil) -> [T] {
+        guard let result = self.array(for: objectClass,
+                                      with: predicate,
+                                      sortedBy: sortDescriptors,
+                                      for: context) as? [T] else {
+                                        fatalError("Could not cast array of NSManagedObjects into \(String(describing: T.self))")
+        }
+        return result
     }
 }
