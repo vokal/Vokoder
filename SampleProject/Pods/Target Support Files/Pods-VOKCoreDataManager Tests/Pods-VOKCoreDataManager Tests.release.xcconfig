@@ -1,9 +1,8 @@
-ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" "${PODS_ROOT}/Headers/Public/VOKUtilities" "${PODS_ROOT}/Headers/Public/Vokoder" "${PODS_ROOT}/Headers/Public/xUnique"
 LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ILGDynamicObjC-iOS7.0" "$PODS_CONFIGURATION_BUILD_DIR/VOKUtilities-iOS7.0" "$PODS_CONFIGURATION_BUILD_DIR/Vokoder-50aaa070"
 OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" -isystem "${PODS_ROOT}/Headers/Public/VOKUtilities" -isystem "${PODS_ROOT}/Headers/Public/Vokoder" -isystem "${PODS_ROOT}/Headers/Public/xUnique"
-OTHER_LDFLAGS = $(inherited) -ObjC
+OTHER_LDFLAGS = $(inherited) -ObjC -framework "CoreData"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods
