@@ -1,26 +1,26 @@
 PODS:
   - ILGDynamicObjC/ILGClasses (0.1.1)
-  - Vokoder (4.0.1):
-    - Vokoder/Core (= 4.0.1)
-    - Vokoder/DataSources (= 4.0.1)
-    - Vokoder/MapperMacros (= 4.0.1)
-  - Vokoder/Core (4.0.1):
+  - Vokoder (4.1.1):
+    - Vokoder/Core (= 4.1.1)
+    - Vokoder/DataSources (= 4.1.1)
+    - Vokoder/MapperMacros (= 4.1.1)
+  - Vokoder/Core (4.1.1):
     - ILGDynamicObjC/ILGClasses (~> 0.1.1)
     - VOKUtilities/VOKKeyPathHelper (~> 0.9.1)
-  - Vokoder/DataSources (4.0.1):
+  - Vokoder/DataSources (4.1.1):
     - Vokoder/Core
-    - Vokoder/DataSources/Collection (= 4.0.1)
-    - Vokoder/DataSources/FetchedResults (= 4.0.1)
-    - Vokoder/DataSources/PagingFetchedResults (= 4.0.1)
-  - Vokoder/DataSources/Collection (4.0.1):
-    - Vokoder/Core
-    - Vokoder/DataSources/FetchedResults
-  - Vokoder/DataSources/FetchedResults (4.0.1):
-    - Vokoder/Core
-  - Vokoder/DataSources/PagingFetchedResults (4.0.1):
+    - Vokoder/DataSources/Collection (= 4.1.1)
+    - Vokoder/DataSources/FetchedResults (= 4.1.1)
+    - Vokoder/DataSources/PagingFetchedResults (= 4.1.1)
+  - Vokoder/DataSources/Collection (4.1.1):
     - Vokoder/Core
     - Vokoder/DataSources/FetchedResults
-  - Vokoder/MapperMacros (4.0.1):
+  - Vokoder/DataSources/FetchedResults (4.1.1):
+    - Vokoder/Core
+  - Vokoder/DataSources/PagingFetchedResults (4.1.1):
+    - Vokoder/Core
+    - Vokoder/DataSources/FetchedResults
+  - Vokoder/MapperMacros (4.1.1):
     - Vokoder/Core
   - VOKUtilities/VOKKeyPathHelper (0.9.1)
   - xUnique (4.1.2)
@@ -43,10 +43,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ILGDynamicObjC: 63443567f8ce851067ea3070d3b8c7f93d37207c
-  Vokoder: cb08752ddc6feee3307cf6004da1a0a09bf75729
+  Vokoder: 2fa6be3d328c4fd3e8e72426a5a272b41e737406
   VOKUtilities: 9e9562a6221125304925ab9ce5bed7ac92b4ba5d
   xUnique: 7f74d3f52c7769f648aa7be8fe614fc27dba2405
 
 PODFILE CHECKSUM: 6c39c718ca12c82f0bd7d31b107f8862262b2465
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0.rc.1
