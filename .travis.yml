@@ -1,5 +1,7 @@
 language: objective-c
-osx_image: xcode8.2
+osx_image:
+  - xcode8.2
+  - xcode8.1
 env:
   global:
     - SCAN_SKIP_BUILD=1
