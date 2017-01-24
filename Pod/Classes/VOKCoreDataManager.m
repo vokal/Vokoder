@@ -10,7 +10,7 @@
 
 #import <objc/runtime.h>
 
-#import <ILGDynamicObjC/ILGClasses.h>
+#import <ILGClasses.h>
 #import <VOKUtilities/VOKKeyPathHelper.h>
 
 #import "VOKMappableModel.h"
