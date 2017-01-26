@@ -1,9 +1,12 @@
 language: objective-c
 
-osx_image:
-  matrix:
-    - xcode8.2
-    - xcode8.1
+osx_image: xcode8.2
+
+xcode_sdk:
+  - iphonesimulator10.2
+  - iphonesimulator9.3
+  - iphonesimulator8.4
+
 env:
   global:
     - SCAN_SKIP_BUILD=1
