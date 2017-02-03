@@ -20,6 +20,8 @@ env:
     # Run on macOS
     - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager-OSX"     SCAN_SDK="macosx"
 
+before_script:
+  - xcodebuild -showsdks
 script:
   - bundle exec fastlane scan
   - bundle exec pod lib lint
