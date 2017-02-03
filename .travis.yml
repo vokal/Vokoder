@@ -7,13 +7,13 @@ env:
     - SCAN_SKIP_BUILD=1
   matrix:
     # Run on iOS 10.2
-    - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager"         SCAN_SDK="iphonesimulator10.2"
-    - SCAN_WORKSPACE="SwiftSampleProject/SwiftSampleProject.xcworkspace"                 SCAN_SCHEME="SwiftyVokoder"              SCAN_SDK="iphonesimulator10.2"
-    - SCAN_WORKSPACE="Paging Data Source Example/Paging Data Source Example.xcworkspace" SCAN_SCHEME="Paging Data Source Example" SCAN_SDK="iphonesimulator10.2"
+    - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager"         SCAN_DEVICE="iPhone 5 (10.2)"
+    - SCAN_WORKSPACE="SwiftSampleProject/SwiftSampleProject.xcworkspace"                 SCAN_SCHEME="SwiftyVokoder"              SCAN_DEVICE="iPhone 5 (10.2)"
+    - SCAN_WORKSPACE="Paging Data Source Example/Paging Data Source Example.xcworkspace" SCAN_SCHEME="Paging Data Source Example" SCAN_DEVICE="iPhone 5 (10.2)"
     # Run on iOS 9.3 (same tests as the set above)
-    - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager"         SCAN_SDK="iphonesimulator9.3"
-    - SCAN_WORKSPACE="SwiftSampleProject/SwiftSampleProject.xcworkspace"                 SCAN_SCHEME="SwiftyVokoder"              SCAN_SDK="iphonesimulator9.3"
-    - SCAN_WORKSPACE="Paging Data Source Example/Paging Data Source Example.xcworkspace" SCAN_SCHEME="Paging Data Source Example" SCAN_SDK="iphonesimulator9.3"
+    - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager"         SCAN_DEVICE="iPhone 5 (9.3)"
+    - SCAN_WORKSPACE="SwiftSampleProject/SwiftSampleProject.xcworkspace"                 SCAN_SCHEME="SwiftyVokoder"              SCAN_DEVICE="iPhone 5 (9.3)"
+    - SCAN_WORKSPACE="Paging Data Source Example/Paging Data Source Example.xcworkspace" SCAN_SCHEME="Paging Data Source Example" SCAN_DEVICE="iPhone 5 (9.3)"
 
     # Run on tvOS
     - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager-tvOS"    SCAN_SDK="appletvsimulator"
