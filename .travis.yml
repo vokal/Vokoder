@@ -4,12 +4,22 @@ env:
   global:
     - SCAN_SKIP_BUILD=1
   matrix:
-    # Define the details for each test suite that should be run
-    - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager"         SCAN_SDK="iphonesimulator"
+    # Test on iOS 10.2
+    - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager"         SCAN_DEVICE="iPhone 5 (10.2)"
+    - SCAN_WORKSPACE="SwiftSampleProject/SwiftSampleProject.xcworkspace"                 SCAN_SCHEME="SwiftyVokoder"              SCAN_DEVICE="iPhone 5 (10.2)"
+    - SCAN_WORKSPACE="Paging Data Source Example/Paging Data Source Example.xcworkspace" SCAN_SCHEME="Paging Data Source Example" SCAN_DEVICE="iPhone 5 (10.2)"
+
+    # Test on iOS 9.3 (same tests as the set above)
+    - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager"         SCAN_DEVICE="iPhone 5 (9.3)"
+    - SCAN_WORKSPACE="SwiftSampleProject/SwiftSampleProject.xcworkspace"                 SCAN_SCHEME="SwiftyVokoder"              SCAN_DEVICE="iPhone 5 (9.3)"
+    - SCAN_WORKSPACE="Paging Data Source Example/Paging Data Source Example.xcworkspace" SCAN_SCHEME="Paging Data Source Example" SCAN_DEVICE="iPhone 5 (9.3)"
+
+    # Test on tvOS
     - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager-tvOS"    SCAN_SDK="appletvsimulator"
+
+    # Test on macOS
     - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager-OSX"     SCAN_SDK="macosx"
-    - SCAN_WORKSPACE="SwiftSampleProject/SwiftSampleProject.xcworkspace"                 SCAN_SCHEME="SwiftyVokoder"              SCAN_SDK="iphonesimulator"
-    - SCAN_WORKSPACE="Paging Data Source Example/Paging Data Source Example.xcworkspace" SCAN_SCHEME="Paging Data Source Example" SCAN_SDK="iphonesimulator"
+
 script:
   - bundle exec fastlane scan
   - bundle exec pod lib lint
