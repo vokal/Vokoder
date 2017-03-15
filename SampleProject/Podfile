@@ -32,5 +32,9 @@ target 'VOKCoreDataManager-tvOS' do
   target 'VOKCoreDataManagerTests-tvOS' do
     inherit! :search_paths
   end
+end
 
+target 'WatchApp Extension' do
+    platform :watchos, '3.0'
+    vokoder_pod
 end
