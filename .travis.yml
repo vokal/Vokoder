@@ -22,6 +22,7 @@ env:
 
 script:
   - bundle exec fastlane scan
+  - bundle exec pod repo update
   - bundle exec pod lib lint
 git:
   depth: 10000  # For the auto-incrementing build number script to work, we need to clone with a basically-infinite depth.
