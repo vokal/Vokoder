@@ -34,7 +34,6 @@ Pod::Spec.new do |s|
     ss.dependency 'Vokoder/Core'
     ss.ios.deployment_target = '8.0'
     ss.tvos.deployment_target = '9.0'
-    ss.watchos.deployment_target = '3.0'
 
     ss.subspec 'FetchedResults' do |sss|
       sss.source_files = 'Pod/Classes/Optional Data Sources/VOKFetchedResultsDataSource.{h,m}'
@@ -59,7 +58,7 @@ Pod::Spec.new do |s|
     sw.tvos.deployment_target = '9.0'
     sw.watchos.deployment_target = '3.0'
     
-    sw.dependency 'Vokoder/DataSources'
+    sw.dependency 'Vokoder/Core'
     sw.source_files = 'Pod/Classes/Swift/*.swift'
   end
 end
