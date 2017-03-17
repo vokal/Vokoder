@@ -19,17 +19,15 @@
 		2499AF468D36D53E48BB2CC1EC48453B /* libPods-TodayWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F36321D92C554BB794B83EEF5DBC23 /* libPods-TodayWidget.a */; };
 		2B7C78708D551C98E99A38A8439551D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1EBF96BDDFC920C56895AF2C0BCD89C /* Assets.xcassets */; };
 		304D554A9C6D156D01C97D5673AD6AFA /* ManagedObjectImportExportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 094901C44573889FE3BC6CA970BF0F8D /* ManagedObjectImportExportTests.m */; };
-		330D31881E79AE20005CFEA5 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330D31861E79AE20005CFEA5 /* Interface.storyboard */; };
-		330D318A1E79AE20005CFEA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330D31891E79AE20005CFEA5 /* Assets.xcassets */; };
 		330D31911E79AE20005CFEA5 /* WatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 330D31901E79AE20005CFEA5 /* WatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		330D31991E79AE20005CFEA5 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330D31981E79AE20005CFEA5 /* InterfaceController.m */; };
-		330D319C1E79AE20005CFEA5 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 330D319B1E79AE20005CFEA5 /* ExtensionDelegate.m */; };
-		330D319F1E79AE20005CFEA5 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330D319E1E79AE20005CFEA5 /* NotificationController.m */; };
-		330D31A11E79AE20005CFEA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330D31A01E79AE20005CFEA5 /* Assets.xcassets */; };
 		330D31A51E79AE20005CFEA5 /* WatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 330D31841E79AE20005CFEA5 /* WatchApp.app */; };
 		3356E9DC1E7C37E5006FD24D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3356E9D81E7C37E5006FD24D /* Assets.xcassets */; };
 		3356E9DD1E7C37E5006FD24D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3356E9D91E7C37E5006FD24D /* Interface.storyboard */; };
 		3356E9DE1E7C37E5006FD24D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3356E9DB1E7C37E5006FD24D /* Info.plist */; };
+		3356E9E91E7C3858006FD24D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3356E9E01E7C3858006FD24D /* Assets.xcassets */; };
+		3356E9EA1E7C3858006FD24D /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3356E9E21E7C3858006FD24D /* ExtensionDelegate.m */; };
+		3356E9EB1E7C3858006FD24D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3356E9E31E7C3858006FD24D /* Info.plist */; };
+		3356E9EC1E7C3858006FD24D /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3356E9E51E7C3858006FD24D /* InterfaceController.m */; };
 		362CD69ACEA416687D1FBEBFF850D4AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7608E2CDD311959D2A218E63B737E586 /* main.m */; };
 		363B906F5A85859575CF4B31 /* libPods-WatchApp Extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F79D272579D34C3EDCF94AA /* libPods-WatchApp Extension.a */; };
 		3ABB7F0A1A6AD3199DC6B3B09E132B3C /* VOKCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B49410900A158E8377CE7F2559B9C35 /* VOKCoreDataModel.xcdatamodeld */; };
@@ -228,23 +226,17 @@
 		2EAB9BD1AFF63C49705982795C164090 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		320E9DB99296F2E119CD4295BF07169D /* libPods-VOKCoreDataManagerTests-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManagerTests-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		330D31841E79AE20005CFEA5 /* WatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		330D31871E79AE20005CFEA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		330D31891E79AE20005CFEA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		330D318B1E79AE20005CFEA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		330D31901E79AE20005CFEA5 /* WatchApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		330D31961E79AE20005CFEA5 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		330D31971E79AE20005CFEA5 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
-		330D31981E79AE20005CFEA5 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
-		330D319A1E79AE20005CFEA5 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
-		330D319B1E79AE20005CFEA5 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
-		330D319D1E79AE20005CFEA5 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
-		330D319E1E79AE20005CFEA5 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
-		330D31A01E79AE20005CFEA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		330D31A21E79AE20005CFEA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		332F1D580B04F2595919772E40FCB32E /* VOKCoreDataManager Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VOKCoreDataManager Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		3356E9D81E7C37E5006FD24D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3356E9DA1E7C37E5006FD24D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		3356E9DB1E7C37E5006FD24D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3356E9E01E7C3858006FD24D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3356E9E11E7C3858006FD24D /* ExtensionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
+		3356E9E21E7C3858006FD24D /* ExtensionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
+		3356E9E31E7C3858006FD24D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3356E9E41E7C3858006FD24D /* InterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		3356E9E51E7C3858006FD24D /* InterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
 		366F985567141C4DDC1817D896A49CB2 /* VOKPersonCollectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKPersonCollectionDataSource.m; sourceTree = "<group>"; };
 		37CD8532FDFC382777E4E28428919C45 /* Pods-VOKCoreDataManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager.debug.xcconfig"; sourceTree = "<group>"; };
 		397BA14779DF9FB750B28340A3817056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -478,42 +470,6 @@
 			path = "VOKCoreDataManagerTests-OSX";
 			sourceTree = "<group>";
 		};
-		330D31851E79AE20005CFEA5 /* WatchApp */ = {
-			isa = PBXGroup;
-			children = (
-				330D31861E79AE20005CFEA5 /* Interface.storyboard */,
-				330D31891E79AE20005CFEA5 /* Assets.xcassets */,
-				330D318B1E79AE20005CFEA5 /* Info.plist */,
-			);
-			name = WatchApp;
-			path = ../WatchApp;
-			sourceTree = "<group>";
-		};
-		330D31941E79AE20005CFEA5 /* WatchApp Extension */ = {
-			isa = PBXGroup;
-			children = (
-				330D31971E79AE20005CFEA5 /* InterfaceController.h */,
-				330D31981E79AE20005CFEA5 /* InterfaceController.m */,
-				330D319A1E79AE20005CFEA5 /* ExtensionDelegate.h */,
-				330D319B1E79AE20005CFEA5 /* ExtensionDelegate.m */,
-				330D319D1E79AE20005CFEA5 /* NotificationController.h */,
-				330D319E1E79AE20005CFEA5 /* NotificationController.m */,
-				330D31A01E79AE20005CFEA5 /* Assets.xcassets */,
-				330D31A21E79AE20005CFEA5 /* Info.plist */,
-				330D31951E79AE20005CFEA5 /* Supporting Files */,
-			);
-			name = "WatchApp Extension";
-			path = "../WatchApp Extension";
-			sourceTree = "<group>";
-		};
-		330D31951E79AE20005CFEA5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				330D31961E79AE20005CFEA5 /* PushNotificationPayload.apns */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		3356E9D71E7C37E5006FD24D /* WatchApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +478,19 @@
 				3356E9DB1E7C37E5006FD24D /* Info.plist */,
 			);
 			path = WatchApp;
+			sourceTree = "<group>";
+		};
+		3356E9DF1E7C3858006FD24D /* WatchApp Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3356E9E01E7C3858006FD24D /* Assets.xcassets */,
+				3356E9E11E7C3858006FD24D /* ExtensionDelegate.h */,
+				3356E9E21E7C3858006FD24D /* ExtensionDelegate.m */,
+				3356E9E31E7C3858006FD24D /* Info.plist */,
+				3356E9E41E7C3858006FD24D /* InterfaceController.h */,
+				3356E9E51E7C3858006FD24D /* InterfaceController.m */,
+			);
+			path = "WatchApp Extension";
 			sourceTree = "<group>";
 		};
 		341FE15D326C9FCB4209F8E55286AEF3 /* Version1 */ = {
@@ -582,6 +551,7 @@
 				31E4D106C4C2D0B83033C4ACAC3F675F /* VOKCoreDataManagerTests-OSX */,
 				494BCF58A99623D365305C4FB74A59FC /* VOKCoreDataManagerTests-tvOS */,
 				3356E9D71E7C37E5006FD24D /* WatchApp */,
+				3356E9DF1E7C3858006FD24D /* WatchApp Extension */,
 				4BFE38831D0477F03D2AB2A57CDF804C /* Vokoder Pod Metadata */,
 			);
 			sourceTree = "<group>";
@@ -648,8 +618,6 @@
 		D90FD271716246DB9B12A70486F83ABD /* TodayWidget */ = {
 			isa = PBXGroup;
 			children = (
-				330D31851E79AE20005CFEA5 /* WatchApp */,
-				330D31941E79AE20005CFEA5 /* WatchApp Extension */,
 				14F70F06D81445BA2AF0E1749A1EDFED /* Info.plist */,
 				BC8A6446174B47D5C01EDC1B66D94B38 /* MainInterface.storyboard */,
 				6A0E60E6D9839A6F2D2D4CA70C8CFCC7 /* TodayViewController.h */,
@@ -1015,10 +983,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3356E9DD1E7C37E5006FD24D /* Interface.storyboard in Resources */,
-				330D318A1E79AE20005CFEA5 /* Assets.xcassets in Resources */,
 				3356E9DC1E7C37E5006FD24D /* Assets.xcassets in Resources */,
 				3356E9DE1E7C37E5006FD24D /* Info.plist in Resources */,
-				330D31881E79AE20005CFEA5 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1026,7 +992,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				330D31A11E79AE20005CFEA5 /* Assets.xcassets in Resources */,
+				3356E9E91E7C3858006FD24D /* Assets.xcassets in Resources */,
+				3356E9EB1E7C3858006FD24D /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1475,9 +1442,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				330D319C1E79AE20005CFEA5 /* ExtensionDelegate.m in Sources */,
-				330D31991E79AE20005CFEA5 /* InterfaceController.m in Sources */,
-				330D319F1E79AE20005CFEA5 /* NotificationController.m in Sources */,
+				3356E9EA1E7C3858006FD24D /* ExtensionDelegate.m in Sources */,
+				3356E9EC1E7C3858006FD24D /* InterfaceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1623,14 +1589,6 @@
 				08C7E9A940981E0B537F960935E4656B /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		330D31861E79AE20005CFEA5 /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				330D31871E79AE20005CFEA5 /* Base */,
-			);
-			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 		3356E9D91E7C37E5006FD24D /* Interface.storyboard */ = {
