@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0820"
    wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BA7F906C1DCBAF0800EAC4AB"
+               BlueprintIdentifier = "DB011FCF1A38BC5A18D520E76EB75B35"
                BuildableName = "TodayWidget.appex"
                BlueprintName = "TodayWidget"
                ReferencedContainer = "container:SampleProject.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BA7F906C1DCBAF0800EAC4AB"
+            BlueprintIdentifier = "DB011FCF1A38BC5A18D520E76EB75B35"
             BuildableName = "TodayWidget.appex"
             BlueprintName = "TodayWidget"
             ReferencedContainer = "container:SampleProject.xcodeproj">

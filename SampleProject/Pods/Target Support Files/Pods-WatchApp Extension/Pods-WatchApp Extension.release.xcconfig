@@ -1,8 +1,8 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" "${PODS_ROOT}/Headers/Public/VOKUtilities" "${PODS_ROOT}/Headers/Public/Vokoder"
-LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ILGDynamicObjC-OSX10.9" "$PODS_CONFIGURATION_BUILD_DIR/VOKUtilities-OSX10.9" "$PODS_CONFIGURATION_BUILD_DIR/Vokoder.root-Core-MapperMacros-OSX"
+LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ILGDynamicObjC-watchOS3.0" "$PODS_CONFIGURATION_BUILD_DIR/VOKUtilities-watchOS3.0" "$PODS_CONFIGURATION_BUILD_DIR/Vokoder.root-Core-MapperMacros-watchOS"
 OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" -isystem "${PODS_ROOT}/Headers/Public/VOKUtilities" -isystem "${PODS_ROOT}/Headers/Public/Vokoder"
-OTHER_LDFLAGS = $(inherited) -ObjC -framework "CoreData"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"ILGDynamicObjC-watchOS3.0" -l"VOKUtilities-watchOS3.0" -l"Vokoder.root-Core-MapperMacros-watchOS" -framework "CoreData"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods

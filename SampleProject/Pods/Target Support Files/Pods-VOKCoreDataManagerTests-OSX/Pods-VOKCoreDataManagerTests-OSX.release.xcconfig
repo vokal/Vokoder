@@ -1,6 +1,6 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" "${PODS_ROOT}/Headers/Public/VOKUtilities" "${PODS_ROOT}/Headers/Public/Vokoder"
-LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ILGDynamicObjC-OSX10.9" "$PODS_CONFIGURATION_BUILD_DIR/VOKUtilities-OSX10.9" "$PODS_CONFIGURATION_BUILD_DIR/Vokoder.root-Core-MapperMacros"
+LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ILGDynamicObjC-OSX10.9" "$PODS_CONFIGURATION_BUILD_DIR/VOKUtilities-OSX10.9" "$PODS_CONFIGURATION_BUILD_DIR/Vokoder.root-Core-MapperMacros-OSX"
 OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" -isystem "${PODS_ROOT}/Headers/Public/VOKUtilities" -isystem "${PODS_ROOT}/Headers/Public/Vokoder"
 OTHER_LDFLAGS = $(inherited) -ObjC -framework "CoreData"
 PODS_BUILD_DIR = $BUILD_DIR

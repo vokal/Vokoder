@@ -27,7 +27,11 @@
 		330D319F1E79AE20005CFEA5 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330D319E1E79AE20005CFEA5 /* NotificationController.m */; };
 		330D31A11E79AE20005CFEA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330D31A01E79AE20005CFEA5 /* Assets.xcassets */; };
 		330D31A51E79AE20005CFEA5 /* WatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 330D31841E79AE20005CFEA5 /* WatchApp.app */; };
+		3356E9DC1E7C37E5006FD24D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3356E9D81E7C37E5006FD24D /* Assets.xcassets */; };
+		3356E9DD1E7C37E5006FD24D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3356E9D91E7C37E5006FD24D /* Interface.storyboard */; };
+		3356E9DE1E7C37E5006FD24D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3356E9DB1E7C37E5006FD24D /* Info.plist */; };
 		362CD69ACEA416687D1FBEBFF850D4AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7608E2CDD311959D2A218E63B737E586 /* main.m */; };
+		363B906F5A85859575CF4B31 /* libPods-WatchApp Extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F79D272579D34C3EDCF94AA /* libPods-WatchApp Extension.a */; };
 		3ABB7F0A1A6AD3199DC6B3B09E132B3C /* VOKCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B49410900A158E8377CE7F2559B9C35 /* VOKCoreDataModel.xcdatamodeld */; };
 		3D894250F6F7B81893B0E69B1C644E64 /* DatabaseURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 482279C39A961A7C837B2DBD5108F73D /* DatabaseURLTests.m */; };
 		418BFCF14A8E70C5BC078C9608F4396B /* BaseballTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = FE53AFD00E313B14707C69813B68ABF2 /* BaseballTeam.m */; };
@@ -238,6 +242,9 @@
 		330D31A01E79AE20005CFEA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		330D31A21E79AE20005CFEA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		332F1D580B04F2595919772E40FCB32E /* VOKCoreDataManager Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VOKCoreDataManager Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		3356E9D81E7C37E5006FD24D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3356E9DA1E7C37E5006FD24D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		3356E9DB1E7C37E5006FD24D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		366F985567141C4DDC1817D896A49CB2 /* VOKPersonCollectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKPersonCollectionDataSource.m; sourceTree = "<group>"; };
 		37CD8532FDFC382777E4E28428919C45 /* Pods-VOKCoreDataManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager.debug.xcconfig"; sourceTree = "<group>"; };
 		397BA14779DF9FB750B28340A3817056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -247,10 +254,12 @@
 		40D030FA504CCCC484A71225285C5400 /* VOKEntityA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKEntityA.h; sourceTree = "<group>"; };
 		413980B907452FB1B1A07AE2FA8D9914 /* libPods-VOKCoreDataManager-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VOKCoreDataManager-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C55E092D0EC4DB5DBCF76B4617AE2D /* UIViewController+VOKConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VOKConvenience.h"; sourceTree = "<group>"; };
+		42418F1B1AA284379B3D0158 /* Pods-WatchApp Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchApp Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WatchApp Extension/Pods-WatchApp Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		439D7AC3F9926A79585FB4FFBFDB6F1F /* UIViewController+VOKConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VOKConvenience.m"; sourceTree = "<group>"; };
 		4500DFCDF2D128675EC2D28D3C72E13F /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		482279C39A961A7C837B2DBD5108F73D /* DatabaseURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseURLTests.m; sourceTree = "<group>"; };
 		4BCF5F314951F3C0C40D9658DC90CE34 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		4F79D272579D34C3EDCF94AA /* libPods-WatchApp Extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WatchApp Extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		510677119DF175C2C8A9B5323D819CAB /* Pods-VOKCoreDataManagerTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManagerTests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManagerTests-tvOS/Pods-VOKCoreDataManagerTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		514BC5999212C5738572E093E24C0BCE /* VOKPersonDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOKPersonDataSource.h; sourceTree = "<group>"; };
 		5315B18FE3D54D302423F6980EB42867 /* MyDB.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyDB.sqlite-wal"; sourceTree = "<group>"; };
@@ -278,6 +287,7 @@
 		8B06703BC71A3E0FD817C46EF2B7C568 /* VOKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKCollectionViewCell.m; sourceTree = "<group>"; };
 		8C02CF4E1660D7EBDA964E0D1F4404F2 /* VOKCoreDataManager-OSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VOKCoreDataManager-OSX.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D139D802F464DC1E547E94E86EE2A2F /* VOKCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOKCollectionViewController.m; sourceTree = "<group>"; };
+		8E17C12EA7D0F89049357023 /* Pods-WatchApp Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchApp Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchApp Extension/Pods-WatchApp Extension.release.xcconfig"; sourceTree = "<group>"; };
 		931A7706863381FFBFFB364B3AD14371 /* Pods-VOKCoreDataManagerTests-OSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOKCoreDataManagerTests-OSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOKCoreDataManagerTests-OSX/Pods-VOKCoreDataManagerTests-OSX.debug.xcconfig"; sourceTree = "<group>"; };
 		9AF996026FA5DF5860DD4C4AEB7F0B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B16F6D2C144CCC5BE17B24F38B1101E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -317,6 +327,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		170E999A231707F8D272CFD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2714DB406E170573458B33813D418525 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -329,6 +346,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				363B906F5A85859575CF4B31 /* libPods-WatchApp Extension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +514,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3356E9D71E7C37E5006FD24D /* WatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				3356E9D81E7C37E5006FD24D /* Assets.xcassets */,
+				3356E9D91E7C37E5006FD24D /* Interface.storyboard */,
+				3356E9DB1E7C37E5006FD24D /* Info.plist */,
+			);
+			path = WatchApp;
+			sourceTree = "<group>";
+		};
 		341FE15D326C9FCB4209F8E55286AEF3 /* Version1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,6 +581,7 @@
 				05EBB427072D1CF8B126BD4AE7965884 /* VOKCoreDataManagerTests */,
 				31E4D106C4C2D0B83033C4ACAC3F675F /* VOKCoreDataManagerTests-OSX */,
 				494BCF58A99623D365305C4FB74A59FC /* VOKCoreDataManagerTests-tvOS */,
+				3356E9D71E7C37E5006FD24D /* WatchApp */,
 				4BFE38831D0477F03D2AB2A57CDF804C /* Vokoder Pod Metadata */,
 			);
 			sourceTree = "<group>";
@@ -646,6 +675,8 @@
 				1E6916EC2018F246D4D899080DEADD14 /* Pods-VOKCoreDataManagerTests-OSX.release.xcconfig */,
 				510677119DF175C2C8A9B5323D819CAB /* Pods-VOKCoreDataManagerTests-tvOS.debug.xcconfig */,
 				202E4CF0924CAFFB3BED1F7C8027ACAD /* Pods-VOKCoreDataManagerTests-tvOS.release.xcconfig */,
+				42418F1B1AA284379B3D0158 /* Pods-WatchApp Extension.debug.xcconfig */,
+				8E17C12EA7D0F89049357023 /* Pods-WatchApp Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -686,6 +717,7 @@
 				EF0B6294EC9E3096ABA8EE7B3866B4F6 /* libPods-VOKCoreDataManager.a */,
 				76B3C8559A70AB5A0CD90C3D593300CD /* libPods-VOKCoreDataManagerTests-OSX.a */,
 				320E9DB99296F2E119CD4295BF07169D /* libPods-VOKCoreDataManagerTests-tvOS.a */,
+				4F79D272579D34C3EDCF94AA /* libPods-WatchApp Extension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -720,6 +752,7 @@
 			buildPhases = (
 				330D31821E79AE20005CFEA5 /* Resources */,
 				330D31A91E79AE20005CFEA5 /* Embed App Extensions */,
+				170E999A231707F8D272CFD8 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -735,9 +768,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 330D31A61E79AE20005CFEA5 /* Build configuration list for PBXNativeTarget "WatchApp Extension" */;
 			buildPhases = (
+				CE96563D5CD913539A3D53C7 /* [CP] Check Pods Manifest.lock */,
 				330D318C1E79AE20005CFEA5 /* Sources */,
 				330D318D1E79AE20005CFEA5 /* Frameworks */,
 				330D318E1E79AE20005CFEA5 /* Resources */,
+				B22C943AC9DB90BCDA7BDA14 /* [CP] Embed Pods Frameworks */,
+				9FA3DBBB526154056D1750C3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -903,7 +939,7 @@
 			attributes = {
 				CLASSPREFIX = VOK;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Vokal;
 				TargetAttributes = {
 					330D31831E79AE20005CFEA5 = {
@@ -978,7 +1014,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3356E9DD1E7C37E5006FD24D /* Interface.storyboard in Resources */,
 				330D318A1E79AE20005CFEA5 /* Assets.xcassets in Resources */,
+				3356E9DC1E7C37E5006FD24D /* Assets.xcassets in Resources */,
+				3356E9DE1E7C37E5006FD24D /* Info.plist in Resources */,
 				330D31881E79AE20005CFEA5 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1216,6 +1255,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		9FA3DBBB526154056D1750C3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchApp Extension/Pods-WatchApp Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A824F885E998B1B80531BC2E43BAE4E0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1231,6 +1285,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager Tests/Pods-VOKCoreDataManager Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B22C943AC9DB90BCDA7BDA14 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchApp Extension/Pods-WatchApp Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B3E30D8C73BB46E8AF290A75222420DC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1244,6 +1313,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager-OSX/Pods-VOKCoreDataManager-OSX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE96563D5CD913539A3D53C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D27D29FDF4827938DB770D48DE6067F6 /* [CP] Copy Pods Resources */ = {
@@ -1549,6 +1633,14 @@
 			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
+		3356E9D91E7C37E5006FD24D /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3356E9DA1E7C37E5006FD24D /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		B962F846282BDADB7A62F954D6D3A9B4 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1610,7 +1702,7 @@
 				GCC_PREFIX_HEADER = "Supporting Files/VOKCoreDataManager-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/VOKCoreDataManager-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vokal.VOKCoreDataManager;
 				PRODUCT_NAME = VOKCoreDataManager;
 				WRAPPER_EXTENSION = app;
@@ -1645,6 +1737,7 @@
 		};
 		330D31A71E79AE20005CFEA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42418F1B1AA284379B3D0158 /* Pods-WatchApp Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1674,6 +1767,7 @@
 		};
 		330D31A81E79AE20005CFEA5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E17C12EA7D0F89049357023 /* Pods-WatchApp Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1822,7 +1916,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/VOKCoreDataManager-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/VOKCoreDataManager-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vokal.VOKCoreDataManager;
 				PRODUCT_NAME = VOKCoreDataManager;
 				WRAPPER_EXTENSION = app;
@@ -1905,7 +1999,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "VOKCoreDataManagerTests/VOKCoreDataManager Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vokal.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "VOKCoreDataManager Tests";
@@ -1952,7 +2046,9 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1975,7 +2071,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2012,7 +2108,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "VOKCoreDataManagerTests/VOKCoreDataManager Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vokal.${PRODUCT_NAME:rfc1034identifier}";
@@ -2034,7 +2130,9 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2049,7 +2147,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
@@ -2166,6 +2264,7 @@
 				330D31A81E79AE20005CFEA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		330D31AA1E79AE20005CFEA5 /* Build configuration list for PBXNativeTarget "WatchApp" */ = {
 			isa = XCConfigurationList;
@@ -2174,6 +2273,7 @@
 				330D31AC1E79AE20005CFEA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7076766B96E0D7B85AF87F349A691C73 /* Build configuration list for PBXNativeTarget "TodayWidget" */ = {
 			isa = XCConfigurationList;
