@@ -14,10 +14,14 @@
 
 - (void)applicationDidFinishLaunching
 {
-    //Make sure the widget compiles and can access Vokoder. This data store is in the extension,
-    // NOT shared with the main app.
+    // Make sure the watch extension compiles and can access Vokoder.
+    //
+    // NOTE: The Core Data Model has to be added to the WatchKit extension since the
+    // extension can't access the app's main bundle since it's running in a different process.
+    // This data store will be stored with the WatchKit extension, NOT shared with the main app.
+    //
+    // ALSO NOTE: Both of these issues are moot use a shared container instead. 
     [[VOKCoreDataManager sharedInstance] setResource:@"VOKCoreDataModel" database:@"VOKCoreDataModel.sqlite"];
-
 }
 
 @end

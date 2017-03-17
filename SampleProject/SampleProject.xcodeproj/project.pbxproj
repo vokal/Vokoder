@@ -28,6 +28,7 @@
 		3356E9EA1E7C3858006FD24D /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3356E9E21E7C3858006FD24D /* ExtensionDelegate.m */; };
 		3356E9EB1E7C3858006FD24D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3356E9E31E7C3858006FD24D /* Info.plist */; };
 		3356E9EC1E7C3858006FD24D /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3356E9E51E7C3858006FD24D /* InterfaceController.m */; };
+		3356E9EF1E7C3A70006FD24D /* VOKCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B49410900A158E8377CE7F2559B9C35 /* VOKCoreDataModel.xcdatamodeld */; };
 		362CD69ACEA416687D1FBEBFF850D4AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7608E2CDD311959D2A218E63B737E586 /* main.m */; };
 		363B906F5A85859575CF4B31 /* libPods-WatchApp Extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F79D272579D34C3EDCF94AA /* libPods-WatchApp Extension.a */; };
 		3ABB7F0A1A6AD3199DC6B3B09E132B3C /* VOKCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B49410900A158E8377CE7F2559B9C35 /* VOKCoreDataModel.xcdatamodeld */; };
@@ -1443,6 +1444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3356E9EA1E7C3858006FD24D /* ExtensionDelegate.m in Sources */,
+				3356E9EF1E7C3A70006FD24D /* VOKCoreDataModel.xcdatamodeld in Sources */,
 				3356E9EC1E7C3858006FD24D /* InterfaceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
