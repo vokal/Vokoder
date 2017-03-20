@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Vokoder"
-  s.version          = "5.0.0"
+  s.version          = "5.0.1"
   s.summary          = "Vokal's Core Data Manager"
   s.homepage         = "https://github.com/vokal/Vokoder"
   s.license          = { :type => "MIT", :file => "LICENSE"}
@@ -56,7 +56,9 @@ Pod::Spec.new do |s|
   s.subspec 'Swift' do |sw|
     sw.ios.deployment_target = '8.0'
     sw.tvos.deployment_target = '9.0'
-    sw.dependency 'Vokoder/DataSources'
+    sw.watchos.deployment_target = '3.0'
+    
+    sw.dependency 'Vokoder/Core'
     sw.source_files = 'Pod/Classes/Swift/*.swift'
   end
 end
