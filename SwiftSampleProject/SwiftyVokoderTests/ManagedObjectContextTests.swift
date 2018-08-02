@@ -75,7 +75,7 @@ class ManagedObjectContextTests: XCTestCase {
 
         self.manager.deleteAllObjects(of: Station.self, context: nil)
         
-        self.expectation(forNotification: NSNotification.Name.NSManagedObjectContextDidSave.rawValue,
+        self.expectation(forNotification: NSNotification.Name(rawValue: NSNotification.Name.NSManagedObjectContextDidSave.rawValue),
             object: self.manager.managedObjectContext) { _ in
                 
                 let updatedCountOfStations = self.manager.count(for: Station.self)
@@ -89,7 +89,7 @@ class ManagedObjectContextTests: XCTestCase {
             XCTFail("Expecting the main context to have a parent context")
             return
         }
-        self.expectation(forNotification: NSNotification.Name.NSManagedObjectContextDidSave.rawValue,
+        self.expectation(forNotification: NSNotification.Name(rawValue: NSNotification.Name.NSManagedObjectContextDidSave.rawValue),
             object: rootContext) { _ in
                 
                 let updatedCountOfStations = self.manager.count(for: Station.self, for: rootContext)
