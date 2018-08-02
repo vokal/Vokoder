@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   s.osx.deployment_target = '10.9'
   s.watchos.deployment_target = '3.0'
+  s.swift_version = '4.0'
   s.requires_arc = true
 
   s.default_subspecs = 'Core', 'MapperMacros', 'DataSources'
