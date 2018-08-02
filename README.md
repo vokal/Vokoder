@@ -240,9 +240,9 @@ VOKPerson *person = [VOKPerson vok_fetchForPredicate:personPredicate
 ## Swift Version Support
 For Swift 2: use Vokoder versions 2.x and 3.x. This support is being maintained in the [`swift2`](https://github.com/vokal/Vokoder/tree/swift2) branch.
 
-For Swift 3: use Vokoder versions 4.x.
+For Swift 3: use Vokoder versions 4.x. or 5.x. 
 
-For Swift 4: Use Vokoder Versions 5.x
+For Swift 4: Use Vokoder Versions 6.x. 
 
 ## License
 
