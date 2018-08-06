@@ -26,7 +26,7 @@ enum StationAttributes: String {
 class Station: NSManagedObject {
     lazy fileprivate(set) var coordinate: CLLocationCoordinate2D = {
         CLLocationCoordinate2D(latitude: self.latitude?.doubleValue ?? 0,
-            longitude: self.longitude?.doubleValue ?? 0)
+                               longitude: self.longitude?.doubleValue ?? 0)
     }()
 }
 
