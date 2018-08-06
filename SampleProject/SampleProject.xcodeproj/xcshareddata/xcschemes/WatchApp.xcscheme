@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0940"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "330D31831E79AE20005CFEA5"
+               BlueprintIdentifier = "0D984A3E65AECECFFCBA841FFC49FA5F"
                BuildableName = "WatchApp.app"
                BlueprintName = "WatchApp"
                ReferencedContainer = "container:SampleProject.xcodeproj">
@@ -46,7 +46,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "330D31831E79AE20005CFEA5"
+            BlueprintIdentifier = "0D984A3E65AECECFFCBA841FFC49FA5F"
             BuildableName = "WatchApp.app"
             BlueprintName = "WatchApp"
             ReferencedContainer = "container:SampleProject.xcodeproj">
@@ -71,7 +71,7 @@
          RemotePath = "/VOKCoreDataManager">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "330D31831E79AE20005CFEA5"
+            BlueprintIdentifier = "0D984A3E65AECECFFCBA841FFC49FA5F"
             BuildableName = "WatchApp.app"
             BlueprintName = "WatchApp"
             ReferencedContainer = "container:SampleProject.xcodeproj">
@@ -80,7 +80,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "330D31831E79AE20005CFEA5"
+            BlueprintIdentifier = "0D984A3E65AECECFFCBA841FFC49FA5F"
             BuildableName = "WatchApp.app"
             BlueprintName = "WatchApp"
             ReferencedContainer = "container:SampleProject.xcodeproj">
@@ -101,7 +101,7 @@
          RemotePath = "/VOKCoreDataManager">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "330D31831E79AE20005CFEA5"
+            BlueprintIdentifier = "0D984A3E65AECECFFCBA841FFC49FA5F"
             BuildableName = "WatchApp.app"
             BlueprintName = "WatchApp"
             ReferencedContainer = "container:SampleProject.xcodeproj">
@@ -110,7 +110,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "330D31831E79AE20005CFEA5"
+            BlueprintIdentifier = "0D984A3E65AECECFFCBA841FFC49FA5F"
             BuildableName = "WatchApp.app"
             BlueprintName = "WatchApp"
             ReferencedContainer = "container:SampleProject.xcodeproj">

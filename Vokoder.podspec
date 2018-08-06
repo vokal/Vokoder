@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Vokoder"
-  s.version          = "5.0.1"
+  s.version          = "6.0.0"
   s.summary          = "Vokal's Core Data Manager"
   s.homepage         = "https://github.com/vokal/Vokoder"
   s.license          = { :type => "MIT", :file => "LICENSE"}
@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   s.osx.deployment_target = '10.9'
   s.watchos.deployment_target = '3.0'
+  s.swift_version = '4.0'
   s.requires_arc = true
 
   s.default_subspecs = 'Core', 'MapperMacros', 'DataSources'

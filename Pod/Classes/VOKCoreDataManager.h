@@ -228,7 +228,7 @@ typedef void(^VOKObjectIDsReturnBlock)(VOKArrayOfManagedObjectIDs *managedObject
  NOT threadsafe! Always use a temp context if you are NOT on the main queue.
  @param managedObjectClass      The class to fetch.
  @param predicate               The predicate limit the fetch.
- @param sortedBy                The sort descriptors to sort the results.
+ @param sortDescriptors         The sort descriptors to sort the results.
  @param contextOrNil            The managed object context in which fetch instances of the given class. A nil context will use the main context.
  @return                        An NSArray of managed object subclasses. Not threadsafe.
  */

@@ -596,7 +596,7 @@ NSString *const VOKMigrationFailureWipeRecoveryNotificationName = @"VOKMigration
 - (void)saveContextToRoot:(NSManagedObjectContext *)context
                   andWait:(BOOL)wait
 {
-    void (^saveBlock)() = ^{
+    void (^saveBlock)(void) = ^{
         NSError *error;
         if ([context save:&error]) {
             if (context.parentContext) {

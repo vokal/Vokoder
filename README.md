@@ -35,9 +35,9 @@ The optional `Swift` subspec includes some Swift extensions for strong typing an
 
 Macros to help create managed object property maps for importing and exporting are included in the `MapperMacros` subspec.  This subspec is included by default, but excluded from the `Swift` subspec since the macros are only usable from Objective-C code.
 
-##Usage
+## Usage
 
-###Setting up the data model
+### Setting up the data model
 
 ```objective-c
 // Omit the .xcdatamodeld extension on the model file name
@@ -50,7 +50,7 @@ Macros to help create managed object property maps for importing and exporting a
                                         database:nil];
 ```
 
-###Using Vokoder's Mapper
+### Using Vokoder's Mapper
 
 Vokoder offers a lightweight mapper for importing Foundation objects into Core Data. Arrays of dictionaries can be imported with ease once maps are set up. If no maps are provided Vokoder will use its default maps. The default maps assume that foreign keys have the same names as your Core Data attributes. It will make its best effort to identify dates and numbers.
 
@@ -90,7 +90,7 @@ mapper.ignoreOptionalNullValues = YES;
 
 Once the mapper is set Vokoder can turn Foundation objects in to managed objects and then back again to Foundation objects.
 
-####VOKMappableModel
+#### VOKMappableModel
 Vokoder includes the `VOKMappableModel` protocol, which gives a structure for a model class to specify how it should be mapped.  Any classes that declare themselves to conform to `VOKMappableModel` will automatically have mappers created based on the protocol methods and registered with the shared instance of `VOKCoreDataManager`.
 
 The `VOKMappableModel` protocol requires implementing `+ (NSString *)uniqueKey` and `+ (NSArray *)coreDataMaps`, which should return the two parameters passed to `[VOKManagedObjectMapper mapperWithUniqueKey:andMaps:]` in the example in the section above.  Optionally, `+ (BOOL)ignoreNullValueOverwrites`, `+ (BOOL)ignoreOptionalNullValues`, and `+ (VOKPostImportBlock)importCompletionBlock` can each be implemented to set the ignore values on the mapper or to set a post-import block.
@@ -151,7 +151,7 @@ The mapper constructed in the example in the section above could be included in 
 @end
 ```
 
-###Importing Safely
+### Importing Safely
 
 Vokoder offers many ways to get data into Core Data. The simplest and most approachable interface is offered through the `VOKManagedObjectAdditions` category. Given an array of dictionaries, Vokoder will create or update managed objects on a temporary context and then safely return managed objects from the main context through a completion block on the main queue.
 
@@ -184,7 +184,7 @@ NSManagedObjectContext *backgroundContext = [[VOKCoreDataManager sharedInstance]
 
 **NOTE**: Temporary contexts created manually or vended through the convenience background methods are child contexts of the main context.
 
-###Inserting records
+### Inserting records
 ```objective-c
 VOKPerson *person = [VOKPerson vok_newInstance];
 person.firstName = @"Rohan";
@@ -192,17 +192,17 @@ person.lastName = @"Panchal";
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 ```
 
-###Querying Records
+### Querying Records
 Like the example above, this one makes use of the `VOKKeyForInstanceOf` macro from [VOKUtilities/VOKKeyPathHelper](https://github.com/vokal/VOKUtilities#vokkeypathhelper) for the keys in these calls to ensure that typos like `@"lsatName"` don't occur.
 
-####Query with basic predicate
+#### Query with basic predicate
 ```objective-c
 NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@", VOKKeyForInstanceOf(VOKPerson, lastName), @"Smith"];
 // Passing `nil` for any managed object context parameter uses the main context
 NSArray *allSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate forManagedObjectContext:nil];
 ```
 
-####Query with basic predicate and sorting
+#### Query with basic predicate and sorting
 ```objective-c
 NSPredicate *smithsPredicate = [NSPredicate predicateWithFormat:@"%K == %@", VOKKeyForInstanceOf(VOKPerson, lastName), @"Smith"];
 NSArray *sortedSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate
@@ -211,7 +211,7 @@ NSArray *sortedSmiths = [VOKPerson vok_fetchAllForPredicate:smithsPredicate
                                     forManagedObjectContext:nil];
 ```
 
-###Deleting records
+### Deleting records
 ```objective-c
 NSPredicate *personPredicate = [NSPredicate predicateWithFormat:@"%K == %@", VOKKeyForInstanceOf(VOKPerson, ticketNumber), @"A14"];
 VOKPerson *person = [VOKPerson vok_fetchForPredicate:personPredicate
@@ -220,7 +220,7 @@ VOKPerson *person = [VOKPerson vok_fetchForPredicate:personPredicate
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
 ``` 
 
-###Saving 
+### Saving 
 ```objective-c
 //Saves the main context synchronously
 [[VOKCoreDataManager sharedInstance] saveMainContextAndWait];
@@ -240,7 +240,9 @@ VOKPerson *person = [VOKPerson vok_fetchForPredicate:personPredicate
 ## Swift Version Support
 For Swift 2: use Vokoder versions 2.x and 3.x. This support is being maintained in the [`swift2`](https://github.com/vokal/Vokoder/tree/swift2) branch.
 
-For Swift 3: use Vokoder versions 4.x.
+For Swift 3: use Vokoder versions 4.x. or 5.x. 
+
+For Swift 4: Use Vokoder Versions 6.x. 
 
 ## License
 
