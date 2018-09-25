@@ -735,12 +735,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A2C42FDE3475F08198158A3FD6DD143 /* Build configuration list for PBXNativeTarget "VOKCoreDataManager-OSX" */;
 			buildPhases = (
-				27F7212D5A058EF794F1DC8FE47AD1F0 /* [CP] Check Pods Manifest.lock */,
+				C39966DCCE20AA890A5702700A2E1F16 /* [CP] Check Pods Manifest.lock */,
 				B1E0DA11C3CEF5F937589C7F3FA0CE18 /* Sources */,
 				AB8A0EFFBF4766E689BB0AF4683041BA /* Frameworks */,
 				88CEC5AA670F3E6FE7E8C526B77DDDA5 /* Resources */,
-				B3E30D8C73BB46E8AF290A75222420DC /* [CP] Embed Pods Frameworks */,
-				EB4ADF0D1CACE22A16583C337F05F5DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -755,12 +753,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDDE5CFC21A7E09D79872ED2FCC7FE46 /* Build configuration list for PBXNativeTarget "VOKCoreDataManager-tvOS" */;
 			buildPhases = (
-				3748E88336D1F2B55DCE200280E99C9C /* [CP] Check Pods Manifest.lock */,
+				130CC4CA12AEE3A71858C155F7A3379B /* [CP] Check Pods Manifest.lock */,
 				2D1B934EE14BF26E7040A92CB3E868B9 /* Sources */,
 				2714DB406E170573458B33813D418525 /* Frameworks */,
 				066DA0F94F5C453E20901F9F0FB56153 /* Resources */,
-				27A013B609CC4C2EF400C54D63B5AFFF /* [CP] Embed Pods Frameworks */,
-				D27D29FDF4827938DB770D48DE6067F6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -775,13 +771,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D575C0B2DB5B2D0C7B0F6561A8C98866 /* Build configuration list for PBXNativeTarget "VOKCoreDataManager" */;
 			buildPhases = (
-				D67EBE03B2684C22F16B9881791180C5 /* [CP] Check Pods Manifest.lock */,
+				253E8648E4AA77946B2B2B4B76F88C50 /* [CP] Check Pods Manifest.lock */,
 				D70E7E165B1DDEAB4D09B9AEEB8C68C7 /* Sources */,
 				C336BA770BF3F171C2DB596AA47D7B57 /* Frameworks */,
 				65299D937013D1438F13EDDB27D8F4AB /* Resources */,
 				3D35CB3B49D8A38F19EE9D5E0AE1D03B /* Objective-Clean Run Script */,
-				D2C2C45F70B733C76E4E76808FB6ACB6 /* [CP] Embed Pods Frameworks */,
-				E6A504CC045AB83B9CB3EA390EFE4518 /* [CP] Copy Pods Resources */,
 				E25B0E5B1316659F8FDDEC15F173FF56 /* Embed App Extensions */,
 				6666F2116C64FD5D6D3B26D64E8356B9 /* Embed Watch Content */,
 			);
@@ -800,12 +794,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DCFA23CFD4B506D47B68B023BD0BF91 /* Build configuration list for PBXNativeTarget "VOKCoreDataManager Tests" */;
 			buildPhases = (
-				F114E8552591AEB62B72BBD41E48E42E /* [CP] Check Pods Manifest.lock */,
+				A99C729CFE13E602D61DC174894D0A28 /* [CP] Check Pods Manifest.lock */,
 				969E74A905279143F0556E962DE96C14 /* Sources */,
 				8737E0DE84D03E48F1EEA81E35E2A374 /* Frameworks */,
 				C71E4A72A942B79725B50519B030BD8A /* Resources */,
-				34E92E99DAE0FC53C1B9420C3B1D83CB /* [CP] Embed Pods Frameworks */,
-				A824F885E998B1B80531BC2E43BAE4E0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -821,12 +813,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F21DB46F9AF592A5D42F27CE657B5219 /* Build configuration list for PBXNativeTarget "VOKCoreDataManagerTests-OSX" */;
 			buildPhases = (
-				9D235C657B0D135D86E2A32C868056FB /* [CP] Check Pods Manifest.lock */,
+				6FADB0EC88E9D1AAB8832C37D768C6DD /* [CP] Check Pods Manifest.lock */,
 				EA7D79BFC80E18904CD4D22FC1943CEC /* Sources */,
 				BDC6D927F4B5F8B03B70F066AD9DBD52 /* Frameworks */,
 				9046D9F749C9F1FE038B1C89D8B124EC /* Resources */,
-				74781AE808925454A43547669F647B13 /* [CP] Embed Pods Frameworks */,
-				63523389217BF63540AC8B765AA4CB2D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -842,12 +832,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9288EBE382EB18D4998557D59411FB5 /* Build configuration list for PBXNativeTarget "WatchApp Extension" */;
 			buildPhases = (
-				58139321FCDA73D3B87B34225A09C544 /* [CP] Check Pods Manifest.lock */,
+				650E7EE99E22BD3A8C2A5AE63A584A1C /* [CP] Check Pods Manifest.lock */,
 				3E1EE5F7320528E0E64467FB1101891C /* Sources */,
 				22FD274B627AE2E3A5B757EAA191EBD0 /* Frameworks */,
 				80731CF7E73B9EF0031F9174EF18E388 /* Resources */,
-				69259E9E7CCF97DD258814F5F929B298 /* [CP] Embed Pods Frameworks */,
-				9BF89AA1AD195C1726E5CC0F526BBD2C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -862,11 +850,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7076766B96E0D7B85AF87F349A691C73 /* Build configuration list for PBXNativeTarget "TodayWidget" */;
 			buildPhases = (
-				490EC74853AB124B010BB6106900C5EE /* [CP] Check Pods Manifest.lock */,
+				60356397E49BBE6D7999A47D71D2D51D /* [CP] Check Pods Manifest.lock */,
 				A50338F3B08125C3C446E14DC0F0CA93 /* Sources */,
 				CC46108F021B1535B84868440A5D94F4 /* Frameworks */,
 				7D680EF637B13BD026DAA09F46FDF7EC /* Resources */,
-				10AF1E2F731283E09A9147316BAC9674 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -881,12 +868,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B35A5BFC52F07DEE5399D833F88A9751 /* Build configuration list for PBXNativeTarget "VOKCoreDataManagerTests-tvOS" */;
 			buildPhases = (
-				1B137DBB0F9BC97114ABE6637FE4287D /* [CP] Check Pods Manifest.lock */,
+				C3B1DB54606D998E2F39C71EC347E7DE /* [CP] Check Pods Manifest.lock */,
 				C1E03D856025660F58A3497D56F7C71F /* Sources */,
 				ADFECF79023367069E170FE0152FF2AE /* Frameworks */,
 				AEB5D6B62A11B249361D8A0D838FCE61 /* Resources */,
-				F4740915D355C7D1AFA82537DFCD5275 /* [CP] Embed Pods Frameworks */,
-				D2A2D208FDCCB7B111B62C1240B61BC9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1055,94 +1040,58 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10AF1E2F731283E09A9147316BAC9674 /* [CP] Copy Pods Resources */ = {
+		C3B1DB54606D998E2F39C71EC347E7DE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1B137DBB0F9BC97114ABE6637FE4287D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VOKCoreDataManagerTests-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		27A013B609CC4C2EF400C54D63B5AFFF /* [CP] Embed Pods Frameworks */ = {
+		C39966DCCE20AA890A5702700A2E1F16 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager-tvOS/Pods-VOKCoreDataManager-tvOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		27F7212D5A058EF794F1DC8FE47AD1F0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VOKCoreDataManager-OSX-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		34E92E99DAE0FC53C1B9420C3B1D83CB /* [CP] Embed Pods Frameworks */ = {
+		130CC4CA12AEE3A71858C155F7A3379B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager Tests/Pods-VOKCoreDataManager Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3748E88336D1F2B55DCE200280E99C9C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VOKCoreDataManager-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3D35CB3B49D8A38F19EE9D5E0AE1D03B /* Objective-Clean Run Script */ = {
@@ -1159,259 +1108,94 @@
 			shellPath = /bin/bash;
 			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then \n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\" \nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\" \nfi\nfi";
 		};
-		490EC74853AB124B010BB6106900C5EE /* [CP] Check Pods Manifest.lock */ = {
+		60356397E49BBE6D7999A47D71D2D51D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TodayWidget-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		58139321FCDA73D3B87B34225A09C544 /* [CP] Check Pods Manifest.lock */ = {
+		650E7EE99E22BD3A8C2A5AE63A584A1C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WatchApp Extension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		63523389217BF63540AC8B765AA4CB2D /* [CP] Copy Pods Resources */ = {
+		6FADB0EC88E9D1AAB8832C37D768C6DD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManagerTests-OSX/Pods-VOKCoreDataManagerTests-OSX-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		69259E9E7CCF97DD258814F5F929B298 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchApp Extension/Pods-WatchApp Extension-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		74781AE808925454A43547669F647B13 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManagerTests-OSX/Pods-VOKCoreDataManagerTests-OSX-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9BF89AA1AD195C1726E5CC0F526BBD2C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchApp Extension/Pods-WatchApp Extension-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9D235C657B0D135D86E2A32C868056FB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VOKCoreDataManagerTests-OSX-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A824F885E998B1B80531BC2E43BAE4E0 /* [CP] Copy Pods Resources */ = {
+		253E8648E4AA77946B2B2B4B76F88C50 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager Tests/Pods-VOKCoreDataManager Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B3E30D8C73BB46E8AF290A75222420DC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager-OSX/Pods-VOKCoreDataManager-OSX-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D27D29FDF4827938DB770D48DE6067F6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager-tvOS/Pods-VOKCoreDataManager-tvOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2A2D208FDCCB7B111B62C1240B61BC9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManagerTests-tvOS/Pods-VOKCoreDataManagerTests-tvOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2C2C45F70B733C76E4E76808FB6ACB6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D67EBE03B2684C22F16B9881791180C5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VOKCoreDataManager-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E6A504CC045AB83B9CB3EA390EFE4518 /* [CP] Copy Pods Resources */ = {
+		A99C729CFE13E602D61DC174894D0A28 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager/Pods-VOKCoreDataManager-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EB4ADF0D1CACE22A16583C337F05F5DA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManager-OSX/Pods-VOKCoreDataManager-OSX-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F114E8552591AEB62B72BBD41E48E42E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VOKCoreDataManager Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F4740915D355C7D1AFA82537DFCD5275 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOKCoreDataManagerTests-tvOS/Pods-VOKCoreDataManagerTests-tvOS-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

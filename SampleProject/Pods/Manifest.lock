@@ -1,26 +1,26 @@
 PODS:
   - ILGDynamicObjC/ILGClasses (0.1.1)
-  - Vokoder (5.0.1):
-    - Vokoder/Core (= 5.0.1)
-    - Vokoder/DataSources (= 5.0.1)
-    - Vokoder/MapperMacros (= 5.0.1)
-  - Vokoder/Core (5.0.1):
+  - Vokoder (7.0.0):
+    - Vokoder/Core (= 7.0.0)
+    - Vokoder/DataSources (= 7.0.0)
+    - Vokoder/MapperMacros (= 7.0.0)
+  - Vokoder/Core (7.0.0):
     - ILGDynamicObjC/ILGClasses (~> 0.1.1)
     - VOKUtilities/VOKKeyPathHelper (~> 0.11.0)
-  - Vokoder/DataSources (5.0.1):
+  - Vokoder/DataSources (7.0.0):
     - Vokoder/Core
-    - Vokoder/DataSources/Collection (= 5.0.1)
-    - Vokoder/DataSources/FetchedResults (= 5.0.1)
-    - Vokoder/DataSources/PagingFetchedResults (= 5.0.1)
-  - Vokoder/DataSources/Collection (5.0.1):
-    - Vokoder/Core
-    - Vokoder/DataSources/FetchedResults
-  - Vokoder/DataSources/FetchedResults (5.0.1):
-    - Vokoder/Core
-  - Vokoder/DataSources/PagingFetchedResults (5.0.1):
+    - Vokoder/DataSources/Collection (= 7.0.0)
+    - Vokoder/DataSources/FetchedResults (= 7.0.0)
+    - Vokoder/DataSources/PagingFetchedResults (= 7.0.0)
+  - Vokoder/DataSources/Collection (7.0.0):
     - Vokoder/Core
     - Vokoder/DataSources/FetchedResults
-  - Vokoder/MapperMacros (5.0.1):
+  - Vokoder/DataSources/FetchedResults (7.0.0):
+    - Vokoder/Core
+  - Vokoder/DataSources/PagingFetchedResults (7.0.0):
+    - Vokoder/Core
+    - Vokoder/DataSources/FetchedResults
+  - Vokoder/MapperMacros (7.0.0):
     - Vokoder/Core
   - VOKUtilities/VOKKeyPathHelper (0.11.0)
   - xUnique (4.1.2)
@@ -28,6 +28,11 @@ PODS:
 DEPENDENCIES:
   - Vokoder (from `../`)
   - xUnique (from `https://github.com/vokal/xUnique.git`, commit `26adc7d50b`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ILGDynamicObjC
+    - VOKUtilities
 
 EXTERNAL SOURCES:
   Vokoder:
@@ -43,10 +48,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ILGDynamicObjC: 63443567f8ce851067ea3070d3b8c7f93d37207c
-  Vokoder: 2e571a4e2290fdf9431d923ae6be2fd094f3ab0f
+  Vokoder: f9a0d40c0c9ad6bac2c32d0835ab0547fbd9ab74
   VOKUtilities: e831207f9217bd8060467d28f26b5f7a902db63c
   xUnique: 7f74d3f52c7769f648aa7be8fe614fc27dba2405
 
 PODFILE CHECKSUM: ab4c7cc60da3fa7a4fedc6f07f6e8c0b3d354f5a
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.5.3
