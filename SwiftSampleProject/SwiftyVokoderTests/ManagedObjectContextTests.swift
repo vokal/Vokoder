@@ -17,7 +17,7 @@ class ManagedObjectContextTests: XCTestCase {
     override func setUp() {
         super.setUp()
         self.manager.resetCoreData()
-        self.manager.setResource("CoreDataModel", database: "CoreDataModel.sqlite")
+        self.manager.setResource("CoreDataModel", database: nil)
         
         // Don't need to keep a reference to the imported object, so set to _
         let _ = Stop.vok_import(CTAData.allStopDictionaries())
