@@ -1,9 +1,14 @@
 language: objective-c
-osx_image: xcode9.4
+osx_image: xcode10
 env:
   global:
     - SCAN_SKIP_BUILD=1
   matrix:
+     # Test on iOS 12.0
+    - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager"         SCAN_DEVICE="iPhone 5s (12.0)"
+    - SCAN_WORKSPACE="SwiftSampleProject/SwiftSampleProject.xcworkspace"                 SCAN_SCHEME="SwiftyVokoder"              SCAN_DEVICE="iPhone 5s (12.0)"
+    - SCAN_WORKSPACE="Paging Data Source Example/Paging Data Source Example.xcworkspace" SCAN_SCHEME="Paging Data Source Example" SCAN_DEVICE="iPhone 5s (12.0)"
+
     # Test on iOS 11.4
     - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager"         SCAN_DEVICE="iPhone 5s (11.4)"
     - SCAN_WORKSPACE="SwiftSampleProject/SwiftSampleProject.xcworkspace"                 SCAN_SCHEME="SwiftyVokoder"              SCAN_DEVICE="iPhone 5s (11.4)"

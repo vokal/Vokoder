@@ -64,7 +64,7 @@ extension Station: VOKMappableModel {
             //convert parentheses to curly braces to be usable by CGPointFromString
             var pointString = locationString.replacingOccurrences(of: "(", with: "{")
             pointString = pointString.replacingOccurrences(of: ")", with: "}")
-            let point = CGPointFromString(pointString)
+            let point = NSCoder.cgPoint(for: pointString)
             station.latitude = point.x as NSNumber?
             station.longitude = point.y as NSNumber?
         }

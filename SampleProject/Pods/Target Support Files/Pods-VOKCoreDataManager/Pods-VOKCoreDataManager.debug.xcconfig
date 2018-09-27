@@ -1,8 +1,9 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" "${PODS_ROOT}/Headers/Public/VOKUtilities" "${PODS_ROOT}/Headers/Public/Vokoder" "${PODS_ROOT}/Headers/Public/xUnique"
-LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ILGDynamicObjC-iOS8.0" "$PODS_CONFIGURATION_BUILD_DIR/VOKUtilities-iOS8.0" "$PODS_CONFIGURATION_BUILD_DIR/Vokoder-fdc3d3be"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" -isystem "${PODS_ROOT}/Headers/Public/VOKUtilities" -isystem "${PODS_ROOT}/Headers/Public/Vokoder" -isystem "${PODS_ROOT}/Headers/Public/xUnique"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" "${PODS_ROOT}/Headers/Public/VOKUtilities" "${PODS_ROOT}/Headers/Public/Vokoder"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/ILGDynamicObjC-iOS8.0" "${PODS_CONFIGURATION_BUILD_DIR}/VOKUtilities-iOS8.0" "${PODS_CONFIGURATION_BUILD_DIR}/Vokoder-fdc3d3be"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/ILGDynamicObjC" -isystem "${PODS_ROOT}/Headers/Public/VOKUtilities" -isystem "${PODS_ROOT}/Headers/Public/Vokoder"
 OTHER_LDFLAGS = $(inherited) -ObjC -l"ILGDynamicObjC-iOS8.0" -l"VOKUtilities-iOS8.0" -l"Vokoder-fdc3d3be" -framework "CoreData"
-PODS_BUILD_DIR = $BUILD_DIR
-PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
