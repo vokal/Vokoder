@@ -183,7 +183,6 @@
 				D400D43D0126779ACC0294DC166126B0 /* Frameworks */,
 				2C72744B727B4C5CF6AF5D0F752AC135 /* Resources */,
 				49E0215509643D28489667EC20E733E9 /* [CP] Embed Pods Frameworks */,
-				480F05CCB3BB8D21C55EBE17978EB1D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,7 +202,6 @@
 				9528F4B0ECC74A6CAB4BE916C820F89C /* Frameworks */,
 				08E3D793695DE69640979C3396362A1A /* Resources */,
 				3788563475F886282730C82BF464D619 /* [CP] Embed Pods Frameworks */,
-				1BFB865CE742BC3B93265880A795F5CA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -277,49 +275,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1BFB865CE742BC3B93265880A795F5CA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3788563475F886282730C82BF464D619 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ILGDynamicObjC/ILGDynamicObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/VOKUtilities/VOKUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Vokoder/Vokoder.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ILGDynamicObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VOKUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vokoder.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		480F05CCB3BB8D21C55EBE17978EB1D5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		49E0215509643D28489667EC20E733E9 /* [CP] Embed Pods Frameworks */ = {
@@ -328,13 +303,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ILGDynamicObjC/ILGDynamicObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/VOKUtilities/VOKUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Vokoder/Vokoder.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ILGDynamicObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VOKUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vokoder.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7FF17C56A3A654960B1FD9D68023AA31 /* [CP] Check Pods Manifest.lock */ = {
@@ -343,13 +325,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftyVokoder-SwiftyVokoderTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		828E2651192F97B5D68A10ADDDEA9483 /* [CP] Check Pods Manifest.lock */ = {
@@ -358,13 +343,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftyVokoder-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
