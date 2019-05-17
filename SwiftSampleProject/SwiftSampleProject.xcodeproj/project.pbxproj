@@ -178,11 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE767AE88BA3A5EB62327B4AC8429047 /* Build configuration list for PBXNativeTarget "SwiftyVokoder" */;
 			buildPhases = (
-				828E2651192F97B5D68A10ADDDEA9483 /* [CP] Check Pods Manifest.lock */,
+				8C235D32E2EC8A6897D6DE976590763A /* [CP] Check Pods Manifest.lock */,
 				FB97DDC14CD1A825CE27D5888F091842 /* Sources */,
 				D400D43D0126779ACC0294DC166126B0 /* Frameworks */,
 				2C72744B727B4C5CF6AF5D0F752AC135 /* Resources */,
-				49E0215509643D28489667EC20E733E9 /* [CP] Embed Pods Frameworks */,
+				4E35E13B317B730DA4B4B84EAE39461A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -197,11 +197,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2492752AAD402EDD7D99590163D75A1 /* Build configuration list for PBXNativeTarget "SwiftyVokoderTests" */;
 			buildPhases = (
-				7FF17C56A3A654960B1FD9D68023AA31 /* [CP] Check Pods Manifest.lock */,
+				0E2CE76A8008F17296EBC866E43717EB /* [CP] Check Pods Manifest.lock */,
 				74971D7261AEAEA3DCA94E01F6CC8B6C /* Sources */,
 				9528F4B0ECC74A6CAB4BE916C820F89C /* Frameworks */,
 				08E3D793695DE69640979C3396362A1A /* Resources */,
-				3788563475F886282730C82BF464D619 /* [CP] Embed Pods Frameworks */,
+				D054A10BD6ED05D46F3482A487BE3BF7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,7 +275,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3788563475F886282730C82BF464D619 /* [CP] Embed Pods Frameworks */ = {
+		D054A10BD6ED05D46F3482A487BE3BF7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -297,7 +297,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftyVokoder-SwiftyVokoderTests/Pods-SwiftyVokoder-SwiftyVokoderTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		49E0215509643D28489667EC20E733E9 /* [CP] Embed Pods Frameworks */ = {
+		4E35E13B317B730DA4B4B84EAE39461A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -319,7 +319,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftyVokoder/Pods-SwiftyVokoder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7FF17C56A3A654960B1FD9D68023AA31 /* [CP] Check Pods Manifest.lock */ = {
+		0E2CE76A8008F17296EBC866E43717EB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -337,7 +337,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		828E2651192F97B5D68A10ADDDEA9483 /* [CP] Check Pods Manifest.lock */ = {
+		8C235D32E2EC8A6897D6DE976590763A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -460,7 +460,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.vokal.SwiftyVokoderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyVokoder.app/SwiftyVokoder";
 			};
 			name = Debug;
@@ -505,7 +504,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.vokal.SwiftyVokoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -540,6 +538,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -574,6 +573,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -625,7 +625,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -669,7 +668,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.vokal.SwiftyVokoderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyVokoder.app/SwiftyVokoder";
 				VALIDATE_PRODUCT = YES;
 			};
