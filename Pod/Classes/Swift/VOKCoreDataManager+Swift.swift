@@ -17,7 +17,7 @@ public extension VOKCoreDataManager {
      - returns: The shared instance of the core data manager
      */
     @nonobjc
-    public static var shared: VOKCoreDataManager {
+    static var shared: VOKCoreDataManager {
         return self.sharedInstance()
     }
     
@@ -30,7 +30,7 @@ public extension VOKCoreDataManager {
      - returns: A new instance of the given class
      */
     @available(*, deprecated: 4.1.0, message: "use managedObject(ofClass:inContext:) instead")
-    public func managedObjectOfClass<T: NSManagedObject>(_ objectClass: T.Type, inContext context: NSManagedObjectContext? = nil) -> T {
+    func managedObjectOfClass<T: NSManagedObject>(_ objectClass: T.Type, inContext context: NSManagedObjectContext? = nil) -> T {
         return self.managedObject(ofClass: objectClass, inContext: context)
     }
     
@@ -41,7 +41,7 @@ public extension VOKCoreDataManager {
      - parameter context: The managed object context in which to create the object or nil for the main context (defaults to nil)
      - returns: A new instance of the given class
      */
-    public func managedObject<T: NSManagedObject>(ofClass objectClass: T.Type,
+    func managedObject<T: NSManagedObject>(ofClass objectClass: T.Type,
                               inContext context: NSManagedObjectContext? = nil) -> T {
         guard let result = self.managedObject(of: objectClass, in: context) as? T else {
             fatalError("Could not cast NSManagedObject to \(String(describing: T.self))")
@@ -59,7 +59,7 @@ public extension VOKCoreDataManager {
      - returns: A typed Array of created or updated objects
      */
     @available(*, deprecated: 4.1.0, message: "use importArray(_:of:withContext:) instead")
-    public func importArray<T: NSManagedObject>(_ inputArray: [[String : Any]],
+    func importArray<T: NSManagedObject>(_ inputArray: [[String : Any]],
                             forClass objectClass: T.Type,
                             withContext context: NSManagedObjectContext? = nil) -> [T] {
         return self.importArray(inputArray,
@@ -75,7 +75,7 @@ public extension VOKCoreDataManager {
      - parameter context: The managed object context in which to create the objects or nil for the main context (defaults to nil)
      - returns: A typed Array of created or updated objects
      */
-    public func importArray<T: NSManagedObject>(_ inputArray: [[String : Any]],
+    func importArray<T: NSManagedObject>(_ inputArray: [[String : Any]],
                             of objectClass: T.Type,
                             withContext context: NSManagedObjectContext? = nil) -> [T] {
         guard let result = self.import(inputArray,
@@ -100,7 +100,7 @@ public extension VOKCoreDataManager {
      - returns: A typed Array of managed object subclasses. Not threadsafe.
      */
     @available(*, deprecated: 4.1.0, message: "use arrayOf(_:withPredicate:sortedBy:forContext:) instead")
-    public func arrayForClass<T: NSManagedObject>(_ objectClass: T.Type,
+    func arrayForClass<T: NSManagedObject>(_ objectClass: T.Type,
                               withPredicate predicate: NSPredicate? = nil,
                               sortedBy sortDescriptors: [NSSortDescriptor]? = nil,
                               forContext context: NSManagedObjectContext? = nil) -> [T] {
@@ -120,7 +120,7 @@ public extension VOKCoreDataManager {
      - parameter context: The managed object context in which to fetch objects or nil for the main context (defaults to nil)
      - returns: A typed Array of managed object subclasses. Not threadsafe.
      */
-    public func arrayOf<T: NSManagedObject>(_ objectClass: T.Type,
+    func arrayOf<T: NSManagedObject>(_ objectClass: T.Type,
                         withPredicate predicate: NSPredicate? = nil,
                         sortedBy sortDescriptors: [NSSortDescriptor]? = nil,
                         forContext context: NSManagedObjectContext? = nil) -> [T] {
