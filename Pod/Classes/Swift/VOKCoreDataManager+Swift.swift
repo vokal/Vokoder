@@ -29,7 +29,7 @@ public extension VOKCoreDataManager {
      - returns: A new instance of the given class
      */
     func managedObject<T: NSManagedObject>(ofClass objectClass: T.Type,
-                              inContext context: NSManagedObjectContext? = nil) -> T {
+                                           inContext context: NSManagedObjectContext? = nil) -> T {
         guard let result = self.managedObject(of: objectClass, in: context) as? T else {
             fatalError("Could not cast NSManagedObject to \(String(describing: T.self))")
         }
@@ -45,8 +45,8 @@ public extension VOKCoreDataManager {
      - returns: A typed Array of created or updated objects
      */
     func importArray<T: NSManagedObject>(_ inputArray: [[String : Any]],
-                            of objectClass: T.Type,
-                            withContext context: NSManagedObjectContext? = nil) -> [T] {
+                                         of objectClass: T.Type,
+                                         withContext context: NSManagedObjectContext? = nil) -> [T] {
         guard let result = self.import(inputArray,
                                        for: objectClass,
                                        with: context) as? [T] else {
@@ -66,9 +66,9 @@ public extension VOKCoreDataManager {
      - returns: A typed Array of managed object subclasses. Not threadsafe.
      */
     func arrayOf<T: NSManagedObject>(_ objectClass: T.Type,
-                        withPredicate predicate: NSPredicate? = nil,
-                        sortedBy sortDescriptors: [NSSortDescriptor]? = nil,
-                        forContext context: NSManagedObjectContext? = nil) -> [T] {
+                                     withPredicate predicate: NSPredicate? = nil,
+                                     sortedBy sortDescriptors: [NSSortDescriptor]? = nil,
+                                     forContext context: NSManagedObjectContext? = nil) -> [T] {
         guard let result = self.array(for: objectClass,
                                       with: predicate,
                                       sortedBy: sortDescriptors,
