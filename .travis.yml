@@ -2,7 +2,7 @@ language: objective-c
 osx_image: xcode10.2
 env:
   global:
-    - SCAN_SKIP_BUILD=1
+    - SCAN_SKIP_BUILD=true
   matrix:
         # Test on iOS 12.2
     - SCAN_WORKSPACE="SampleProject/SampleProject.xcworkspace"                           SCAN_SCHEME="VOKCoreDataManager"         SCAN_DEVICE="iPhone 5s (12.2)"
