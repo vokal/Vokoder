@@ -1,9 +1,9 @@
 PODS:
   - ILGDynamicObjC/ILGClasses (0.1.1)
-  - Vokoder/Core (7.0.0):
+  - Vokoder/Core (8.0.0):
     - ILGDynamicObjC/ILGClasses (~> 0.1.1)
     - VOKUtilities/VOKKeyPathHelper (~> 0.11.0)
-  - Vokoder/Swift (7.0.0):
+  - Vokoder/Swift (8.0.0):
     - Vokoder/Core
   - VOKUtilities/VOKKeyPathHelper (0.11.0)
   - xUnique (4.1.2)
@@ -31,10 +31,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ILGDynamicObjC: 63443567f8ce851067ea3070d3b8c7f93d37207c
-  Vokoder: f9a0d40c0c9ad6bac2c32d0835ab0547fbd9ab74
+  Vokoder: df4349f9105b28ff3ebcdb1f5903424ae7f9f7ad
   VOKUtilities: e831207f9217bd8060467d28f26b5f7a902db63c
   xUnique: d1303d8023f7bcc68dbb3086ffa760d1ea800812
 
 PODFILE CHECKSUM: b6bee784309dd53ae034cfcc955321e41638bacc
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.2

@@ -25,7 +25,7 @@ public extension VokoderTypedManagedObject where Self: NSManagedObject {
      - parameter context: The managed object context in which to create the objects or nil for the main context (defaults to nil)
      - returns: A typed Array of created or updated objects
      */
-    public static func vok_import(_ inputArray: [[String: Any]],
+    static func vok_import(_ inputArray: [[String: Any]],
         forManagedObjectContext context: NSManagedObjectContext? = nil) -> [Self] {
             return VOKCoreDataManager.shared.importArray(inputArray,
                 of: self,
@@ -42,7 +42,7 @@ public extension VokoderTypedManagedObject where Self: NSManagedObject {
      - parameter context: The managed object context in which to create the objects or nil for the main context (defaults to nil)
      - returns: An instance of this subclass of managed object or nil if the import failed
      */
-    public static func vok_import(_ inputDict: [String : Any],
+    static func vok_import(_ inputDict: [String : Any],
         forManagedObjectContext context: NSManagedObjectContext? = nil) -> Self? {
             return self.vok_add(with: inputDict, for: context)
     }
@@ -56,7 +56,7 @@ public extension VokoderTypedManagedObject where Self: NSManagedObject {
      - parameter context: The managed object context in which to fetch objects or nil for the main context (defaults to nil)
      - returns: A typed Array of managed object subclasses. Not threadsafe.
      */
-    public static func vok_fetchAll(forPredicate predicate: NSPredicate? = nil,
+    static func vok_fetchAll(forPredicate predicate: NSPredicate? = nil,
         sortedBy sortDescriptors: [NSSortDescriptor]? = nil,
         forManagedObjectContext context: NSManagedObjectContext? = nil) -> [Self] {
             return VOKCoreDataManager.shared.arrayOf(self,
@@ -75,7 +75,7 @@ public extension VokoderTypedManagedObject where Self: NSManagedObject {
      - parameter context: The managed object context in which to fetch objects or nil for the main context (defaults to nil)
      - returns: A typed Array of managed object subclasses. Not threadsafe.
      */
-    public static func vok_fetchAll(forPredicate predicate: NSPredicate? = nil,
+    static func vok_fetchAll(forPredicate predicate: NSPredicate? = nil,
         sortedByKey sortKey: String,
         ascending: Bool,
         forManagedObjectContext context: NSManagedObjectContext? = nil) -> [Self] {

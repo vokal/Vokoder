@@ -1,6 +1,6 @@
 {
   "name": "Vokoder",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "summary": "Vokal's Core Data Manager",
   "homepage": "https://github.com/vokal/Vokoder",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/vokal/Vokoder.git",
-    "tag": "7.0.0"
+    "tag": "8.0.0"
   },
   "platforms": {
     "ios": "8.0",
@@ -20,7 +20,7 @@
     "osx": "10.9",
     "watchos": "3.0"
   },
-  "swift_version": "4.2",
+  "swift_version": "5.0",
   "requires_arc": true,
   "default_subspecs": [
     "Core",

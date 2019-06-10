@@ -242,7 +242,11 @@ For Swift 2: use Vokoder versions 2.x and 3.x. This support is being maintained 
 
 For Swift 3: use Vokoder versions 4.x. or 5.x. 
 
-For Swift 4: Use Vokoder Versions 6.x. 
+For Swift 4: Use Vokoder Versions 6.x.
+
+For Swift 4.2: Use Vokoder Versions 7.x.
+
+For Swift 5: Use Vokoder Versions 8.x.
 
 ## License
 
